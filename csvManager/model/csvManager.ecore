@@ -26,4 +26,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Keyword"/>
   <eClassifiers xsi:type="ecore:EClass" name="Exit" eSuperTypes="#//Keyword"/>
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Where" eSuperTypes="#//Condition"/>
 </ecore:EPackage>

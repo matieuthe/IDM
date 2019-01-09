@@ -30,5 +30,6 @@
     <genClasses ecoreClass="csvManager.ecore#//Join"/>
     <genClasses ecoreClass="csvManager.ecore#//Exit"/>
     <genClasses ecoreClass="csvManager.ecore#//Condition"/>
+    <genClasses ecoreClass="csvManager.ecore#//Where"/>
   </genPackages>
 </genmodel:GenModel>

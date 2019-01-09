@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/csvManager/src-gen" creationIcons="false" editDirectory="/csvManager.edit/src-gen"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/csvManager/src-gen" creationIcons="false" editDirectory="/csvManager.edit/src-gen"
     editorDirectory="/csvManager.editor/src-gen" modelPluginID="csvManager" modelName="CsvManager"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>csvManager.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="CsvManager" disposableProviderFactory="true" ecorePackage="csvManager.ecore#/"/>
+  <genPackages prefix="CsvManager" disposableProviderFactory="true" ecorePackage="csvManager.ecore#/">
+    <genClasses ecoreClass="csvManager.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Program/instruction"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Instruction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Instruction/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Instruction/keyword"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Instruction/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Keyword"/>
+    <genClasses ecoreClass="csvManager.ecore#//Parameter"/>
+    <genClasses ecoreClass="csvManager.ecore#//SelectionParameter"/>
+    <genClasses ecoreClass="csvManager.ecore#//ConditionParameter"/>
+    <genClasses ecoreClass="csvManager.ecore#//Load"/>
+    <genClasses ecoreClass="csvManager.ecore#//Show"/>
+    <genClasses ecoreClass="csvManager.ecore#//Update"/>
+    <genClasses ecoreClass="csvManager.ecore#//Create"/>
+    <genClasses ecoreClass="csvManager.ecore#//Delete"/>
+    <genClasses ecoreClass="csvManager.ecore#//Add"/>
+    <genClasses ecoreClass="csvManager.ecore#//Join"/>
+    <genClasses ecoreClass="csvManager.ecore#//Exit"/>
+    <genClasses ecoreClass="csvManager.ecore#//Condition"/>
+  </genPackages>
 </genmodel:GenModel>

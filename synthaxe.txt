@@ -1,0 +1,14 @@
+LANGAGE : 
+
+load “matable.csv” |||||||||||| create “matable.csv” nom,prenom,genre,age,adresse
+show genre,age
+put Cappoen,Louis-Sinan,M,22,123 rue Sésame
+put Thé,Mathieu,M,22,321 rue d’Antrain
+show genre,age
+show genre,age genre=M,age>=12
+delete genre=M,prenom=”Louis-Sinan”
+show prenom
+show prenom genre=M,age>12 genre=F,age<33 age>=100
+save
+
+manque jointures + max-min-average-count

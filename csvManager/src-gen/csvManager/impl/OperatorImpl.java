@@ -3,24 +3,26 @@
 package csvManager.impl;
 
 import csvManager.CsvManagerPackage;
-import csvManager.SelectionParameter;
+import csvManager.Operator;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Selection Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Operator</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SelectionParameterImpl extends ParameterImpl implements SelectionParameter {
+public class OperatorImpl extends MinimalEObjectImpl.Container implements Operator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SelectionParameterImpl() {
+	protected OperatorImpl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class SelectionParameterImpl extends ParameterImpl implements SelectionPa
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CsvManagerPackage.Literals.SELECTION_PARAMETER;
+		return CsvManagerPackage.Literals.OPERATOR;
 	}
 
-} //SelectionParameterImpl
+} //OperatorImpl

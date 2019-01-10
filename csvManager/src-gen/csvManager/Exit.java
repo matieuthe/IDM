@@ -12,5 +12,5 @@ package csvManager;
  * @model
  * @generated
  */
-public interface Exit extends Keyword {
+public interface Exit extends Instruction {
 } // Exit

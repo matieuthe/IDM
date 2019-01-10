@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ExitImpl extends KeywordImpl implements Exit {
+public class ExitImpl extends InstructionImpl implements Exit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

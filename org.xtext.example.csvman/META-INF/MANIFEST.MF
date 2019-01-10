@@ -8,5 +8,19 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: csvManager,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.example.csvmanl.formatting2,
+ org.xtext.example.csvmanl.scoping,
+ org.xtext.example.csvmanl.parser.antlr,
+ org.xtext.example.csvmanl,
+ org.xtext.example.csvmanl.validation,
+ org.xtext.example.csvmanl.generator,
+ org.xtext.example.csvmanl.serializer,
+ org.xtext.example.csvmanl.parser.antlr.internal,
+ org.xtext.example.csvmanl.services
+Import-Package: org.apache.log4j

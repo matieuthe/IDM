@@ -130,6 +130,15 @@ public interface CsvManagerFactory extends EFactory {
 	Operator createOperator();
 
 	/**
+	 * Returns a new object of class '<em>Csv File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Csv File</em>'.
+	 * @generated
+	 */
+	CsvFile createCsvFile();
+
+	/**
 	 * Returns a new object of class '<em>Where</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,10 +3,12 @@
 package csvManager.impl;
 
 import csvManager.Create;
+import csvManager.CsvFile;
 import csvManager.CsvManagerPackage;
-
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -18,7 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link csvManager.impl.CreateImpl#getAlias <em>Alias</em>}</li>
- *   <li>{@link csvManager.impl.CreateImpl#getTable <em>Table</em>}</li>
+ *   <li>{@link csvManager.impl.CreateImpl#getCsvfile <em>Csvfile</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,23 +45,14 @@ public class CreateImpl extends InstructionImpl implements Create {
 	 */
 	protected String alias = ALIAS_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
+	 * The cached value of the '{@link #getCsvfile() <em>Csvfile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTable()
+	 * @see #getCsvfile()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TABLE_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getTable() <em>Table</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTable()
-	 * @generated
-	 * @ordered
-	 */
-	protected String table = TABLE_EDEFAULT;
+	protected CsvFile csvfile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,8 +99,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTable() {
-		return table;
+	public CsvFile getCsvfile() {
+		return csvfile;
 	}
 
 	/**
@@ -115,11 +108,54 @@ public class CreateImpl extends InstructionImpl implements Create {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTable(String newTable) {
-		String oldTable = table;
-		table = newTable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.CREATE__TABLE, oldTable, table));
+	public NotificationChain basicSetCsvfile(CsvFile newCsvfile, NotificationChain msgs) {
+		CsvFile oldCsvfile = csvfile;
+		csvfile = newCsvfile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CsvManagerPackage.CREATE__CSVFILE, oldCsvfile, newCsvfile);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCsvfile(CsvFile newCsvfile) {
+		if (newCsvfile != csvfile) {
+			NotificationChain msgs = null;
+			if (csvfile != null)
+				msgs = ((InternalEObject) csvfile).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CsvManagerPackage.CREATE__CSVFILE, null, msgs);
+			if (newCsvfile != null)
+				msgs = ((InternalEObject) newCsvfile).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CsvManagerPackage.CREATE__CSVFILE, null, msgs);
+			msgs = basicSetCsvfile(newCsvfile, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.CREATE__CSVFILE, newCsvfile,
+					newCsvfile));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CsvManagerPackage.CREATE__CSVFILE:
+			return basicSetCsvfile(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -132,8 +168,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 		switch (featureID) {
 		case CsvManagerPackage.CREATE__ALIAS:
 			return getAlias();
-		case CsvManagerPackage.CREATE__TABLE:
-			return getTable();
+		case CsvManagerPackage.CREATE__CSVFILE:
+			return getCsvfile();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,8 +185,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 		case CsvManagerPackage.CREATE__ALIAS:
 			setAlias((String) newValue);
 			return;
-		case CsvManagerPackage.CREATE__TABLE:
-			setTable((String) newValue);
+		case CsvManagerPackage.CREATE__CSVFILE:
+			setCsvfile((CsvFile) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -167,8 +203,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 		case CsvManagerPackage.CREATE__ALIAS:
 			setAlias(ALIAS_EDEFAULT);
 			return;
-		case CsvManagerPackage.CREATE__TABLE:
-			setTable(TABLE_EDEFAULT);
+		case CsvManagerPackage.CREATE__CSVFILE:
+			setCsvfile((CsvFile) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -184,8 +220,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 		switch (featureID) {
 		case CsvManagerPackage.CREATE__ALIAS:
 			return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-		case CsvManagerPackage.CREATE__TABLE:
-			return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
+		case CsvManagerPackage.CREATE__CSVFILE:
+			return csvfile != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -203,8 +239,6 @@ public class CreateImpl extends InstructionImpl implements Create {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alias: ");
 		result.append(alias);
-		result.append(", table: ");
-		result.append(table);
 		result.append(')');
 		return result.toString();
 	}

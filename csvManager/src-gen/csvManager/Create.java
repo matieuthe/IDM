@@ -12,7 +12,7 @@ package csvManager;
  * </p>
  * <ul>
  *   <li>{@link csvManager.Create#getAlias <em>Alias</em>}</li>
- *   <li>{@link csvManager.Create#getTable <em>Table</em>}</li>
+ *   <li>{@link csvManager.Create#getCsvfile <em>Csvfile</em>}</li>
  * </ul>
  *
  * @see csvManager.CsvManagerPackage#getCreate()
@@ -48,28 +48,28 @@ public interface Create extends Instruction {
 	void setAlias(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Table</b></em>' attribute.
+	 * Returns the value of the '<em><b>Csvfile</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Table</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Csvfile</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table</em>' attribute.
-	 * @see #setTable(String)
-	 * @see csvManager.CsvManagerPackage#getCreate_Table()
-	 * @model required="true"
+	 * @return the value of the '<em>Csvfile</em>' containment reference.
+	 * @see #setCsvfile(CsvFile)
+	 * @see csvManager.CsvManagerPackage#getCreate_Csvfile()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	String getTable();
+	CsvFile getCsvfile();
 
 	/**
-	 * Sets the value of the '{@link csvManager.Create#getTable <em>Table</em>}' attribute.
+	 * Sets the value of the '{@link csvManager.Create#getCsvfile <em>Csvfile</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Table</em>' attribute.
-	 * @see #getTable()
+	 * @param value the new value of the '<em>Csvfile</em>' containment reference.
+	 * @see #getCsvfile()
 	 * @generated
 	 */
-	void setTable(String value);
+	void setCsvfile(CsvFile value);
 } // Create

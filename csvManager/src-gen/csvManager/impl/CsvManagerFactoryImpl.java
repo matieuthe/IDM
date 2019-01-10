@@ -82,6 +82,8 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 			return createCondition();
 		case CsvManagerPackage.OPERATOR:
 			return createOperator();
+		case CsvManagerPackage.CSV_FILE:
+			return createCsvFile();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -205,6 +207,16 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 	public Operator createOperator() {
 		OperatorImpl operator = new OperatorImpl();
 		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CsvFile createCsvFile() {
+		CsvFileImpl csvFile = new CsvFileImpl();
+		return csvFile;
 	}
 
 	/**

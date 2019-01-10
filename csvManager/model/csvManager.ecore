@@ -7,8 +7,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Load" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="csvfile" lowerBound="1"
+        eType="#//CsvFile" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Show" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -24,7 +25,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Create" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="csvfile" lowerBound="1"
+        eType="#//CsvFile" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Delete" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -57,4 +59,7 @@
         eType="#//Operator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CsvFile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

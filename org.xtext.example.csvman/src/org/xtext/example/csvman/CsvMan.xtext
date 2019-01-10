@@ -14,11 +14,11 @@ Instruction returns Instruction:
 
 Create returns Create:
 	{Create}
-	'create' table=EString 'as' alias=EString;
+	'create' csvfile=CsvFile 'as' alias=EString;
 
 Load returns Load:
 	{Load}
-	'load' table=EString 'as' alias=EString;
+	'load' csvfile=CsvFile 'as' alias=EString;
 	
 Show returns Show:
 	{Show}
@@ -54,6 +54,9 @@ Condition returns Condition:
 
 Operator returns Operator:
 	'<' | '=' | '>' | '>=' | '<=';
-
+	
+CsvFile returns CsvFile:
+	name=EString '.csv';
+ 
 EString returns ecore::EString:
 	STRING | ID;

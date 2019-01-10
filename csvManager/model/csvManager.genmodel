@@ -14,8 +14,8 @@
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Instruction"/>
     <genClasses ecoreClass="csvManager.ecore#//Load">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Load/table"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Load/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Load/csvfile"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Show">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Show/table"/>
@@ -28,7 +28,7 @@
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Create">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/alias"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Create/csvfile"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Delete">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Delete/table"/>
@@ -53,5 +53,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Condition/operator"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Operator"/>
+    <genClasses ecoreClass="csvManager.ecore#//CsvFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//CsvFile/name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

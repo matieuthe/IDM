@@ -1,6 +1,6 @@
-nom,prenom,age,metier,salaire,ville
-Louis-Sinan,Cappoen,22,etudiant,0,Rennes
-Jean,Bon,44,routier,34000,Tours
-Harry,Potter,19,sorcier,50000,Londres
-Paul,Henri,75,maire,200000,Aix-en-Provence
-Justin,Bridou,66,boucher,30123,Paris
+nom,prenom,age,metier,salaire,entreprise,ville
+Louis-Sinan,Cappoen,22,etudiant,0,INSA,Rennes
+Jean,Bon,44,routier,34000,Bonjour la route,Tours
+Harry,Potter,19,sorcier,50000,Poudlard,Londres
+Paul,Henri,75,maire,200000,Mairie d'Aix-en-Provence,Aix-en-Provence
+Justin,Bridou,66,boucher,30123,La bonne boucherie,Paris

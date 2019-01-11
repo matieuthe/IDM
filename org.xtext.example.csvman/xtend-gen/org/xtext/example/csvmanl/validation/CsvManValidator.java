@@ -3,11 +3,13 @@
  */
 package org.xtext.example.csvmanl.validation;
 
+import org.xtext.example.csvmanl.validation.AbstractCsvManValidator;
+
 /**
  * This class contains custom validation rules.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class CsvManValidator /* implements AbstractCsvManValidator  */{
+public class CsvManValidator extends AbstractCsvManValidator {
 }

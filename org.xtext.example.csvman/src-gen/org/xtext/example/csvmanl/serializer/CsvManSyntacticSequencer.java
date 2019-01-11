@@ -10,9 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.csvmanl.services.CsvManGrammarAccess;
@@ -21,19 +18,38 @@ import org.xtext.example.csvmanl.services.CsvManGrammarAccess;
 public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CsvManGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Operator_EqualsSignKeyword_1_or_GreaterThanSignEqualsSignKeyword_3_or_GreaterThanSignKeyword_2_or_LessThanSignEqualsSignKeyword_4_or_LessThanSignKeyword_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CsvManGrammarAccess) access;
-		match_Operator_EqualsSignKeyword_1_or_GreaterThanSignEqualsSignKeyword_3_or_GreaterThanSignKeyword_2_or_LessThanSignEqualsSignKeyword_4_or_LessThanSignKeyword_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOperatorAccess().getEqualsSignKeyword_1()), new TokenAlias(false, false, grammarAccess.getOperatorAccess().getGreaterThanSignEqualsSignKeyword_3()), new TokenAlias(false, false, grammarAccess.getOperatorAccess().getGreaterThanSignKeyword_2()), new TokenAlias(false, false, grammarAccess.getOperatorAccess().getLessThanSignEqualsSignKeyword_4()), new TokenAlias(false, false, grammarAccess.getOperatorAccess().getLessThanSignKeyword_0()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getNLRule())
+			return getNLToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getOPRule())
+			return getOPToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal NL: (('\r'|'\n')+);
+	 */
+	protected String getNLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\r";
+	}
+	
+	/**
+	 * terminal OP: '<' | '=' | '>' | '>=' | '<=';
+	 */
+	protected String getOPToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "<";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -41,21 +57,8 @@ public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Operator_EqualsSignKeyword_1_or_GreaterThanSignEqualsSignKeyword_3_or_GreaterThanSignKeyword_2_or_LessThanSignEqualsSignKeyword_4_or_LessThanSignKeyword_0.equals(syntax))
-				emit_Operator_EqualsSignKeyword_1_or_GreaterThanSignEqualsSignKeyword_3_or_GreaterThanSignKeyword_2_or_LessThanSignEqualsSignKeyword_4_or_LessThanSignKeyword_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     '<' | '=' | '>' | '>=' | '<='
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_Operator_EqualsSignKeyword_1_or_GreaterThanSignEqualsSignKeyword_3_or_GreaterThanSignKeyword_2_or_LessThanSignEqualsSignKeyword_4_or_LessThanSignKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

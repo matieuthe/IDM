@@ -3,9 +3,11 @@
  */
 package org.xtext.example.csvmanl;
 
+import org.xtext.example.csvmanl.AbstractCsvManRuntimeModule;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class CsvManRuntimeModule /* implements AbstractCsvManRuntimeModule  */{
+public class CsvManRuntimeModule extends AbstractCsvManRuntimeModule {
 }

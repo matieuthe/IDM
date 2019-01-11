@@ -107,20 +107,17 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Condition returns Condition
 	 *
 	 * Constraint:
-	 *     (atribut=EString operator=Operator valeur=EString)
+	 *     (atribut=EString valeur=EString)
 	 */
 	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.CONDITION__ATRIBUT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.CONDITION__ATRIBUT));
-			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.CONDITION__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.CONDITION__OPERATOR));
 			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.CONDITION__VALEUR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.CONDITION__VALEUR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getConditionAccess().getAtributEStringParserRuleCall_1_0(), semanticObject.getAtribut());
-		feeder.accept(grammarAccess.getConditionAccess().getOperatorOperatorParserRuleCall_2_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getConditionAccess().getValeurEStringParserRuleCall_3_0(), semanticObject.getValeur());
 		feeder.finish();
 	}
@@ -261,7 +258,7 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Where returns Where
 	 *
 	 * Constraint:
-	 *     condition+=Condition+
+	 *     (condition+=Condition condition+=Condition*)
 	 */
 	protected void sequence_Where(ISerializationContext context, Where semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

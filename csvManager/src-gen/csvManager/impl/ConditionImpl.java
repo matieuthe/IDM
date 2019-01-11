@@ -4,13 +4,8 @@ package csvManager.impl;
 
 import csvManager.Condition;
 import csvManager.CsvManagerPackage;
-
-import csvManager.Operator;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -24,7 +19,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link csvManager.impl.ConditionImpl#getAtribut <em>Atribut</em>}</li>
  *   <li>{@link csvManager.impl.ConditionImpl#getValeur <em>Valeur</em>}</li>
- *   <li>{@link csvManager.impl.ConditionImpl#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,15 +60,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 	 * @ordered
 	 */
 	protected String valeur = VALEUR_EDEFAULT;
-	/**
-	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperator()
-	 * @generated
-	 * @ordered
-	 */
-	protected Operator operator;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,70 +129,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Operator getOperator() {
-		return operator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOperator(Operator newOperator, NotificationChain msgs) {
-		Operator oldOperator = operator;
-		operator = newOperator;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CsvManagerPackage.CONDITION__OPERATOR, oldOperator, newOperator);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOperator(Operator newOperator) {
-		if (newOperator != operator) {
-			NotificationChain msgs = null;
-			if (operator != null)
-				msgs = ((InternalEObject) operator).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CsvManagerPackage.CONDITION__OPERATOR, null, msgs);
-			if (newOperator != null)
-				msgs = ((InternalEObject) newOperator).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CsvManagerPackage.CONDITION__OPERATOR, null, msgs);
-			msgs = basicSetOperator(newOperator, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.CONDITION__OPERATOR, newOperator,
-					newOperator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case CsvManagerPackage.CONDITION__OPERATOR:
-			return basicSetOperator(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -215,8 +136,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			return getAtribut();
 		case CsvManagerPackage.CONDITION__VALEUR:
 			return getValeur();
-		case CsvManagerPackage.CONDITION__OPERATOR:
-			return getOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -234,9 +153,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			return;
 		case CsvManagerPackage.CONDITION__VALEUR:
 			setValeur((String) newValue);
-			return;
-		case CsvManagerPackage.CONDITION__OPERATOR:
-			setOperator((Operator) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -256,9 +172,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 		case CsvManagerPackage.CONDITION__VALEUR:
 			setValeur(VALEUR_EDEFAULT);
 			return;
-		case CsvManagerPackage.CONDITION__OPERATOR:
-			setOperator((Operator) null);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -275,8 +188,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			return ATRIBUT_EDEFAULT == null ? atribut != null : !ATRIBUT_EDEFAULT.equals(atribut);
 		case CsvManagerPackage.CONDITION__VALEUR:
 			return VALEUR_EDEFAULT == null ? valeur != null : !VALEUR_EDEFAULT.equals(valeur);
-		case CsvManagerPackage.CONDITION__OPERATOR:
-			return operator != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link csvManager.Condition#getAtribut <em>Atribut</em>}</li>
  *   <li>{@link csvManager.Condition#getValeur <em>Valeur</em>}</li>
- *   <li>{@link csvManager.Condition#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @see csvManager.CsvManagerPackage#getCondition()
@@ -75,30 +74,4 @@ public interface Condition extends EObject {
 	 * @generated
 	 */
 	void setValeur(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Operator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Operator</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operator</em>' containment reference.
-	 * @see #setOperator(Operator)
-	 * @see csvManager.CsvManagerPackage#getCondition_Operator()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Operator getOperator();
-
-	/**
-	 * Sets the value of the '{@link csvManager.Condition#getOperator <em>Operator</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operator</em>' containment reference.
-	 * @see #getOperator()
-	 * @generated
-	 */
-	void setOperator(Operator value);
 } // Condition

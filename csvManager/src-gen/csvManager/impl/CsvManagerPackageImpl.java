@@ -5,7 +5,6 @@ package csvManager.impl;
 import csvManager.Add;
 import csvManager.Condition;
 import csvManager.Create;
-import csvManager.CsvFile;
 import csvManager.CsvManagerFactory;
 import csvManager.CsvManagerPackage;
 import csvManager.Delete;
@@ -13,7 +12,6 @@ import csvManager.Exit;
 import csvManager.Instruction;
 import csvManager.Join;
 import csvManager.Load;
-import csvManager.Operator;
 import csvManager.Program;
 import csvManager.Show;
 import csvManager.Update;
@@ -109,20 +107,6 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * @generated
 	 */
 	private EClass conditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass operatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass csvFileEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,8 +228,8 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoad_Csvfile() {
-		return (EReference) loadEClass.getEStructuralFeatures().get(1);
+	public EAttribute getLoad_Table() {
+		return (EAttribute) loadEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -334,8 +318,8 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCreate_Csvfile() {
-		return (EReference) createEClass.getEStructuralFeatures().get(1);
+	public EAttribute getCreate_Table() {
+		return (EAttribute) createEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -469,42 +453,6 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCondition_Operator() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOperator() {
-		return operatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCsvFile() {
-		return csvFileEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCsvFile_Name() {
-		return (EAttribute) csvFileEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getWhere() {
 		return whereEClass;
 	}
@@ -554,7 +502,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 
 		loadEClass = createEClass(LOAD);
 		createEAttribute(loadEClass, LOAD__ALIAS);
-		createEReference(loadEClass, LOAD__CSVFILE);
+		createEAttribute(loadEClass, LOAD__TABLE);
 
 		showEClass = createEClass(SHOW);
 		createEAttribute(showEClass, SHOW__TABLE);
@@ -567,7 +515,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 
 		createEClass = createEClass(CREATE);
 		createEAttribute(createEClass, CREATE__ALIAS);
-		createEReference(createEClass, CREATE__CSVFILE);
+		createEAttribute(createEClass, CREATE__TABLE);
 
 		deleteEClass = createEClass(DELETE);
 		createEAttribute(deleteEClass, DELETE__TABLE);
@@ -590,12 +538,6 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		conditionEClass = createEClass(CONDITION);
 		createEAttribute(conditionEClass, CONDITION__ATRIBUT);
 		createEAttribute(conditionEClass, CONDITION__VALEUR);
-		createEReference(conditionEClass, CONDITION__OPERATOR);
-
-		operatorEClass = createEClass(OPERATOR);
-
-		csvFileEClass = createEClass(CSV_FILE);
-		createEAttribute(csvFileEClass, CSV_FILE__NAME);
 	}
 
 	/**
@@ -648,9 +590,8 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		initEClass(loadEClass, Load.class, "Load", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoad_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, Load.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLoad_Csvfile(), this.getCsvFile(), null, "csvfile", null, 1, 1, Load.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEAttribute(getLoad_Table(), ecorePackage.getEString(), "table", null, 1, 1, Load.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(showEClass, Show.class, "Show", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getShow_Table(), ecorePackage.getEString(), "table", null, 1, 1, Show.class, !IS_TRANSIENT,
@@ -671,9 +612,8 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		initEClass(createEClass, Create.class, "Create", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCreate_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, Create.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCreate_Csvfile(), this.getCsvFile(), null, "csvfile", null, 1, 1, Create.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEAttribute(getCreate_Table(), ecorePackage.getEString(), "table", null, 1, 1, Create.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deleteEClass, Delete.class, "Delete", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDelete_Table(), ecorePackage.getEString(), "table", null, 1, 1, Delete.class, !IS_TRANSIENT,
@@ -710,16 +650,6 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCondition_Valeur(), ecorePackage.getEString(), "valeur", null, 1, 1, Condition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCondition_Operator(), this.getOperator(), null, "operator", null, 1, 1, Condition.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(operatorEClass, Operator.class, "Operator", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(csvFileEClass, CsvFile.class, "CsvFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCsvFile_Name(), ecorePackage.getEString(), "name", null, 1, 1, CsvFile.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

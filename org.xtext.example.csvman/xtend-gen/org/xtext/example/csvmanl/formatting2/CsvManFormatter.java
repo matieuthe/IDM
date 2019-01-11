@@ -15,12 +15,13 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.xtext.example.csvmanl.services.CsvManGrammarAccess;
 
 @SuppressWarnings("all")
 public class CsvManFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
-  private /* CsvManGrammarAccess */Object _csvManGrammarAccess;
+  private CsvManGrammarAccess _csvManGrammarAccess;
   
   protected void _format(final Program program, @Extension final IFormattableDocument document) {
     EList<Instruction> _instruction = program.getInstruction();

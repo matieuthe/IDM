@@ -2,13 +2,10 @@
  */
 package csvManager.impl;
 
-import csvManager.CsvFile;
 import csvManager.CsvManagerPackage;
 import csvManager.Load;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -20,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link csvManager.impl.LoadImpl#getAlias <em>Alias</em>}</li>
- *   <li>{@link csvManager.impl.LoadImpl#getCsvfile <em>Csvfile</em>}</li>
+ *   <li>{@link csvManager.impl.LoadImpl#getTable <em>Table</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,14 +43,23 @@ public class LoadImpl extends InstructionImpl implements Load {
 	protected String alias = ALIAS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCsvfile() <em>Csvfile</em>}' containment reference.
+	 * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCsvfile()
+	 * @see #getTable()
 	 * @generated
 	 * @ordered
 	 */
-	protected CsvFile csvfile;
+	protected static final String TABLE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getTable() <em>Table</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String table = TABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,8 +106,8 @@ public class LoadImpl extends InstructionImpl implements Load {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CsvFile getCsvfile() {
-		return csvfile;
+	public String getTable() {
+		return table;
 	}
 
 	/**
@@ -109,54 +115,11 @@ public class LoadImpl extends InstructionImpl implements Load {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCsvfile(CsvFile newCsvfile, NotificationChain msgs) {
-		CsvFile oldCsvfile = csvfile;
-		csvfile = newCsvfile;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CsvManagerPackage.LOAD__CSVFILE, oldCsvfile, newCsvfile);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCsvfile(CsvFile newCsvfile) {
-		if (newCsvfile != csvfile) {
-			NotificationChain msgs = null;
-			if (csvfile != null)
-				msgs = ((InternalEObject) csvfile).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CsvManagerPackage.LOAD__CSVFILE, null, msgs);
-			if (newCsvfile != null)
-				msgs = ((InternalEObject) newCsvfile).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CsvManagerPackage.LOAD__CSVFILE, null, msgs);
-			msgs = basicSetCsvfile(newCsvfile, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.LOAD__CSVFILE, newCsvfile,
-					newCsvfile));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case CsvManagerPackage.LOAD__CSVFILE:
-			return basicSetCsvfile(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setTable(String newTable) {
+		String oldTable = table;
+		table = newTable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.LOAD__TABLE, oldTable, table));
 	}
 
 	/**
@@ -169,8 +132,8 @@ public class LoadImpl extends InstructionImpl implements Load {
 		switch (featureID) {
 		case CsvManagerPackage.LOAD__ALIAS:
 			return getAlias();
-		case CsvManagerPackage.LOAD__CSVFILE:
-			return getCsvfile();
+		case CsvManagerPackage.LOAD__TABLE:
+			return getTable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,8 +149,8 @@ public class LoadImpl extends InstructionImpl implements Load {
 		case CsvManagerPackage.LOAD__ALIAS:
 			setAlias((String) newValue);
 			return;
-		case CsvManagerPackage.LOAD__CSVFILE:
-			setCsvfile((CsvFile) newValue);
+		case CsvManagerPackage.LOAD__TABLE:
+			setTable((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,8 +167,8 @@ public class LoadImpl extends InstructionImpl implements Load {
 		case CsvManagerPackage.LOAD__ALIAS:
 			setAlias(ALIAS_EDEFAULT);
 			return;
-		case CsvManagerPackage.LOAD__CSVFILE:
-			setCsvfile((CsvFile) null);
+		case CsvManagerPackage.LOAD__TABLE:
+			setTable(TABLE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -221,8 +184,8 @@ public class LoadImpl extends InstructionImpl implements Load {
 		switch (featureID) {
 		case CsvManagerPackage.LOAD__ALIAS:
 			return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-		case CsvManagerPackage.LOAD__CSVFILE:
-			return csvfile != null;
+		case CsvManagerPackage.LOAD__TABLE:
+			return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -240,6 +203,8 @@ public class LoadImpl extends InstructionImpl implements Load {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alias: ");
 		result.append(alias);
+		result.append(", table: ");
+		result.append(table);
 		result.append(')');
 		return result.toString();
 	}

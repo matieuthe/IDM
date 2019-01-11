@@ -264,6 +264,10 @@ ruleCreate returns [EObject current=null]
 				}
 			)
 		)
+		this_NL_5=RULE_NL
+		{
+			newLeafNode(this_NL_5, grammarAccess.getCreateAccess().getNLTerminalRuleCall_5());
+		}
 	)
 ;
 
@@ -336,6 +340,10 @@ ruleLoad returns [EObject current=null]
 				}
 			)
 		)
+		this_NL_5=RULE_NL
+		{
+			newLeafNode(this_NL_5, grammarAccess.getLoadAccess().getNLTerminalRuleCall_5());
+		}
 	)
 ;
 
@@ -404,6 +412,10 @@ ruleShow returns [EObject current=null]
 				}
 			)
 		)?
+		this_NL_4=RULE_NL
+		{
+			newLeafNode(this_NL_4, grammarAccess.getShowAccess().getNLTerminalRuleCall_4());
+		}
 	)
 ;
 
@@ -495,6 +507,10 @@ ruleUpdate returns [EObject current=null]
 				}
 			)
 		)?
+		this_NL_6=RULE_NL
+		{
+			newLeafNode(this_NL_6, grammarAccess.getUpdateAccess().getNLTerminalRuleCall_6());
+		}
 	)
 ;
 
@@ -567,6 +583,10 @@ ruleAdd returns [EObject current=null]
 				}
 			)
 		)
+		this_NL_5=RULE_NL
+		{
+			newLeafNode(this_NL_5, grammarAccess.getAddAccess().getNLTerminalRuleCall_5());
+		}
 	)
 ;
 
@@ -635,6 +655,10 @@ ruleJoin returns [EObject current=null]
 				}
 			)
 		)
+		this_NL_4=RULE_NL
+		{
+			newLeafNode(this_NL_4, grammarAccess.getJoinAccess().getNLTerminalRuleCall_4());
+		}
 	)
 ;
 
@@ -703,6 +727,10 @@ ruleDelete returns [EObject current=null]
 				}
 			)
 		)?
+		this_NL_4=RULE_NL
+		{
+			newLeafNode(this_NL_4, grammarAccess.getDeleteAccess().getNLTerminalRuleCall_4());
+		}
 	)
 ;
 
@@ -732,6 +760,10 @@ ruleExit returns [EObject current=null]
 		otherlv_1='exit'
 		{
 			newLeafNode(otherlv_1, grammarAccess.getExitAccess().getExitKeyword_1());
+		}
+		this_NL_2=RULE_NL
+		{
+			newLeafNode(this_NL_2, grammarAccess.getExitAccess().getNLTerminalRuleCall_2());
 		}
 	)
 ;
@@ -781,7 +813,32 @@ ruleWhere returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
+		)
+		(
+			otherlv_3=','
+			{
+				newLeafNode(otherlv_3, grammarAccess.getWhereAccess().getCommaKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getWhereAccess().getConditionConditionParserRuleCall_3_1_0());
+					}
+					lv_condition_4_0=ruleCondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getWhereRule());
+						}
+						add(
+							$current,
+							"condition",
+							lv_condition_4_0,
+							"org.xtext.example.csvmanl.CsvMan.Condition");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
 	)
 ;
 
@@ -827,25 +884,10 @@ ruleCondition returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getConditionAccess().getOperatorOperatorParserRuleCall_2_0());
-				}
-				lv_operator_2_0=ruleOperator
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getConditionRule());
-					}
-					set(
-						$current,
-						"operator",
-						lv_operator_2_0,
-						"org.xtext.example.csvmanl.CsvMan.Operator");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
+		this_OP_2=RULE_OP
+		{
+			newLeafNode(this_OP_2, grammarAccess.getConditionAccess().getOPTerminalRuleCall_2());
+		}
 		(
 			(
 				{
@@ -865,49 +907,6 @@ ruleCondition returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleOperator
-entryRuleOperator returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getOperatorRule()); }
-	iv_ruleOperator=ruleOperator
-	{ $current=$iv_ruleOperator.current; }
-	EOF;
-
-// Rule Operator
-ruleOperator returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='<'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getOperatorAccess().getLessThanSignKeyword_0());
-		}
-		    |
-		otherlv_1='='
-		{
-			newLeafNode(otherlv_1, grammarAccess.getOperatorAccess().getEqualsSignKeyword_1());
-		}
-		    |
-		otherlv_2='>'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getOperatorAccess().getGreaterThanSignKeyword_2());
-		}
-		    |
-		otherlv_3='>='
-		{
-			newLeafNode(otherlv_3, grammarAccess.getOperatorAccess().getGreaterThanSignEqualsSignKeyword_3());
-		}
-		    |
-		otherlv_4='<='
-		{
-			newLeafNode(otherlv_4, grammarAccess.getOperatorAccess().getLessThanSignEqualsSignKeyword_4());
-		}
 	)
 ;
 
@@ -944,6 +943,10 @@ ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		}
 	)
 ;
+
+RULE_OP : ('<'|'='|'>'|'>='|'<=');
+
+RULE_NL : ('\r'|'\n')+;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

@@ -32,7 +32,6 @@ public class CsvManParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
-					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getCreateAccess().getGroup(), "rule__Create__Group__0");
@@ -44,6 +43,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeleteAccess().getGroup(), "rule__Delete__Group__0");
 					put(grammarAccess.getExitAccess().getGroup(), "rule__Exit__Group__0");
 					put(grammarAccess.getWhereAccess().getGroup(), "rule__Where__Group__0");
+					put(grammarAccess.getWhereAccess().getGroup_3(), "rule__Where__Group_3__0");
 					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 					put(grammarAccess.getProgramAccess().getInstructionAssignment_1(), "rule__Program__InstructionAssignment_1");
 					put(grammarAccess.getCreateAccess().getTableAssignment_2(), "rule__Create__TableAssignment_2");
@@ -62,8 +62,8 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeleteAccess().getTableAssignment_2(), "rule__Delete__TableAssignment_2");
 					put(grammarAccess.getDeleteAccess().getWhereAssignment_3(), "rule__Delete__WhereAssignment_3");
 					put(grammarAccess.getWhereAccess().getConditionAssignment_2(), "rule__Where__ConditionAssignment_2");
+					put(grammarAccess.getWhereAccess().getConditionAssignment_3_1(), "rule__Where__ConditionAssignment_3_1");
 					put(grammarAccess.getConditionAccess().getAtributAssignment_1(), "rule__Condition__AtributAssignment_1");
-					put(grammarAccess.getConditionAccess().getOperatorAssignment_2(), "rule__Condition__OperatorAssignment_2");
 					put(grammarAccess.getConditionAccess().getValeurAssignment_3(), "rule__Condition__ValeurAssignment_3");
 				}
 			};

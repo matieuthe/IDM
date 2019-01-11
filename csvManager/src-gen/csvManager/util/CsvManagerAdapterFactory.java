@@ -127,16 +127,6 @@ public class CsvManagerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseOperator(Operator object) {
-			return createOperatorAdapter();
-		}
-
-		@Override
-		public Adapter caseCsvFile(CsvFile object) {
-			return createCsvFileAdapter();
-		}
-
-		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -306,34 +296,6 @@ public class CsvManagerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link csvManager.Operator <em>Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see csvManager.Operator
-	 * @generated
-	 */
-	public Adapter createOperatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link csvManager.CsvFile <em>Csv File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see csvManager.CsvFile
-	 * @generated
-	 */
-	public Adapter createCsvFileAdapter() {
 		return null;
 	}
 

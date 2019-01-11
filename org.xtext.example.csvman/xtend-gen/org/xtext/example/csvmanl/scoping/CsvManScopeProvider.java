@@ -3,6 +3,8 @@
  */
 package org.xtext.example.csvmanl.scoping;
 
+import org.xtext.example.csvmanl.scoping.AbstractCsvManScopeProvider;
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,5 +12,5 @@ package org.xtext.example.csvmanl.scoping;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class CsvManScopeProvider /* implements AbstractCsvManScopeProvider  */{
+public class CsvManScopeProvider extends AbstractCsvManScopeProvider {
 }

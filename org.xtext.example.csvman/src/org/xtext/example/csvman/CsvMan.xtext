@@ -14,49 +14,46 @@ Instruction returns Instruction:
 
 Create returns Create:
 	{Create}
-	'create' csvfile=CsvFile 'as' alias=EString;
+	'create' table=EString 'as' alias=EString NL;
 
 Load returns Load:
 	{Load}
-	'load' csvfile=CsvFile 'as' alias=EString;
+	'load' table=EString 'as' alias=EString NL;
 	
 Show returns Show:
 	{Show}
-	'show' table=EString (where=Where)?;
+	'show' table=EString (where=Where)? NL;
 
 Update returns Update:
 	{Update}
-	'update' table=EString 'set' parameters=EString (where=Where)?;
+	'update' table=EString 'set' parameters=EString (where=Where)? NL;
 
 Add returns Add:
 	{Add}
-	'add' tuple=EString 'in' table=EString;
+	'add' tuple=EString 'in' table=EString NL;
 
 Join returns Join:
 	{Join}
-	'join' table1=EString table2=EString;
+	'join' table1=EString table2=EString NL;
 
 Delete returns Delete:
 	{Delete}
-	'delete' table=EString (where=Where)?;
+	'delete' table=EString (where=Where)? NL;
 
 Exit returns Exit:
 	{Exit}
-	'exit';
+	'exit' NL;
 
 Where returns Where:
 	{Where}
-	'where' (condition+=Condition)+;
+	'where' condition+=Condition (',' condition+=Condition)*;
 
 Condition returns Condition:
 	{Condition}
-	atribut=EString operator=Operator valeur=EString;
-
-Operator returns Operator:
-	'<' | '=' | '>' | '>=' | '<=';
+	atribut=EString OP valeur=EString;
 	
-CsvFile returns CsvFile:
-	name=EString '.csv';
- 
 EString returns ecore::EString:
 	STRING | ID;
+	
+terminal OP: '<' | '=' | '>' | '>=' | '<=';
+terminal NL: (('\r'|'\n')+);

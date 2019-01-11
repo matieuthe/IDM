@@ -3,13 +3,14 @@
  */
 package org.xtext.example.csvmanl;
 
+import org.xtext.example.csvmanl.CsvManStandaloneSetupGenerated;
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class CsvManStandaloneSetup /* implements CsvManStandaloneSetupGenerated  */{
+public class CsvManStandaloneSetup extends CsvManStandaloneSetupGenerated {
   public static void doSetup() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type CsvManStandaloneSetup");
+    new CsvManStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
 }

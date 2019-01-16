@@ -77,26 +77,6 @@ public class CsvManagerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseKeyword(Keyword object) {
-			return createKeywordAdapter();
-		}
-
-		@Override
-		public Adapter caseParameter(Parameter object) {
-			return createParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseSelectionParameter(SelectionParameter object) {
-			return createSelectionParameterAdapter();
-		}
-
-		@Override
-		public Adapter caseConditionParameter(ConditionParameter object) {
-			return createConditionParameterAdapter();
-		}
-
-		@Override
 		public Adapter caseLoad(Load object) {
 			return createLoadAdapter();
 		}
@@ -134,6 +114,11 @@ public class CsvManagerAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseExit(Exit object) {
 			return createExitAdapter();
+		}
+
+		@Override
+		public Adapter caseWhere(Where object) {
+			return createWhereAdapter();
 		}
 
 		@Override
@@ -185,62 +170,6 @@ public class CsvManagerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInstructionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link csvManager.Keyword <em>Keyword</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see csvManager.Keyword
-	 * @generated
-	 */
-	public Adapter createKeywordAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link csvManager.Parameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see csvManager.Parameter
-	 * @generated
-	 */
-	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link csvManager.SelectionParameter <em>Selection Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see csvManager.SelectionParameter
-	 * @generated
-	 */
-	public Adapter createSelectionParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link csvManager.ConditionParameter <em>Condition Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see csvManager.ConditionParameter
-	 * @generated
-	 */
-	public Adapter createConditionParameterAdapter() {
 		return null;
 	}
 
@@ -367,6 +296,20 @@ public class CsvManagerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link csvManager.Where <em>Where</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see csvManager.Where
+	 * @generated
+	 */
+	public Adapter createWhereAdapter() {
 		return null;
 	}
 

@@ -80,43 +80,11 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CsvManagerPackage.KEYWORD: {
-			Keyword keyword = (Keyword) theEObject;
-			T result = caseKeyword(keyword);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case CsvManagerPackage.PARAMETER: {
-			Parameter parameter = (Parameter) theEObject;
-			T result = caseParameter(parameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case CsvManagerPackage.SELECTION_PARAMETER: {
-			SelectionParameter selectionParameter = (SelectionParameter) theEObject;
-			T result = caseSelectionParameter(selectionParameter);
-			if (result == null)
-				result = caseParameter(selectionParameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case CsvManagerPackage.CONDITION_PARAMETER: {
-			ConditionParameter conditionParameter = (ConditionParameter) theEObject;
-			T result = caseConditionParameter(conditionParameter);
-			if (result == null)
-				result = caseParameter(conditionParameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case CsvManagerPackage.LOAD: {
 			Load load = (Load) theEObject;
 			T result = caseLoad(load);
 			if (result == null)
-				result = caseKeyword(load);
+				result = caseInstruction(load);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -125,7 +93,7 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Show show = (Show) theEObject;
 			T result = caseShow(show);
 			if (result == null)
-				result = caseKeyword(show);
+				result = caseInstruction(show);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -134,7 +102,7 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Update update = (Update) theEObject;
 			T result = caseUpdate(update);
 			if (result == null)
-				result = caseKeyword(update);
+				result = caseInstruction(update);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -143,7 +111,7 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Create create = (Create) theEObject;
 			T result = caseCreate(create);
 			if (result == null)
-				result = caseKeyword(create);
+				result = caseInstruction(create);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -152,7 +120,7 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Delete delete = (Delete) theEObject;
 			T result = caseDelete(delete);
 			if (result == null)
-				result = caseKeyword(delete);
+				result = caseInstruction(delete);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -161,7 +129,7 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Add add = (Add) theEObject;
 			T result = caseAdd(add);
 			if (result == null)
-				result = caseKeyword(add);
+				result = caseInstruction(add);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -170,7 +138,7 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Join join = (Join) theEObject;
 			T result = caseJoin(join);
 			if (result == null)
-				result = caseKeyword(join);
+				result = caseInstruction(join);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -179,7 +147,14 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 			Exit exit = (Exit) theEObject;
 			T result = caseExit(exit);
 			if (result == null)
-				result = caseKeyword(exit);
+				result = caseInstruction(exit);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CsvManagerPackage.WHERE: {
+			Where where = (Where) theEObject;
+			T result = caseWhere(where);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -223,66 +198,6 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInstruction(Instruction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Keyword</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Keyword</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseKeyword(Keyword object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameter(Parameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Selection Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Selection Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSelectionParameter(SelectionParameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Condition Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Condition Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConditionParameter(ConditionParameter object) {
 		return null;
 	}
 
@@ -418,6 +333,21 @@ public class CsvManagerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Where</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Where</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWhere(Where object) {
 		return null;
 	}
 

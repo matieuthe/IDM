@@ -12,24 +12,44 @@
     <genClasses ecoreClass="csvManager.ecore#//Program">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Program/instruction"/>
     </genClasses>
-    <genClasses ecoreClass="csvManager.ecore#//Instruction">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Instruction/parameter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Instruction/keyword"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Instruction/condition"/>
+    <genClasses ecoreClass="csvManager.ecore#//Instruction"/>
+    <genClasses ecoreClass="csvManager.ecore#//Load">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Load/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Load/table"/>
     </genClasses>
-    <genClasses ecoreClass="csvManager.ecore#//Keyword"/>
-    <genClasses ecoreClass="csvManager.ecore#//Parameter"/>
-    <genClasses ecoreClass="csvManager.ecore#//SelectionParameter"/>
-    <genClasses ecoreClass="csvManager.ecore#//ConditionParameter"/>
-    <genClasses ecoreClass="csvManager.ecore#//Load"/>
-    <genClasses ecoreClass="csvManager.ecore#//Show"/>
-    <genClasses ecoreClass="csvManager.ecore#//Update"/>
-    <genClasses ecoreClass="csvManager.ecore#//Create"/>
-    <genClasses ecoreClass="csvManager.ecore#//Delete"/>
-    <genClasses ecoreClass="csvManager.ecore#//Add"/>
-    <genClasses ecoreClass="csvManager.ecore#//Join"/>
+    <genClasses ecoreClass="csvManager.ecore#//Show">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Show/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Show/where"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Update">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Update/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Update/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Update/where"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Create">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/table"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Delete">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Delete/table"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Delete/where"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Add">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Add/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Add/tuple"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Join">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Join/table1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Join/table2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Join/where"/>
+    </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Exit"/>
-    <genClasses ecoreClass="csvManager.ecore#//Condition"/>
-    <genClasses ecoreClass="csvManager.ecore#//Where"/>
+    <genClasses ecoreClass="csvManager.ecore#//Where">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Where/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Condition/atribut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Condition/valeur"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

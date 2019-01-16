@@ -4,7 +4,6 @@ package csvManager.impl;
 
 import csvManager.Add;
 import csvManager.Condition;
-import csvManager.ConditionParameter;
 import csvManager.Create;
 import csvManager.CsvManagerFactory;
 import csvManager.CsvManagerPackage;
@@ -12,14 +11,13 @@ import csvManager.Delete;
 import csvManager.Exit;
 import csvManager.Instruction;
 import csvManager.Join;
-import csvManager.Keyword;
 import csvManager.Load;
-import csvManager.Parameter;
 import csvManager.Program;
-import csvManager.SelectionParameter;
 import csvManager.Show;
 import csvManager.Update;
 
+import csvManager.Where;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -46,34 +44,6 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * @generated
 	 */
 	private EClass instructionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass keywordEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass selectionParameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conditionParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +107,13 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * @generated
 	 */
 	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass whereEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -233,71 +210,26 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInstruction_Parameter() {
-		return (EReference) instructionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInstruction_Keyword() {
-		return (EReference) instructionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInstruction_Condition() {
-		return (EReference) instructionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getKeyword() {
-		return keywordEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParameter() {
-		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSelectionParameter() {
-		return selectionParameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConditionParameter() {
-		return conditionParameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLoad() {
 		return loadEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLoad_Alias() {
+		return (EAttribute) loadEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLoad_Table() {
+		return (EAttribute) loadEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -314,8 +246,53 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getShow_Table() {
+		return (EAttribute) showEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getShow_Where() {
+		return (EReference) showEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUpdate() {
 		return updateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUpdate_Table() {
+		return (EAttribute) updateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUpdate_Parameters() {
+		return (EAttribute) updateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUpdate_Where() {
+		return (EReference) updateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -332,8 +309,44 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCreate_Alias() {
+		return (EAttribute) createEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCreate_Table() {
+		return (EAttribute) createEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDelete() {
 		return deleteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDelete_Table() {
+		return (EAttribute) deleteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDelete_Where() {
+		return (EReference) deleteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -350,8 +363,53 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAdd_Table() {
+		return (EAttribute) addEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAdd_Tuple() {
+		return (EAttribute) addEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJoin() {
 		return joinEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJoin_Table1() {
+		return (EAttribute) joinEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJoin_Table2() {
+		return (EAttribute) joinEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoin_Where() {
+		return (EReference) joinEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -370,6 +428,42 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 */
 	public EClass getCondition() {
 		return conditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCondition_Atribut() {
+		return (EAttribute) conditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCondition_Valeur() {
+		return (EAttribute) conditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWhere() {
+		return whereEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWhere_Condition() {
+		return (EReference) whereEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -405,35 +499,45 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		createEReference(programEClass, PROGRAM__INSTRUCTION);
 
 		instructionEClass = createEClass(INSTRUCTION);
-		createEReference(instructionEClass, INSTRUCTION__PARAMETER);
-		createEReference(instructionEClass, INSTRUCTION__KEYWORD);
-		createEReference(instructionEClass, INSTRUCTION__CONDITION);
-
-		keywordEClass = createEClass(KEYWORD);
-
-		parameterEClass = createEClass(PARAMETER);
-
-		selectionParameterEClass = createEClass(SELECTION_PARAMETER);
-
-		conditionParameterEClass = createEClass(CONDITION_PARAMETER);
 
 		loadEClass = createEClass(LOAD);
+		createEAttribute(loadEClass, LOAD__ALIAS);
+		createEAttribute(loadEClass, LOAD__TABLE);
 
 		showEClass = createEClass(SHOW);
+		createEAttribute(showEClass, SHOW__TABLE);
+		createEReference(showEClass, SHOW__WHERE);
 
 		updateEClass = createEClass(UPDATE);
+		createEAttribute(updateEClass, UPDATE__TABLE);
+		createEAttribute(updateEClass, UPDATE__PARAMETERS);
+		createEReference(updateEClass, UPDATE__WHERE);
 
 		createEClass = createEClass(CREATE);
+		createEAttribute(createEClass, CREATE__ALIAS);
+		createEAttribute(createEClass, CREATE__TABLE);
 
 		deleteEClass = createEClass(DELETE);
+		createEAttribute(deleteEClass, DELETE__TABLE);
+		createEReference(deleteEClass, DELETE__WHERE);
 
 		addEClass = createEClass(ADD);
+		createEAttribute(addEClass, ADD__TABLE);
+		createEAttribute(addEClass, ADD__TUPLE);
 
 		joinEClass = createEClass(JOIN);
+		createEAttribute(joinEClass, JOIN__TABLE1);
+		createEAttribute(joinEClass, JOIN__TABLE2);
+		createEReference(joinEClass, JOIN__WHERE);
 
 		exitEClass = createEClass(EXIT);
 
+		whereEClass = createEClass(WHERE);
+		createEReference(whereEClass, WHERE__CONDITION);
+
 		conditionEClass = createEClass(CONDITION);
+		createEAttribute(conditionEClass, CONDITION__ATRIBUT);
+		createEAttribute(conditionEClass, CONDITION__VALEUR);
 	}
 
 	/**
@@ -465,16 +569,14 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		selectionParameterEClass.getESuperTypes().add(this.getParameter());
-		conditionParameterEClass.getESuperTypes().add(this.getParameter());
-		loadEClass.getESuperTypes().add(this.getKeyword());
-		showEClass.getESuperTypes().add(this.getKeyword());
-		updateEClass.getESuperTypes().add(this.getKeyword());
-		createEClass.getESuperTypes().add(this.getKeyword());
-		deleteEClass.getESuperTypes().add(this.getKeyword());
-		addEClass.getESuperTypes().add(this.getKeyword());
-		joinEClass.getESuperTypes().add(this.getKeyword());
-		exitEClass.getESuperTypes().add(this.getKeyword());
+		loadEClass.getESuperTypes().add(this.getInstruction());
+		showEClass.getESuperTypes().add(this.getInstruction());
+		updateEClass.getESuperTypes().add(this.getInstruction());
+		createEClass.getESuperTypes().add(this.getInstruction());
+		deleteEClass.getESuperTypes().add(this.getInstruction());
+		addEClass.getESuperTypes().add(this.getInstruction());
+		joinEClass.getESuperTypes().add(this.getInstruction());
+		exitEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -484,45 +586,70 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 
 		initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInstruction_Parameter(), this.getParameter(), null, "parameter", null, 1, -1,
-				Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstruction_Keyword(), this.getKeyword(), null, "keyword", null, 1, 1, Instruction.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstruction_Condition(), this.getCondition(), null, "condition", null, 0, 1,
-				Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(keywordEClass, Keyword.class, "Keyword", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(selectionParameterEClass, SelectionParameter.class, "SelectionParameter", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(conditionParameterEClass, ConditionParameter.class, "ConditionParameter", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(loadEClass, Load.class, "Load", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLoad_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, Load.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoad_Table(), ecorePackage.getEString(), "table", null, 1, 1, Load.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(showEClass, Show.class, "Show", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getShow_Table(), ecorePackage.getEString(), "table", null, 1, 1, Show.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getShow_Where(), this.getWhere(), null, "where", null, 0, 1, Show.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(updateEClass, Update.class, "Update", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUpdate_Table(), ecorePackage.getEString(), "table", null, 1, 1, Update.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUpdate_Parameters(), ecorePackage.getEString(), "parameters", null, 1, 1, Update.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUpdate_Where(), this.getWhere(), null, "where", null, 0, 1, Update.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(createEClass, Create.class, "Create", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCreate_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, Create.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreate_Table(), ecorePackage.getEString(), "table", null, 1, 1, Create.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deleteEClass, Delete.class, "Delete", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDelete_Table(), ecorePackage.getEString(), "table", null, 1, 1, Delete.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelete_Where(), this.getWhere(), null, "where", null, 0, 1, Delete.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAdd_Table(), ecorePackage.getEString(), "table", null, 1, 1, Add.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAdd_Tuple(), ecorePackage.getEString(), "tuple", null, 1, 1, Add.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(joinEClass, Join.class, "Join", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJoin_Table1(), ecorePackage.getEString(), "table1", null, 1, 1, Join.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJoin_Table2(), ecorePackage.getEString(), "table2", null, 1, 1, Join.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoin_Where(), this.getWhere(), null, "where", null, 0, 1, Join.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(exitEClass, Exit.class, "Exit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(whereEClass, Where.class, "Where", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWhere_Condition(), this.getCondition(), null, "condition", null, 1, -1, Where.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCondition_Atribut(), ecorePackage.getEString(), "atribut", null, 1, 1, Condition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCondition_Valeur(), ecorePackage.getEString(), "valeur", null, 1, 1, Condition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

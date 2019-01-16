@@ -60,14 +60,6 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 			return createProgram();
 		case CsvManagerPackage.INSTRUCTION:
 			return createInstruction();
-		case CsvManagerPackage.KEYWORD:
-			return createKeyword();
-		case CsvManagerPackage.PARAMETER:
-			return createParameter();
-		case CsvManagerPackage.SELECTION_PARAMETER:
-			return createSelectionParameter();
-		case CsvManagerPackage.CONDITION_PARAMETER:
-			return createConditionParameter();
 		case CsvManagerPackage.LOAD:
 			return createLoad();
 		case CsvManagerPackage.SHOW:
@@ -84,6 +76,8 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 			return createJoin();
 		case CsvManagerPackage.EXIT:
 			return createExit();
+		case CsvManagerPackage.WHERE:
+			return createWhere();
 		case CsvManagerPackage.CONDITION:
 			return createCondition();
 		default:
@@ -109,46 +103,6 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 	public Instruction createInstruction() {
 		InstructionImpl instruction = new InstructionImpl();
 		return instruction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Keyword createKeyword() {
-		KeywordImpl keyword = new KeywordImpl();
-		return keyword;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parameter createParameter() {
-		ParameterImpl parameter = new ParameterImpl();
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SelectionParameter createSelectionParameter() {
-		SelectionParameterImpl selectionParameter = new SelectionParameterImpl();
-		return selectionParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConditionParameter createConditionParameter() {
-		ConditionParameterImpl conditionParameter = new ConditionParameterImpl();
-		return conditionParameter;
 	}
 
 	/**
@@ -239,6 +193,16 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 	public Condition createCondition() {
 		ConditionImpl condition = new ConditionImpl();
 		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Where createWhere() {
+		WhereImpl where = new WhereImpl();
+		return where;
 	}
 
 	/**

@@ -40,42 +40,6 @@ public interface CsvManagerFactory extends EFactory {
 	Instruction createInstruction();
 
 	/**
-	 * Returns a new object of class '<em>Keyword</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Keyword</em>'.
-	 * @generated
-	 */
-	Keyword createKeyword();
-
-	/**
-	 * Returns a new object of class '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter</em>'.
-	 * @generated
-	 */
-	Parameter createParameter();
-
-	/**
-	 * Returns a new object of class '<em>Selection Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Selection Parameter</em>'.
-	 * @generated
-	 */
-	SelectionParameter createSelectionParameter();
-
-	/**
-	 * Returns a new object of class '<em>Condition Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition Parameter</em>'.
-	 * @generated
-	 */
-	ConditionParameter createConditionParameter();
-
-	/**
 	 * Returns a new object of class '<em>Load</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +119,15 @@ public interface CsvManagerFactory extends EFactory {
 	 * @generated
 	 */
 	Condition createCondition();
+
+	/**
+	 * Returns a new object of class '<em>Where</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Where</em>'.
+	 * @generated
+	 */
+	Where createWhere();
 
 	/**
 	 * Returns the package supported by this factory.

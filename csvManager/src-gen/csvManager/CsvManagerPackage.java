@@ -196,13 +196,22 @@ public interface CsvManagerPackage extends EPackage {
 	int SHOW__WHERE = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Colonne</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHOW__COLONNE = INSTRUCTION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Show</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHOW_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+	int SHOW_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Show</em>' class.
@@ -233,22 +242,22 @@ public interface CsvManagerPackage extends EPackage {
 	int UPDATE__TABLE = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPDATE__PARAMETERS = INSTRUCTION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Where</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UPDATE__WHERE = INSTRUCTION_FEATURE_COUNT + 2;
+	int UPDATE__WHERE = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE__PARAMETER = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Update</em>' class.
@@ -279,13 +288,13 @@ public interface CsvManagerPackage extends EPackage {
 	int CREATE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * The feature id for the '<em><b>Colonne</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREATE__ALIAS = INSTRUCTION_FEATURE_COUNT + 0;
+	int CREATE__COLONNE = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' attribute.
@@ -380,13 +389,13 @@ public interface CsvManagerPackage extends EPackage {
 	int ADD__TABLE = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Tuple</b></em>' attribute.
+	 * The feature id for the '<em><b>Valeur</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADD__TUPLE = INSTRUCTION_FEATURE_COUNT + 1;
+	int ADD__VALEUR = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Add</em>' class.
@@ -573,6 +582,80 @@ public interface CsvManagerPackage extends EPackage {
 	int CONDITION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link csvManager.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see csvManager.impl.ParameterImpl
+	 * @see csvManager.impl.CsvManagerPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Colonne</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__COLONNE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link csvManager.impl.CommentImpl <em>Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see csvManager.impl.CommentImpl
+	 * @see csvManager.impl.CsvManagerPackageImpl#getComment()
+	 * @generated
+	 */
+	int COMMENT = 13;
+
+	/**
+	 * The number of structural features of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link csvManager.Program <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -668,6 +751,17 @@ public interface CsvManagerPackage extends EPackage {
 	EReference getShow_Where();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link csvManager.Show#getColonne <em>Colonne</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Colonne</em>'.
+	 * @see csvManager.Show#getColonne()
+	 * @see #getShow()
+	 * @generated
+	 */
+	EAttribute getShow_Colonne();
+
+	/**
 	 * Returns the meta object for class '{@link csvManager.Update <em>Update</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -689,17 +783,6 @@ public interface CsvManagerPackage extends EPackage {
 	EAttribute getUpdate_Table();
 
 	/**
-	 * Returns the meta object for the attribute '{@link csvManager.Update#getParameters <em>Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parameters</em>'.
-	 * @see csvManager.Update#getParameters()
-	 * @see #getUpdate()
-	 * @generated
-	 */
-	EAttribute getUpdate_Parameters();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link csvManager.Update#getWhere <em>Where</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -709,6 +792,17 @@ public interface CsvManagerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUpdate_Where();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link csvManager.Update#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter</em>'.
+	 * @see csvManager.Update#getParameter()
+	 * @see #getUpdate()
+	 * @generated
+	 */
+	EReference getUpdate_Parameter();
 
 	/**
 	 * Returns the meta object for class '{@link csvManager.Create <em>Create</em>}'.
@@ -721,15 +815,15 @@ public interface CsvManagerPackage extends EPackage {
 	EClass getCreate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link csvManager.Create#getAlias <em>Alias</em>}'.
+	 * Returns the meta object for the attribute list '{@link csvManager.Create#getColonne <em>Colonne</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alias</em>'.
-	 * @see csvManager.Create#getAlias()
+	 * @return the meta object for the attribute list '<em>Colonne</em>'.
+	 * @see csvManager.Create#getColonne()
 	 * @see #getCreate()
 	 * @generated
 	 */
-	EAttribute getCreate_Alias();
+	EAttribute getCreate_Colonne();
 
 	/**
 	 * Returns the meta object for the attribute '{@link csvManager.Create#getTable <em>Table</em>}'.
@@ -796,15 +890,15 @@ public interface CsvManagerPackage extends EPackage {
 	EAttribute getAdd_Table();
 
 	/**
-	 * Returns the meta object for the attribute '{@link csvManager.Add#getTuple <em>Tuple</em>}'.
+	 * Returns the meta object for the attribute list '{@link csvManager.Add#getValeur <em>Valeur</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Tuple</em>'.
-	 * @see csvManager.Add#getTuple()
+	 * @return the meta object for the attribute list '<em>Valeur</em>'.
+	 * @see csvManager.Add#getValeur()
 	 * @see #getAdd()
 	 * @generated
 	 */
-	EAttribute getAdd_Tuple();
+	EAttribute getAdd_Valeur();
 
 	/**
 	 * Returns the meta object for class '{@link csvManager.Join <em>Join</em>}'.
@@ -890,6 +984,48 @@ public interface CsvManagerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCondition_Valeur();
+
+	/**
+	 * Returns the meta object for class '{@link csvManager.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see csvManager.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link csvManager.Parameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see csvManager.Parameter#getValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link csvManager.Parameter#getColonne <em>Colonne</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Colonne</em>'.
+	 * @see csvManager.Parameter#getColonne()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Colonne();
+
+	/**
+	 * Returns the meta object for class '{@link csvManager.Comment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comment</em>'.
+	 * @see csvManager.Comment
+	 * @generated
+	 */
+	EClass getComment();
 
 	/**
 	 * Returns the meta object for class '{@link csvManager.Where <em>Where</em>}'.
@@ -1016,6 +1152,14 @@ public interface CsvManagerPackage extends EPackage {
 		EReference SHOW__WHERE = eINSTANCE.getShow_Where();
 
 		/**
+		 * The meta object literal for the '<em><b>Colonne</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHOW__COLONNE = eINSTANCE.getShow_Colonne();
+
+		/**
 		 * The meta object literal for the '{@link csvManager.impl.UpdateImpl <em>Update</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1034,20 +1178,20 @@ public interface CsvManagerPackage extends EPackage {
 		EAttribute UPDATE__TABLE = eINSTANCE.getUpdate_Table();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UPDATE__PARAMETERS = eINSTANCE.getUpdate_Parameters();
-
-		/**
 		 * The meta object literal for the '<em><b>Where</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference UPDATE__WHERE = eINSTANCE.getUpdate_Where();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UPDATE__PARAMETER = eINSTANCE.getUpdate_Parameter();
 
 		/**
 		 * The meta object literal for the '{@link csvManager.impl.CreateImpl <em>Create</em>}' class.
@@ -1060,12 +1204,12 @@ public interface CsvManagerPackage extends EPackage {
 		EClass CREATE = eINSTANCE.getCreate();
 
 		/**
-		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Colonne</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CREATE__ALIAS = eINSTANCE.getCreate_Alias();
+		EAttribute CREATE__COLONNE = eINSTANCE.getCreate_Colonne();
 
 		/**
 		 * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
@@ -1120,12 +1264,12 @@ public interface CsvManagerPackage extends EPackage {
 		EAttribute ADD__TABLE = eINSTANCE.getAdd_Table();
 
 		/**
-		 * The meta object literal for the '<em><b>Tuple</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Valeur</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ADD__TUPLE = eINSTANCE.getAdd_Tuple();
+		EAttribute ADD__VALEUR = eINSTANCE.getAdd_Valeur();
 
 		/**
 		 * The meta object literal for the '{@link csvManager.impl.JoinImpl <em>Join</em>}' class.
@@ -1196,6 +1340,42 @@ public interface CsvManagerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONDITION__VALEUR = eINSTANCE.getCondition_Valeur();
+
+		/**
+		 * The meta object literal for the '{@link csvManager.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see csvManager.impl.ParameterImpl
+		 * @see csvManager.impl.CsvManagerPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Colonne</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__COLONNE = eINSTANCE.getParameter_Colonne();
+
+		/**
+		 * The meta object literal for the '{@link csvManager.impl.CommentImpl <em>Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see csvManager.impl.CommentImpl
+		 * @see csvManager.impl.CsvManagerPackageImpl#getComment()
+		 * @generated
+		 */
+		EClass COMMENT = eINSTANCE.getComment();
 
 		/**
 		 * The meta object literal for the '{@link csvManager.impl.WhereImpl <em>Where</em>}' class.

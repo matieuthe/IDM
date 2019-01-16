@@ -3,6 +3,7 @@
 package csvManager.impl;
 
 import csvManager.Add;
+import csvManager.Comment;
 import csvManager.Condition;
 import csvManager.Create;
 import csvManager.CsvManagerFactory;
@@ -12,6 +13,7 @@ import csvManager.Exit;
 import csvManager.Instruction;
 import csvManager.Join;
 import csvManager.Load;
+import csvManager.Parameter;
 import csvManager.Program;
 import csvManager.Show;
 import csvManager.Update;
@@ -107,6 +109,20 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * @generated
 	 */
 	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,6 +280,15 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getShow_Colonne() {
+		return (EAttribute) showEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUpdate() {
 		return updateEClass;
 	}
@@ -282,8 +307,8 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUpdate_Parameters() {
-		return (EAttribute) updateEClass.getEStructuralFeatures().get(1);
+	public EReference getUpdate_Where() {
+		return (EReference) updateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -291,7 +316,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUpdate_Where() {
+	public EReference getUpdate_Parameter() {
 		return (EReference) updateEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -309,7 +334,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCreate_Alias() {
+	public EAttribute getCreate_Colonne() {
 		return (EAttribute) createEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -372,7 +397,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAdd_Tuple() {
+	public EAttribute getAdd_Valeur() {
 		return (EAttribute) addEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -453,6 +478,42 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameter_Value() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameter_Colonne() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComment() {
+		return commentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWhere() {
 		return whereEClass;
 	}
@@ -507,14 +568,15 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		showEClass = createEClass(SHOW);
 		createEAttribute(showEClass, SHOW__TABLE);
 		createEReference(showEClass, SHOW__WHERE);
+		createEAttribute(showEClass, SHOW__COLONNE);
 
 		updateEClass = createEClass(UPDATE);
 		createEAttribute(updateEClass, UPDATE__TABLE);
-		createEAttribute(updateEClass, UPDATE__PARAMETERS);
 		createEReference(updateEClass, UPDATE__WHERE);
+		createEReference(updateEClass, UPDATE__PARAMETER);
 
 		createEClass = createEClass(CREATE);
-		createEAttribute(createEClass, CREATE__ALIAS);
+		createEAttribute(createEClass, CREATE__COLONNE);
 		createEAttribute(createEClass, CREATE__TABLE);
 
 		deleteEClass = createEClass(DELETE);
@@ -523,7 +585,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 
 		addEClass = createEClass(ADD);
 		createEAttribute(addEClass, ADD__TABLE);
-		createEAttribute(addEClass, ADD__TUPLE);
+		createEAttribute(addEClass, ADD__VALEUR);
 
 		joinEClass = createEClass(JOIN);
 		createEAttribute(joinEClass, JOIN__TABLE1);
@@ -538,6 +600,12 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		conditionEClass = createEClass(CONDITION);
 		createEAttribute(conditionEClass, CONDITION__ATRIBUT);
 		createEAttribute(conditionEClass, CONDITION__VALEUR);
+
+		parameterEClass = createEClass(PARAMETER);
+		createEAttribute(parameterEClass, PARAMETER__VALUE);
+		createEAttribute(parameterEClass, PARAMETER__COLONNE);
+
+		commentEClass = createEClass(COMMENT);
 	}
 
 	/**
@@ -577,6 +645,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		addEClass.getESuperTypes().add(this.getInstruction());
 		joinEClass.getESuperTypes().add(this.getInstruction());
 		exitEClass.getESuperTypes().add(this.getInstruction());
+		commentEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -599,19 +668,22 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		initEReference(getShow_Where(), this.getWhere(), null, "where", null, 0, 1, Show.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getShow_Colonne(), ecorePackage.getEString(), "colonne", null, 0, -1, Show.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(updateEClass, Update.class, "Update", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUpdate_Table(), ecorePackage.getEString(), "table", null, 1, 1, Update.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUpdate_Parameters(), ecorePackage.getEString(), "parameters", null, 1, 1, Update.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUpdate_Where(), this.getWhere(), null, "where", null, 0, 1, Update.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getUpdate_Parameter(), this.getParameter(), null, "parameter", null, 1, -1, Update.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(createEClass, Create.class, "Create", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCreate_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, Create.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreate_Colonne(), ecorePackage.getEString(), "colonne", null, 1, -1, Create.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCreate_Table(), ecorePackage.getEString(), "table", null, 1, 1, Create.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -625,7 +697,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAdd_Table(), ecorePackage.getEString(), "table", null, 1, 1, Add.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAdd_Tuple(), ecorePackage.getEString(), "tuple", null, 1, 1, Add.class, !IS_TRANSIENT,
+		initEAttribute(getAdd_Valeur(), ecorePackage.getEString(), "valeur", null, 1, -1, Add.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(joinEClass, Join.class, "Join", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -650,6 +722,15 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCondition_Valeur(), ecorePackage.getEString(), "valeur", null, 1, 1, Condition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 1, 1, Parameter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Colonne(), ecorePackage.getEString(), "colonne", null, 1, 1, Parameter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

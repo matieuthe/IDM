@@ -2,6 +2,8 @@
  */
 package csvManager;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Create</b></em>'.
@@ -11,7 +13,7 @@ package csvManager;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link csvManager.Create#getAlias <em>Alias</em>}</li>
+ *   <li>{@link csvManager.Create#getColonne <em>Colonne</em>}</li>
  *   <li>{@link csvManager.Create#getTable <em>Table</em>}</li>
  * </ul>
  *
@@ -22,30 +24,20 @@ package csvManager;
 public interface Create extends Instruction {
 
 	/**
-	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
+	 * Returns the value of the '<em><b>Colonne</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alias</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Colonne</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alias</em>' attribute.
-	 * @see #setAlias(String)
-	 * @see csvManager.CsvManagerPackage#getCreate_Alias()
+	 * @return the value of the '<em>Colonne</em>' attribute list.
+	 * @see csvManager.CsvManagerPackage#getCreate_Colonne()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getAlias();
-
-	/**
-	 * Sets the value of the '{@link csvManager.Create#getAlias <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alias</em>' attribute.
-	 * @see #getAlias()
-	 * @generated
-	 */
-	void setAlias(String value);
+	EList<String> getColonne();
 
 	/**
 	 * Returns the value of the '<em><b>Table</b></em>' attribute.

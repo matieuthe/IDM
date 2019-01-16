@@ -20,14 +20,15 @@
     <genClasses ecoreClass="csvManager.ecore#//Show">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Show/table"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Show/where"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Show/colonne"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Update">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Update/table"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Update/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Update/where"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Update/parameter"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Create">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/colonne"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Create/table"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Delete">
@@ -36,7 +37,7 @@
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Add">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Add/table"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Add/tuple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Add/valeur"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Join">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Join/table1"/>
@@ -51,5 +52,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Condition/atribut"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Condition/valeur"/>
     </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Parameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Parameter/colonne"/>
+    </genClasses>
+    <genClasses ecoreClass="csvManager.ecore#//Comment"/>
   </genPackages>
 </genmodel:GenModel>

@@ -4,9 +4,12 @@ package csvManager.impl;
 
 import csvManager.Create;
 import csvManager.CsvManagerPackage;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link csvManager.impl.CreateImpl#getAlias <em>Alias</em>}</li>
+ *   <li>{@link csvManager.impl.CreateImpl#getColonne <em>Colonne</em>}</li>
  *   <li>{@link csvManager.impl.CreateImpl#getTable <em>Table</em>}</li>
  * </ul>
  *
@@ -24,23 +27,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CreateImpl extends InstructionImpl implements Create {
 	/**
-	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
+	 * The cached value of the '{@link #getColonne() <em>Colonne</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAlias()
+	 * @see #getColonne()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ALIAS_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected String alias = ALIAS_EDEFAULT;
+	protected EList<String> colonne;
 	/**
 	 * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,20 +78,11 @@ public class CreateImpl extends InstructionImpl implements Create {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAlias() {
-		return alias;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAlias(String newAlias) {
-		String oldAlias = alias;
-		alias = newAlias;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.CREATE__ALIAS, oldAlias, alias));
+	public EList<String> getColonne() {
+		if (colonne == null) {
+			colonne = new EDataTypeUniqueEList<String>(String.class, this, CsvManagerPackage.CREATE__COLONNE);
+		}
+		return colonne;
 	}
 
 	/**
@@ -129,8 +114,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CsvManagerPackage.CREATE__ALIAS:
-			return getAlias();
+		case CsvManagerPackage.CREATE__COLONNE:
+			return getColonne();
 		case CsvManagerPackage.CREATE__TABLE:
 			return getTable();
 		}
@@ -142,11 +127,13 @@ public class CreateImpl extends InstructionImpl implements Create {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CsvManagerPackage.CREATE__ALIAS:
-			setAlias((String) newValue);
+		case CsvManagerPackage.CREATE__COLONNE:
+			getColonne().clear();
+			getColonne().addAll((Collection<? extends String>) newValue);
 			return;
 		case CsvManagerPackage.CREATE__TABLE:
 			setTable((String) newValue);
@@ -163,8 +150,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CsvManagerPackage.CREATE__ALIAS:
-			setAlias(ALIAS_EDEFAULT);
+		case CsvManagerPackage.CREATE__COLONNE:
+			getColonne().clear();
 			return;
 		case CsvManagerPackage.CREATE__TABLE:
 			setTable(TABLE_EDEFAULT);
@@ -181,8 +168,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CsvManagerPackage.CREATE__ALIAS:
-			return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
+		case CsvManagerPackage.CREATE__COLONNE:
+			return colonne != null && !colonne.isEmpty();
 		case CsvManagerPackage.CREATE__TABLE:
 			return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
 		}
@@ -200,8 +187,8 @@ public class CreateImpl extends InstructionImpl implements Create {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (alias: ");
-		result.append(alias);
+		result.append(" (colonne: ");
+		result.append(colonne);
 		result.append(", table: ");
 		result.append(table);
 		result.append(')');

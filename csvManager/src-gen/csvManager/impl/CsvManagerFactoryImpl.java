@@ -80,6 +80,10 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 			return createWhere();
 		case CsvManagerPackage.CONDITION:
 			return createCondition();
+		case CsvManagerPackage.PARAMETER:
+			return createParameter();
+		case CsvManagerPackage.COMMENT:
+			return createComment();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -193,6 +197,26 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 	public Condition createCondition() {
 		ConditionImpl condition = new ConditionImpl();
 		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Comment createComment() {
+		CommentImpl comment = new CommentImpl();
+		return comment;
 	}
 
 	/**

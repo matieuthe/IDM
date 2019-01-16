@@ -3,13 +3,18 @@
 package csvManager.impl;
 
 import csvManager.CsvManagerPackage;
+import csvManager.Parameter;
 import csvManager.Update;
 import csvManager.Where;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link csvManager.impl.UpdateImpl#getTable <em>Table</em>}</li>
- *   <li>{@link csvManager.impl.UpdateImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link csvManager.impl.UpdateImpl#getWhere <em>Where</em>}</li>
+ *   <li>{@link csvManager.impl.UpdateImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,25 +51,6 @@ public class UpdateImpl extends InstructionImpl implements Update {
 	 */
 	protected String table = TABLE_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getParameters() <em>Parameters</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PARAMETERS_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected String parameters = PARAMETERS_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getWhere() <em>Where</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,6 +59,16 @@ public class UpdateImpl extends InstructionImpl implements Update {
 	 * @ordered
 	 */
 	protected Where where;
+
+	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,28 +108,6 @@ public class UpdateImpl extends InstructionImpl implements Update {
 		table = newTable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.UPDATE__TABLE, oldTable, table));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getParameters() {
-		return parameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParameters(String newParameters) {
-		String oldParameters = parameters;
-		parameters = newParameters;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.UPDATE__PARAMETERS, oldParameters,
-					parameters));
 	}
 
 	/**
@@ -190,11 +164,26 @@ public class UpdateImpl extends InstructionImpl implements Update {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Parameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					CsvManagerPackage.UPDATE__PARAMETER);
+		}
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case CsvManagerPackage.UPDATE__WHERE:
 			return basicSetWhere(null, msgs);
+		case CsvManagerPackage.UPDATE__PARAMETER:
+			return ((InternalEList<?>) getParameter()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -209,10 +198,10 @@ public class UpdateImpl extends InstructionImpl implements Update {
 		switch (featureID) {
 		case CsvManagerPackage.UPDATE__TABLE:
 			return getTable();
-		case CsvManagerPackage.UPDATE__PARAMETERS:
-			return getParameters();
 		case CsvManagerPackage.UPDATE__WHERE:
 			return getWhere();
+		case CsvManagerPackage.UPDATE__PARAMETER:
+			return getParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,17 +211,19 @@ public class UpdateImpl extends InstructionImpl implements Update {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case CsvManagerPackage.UPDATE__TABLE:
 			setTable((String) newValue);
 			return;
-		case CsvManagerPackage.UPDATE__PARAMETERS:
-			setParameters((String) newValue);
-			return;
 		case CsvManagerPackage.UPDATE__WHERE:
 			setWhere((Where) newValue);
+			return;
+		case CsvManagerPackage.UPDATE__PARAMETER:
+			getParameter().clear();
+			getParameter().addAll((Collection<? extends Parameter>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -249,11 +240,11 @@ public class UpdateImpl extends InstructionImpl implements Update {
 		case CsvManagerPackage.UPDATE__TABLE:
 			setTable(TABLE_EDEFAULT);
 			return;
-		case CsvManagerPackage.UPDATE__PARAMETERS:
-			setParameters(PARAMETERS_EDEFAULT);
-			return;
 		case CsvManagerPackage.UPDATE__WHERE:
 			setWhere((Where) null);
+			return;
+		case CsvManagerPackage.UPDATE__PARAMETER:
+			getParameter().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -269,10 +260,10 @@ public class UpdateImpl extends InstructionImpl implements Update {
 		switch (featureID) {
 		case CsvManagerPackage.UPDATE__TABLE:
 			return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
-		case CsvManagerPackage.UPDATE__PARAMETERS:
-			return PARAMETERS_EDEFAULT == null ? parameters != null : !PARAMETERS_EDEFAULT.equals(parameters);
 		case CsvManagerPackage.UPDATE__WHERE:
 			return where != null;
+		case CsvManagerPackage.UPDATE__PARAMETER:
+			return parameter != null && !parameter.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -290,8 +281,6 @@ public class UpdateImpl extends InstructionImpl implements Update {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (table: ");
 		result.append(table);
-		result.append(", parameters: ");
-		result.append(parameters);
 		result.append(')');
 		return result.toString();
 	}

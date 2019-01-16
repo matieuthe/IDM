@@ -192,6 +192,15 @@ ruleInstruction returns [EObject current=null]
 			$current = $this_Exit_7.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getInstructionAccess().getCommentParserRuleCall_8());
+		}
+		this_Comment_8=ruleComment
+		{
+			$current = $this_Comment_8.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -241,32 +250,61 @@ ruleCreate returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3='as'
+		otherlv_3='('
 		{
-			newLeafNode(otherlv_3, grammarAccess.getCreateAccess().getAsKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getCreateAccess().getLeftParenthesisKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCreateAccess().getAliasEStringParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCreateAccess().getColonneEStringParserRuleCall_4_0());
 				}
-				lv_alias_4_0=ruleEString
+				lv_colonne_4_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCreateRule());
 					}
-					set(
+					add(
 						$current,
-						"alias",
-						lv_alias_4_0,
+						"colonne",
+						lv_colonne_4_0,
 						"org.xtext.example.csvmanl.CsvMan.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		this_NL_5=RULE_NL
+		(
+			otherlv_5=','
+			{
+				newLeafNode(otherlv_5, grammarAccess.getCreateAccess().getCommaKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getCreateAccess().getColonneEStringParserRuleCall_5_1_0());
+					}
+					lv_colonne_6_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getCreateRule());
+						}
+						add(
+							$current,
+							"colonne",
+							lv_colonne_6_0,
+							"org.xtext.example.csvmanl.CsvMan.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_7=')'
 		{
-			newLeafNode(this_NL_5, grammarAccess.getCreateAccess().getNLTerminalRuleCall_5());
+			newLeafNode(otherlv_7, grammarAccess.getCreateAccess().getRightParenthesisKeyword_6());
+		}
+		this_NL_8=RULE_NL
+		{
+			newLeafNode(this_NL_8, grammarAccess.getCreateAccess().getNLTerminalRuleCall_7());
 		}
 	)
 ;
@@ -394,11 +432,65 @@ ruleShow returns [EObject current=null]
 			)
 		)
 		(
+			otherlv_3='('
+			{
+				newLeafNode(otherlv_3, grammarAccess.getShowAccess().getLeftParenthesisKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getShowAccess().getColonneEStringParserRuleCall_3_1_0());
+					}
+					lv_colonne_4_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getShowRule());
+						}
+						add(
+							$current,
+							"colonne",
+							lv_colonne_4_0,
+							"org.xtext.example.csvmanl.CsvMan.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getShowAccess().getCommaKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getShowAccess().getColonneEStringParserRuleCall_3_2_1_0());
+						}
+						lv_colonne_6_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getShowRule());
+							}
+							add(
+								$current,
+								"colonne",
+								lv_colonne_6_0,
+								"org.xtext.example.csvmanl.CsvMan.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_7=')'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getShowAccess().getRightParenthesisKeyword_3_3());
+			}
+		)?
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getShowAccess().getWhereWhereParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getShowAccess().getWhereWhereParserRuleCall_4_0());
 				}
-				lv_where_3_0=ruleWhere
+				lv_where_8_0=ruleWhere
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getShowRule());
@@ -406,15 +498,15 @@ ruleShow returns [EObject current=null]
 					set(
 						$current,
 						"where",
-						lv_where_3_0,
+						lv_where_8_0,
 						"org.xtext.example.csvmanl.CsvMan.Where");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		this_NL_4=RULE_NL
+		this_NL_9=RULE_NL
 		{
-			newLeafNode(this_NL_4, grammarAccess.getShowAccess().getNLTerminalRuleCall_4());
+			newLeafNode(this_NL_9, grammarAccess.getShowAccess().getNLTerminalRuleCall_5());
 		}
 	)
 ;
@@ -472,28 +564,53 @@ ruleUpdate returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUpdateAccess().getParametersEStringParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getUpdateAccess().getParameterParameterParserRuleCall_4_0());
 				}
-				lv_parameters_4_0=ruleEString
+				lv_parameter_4_0=ruleParameter
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUpdateRule());
 					}
-					set(
+					add(
 						$current,
-						"parameters",
-						lv_parameters_4_0,
-						"org.xtext.example.csvmanl.CsvMan.EString");
+						"parameter",
+						lv_parameter_4_0,
+						"org.xtext.example.csvmanl.CsvMan.Parameter");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
+			otherlv_5=','
+			{
+				newLeafNode(otherlv_5, grammarAccess.getUpdateAccess().getCommaKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUpdateAccess().getParameterParameterParserRuleCall_5_1_0());
+					}
+					lv_parameter_6_0=ruleParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUpdateRule());
+						}
+						add(
+							$current,
+							"parameter",
+							lv_parameter_6_0,
+							"org.xtext.example.csvmanl.CsvMan.Parameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUpdateAccess().getWhereWhereParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getUpdateAccess().getWhereWhereParserRuleCall_6_0());
 				}
-				lv_where_5_0=ruleWhere
+				lv_where_7_0=ruleWhere
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUpdateRule());
@@ -501,15 +618,15 @@ ruleUpdate returns [EObject current=null]
 					set(
 						$current,
 						"where",
-						lv_where_5_0,
+						lv_where_7_0,
 						"org.xtext.example.csvmanl.CsvMan.Where");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		this_NL_6=RULE_NL
+		this_NL_8=RULE_NL
 		{
-			newLeafNode(this_NL_6, grammarAccess.getUpdateAccess().getNLTerminalRuleCall_6());
+			newLeafNode(this_NL_8, grammarAccess.getUpdateAccess().getNLTerminalRuleCall_7());
 		}
 	)
 ;
@@ -541,35 +658,68 @@ ruleAdd returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getAddAccess().getAddKeyword_1());
 		}
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddAccess().getTupleEStringParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_3_0());
 				}
-				lv_tuple_2_0=ruleEString
+				lv_valeur_3_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAddRule());
 					}
-					set(
+					add(
 						$current,
-						"tuple",
-						lv_tuple_2_0,
+						"valeur",
+						lv_valeur_3_0,
 						"org.xtext.example.csvmanl.CsvMan.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='in'
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getAddAccess().getCommaKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_4_1_0());
+					}
+					lv_valeur_5_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAddRule());
+						}
+						add(
+							$current,
+							"valeur",
+							lv_valeur_5_0,
+							"org.xtext.example.csvmanl.CsvMan.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_6=')'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getAddAccess().getInKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getAddAccess().getRightParenthesisKeyword_5());
+		}
+		otherlv_7='in'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getAddAccess().getInKeyword_6());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddAccess().getTableEStringParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getAddAccess().getTableEStringParserRuleCall_7_0());
 				}
-				lv_table_4_0=ruleEString
+				lv_table_8_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAddRule());
@@ -577,15 +727,15 @@ ruleAdd returns [EObject current=null]
 					set(
 						$current,
 						"table",
-						lv_table_4_0,
+						lv_table_8_0,
 						"org.xtext.example.csvmanl.CsvMan.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		this_NL_5=RULE_NL
+		this_NL_9=RULE_NL
 		{
-			newLeafNode(this_NL_5, grammarAccess.getAddAccess().getNLTerminalRuleCall_5());
+			newLeafNode(this_NL_9, grammarAccess.getAddAccess().getNLTerminalRuleCall_8());
 		}
 	)
 ;
@@ -761,10 +911,6 @@ ruleExit returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getExitAccess().getExitKeyword_1());
 		}
-		this_NL_2=RULE_NL
-		{
-			newLeafNode(this_NL_2, grammarAccess.getExitAccess().getNLTerminalRuleCall_2());
-		}
 	)
 ;
 
@@ -884,16 +1030,23 @@ ruleCondition returns [EObject current=null]
 				}
 			)
 		)
-		this_OP_2=RULE_OP
-		{
-			newLeafNode(this_OP_2, grammarAccess.getConditionAccess().getOPTerminalRuleCall_2());
-		}
+		(
+			otherlv_2='='
+			{
+				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getEqualsSignKeyword_2_0());
+			}
+			    |
+			this_OP_3=RULE_OP
+			{
+				newLeafNode(this_OP_3, grammarAccess.getConditionAccess().getOPTerminalRuleCall_2_1());
+			}
+		)
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getConditionAccess().getValeurEStringParserRuleCall_3_0());
 				}
-				lv_valeur_3_0=ruleEString
+				lv_valeur_4_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConditionRule());
@@ -901,12 +1054,114 @@ ruleCondition returns [EObject current=null]
 					set(
 						$current,
 						"valeur",
-						lv_valeur_3_0,
+						lv_valeur_4_0,
 						"org.xtext.example.csvmanl.CsvMan.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleParameter
+entryRuleParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterRule()); }
+	iv_ruleParameter=ruleParameter
+	{ $current=$iv_ruleParameter.current; }
+	EOF;
+
+// Rule Parameter
+ruleParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getParameterAccess().getParameterAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParameterAccess().getColonneEStringParserRuleCall_1_0());
+				}
+				lv_colonne_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParameterRule());
+					}
+					set(
+						$current,
+						"colonne",
+						lv_colonne_1_0,
+						"org.xtext.example.csvmanl.CsvMan.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getParameterAccess().getEqualsSignKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParameterAccess().getValueEStringParserRuleCall_3_0());
+				}
+				lv_value_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParameterRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_3_0,
+						"org.xtext.example.csvmanl.CsvMan.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleComment
+entryRuleComment returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCommentRule()); }
+	iv_ruleComment=ruleComment
+	{ $current=$iv_ruleComment.current; }
+	EOF;
+
+// Rule Comment
+ruleComment returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			this_ML_COMMENT_0=RULE_ML_COMMENT
+			{
+				newLeafNode(this_ML_COMMENT_0, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0_0());
+			}
+			    |
+			this_SL_COMMENT_1=RULE_SL_COMMENT
+			{
+				newLeafNode(this_SL_COMMENT_1, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_0_1());
+			}
+		)
+		this_NL_2=RULE_NL
+		{
+			newLeafNode(this_NL_2, grammarAccess.getCommentAccess().getNLTerminalRuleCall_1());
+		}
 	)
 ;
 
@@ -941,12 +1196,20 @@ ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		{
 			newLeafNode(this_ID_1, grammarAccess.getEStringAccess().getIDTerminalRuleCall_1());
 		}
+		    |
+		this_INT_2=RULE_INT
+		{
+			$current.merge(this_INT_2);
+		}
+		{
+			newLeafNode(this_INT_2, grammarAccess.getEStringAccess().getINTTerminalRuleCall_2());
+		}
 	)
 ;
 
-RULE_OP : ('<'|'='|'>'|'>='|'<=');
+RULE_OP : ('<'|'>'|'>='|'<=');
 
-RULE_NL : ('\r'|'\n')+;
+RULE_NL : ('\b'|'\t')* ('\r'|'\n'|';')+;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

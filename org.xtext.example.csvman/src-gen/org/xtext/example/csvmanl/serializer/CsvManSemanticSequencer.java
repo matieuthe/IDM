@@ -63,6 +63,9 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case CsvManagerPackage.LOAD:
 				sequence_Load(context, (Load) semanticObject); 
 				return; 
+			case CsvManagerPackage.PARAMETER:
+				sequence_Parameter(context, (csvManager.Parameter) semanticObject); 
+				return; 
 			case CsvManagerPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
 				return; 
@@ -86,19 +89,10 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Add returns Add
 	 *
 	 * Constraint:
-	 *     (tuple=EString table=EString)
+	 *     (valeur+=EString valeur+=EString* table=EString)
 	 */
 	protected void sequence_Add(ISerializationContext context, Add semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.ADD__TUPLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.ADD__TUPLE));
-			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.ADD__TABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.ADD__TABLE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddAccess().getTupleEStringParserRuleCall_2_0(), semanticObject.getTuple());
-		feeder.accept(grammarAccess.getAddAccess().getTableEStringParserRuleCall_4_0(), semanticObject.getTable());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -129,19 +123,10 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Create returns Create
 	 *
 	 * Constraint:
-	 *     (table=EString alias=EString)
+	 *     (table=EString colonne+=EString colonne+=EString*)
 	 */
 	protected void sequence_Create(ISerializationContext context, Create semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.CREATE__TABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.CREATE__TABLE));
-			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.CREATE__ALIAS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.CREATE__ALIAS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCreateAccess().getTableEStringParserRuleCall_2_0(), semanticObject.getTable());
-		feeder.accept(grammarAccess.getCreateAccess().getAliasEStringParserRuleCall_4_0(), semanticObject.getAlias());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -217,6 +202,27 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (colonne=EString value=EString)
+	 */
+	protected void sequence_Parameter(ISerializationContext context, csvManager.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.PARAMETER__COLONNE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.PARAMETER__COLONNE));
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.PARAMETER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.PARAMETER__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getColonneEStringParserRuleCall_1_0(), semanticObject.getColonne());
+		feeder.accept(grammarAccess.getParameterAccess().getValueEStringParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Program returns Program
 	 *
 	 * Constraint:
@@ -233,7 +239,7 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Show returns Show
 	 *
 	 * Constraint:
-	 *     (table=EString where=Where?)
+	 *     (table=EString (colonne+=EString colonne+=EString*)? where=Where?)
 	 */
 	protected void sequence_Show(ISerializationContext context, Show semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -246,7 +252,7 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Update returns Update
 	 *
 	 * Constraint:
-	 *     (table=EString parameters=EString where=Where?)
+	 *     (table=EString parameter+=Parameter parameter+=Parameter* where=Where?)
 	 */
 	protected void sequence_Update(ISerializationContext context, Update semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

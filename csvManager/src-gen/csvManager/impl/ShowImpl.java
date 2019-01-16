@@ -6,11 +6,14 @@ import csvManager.CsvManagerPackage;
 import csvManager.Show;
 
 import csvManager.Where;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link csvManager.impl.ShowImpl#getTable <em>Table</em>}</li>
  *   <li>{@link csvManager.impl.ShowImpl#getWhere <em>Where</em>}</li>
+ *   <li>{@link csvManager.impl.ShowImpl#getColonne <em>Colonne</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,6 +40,7 @@ public class ShowImpl extends InstructionImpl implements Show {
 	 * @ordered
 	 */
 	protected static final String TABLE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getTable() <em>Table</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,6 +60,16 @@ public class ShowImpl extends InstructionImpl implements Show {
 	 * @ordered
 	 */
 	protected Where where;
+
+	/**
+	 * The cached value of the '{@link #getColonne() <em>Colonne</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColonne()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> colonne;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +165,18 @@ public class ShowImpl extends InstructionImpl implements Show {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getColonne() {
+		if (colonne == null) {
+			colonne = new EDataTypeUniqueEList<String>(String.class, this, CsvManagerPackage.SHOW__COLONNE);
+		}
+		return colonne;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -171,6 +198,8 @@ public class ShowImpl extends InstructionImpl implements Show {
 			return getTable();
 		case CsvManagerPackage.SHOW__WHERE:
 			return getWhere();
+		case CsvManagerPackage.SHOW__COLONNE:
+			return getColonne();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +209,7 @@ public class ShowImpl extends InstructionImpl implements Show {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -188,6 +218,10 @@ public class ShowImpl extends InstructionImpl implements Show {
 			return;
 		case CsvManagerPackage.SHOW__WHERE:
 			setWhere((Where) newValue);
+			return;
+		case CsvManagerPackage.SHOW__COLONNE:
+			getColonne().clear();
+			getColonne().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,6 +241,9 @@ public class ShowImpl extends InstructionImpl implements Show {
 		case CsvManagerPackage.SHOW__WHERE:
 			setWhere((Where) null);
 			return;
+		case CsvManagerPackage.SHOW__COLONNE:
+			getColonne().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -223,6 +260,8 @@ public class ShowImpl extends InstructionImpl implements Show {
 			return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
 		case CsvManagerPackage.SHOW__WHERE:
 			return where != null;
+		case CsvManagerPackage.SHOW__COLONNE:
+			return colonne != null && !colonne.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -240,6 +279,8 @@ public class ShowImpl extends InstructionImpl implements Show {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (table: ");
 		result.append(table);
+		result.append(", colonne: ");
+		result.append(colonne);
 		result.append(')');
 		return result.toString();
 	}

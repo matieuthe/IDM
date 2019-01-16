@@ -2,6 +2,8 @@
  */
 package csvManager;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Add</b></em>'.
@@ -12,7 +14,7 @@ package csvManager;
  * </p>
  * <ul>
  *   <li>{@link csvManager.Add#getTable <em>Table</em>}</li>
- *   <li>{@link csvManager.Add#getTuple <em>Tuple</em>}</li>
+ *   <li>{@link csvManager.Add#getValeur <em>Valeur</em>}</li>
  * </ul>
  *
  * @see csvManager.CsvManagerPackage#getAdd()
@@ -48,28 +50,18 @@ public interface Add extends Instruction {
 	void setTable(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Tuple</b></em>' attribute.
+	 * Returns the value of the '<em><b>Valeur</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tuple</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Valeur</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tuple</em>' attribute.
-	 * @see #setTuple(String)
-	 * @see csvManager.CsvManagerPackage#getAdd_Tuple()
+	 * @return the value of the '<em>Valeur</em>' attribute list.
+	 * @see csvManager.CsvManagerPackage#getAdd_Valeur()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getTuple();
-
-	/**
-	 * Sets the value of the '{@link csvManager.Add#getTuple <em>Tuple</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tuple</em>' attribute.
-	 * @see #getTuple()
-	 * @generated
-	 */
-	void setTuple(String value);
+	EList<String> getValeur();
 } // Add

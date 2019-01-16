@@ -9,12 +9,12 @@ Program returns Program:
 		instruction+=Instruction* ;
 
 Instruction returns Instruction:
-	Create | Load | Show | Update | Add | Join | Delete | Exit;
+	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment;
 
 
 Create returns Create:
 	{Create}
-	'create' table=EString 'as' alias=EString NL;
+	'create' table=EString '('colonne+=EString (',' colonne+=EString)* ')' NL;
 
 Load returns Load:
 	{Load}
@@ -22,15 +22,15 @@ Load returns Load:
 	
 Show returns Show:
 	{Show}
-	'show' table=EString (where=Where)? NL;
+	'show' table=EString ('('colonne+=EString (',' colonne+=EString)* ')')? (where=Where)? NL;
 
 Update returns Update:
 	{Update}
-	'update' table=EString 'set' parameters=EString (where=Where)? NL;
+	'update' table=EString 'set' parameter+=Parameter (',' parameter+=Parameter)* (where=Where)? NL;
 
 Add returns Add:
 	{Add}
-	'add' tuple=EString 'in' table=EString NL;
+	'add' '(' valeur+=EString (',' valeur+=EString)* ')' 'in' table=EString NL;
 
 Join returns Join:
 	{Join}
@@ -42,7 +42,7 @@ Delete returns Delete:
 
 Exit returns Exit:
 	{Exit}
-	'exit' NL;
+	'exit';
 
 Where returns Where:
 	{Where}
@@ -50,10 +50,18 @@ Where returns Where:
 
 Condition returns Condition:
 	{Condition}
-	atribut=EString OP valeur=EString;
+	atribut=EString ('=' | OP) valeur=EString;
+	
+Parameter returns Parameter: 
+	{Parameter}
+	colonne=EString '=' value=EString;
+	
+Comment returns Comment:
+	ML_COMMENT | SL_COMMENT 
+;
 	
 EString returns ecore::EString:
-	STRING | ID;
+	STRING | ID | INT;
 	
-terminal OP: '<' | '=' | '>' | '>=' | '<=';
-terminal NL: (('\r'|'\n')+);
+terminal OP: '<' | '>' | '>=' | '<=';
+terminal NL: (('\b'|'\t')*('\r'|'\n' | ';')+);

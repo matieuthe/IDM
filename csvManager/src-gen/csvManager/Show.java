@@ -2,6 +2,8 @@
  */
 package csvManager;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Show</b></em>'.
@@ -13,6 +15,7 @@ package csvManager;
  * <ul>
  *   <li>{@link csvManager.Show#getTable <em>Table</em>}</li>
  *   <li>{@link csvManager.Show#getWhere <em>Where</em>}</li>
+ *   <li>{@link csvManager.Show#getColonne <em>Colonne</em>}</li>
  * </ul>
  *
  * @see csvManager.CsvManagerPackage#getShow()
@@ -72,4 +75,20 @@ public interface Show extends Instruction {
 	 * @generated
 	 */
 	void setWhere(Where value);
+
+	/**
+	 * Returns the value of the '<em><b>Colonne</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Colonne</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Colonne</em>' attribute list.
+	 * @see csvManager.CsvManagerPackage#getShow_Colonne()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getColonne();
 } // Show

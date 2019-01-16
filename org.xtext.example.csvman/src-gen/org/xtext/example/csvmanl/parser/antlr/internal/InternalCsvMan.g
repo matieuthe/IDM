@@ -1147,20 +1147,14 @@ ruleComment returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			this_ML_COMMENT_0=RULE_ML_COMMENT
-			{
-				newLeafNode(this_ML_COMMENT_0, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0_0());
-			}
-			    |
-			this_SL_COMMENT_1=RULE_SL_COMMENT
-			{
-				newLeafNode(this_SL_COMMENT_1, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_0_1());
-			}
-		)
-		this_NL_2=RULE_NL
+		this_ML_COMMENT_0=RULE_ML_COMMENT
 		{
-			newLeafNode(this_NL_2, grammarAccess.getCommentAccess().getNLTerminalRuleCall_1());
+			newLeafNode(this_ML_COMMENT_0, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0());
+		}
+		    |
+		this_SL_COMMENT_1=RULE_SL_COMMENT
+		{
+			newLeafNode(this_SL_COMMENT_1, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_1());
 		}
 	)
 ;

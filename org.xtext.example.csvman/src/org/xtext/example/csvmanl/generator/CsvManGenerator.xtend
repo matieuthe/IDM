@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import csvManager.Program
+import csvManager.Instruction
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +18,23 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class CsvManGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('Main.java', resource.allContents.filter(Program).toIterable.head.compile.toString)
+		println('execution !')
+		//Runtime.getRuntime().exec("ls")
 	}
+	
+	def dispatch compile(Program program)
+		'''
+		public class Main {
+			public static void main(String args[]) {
+				«FOR exp: program.instruction»
+					«exp.compile»				
+				«ENDFOR»
+			}
+		}
+		'''
+		
+	def dispatch compile(Instruction instruction)
+		'''System.out.println("«instruction»");
+		'''
 }

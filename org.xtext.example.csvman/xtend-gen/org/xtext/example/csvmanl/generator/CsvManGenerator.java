@@ -3,10 +3,20 @@
  */
 package org.xtext.example.csvmanl.generator;
 
+import com.google.common.collect.Iterators;
+import csvManager.Instruction;
+import csvManager.Program;
+import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +27,52 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class CsvManGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    fsa.generateFile("Main.java", this.compile(IterableExtensions.<Program>head(IteratorExtensions.<Program>toIterable(Iterators.<Program>filter(resource.getAllContents(), Program.class)))).toString());
+    InputOutput.<String>println("execution !");
+  }
+  
+  protected CharSequence _compile(final Program program) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public class Main {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void main(String args[]) {");
+    _builder.newLine();
+    {
+      EList<Instruction> _instruction = program.getInstruction();
+      for(final Instruction exp : _instruction) {
+        _builder.append("\t\t");
+        Object _compile = this.compile(exp);
+        _builder.append(_compile, "\t\t");
+        _builder.append("\t\t\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compile(final Instruction instruction) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("System.out.println(\"");
+    _builder.append(instruction);
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final EObject instruction) {
+    if (instruction instanceof Instruction) {
+      return _compile((Instruction)instruction);
+    } else if (instruction instanceof Program) {
+      return _compile((Program)instruction);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(instruction).toString());
+    }
   }
 }

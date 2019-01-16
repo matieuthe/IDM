@@ -390,9 +390,9 @@ ruleComment
 	}
 	:
 	(
-		{ before(grammarAccess.getCommentAccess().getGroup()); }
-		(rule__Comment__Group__0)
-		{ after(grammarAccess.getCommentAccess().getGroup()); }
+		{ before(grammarAccess.getCommentAccess().getAlternatives()); }
+		(rule__Comment__Alternatives)
+		{ after(grammarAccess.getCommentAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -508,21 +508,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Comment__Alternatives_0
+rule__Comment__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0()); }
 		RULE_ML_COMMENT
-		{ after(grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0_0()); }
+		{ after(grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_0_1()); }
+		{ before(grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_1()); }
 		RULE_SL_COMMENT
-		{ after(grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_0_1()); }
+		{ after(grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_1()); }
 	)
 ;
 finally {
@@ -2628,60 +2628,6 @@ rule__Parameter__Group__3__Impl
 	{ before(grammarAccess.getParameterAccess().getValueAssignment_3()); }
 	(rule__Parameter__ValueAssignment_3)
 	{ after(grammarAccess.getParameterAccess().getValueAssignment_3()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Comment__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Comment__Group__0__Impl
-	rule__Comment__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Comment__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getCommentAccess().getAlternatives_0()); }
-	(rule__Comment__Alternatives_0)
-	{ after(grammarAccess.getCommentAccess().getAlternatives_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Comment__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Comment__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Comment__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getCommentAccess().getNLTerminalRuleCall_1()); }
-	RULE_NL
-	{ after(grammarAccess.getCommentAccess().getNLTerminalRuleCall_1()); }
 )
 ;
 finally {

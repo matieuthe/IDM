@@ -389,10 +389,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_OP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1210:9: ( ( '<' | '>' | '>=' | '<=' ) )
-            // InternalCsvMan.g:1210:11: ( '<' | '>' | '>=' | '<=' )
+            // InternalCsvMan.g:1204:9: ( ( '<' | '>' | '>=' | '<=' ) )
+            // InternalCsvMan.g:1204:11: ( '<' | '>' | '>=' | '<=' )
             {
-            // InternalCsvMan.g:1210:11: ( '<' | '>' | '>=' | '<=' )
+            // InternalCsvMan.g:1204:11: ( '<' | '>' | '>=' | '<=' )
             int alt1=4;
             int LA1_0 = input.LA(1);
 
@@ -422,21 +422,21 @@ public class InternalCsvManLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalCsvMan.g:1210:12: '<'
+                    // InternalCsvMan.g:1204:12: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1210:16: '>'
+                    // InternalCsvMan.g:1204:16: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 3 :
-                    // InternalCsvMan.g:1210:20: '>='
+                    // InternalCsvMan.g:1204:20: '>='
                     {
                     match(">="); 
 
@@ -444,7 +444,7 @@ public class InternalCsvManLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalCsvMan.g:1210:25: '<='
+                    // InternalCsvMan.g:1204:25: '<='
                     {
                     match("<="); 
 
@@ -470,10 +470,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_NL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1212:9: ( ( '\\b' | '\\t' )* ( '\\r' | '\\n' | ';' )+ )
-            // InternalCsvMan.g:1212:11: ( '\\b' | '\\t' )* ( '\\r' | '\\n' | ';' )+
+            // InternalCsvMan.g:1206:9: ( ( '\\b' | '\\t' )* ( '\\r' | '\\n' | ';' )+ )
+            // InternalCsvMan.g:1206:11: ( '\\b' | '\\t' )* ( '\\r' | '\\n' | ';' )+
             {
-            // InternalCsvMan.g:1212:11: ( '\\b' | '\\t' )*
+            // InternalCsvMan.g:1206:11: ( '\\b' | '\\t' )*
             loop2:
             do {
                 int alt2=2;
@@ -506,7 +506,7 @@ public class InternalCsvManLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalCsvMan.g:1212:24: ( '\\r' | '\\n' | ';' )+
+            // InternalCsvMan.g:1206:24: ( '\\r' | '\\n' | ';' )+
             int cnt3=0;
             loop3:
             do {
@@ -560,10 +560,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1214:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalCsvMan.g:1214:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalCsvMan.g:1208:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalCsvMan.g:1208:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalCsvMan.g:1214:11: ( '^' )?
+            // InternalCsvMan.g:1208:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -572,7 +572,7 @@ public class InternalCsvManLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalCsvMan.g:1214:11: '^'
+                    // InternalCsvMan.g:1208:11: '^'
                     {
                     match('^'); 
 
@@ -590,7 +590,7 @@ public class InternalCsvManLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalCsvMan.g:1214:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalCsvMan.g:1208:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -639,10 +639,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1216:10: ( ( '0' .. '9' )+ )
-            // InternalCsvMan.g:1216:12: ( '0' .. '9' )+
+            // InternalCsvMan.g:1210:10: ( ( '0' .. '9' )+ )
+            // InternalCsvMan.g:1210:12: ( '0' .. '9' )+
             {
-            // InternalCsvMan.g:1216:12: ( '0' .. '9' )+
+            // InternalCsvMan.g:1210:12: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -656,7 +656,7 @@ public class InternalCsvManLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalCsvMan.g:1216:13: '0' .. '9'
+            	    // InternalCsvMan.g:1210:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -688,10 +688,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1218:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalCsvMan.g:1218:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalCsvMan.g:1212:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalCsvMan.g:1212:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalCsvMan.g:1218:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalCsvMan.g:1212:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -709,10 +709,10 @@ public class InternalCsvManLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalCsvMan.g:1218:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalCsvMan.g:1212:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalCsvMan.g:1218:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalCsvMan.g:1212:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -728,7 +728,7 @@ public class InternalCsvManLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalCsvMan.g:1218:21: '\\\\' .
+                    	    // InternalCsvMan.g:1212:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -736,7 +736,7 @@ public class InternalCsvManLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCsvMan.g:1218:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalCsvMan.g:1212:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -761,10 +761,10 @@ public class InternalCsvManLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1218:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalCsvMan.g:1212:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalCsvMan.g:1218:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalCsvMan.g:1212:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -780,7 +780,7 @@ public class InternalCsvManLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalCsvMan.g:1218:54: '\\\\' .
+                    	    // InternalCsvMan.g:1212:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -788,7 +788,7 @@ public class InternalCsvManLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCsvMan.g:1218:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalCsvMan.g:1212:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -831,12 +831,12 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1220:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalCsvMan.g:1220:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalCsvMan.g:1214:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalCsvMan.g:1214:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalCsvMan.g:1220:24: ( options {greedy=false; } : . )*
+            // InternalCsvMan.g:1214:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -861,7 +861,7 @@ public class InternalCsvManLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalCsvMan.g:1220:52: .
+            	    // InternalCsvMan.g:1214:52: .
             	    {
             	    matchAny(); 
 
@@ -891,12 +891,12 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1222:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalCsvMan.g:1222:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalCsvMan.g:1216:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalCsvMan.g:1216:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalCsvMan.g:1222:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalCsvMan.g:1216:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -909,7 +909,7 @@ public class InternalCsvManLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalCsvMan.g:1222:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalCsvMan.g:1216:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -929,7 +929,7 @@ public class InternalCsvManLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalCsvMan.g:1222:40: ( ( '\\r' )? '\\n' )?
+            // InternalCsvMan.g:1216:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -938,9 +938,9 @@ public class InternalCsvManLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalCsvMan.g:1222:41: ( '\\r' )? '\\n'
+                    // InternalCsvMan.g:1216:41: ( '\\r' )? '\\n'
                     {
-                    // InternalCsvMan.g:1222:41: ( '\\r' )?
+                    // InternalCsvMan.g:1216:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -949,7 +949,7 @@ public class InternalCsvManLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // InternalCsvMan.g:1222:41: '\\r'
+                            // InternalCsvMan.g:1216:41: '\\r'
                             {
                             match('\r'); 
 
@@ -981,10 +981,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1224:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalCsvMan.g:1224:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalCsvMan.g:1218:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalCsvMan.g:1218:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalCsvMan.g:1224:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalCsvMan.g:1218:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -1038,8 +1038,8 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:1226:16: ( . )
-            // InternalCsvMan.g:1226:18: .
+            // InternalCsvMan.g:1220:16: ( . )
+            // InternalCsvMan.g:1220:18: .
             {
             matchAny(); 
 

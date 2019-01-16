@@ -21,13 +21,13 @@ import org.xtext.example.csvmanl.services.CsvManGrammarAccess;
 public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CsvManGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Comment_ML_COMMENTTerminalRuleCall_0_0_or_SL_COMMENTTerminalRuleCall_0_1;
+	protected AbstractElementAlias match_Comment_ML_COMMENTTerminalRuleCall_0_or_SL_COMMENTTerminalRuleCall_1;
 	protected AbstractElementAlias match_Condition_EqualsSignKeyword_2_0_or_OPTerminalRuleCall_2_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CsvManGrammarAccess) access;
-		match_Comment_ML_COMMENTTerminalRuleCall_0_0_or_SL_COMMENTTerminalRuleCall_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_0_1()));
+		match_Comment_ML_COMMENTTerminalRuleCall_0_or_SL_COMMENTTerminalRuleCall_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0()), new TokenAlias(false, false, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_1()));
 		match_Condition_EqualsSignKeyword_2_0_or_OPTerminalRuleCall_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getEqualsSignKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getOPTerminalRuleCall_2_1()));
 	}
 	
@@ -86,8 +86,8 @@ public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Comment_ML_COMMENTTerminalRuleCall_0_0_or_SL_COMMENTTerminalRuleCall_0_1.equals(syntax))
-				emit_Comment_ML_COMMENTTerminalRuleCall_0_0_or_SL_COMMENTTerminalRuleCall_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Comment_ML_COMMENTTerminalRuleCall_0_or_SL_COMMENTTerminalRuleCall_1.equals(syntax))
+				emit_Comment_ML_COMMENTTerminalRuleCall_0_or_SL_COMMENTTerminalRuleCall_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Condition_EqualsSignKeyword_2_0_or_OPTerminalRuleCall_2_1.equals(syntax))
 				emit_Condition_EqualsSignKeyword_2_0_or_OPTerminalRuleCall_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -99,9 +99,9 @@ public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ML_COMMENT | SL_COMMENT
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) NL (rule start)
+	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_Comment_ML_COMMENTTerminalRuleCall_0_0_or_SL_COMMENTTerminalRuleCall_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Comment_ML_COMMENTTerminalRuleCall_0_or_SL_COMMENTTerminalRuleCall_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

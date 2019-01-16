@@ -2730,25 +2730,21 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComment"
-    // InternalCsvMan.g:1142:1: ruleComment returns [EObject current=null] : ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) this_NL_2= RULE_NL ) ;
+    // InternalCsvMan.g:1142:1: ruleComment returns [EObject current=null] : (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) ;
     public final EObject ruleComment() throws RecognitionException {
         EObject current = null;
 
         Token this_ML_COMMENT_0=null;
         Token this_SL_COMMENT_1=null;
-        Token this_NL_2=null;
 
 
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1148:2: ( ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) this_NL_2= RULE_NL ) )
-            // InternalCsvMan.g:1149:2: ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) this_NL_2= RULE_NL )
+            // InternalCsvMan.g:1148:2: ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) )
+            // InternalCsvMan.g:1149:2: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
             {
-            // InternalCsvMan.g:1149:2: ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) this_NL_2= RULE_NL )
-            // InternalCsvMan.g:1150:3: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) this_NL_2= RULE_NL
-            {
-            // InternalCsvMan.g:1150:3: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
+            // InternalCsvMan.g:1149:2: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2766,32 +2762,25 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalCsvMan.g:1151:4: this_ML_COMMENT_0= RULE_ML_COMMENT
+                    // InternalCsvMan.g:1150:3: this_ML_COMMENT_0= RULE_ML_COMMENT
                     {
-                    this_ML_COMMENT_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_7); 
+                    this_ML_COMMENT_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_2); 
 
-                    				newLeafNode(this_ML_COMMENT_0, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0_0());
-                    			
+                    			newLeafNode(this_ML_COMMENT_0, grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0());
+                    		
 
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1156:4: this_SL_COMMENT_1= RULE_SL_COMMENT
+                    // InternalCsvMan.g:1155:3: this_SL_COMMENT_1= RULE_SL_COMMENT
                     {
-                    this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_7); 
+                    this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_2); 
 
-                    				newLeafNode(this_SL_COMMENT_1, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_0_1());
-                    			
+                    			newLeafNode(this_SL_COMMENT_1, grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_1());
+                    		
 
                     }
                     break;
-
-            }
-
-            this_NL_2=(Token)match(input,RULE_NL,FOLLOW_2); 
-
-            			newLeafNode(this_NL_2, grammarAccess.getCommentAccess().getNLTerminalRuleCall_1());
-            		
 
             }
 
@@ -2815,7 +2804,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalCsvMan.g:1169:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalCsvMan.g:1163:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -2823,8 +2812,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:1169:47: (iv_ruleEString= ruleEString EOF )
-            // InternalCsvMan.g:1170:2: iv_ruleEString= ruleEString EOF
+            // InternalCsvMan.g:1163:47: (iv_ruleEString= ruleEString EOF )
+            // InternalCsvMan.g:1164:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -2851,7 +2840,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalCsvMan.g:1176:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) ;
+    // InternalCsvMan.g:1170:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2863,10 +2852,10 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1182:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) )
-            // InternalCsvMan.g:1183:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
+            // InternalCsvMan.g:1176:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) )
+            // InternalCsvMan.g:1177:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
             {
-            // InternalCsvMan.g:1183:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
+            // InternalCsvMan.g:1177:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
             int alt14=3;
             switch ( input.LA(1) ) {
             case RULE_STRING:
@@ -2893,7 +2882,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             switch (alt14) {
                 case 1 :
-                    // InternalCsvMan.g:1184:3: this_STRING_0= RULE_STRING
+                    // InternalCsvMan.g:1178:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2906,7 +2895,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1192:3: this_ID_1= RULE_ID
+                    // InternalCsvMan.g:1186:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2919,7 +2908,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalCsvMan.g:1200:3: this_INT_2= RULE_INT
+                    // InternalCsvMan.g:1194:3: this_INT_2= RULE_INT
                     {
                     this_INT_2=(Token)match(input,RULE_INT,FOLLOW_2); 
 

@@ -637,30 +637,22 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class CommentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Comment");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cSL_COMMENTTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cNLTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cML_COMMENTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Comment:
-		//	(ML_COMMENT | SL_COMMENT) NL;
+		//	ML_COMMENT | SL_COMMENT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(ML_COMMENT | SL_COMMENT) NL
-		public Group getGroup() { return cGroup; }
-		
 		//ML_COMMENT | SL_COMMENT
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ML_COMMENT
-		public RuleCall getML_COMMENTTerminalRuleCall_0_0() { return cML_COMMENTTerminalRuleCall_0_0; }
+		public RuleCall getML_COMMENTTerminalRuleCall_0() { return cML_COMMENTTerminalRuleCall_0; }
 		
 		//SL_COMMENT
-		public RuleCall getSL_COMMENTTerminalRuleCall_0_1() { return cSL_COMMENTTerminalRuleCall_0_1; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_1() { return cNLTerminalRuleCall_1; }
+		public RuleCall getSL_COMMENTTerminalRuleCall_1() { return cSL_COMMENTTerminalRuleCall_1; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.EString");
@@ -900,7 +892,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Comment:
-	//	(ML_COMMENT | SL_COMMENT) NL;
+	//	ML_COMMENT | SL_COMMENT;
 	public CommentElements getCommentAccess() {
 		return pComment;
 	}

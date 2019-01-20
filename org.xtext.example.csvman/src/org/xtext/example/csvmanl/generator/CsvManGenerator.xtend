@@ -9,6 +9,11 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import csvManager.Program
 import csvManager.Instruction
+import csvManager.Show
+import csvManager.Load
+import csvManager.Create
+import csvManager.Where
+import java.util.concurrent.locks.Condition
 
 /**
  * Generates code from your model files on save.
@@ -18,15 +23,412 @@ import csvManager.Instruction
 class CsvManGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile('Main.java', resource.allContents.filter(Program).toIterable.head.compile.toString)
+		fsa.generateFile('CsvMan.java', resource.allContents.filter(Program).toIterable.head.compile.toString)
 		println('execution !')
 		//Runtime.getRuntime().exec("ls")
 	}
 	
 	def dispatch compile(Program program)
 		'''
-		public class Main {
-			public static void main(String args[]) {
+		import org.apache.commons.csv.CSVFormat;
+		import org.apache.commons.csv.CSVParser;
+		import org.apache.commons.csv.CSVPrinter;
+		import org.apache.commons.csv.CSVRecord;
+		
+		import java.io.*;
+		import java.nio.file.Files;
+		import java.nio.file.Paths;
+		
+		import java.util.*;
+		
+		public class CsvMan {
+		    private Map<String, String> aliasMaps;
+		
+		    private String[] tempTab1;
+		    int index1;
+		    private String[] tempTab2;
+		    int index2;
+		
+		    public CsvMan(){
+		        this.aliasMaps = new HashMap<>();
+		        this.tempTab1 = new String[0];
+		        this.tempTab2 = new String[0];
+		        this.index1 = 0;
+		        this.index2 = 0;
+		    }
+		
+		    public void resetTabs(int length1, int length2){
+		        this.tempTab1 = new String[length1];
+		        this.tempTab2 = new String[length2];
+		        this.index1 = 0;
+		        this.index2 = 0;
+		    }
+		
+		    public void addElmtTab1(String elmt){
+		        this.tempTab1[index1++] = elmt;
+		    }
+		
+		    public void addElmtTab2(String elmt){
+		        this.tempTab2[index2++] = elmt;
+		    }
+		
+		    public String[] getTempTab1(){
+		        return this.tempTab1;
+		    }
+		
+		    public String[] getTempTab2(){
+		        return this.tempTab2;
+		    }
+		
+		    private CSVParser getParser(String alias) throws Exception{
+		        String fileName = this.aliasMaps.get(alias);
+		        if (fileName == null) throw new Exception();
+		
+		        Reader reader = Files.newBufferedReader(Paths.get(fileName));
+		        return new CSVParser(reader, CSVFormat.DEFAULT
+		                .withFirstRecordAsHeader()
+		                .withIgnoreHeaderCase()
+		                .withTrim());
+		    }
+		
+		    private void writeIn(String alias, String res) throws Exception{
+		        Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), false); //overwrites file
+		        fileWriter.write(res);
+		        fileWriter.flush();
+		        fileWriter.close();
+		    }
+		
+		    private String getHeader(CSVParser parser){
+		        Map<String,Integer> headerMap = parser.getHeaderMap();
+		        String res = "";
+		        for (int i = 0; i < headerMap.size(); i++) {
+		            for (String key : headerMap.keySet()) {
+		                if (headerMap.get(key) == i) {
+		                    res += key;
+		                    if (i != headerMap.size() - 1)
+		                        res += ",";
+		                }
+		            }
+		        }
+		        return res + "\n";
+		    }
+		    /*
+		     *  Create a new CSV File
+		     */
+		    public void create(String filename, String...args){
+		        try{
+		            BufferedWriter writer = Files.newBufferedWriter(Paths.get(filename + ".csv"));
+		            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(args));
+		            csvPrinter.flush();
+		            this.aliasMaps.put(filename, filename + ".csv");
+		            String columns = "";
+		            for(String temp : args) columns += temp + ", ";
+		            columns = columns.substring(0, columns.length()-2);
+		            System.out.println("File " + filename + ".csv was created with columns : " + columns);
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		
+		    /*
+		     *  Load an existing csv file with an alias
+		     */
+		    public void load(String filename, String alias){
+		        File tmpFile = new File(filename);
+		        if(tmpFile.exists()){
+		            this.aliasMaps.put(alias, filename);
+		            System.out.println(alias + " was loaded");
+		        }else
+		            System.out.println(filename + " doesn't exist");
+		    }
+		
+		    /*
+		     *  delete a csv file with his alias
+		     */
+		    public void delete(String alias){
+		        String fileName = this.aliasMaps.get(alias);
+		        if(fileName != null){
+		            File file = new File(fileName);
+		            if(file.delete()){
+		                System.out.println("File " + alias + ".csv deleted");
+		                this.aliasMaps.remove(alias);
+		                return;
+		            }
+		        }
+		        System.out.println( "Alias " + alias + " doesn't exists");
+		    }
+		
+		    /*
+		     *  delete a tuple regarding parameters
+		     */
+		    public void delete(String alias, String[] conditions){
+		        try {
+		            String res = "";
+		            CSVParser csvParser = this.getParser(alias);
+		            Map<String, Integer> headerMap = csvParser.getHeaderMap();
+		
+		            res += this.getHeader(csvParser);
+		
+		            //Mise à jour des lignes consernées
+		            for (CSVRecord record : csvParser) {
+		                boolean b = true;
+		                for(int i = 0; i < conditions.length; i+=2){
+		                    if(!record.get(conditions[i].trim()).equals(conditions[i+1])){
+		                        b = false;
+		                        break;
+		                    }
+		                }
+		                //Si la ligne ne remplit pas la condition elle n'est pas recopié dans le nouveau fichier
+		                if(!b) {
+		                    for (int i = 0; i < record.size(); i++) {
+		                        res += record.get(i);
+		                        if (i < record.size() - 1) res += ",";
+		                    }
+		                    res += "\n";
+		                }
+		            }
+		            this.writeIn(alias, res);
+		        } catch (Exception e){
+		            e.printStackTrace();
+		        }
+		    }
+		
+		    public void show(String alias){
+		        show(alias, new String[0], new String[0]);
+		    }
+		
+		    public void show(String alias, String[] selected){
+		        show(alias, selected, new String[0]);
+		    }
+		
+		    public void show(String alias, String[] selected, String[] condition) {
+		        System.out.println("\n");
+		
+		        boolean printAll = (selected.length == 0);
+		        boolean noCondition = (condition.length == 0);
+		
+		        try {
+		            CSVParser csvParser = this.getParser(alias);
+		            Map<String, Integer> headerMap = csvParser.getHeaderMap();
+		
+		            if(printAll){
+		                System.out.print(this.getHeader(csvParser));
+		
+		                for (CSVRecord record : csvParser) {
+		                    String res = "";
+		                    boolean b = true;
+		                    //On vérifie les conditions avant l'affichage
+		                    for(int i = 0; i < condition.length; i+=2){
+		                        if(!record.get(condition[i].trim()).equals(condition[i+1])){
+		                            b = false;
+		                            break;
+		                        }
+		                    }
+		                    if(b) {
+		                        for (int i = 0; i < record.size() - 1; i++) {
+		                            System.out.print(record.get(i) + ",");
+		                        }
+		                        if (record.size() - 1 >= 0) {
+		                            System.out.print(record.get(record.size() - 1));
+		                        }
+		                        System.out.println();
+		                    }
+		                }
+		            }else{
+		                String res = "";
+		                //Affichage des entêtes
+		                for(int i = 0; i < selected.length; i++){
+		                    if(headerMap.containsKey(selected[i].trim())){
+		                        res += selected[i];
+		                        if(i < selected.length-1)
+		                            res += ",";
+		                    }else throw new Exception();
+		                }
+		
+		                System.out.println(res);
+		
+		                for(CSVRecord record : csvParser) {
+		                    boolean b = true;
+		                    //On vérifie les conditions avant l'affichage
+		                    for(int i = 0; i < condition.length; i+=2){
+		                        if(!record.get(condition[i].trim()).equals(condition[i+1])){
+		                            b = false;
+		                            break;
+		                        }
+		                    }
+		                    if(b) {
+		                        for (int i = 0; i < selected.length - 1; i++) {
+		                            System.out.print(record.get(selected[i]) + ",");
+		                        }
+		                        if (selected.length - 1 >= 0) {
+		                            System.out.print(record.get(selected[selected.length - 1]));
+		                        }
+		                        System.out.println();
+		                    }
+		                }
+		
+		            }
+		            System.out.println("\n");
+		
+		        } catch (Exception e){
+		            e.printStackTrace();
+		        }
+		
+		    }
+		
+		    /*
+		     *  Add a tuple regarding given columns
+		     */
+		    public void add(String alias, String[] parameters){
+		        try {
+		            CSVParser csvParser = this.getParser(alias);
+		            Map<String, Integer> header = csvParser.getHeaderMap();
+		
+		            String[] resultat = new String[header.size()];
+		            for(int i = 0; i < parameters.length; i+=2){
+		                if(header.containsKey(parameters[i].trim())){
+		                    resultat[header.get(parameters[i])] = parameters[i+1];
+		                }else throw new Exception("Ce champ n'existe pas");
+		            }
+		
+		            String res = "";
+		
+		            for(int i = 0; i < resultat.length - 1; i++){
+		                if(resultat[i] == null)
+		                    res += ",";
+		                else
+		                    res += resultat[i] + ",";
+		            }
+		
+		            if(resultat.length - 1 >= 0 && resultat[resultat.length -1] != null) res += resultat[resultat.length -1];
+		            res+= "\n";
+		
+		            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), true); //appended in file
+		            fileWriter.write(res);
+		            fileWriter.flush();
+		            fileWriter.close();
+		        }catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		    }
+		
+		    public void update(String alias, String[] parameter) {
+		        this.update(alias, parameter, new String[0]);
+		    }
+		
+		    public void update(String alias, String[] parameter, String[] conditions) {
+		
+		        //On lit completement le fichier et on le stocke dans un String
+		        try {
+		            String res = "";
+		            CSVParser csvParser = this.getParser(alias);
+		
+		            Map<String, Integer> headerMap = csvParser.getHeaderMap();
+		            String[] cles = new String[headerMap.size()];
+		            String[] nValue = new String[headerMap.size()];
+		            boolean[] toModify = new boolean[headerMap.size()];
+		
+		            //Recopie des entêtes
+		            for (int i = 0; i < headerMap.size(); i++) {
+		                for (String key : headerMap.keySet()) {
+		                    if (headerMap.get(key) == i) {
+		                        cles[i] = key.trim();
+		                        res += key;
+		                        if (i != headerMap.size() - 1)
+		                            res += ",";
+		                    }
+		                }
+		            }
+		            res+= "\n";
+		
+		            for(int i = 0; i < parameter.length; i+=2){
+		                for(int j = 0; j < cles.length; j++){
+		                    if(cles[j].equals(parameter[i])){
+		                        toModify[j] = true;
+		                        nValue[j] = parameter[i+1];
+		                    }
+		                }
+		            }
+		
+		            //Mise à jour des lignes consernées
+		            for (CSVRecord record : csvParser) {
+		                boolean b = true;
+		                for(int i = 0; i < conditions.length; i+=2){
+		                    if(!record.get(conditions[i].trim()).equals(conditions[i+1])){
+		                        b = false;
+		                        break;
+		                    }
+		                }
+		
+		                for(int i = 0; i < record.size(); i++){
+		                    if(toModify[i] && b){
+		                        res += nValue[i];
+		                    }else{
+		                        res += record.get(i);
+		                    }
+		                    if(i < record.size()-1) res += ",";
+		                }
+		                res += "\n";
+		            }
+		            //Write the res in the file
+		            this.writeIn(alias, res);
+		        } catch (Exception e){
+		            e.printStackTrace();
+		        }
+		    }
+		
+		    public void join(String alias1, String alias2){
+		        try {
+		            CSVParser csvParser1 = this.getParser(alias1);
+		            CSVParser csvParser2 = this.getParser(alias2);
+		
+		            String res = "";
+		            Map<String, Integer> headerMap1 = csvParser1.getHeaderMap();
+		            Map<String, Integer> headerMap2 = csvParser1.getHeaderMap();
+		
+		            //On regarde que les deux fichier ont le même header
+		            boolean b = (headerMap1.size() == headerMap2.size());
+		            if(b){
+		                for(String key : headerMap1.keySet()){
+		                    if(!headerMap2.containsKey(key)) {
+		                        b = false;
+		                        break;
+		                    }
+		                }
+		            }
+		
+		            //On créé un fichier à partir des deux autres
+		            if(b){
+		                //Recopie des entêtes
+		                res+= this.getHeader(csvParser1);
+		
+		                //On parcourt le fichier 1
+		                for (CSVRecord record : csvParser1) {
+		                    for(int i = 0; i < record.size(); i++){
+		                        res += record.get(i);
+		                        if(i < record.size()-1) res += ",";
+		                    }
+		                    res += "\n";
+		                }
+		
+		                //On parcourt le fichier 2
+		                for (CSVRecord record : csvParser2) {
+		                    for(int i = 0; i < record.size(); i++){
+		                        res += record.get(i);
+		                        if(i < record.size()-1) res += ",";
+		                    }
+		                    res += "\n";
+		                }
+		
+		                //On ecrit le resultat dans un fichier
+		                this.writeIn(alias1, res);
+		            }
+		        }catch (Exception e){
+		
+		        }
+		    }
+		    public static void main(String[] args){
+		    		CsvMan man = new CsvMan();
 				«FOR exp: program.instruction»
 					«exp.compile»				
 				«ENDFOR»
@@ -34,7 +436,40 @@ class CsvManGenerator extends AbstractGenerator {
 		}
 		'''
 		
+		def dispatch compile(Load load)
+			'''
+				man.load("«load.table»", "«load.alias»");
+			'''
+		
+		def dispatch compile(Create create)
+			'''
+				//man.create();
+			'''
+		
+		def dispatch compile(Show show)
+			'''
+				man.resetTabs(«show.colonne.length», 0);
+				«FOR exp: show.colonne»
+					man.addElmtTab1("«exp»");
+				«ENDFOR»
+				«IF show.where !== null»
+					«show.where.compile»
+				«ENDIF»
+				man.show(«show.table», man.getTempTab1(), man.getTempTab2());
+			'''
+	
+			def dispatch compile(Where where)
+			'''
+				«FOR exp: where.condition»
+					man.addElmtTab2("«exp.atribut»");
+					man.addElmtTab2("«exp.valeur»");
+				«ENDFOR»
+			'''
+
+		
 	def dispatch compile(Instruction instruction)
-		'''System.out.println("«instruction»");
 		'''
+		'''
+		
+
 }

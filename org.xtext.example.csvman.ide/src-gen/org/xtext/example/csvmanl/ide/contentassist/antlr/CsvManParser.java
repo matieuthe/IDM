@@ -36,6 +36,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCommentAccess().getAlternatives(), "rule__Comment__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
+					put(grammarAccess.getCopyAccess().getGroup(), "rule__Copy__Group__0");
 					put(grammarAccess.getCreateAccess().getGroup(), "rule__Create__Group__0");
 					put(grammarAccess.getCreateAccess().getGroup_5(), "rule__Create__Group_5__0");
 					put(grammarAccess.getLoadAccess().getGroup(), "rule__Load__Group__0");
@@ -54,6 +55,8 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getProgramAccess().getInstructionAssignment_1(), "rule__Program__InstructionAssignment_1");
+					put(grammarAccess.getCopyAccess().getAliasAssignment_2(), "rule__Copy__AliasAssignment_2");
+					put(grammarAccess.getCopyAccess().getTableAssignment_4(), "rule__Copy__TableAssignment_4");
 					put(grammarAccess.getCreateAccess().getTableAssignment_2(), "rule__Create__TableAssignment_2");
 					put(grammarAccess.getCreateAccess().getColonneAssignment_4(), "rule__Create__ColonneAssignment_4");
 					put(grammarAccess.getCreateAccess().getColonneAssignment_5_1(), "rule__Create__ColonneAssignment_5_1");
@@ -72,6 +75,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddAccess().getTableAssignment_7(), "rule__Add__TableAssignment_7");
 					put(grammarAccess.getJoinAccess().getTable1Assignment_2(), "rule__Join__Table1Assignment_2");
 					put(grammarAccess.getJoinAccess().getTable2Assignment_3(), "rule__Join__Table2Assignment_3");
+					put(grammarAccess.getJoinAccess().getTable3Assignment_5(), "rule__Join__Table3Assignment_5");
 					put(grammarAccess.getDeleteAccess().getTableAssignment_2(), "rule__Delete__TableAssignment_2");
 					put(grammarAccess.getDeleteAccess().getWhereAssignment_3(), "rule__Delete__WhereAssignment_3");
 					put(grammarAccess.getWhereAccess().getConditionAssignment_2(), "rule__Where__ConditionAssignment_2");

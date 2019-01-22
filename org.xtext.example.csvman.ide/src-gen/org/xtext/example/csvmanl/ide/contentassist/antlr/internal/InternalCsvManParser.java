@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_NL", "RULE_WS", "RULE_ANY_OTHER", "'='", "'create'", "'('", "')'", "','", "'load'", "'as'", "'show'", "'update'", "'set'", "'add'", "'in'", "'join'", "'delete'", "'exit'", "'where'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_NL", "RULE_WS", "RULE_ANY_OTHER", "'='", "'copy'", "'in'", "'create'", "'('", "')'", "','", "'load'", "'as'", "'show'", "'update'", "'set'", "'add'", "'join'", "'delete'", "'exit'", "'where'"
     };
     public static final int RULE_STRING=7;
     public static final int RULE_SL_COMMENT=6;
@@ -42,6 +42,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=9;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=5;
     public static final int T__23=23;
@@ -240,12 +241,89 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleInstruction"
 
 
+    // $ANTLR start "entryRuleCopy"
+    // InternalCsvMan.g:103:1: entryRuleCopy : ruleCopy EOF ;
+    public final void entryRuleCopy() throws RecognitionException {
+        try {
+            // InternalCsvMan.g:104:1: ( ruleCopy EOF )
+            // InternalCsvMan.g:105:1: ruleCopy EOF
+            {
+             before(grammarAccess.getCopyRule()); 
+            pushFollow(FOLLOW_1);
+            ruleCopy();
+
+            state._fsp--;
+
+             after(grammarAccess.getCopyRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleCopy"
+
+
+    // $ANTLR start "ruleCopy"
+    // InternalCsvMan.g:112:1: ruleCopy : ( ( rule__Copy__Group__0 ) ) ;
+    public final void ruleCopy() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:116:2: ( ( ( rule__Copy__Group__0 ) ) )
+            // InternalCsvMan.g:117:2: ( ( rule__Copy__Group__0 ) )
+            {
+            // InternalCsvMan.g:117:2: ( ( rule__Copy__Group__0 ) )
+            // InternalCsvMan.g:118:3: ( rule__Copy__Group__0 )
+            {
+             before(grammarAccess.getCopyAccess().getGroup()); 
+            // InternalCsvMan.g:119:3: ( rule__Copy__Group__0 )
+            // InternalCsvMan.g:119:4: rule__Copy__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCopyAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleCopy"
+
+
     // $ANTLR start "entryRuleCreate"
-    // InternalCsvMan.g:103:1: entryRuleCreate : ruleCreate EOF ;
+    // InternalCsvMan.g:128:1: entryRuleCreate : ruleCreate EOF ;
     public final void entryRuleCreate() throws RecognitionException {
         try {
-            // InternalCsvMan.g:104:1: ( ruleCreate EOF )
-            // InternalCsvMan.g:105:1: ruleCreate EOF
+            // InternalCsvMan.g:129:1: ( ruleCreate EOF )
+            // InternalCsvMan.g:130:1: ruleCreate EOF
             {
              before(grammarAccess.getCreateRule()); 
             pushFollow(FOLLOW_1);
@@ -271,21 +349,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleCreate"
-    // InternalCsvMan.g:112:1: ruleCreate : ( ( rule__Create__Group__0 ) ) ;
+    // InternalCsvMan.g:137:1: ruleCreate : ( ( rule__Create__Group__0 ) ) ;
     public final void ruleCreate() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:116:2: ( ( ( rule__Create__Group__0 ) ) )
-            // InternalCsvMan.g:117:2: ( ( rule__Create__Group__0 ) )
+            // InternalCsvMan.g:141:2: ( ( ( rule__Create__Group__0 ) ) )
+            // InternalCsvMan.g:142:2: ( ( rule__Create__Group__0 ) )
             {
-            // InternalCsvMan.g:117:2: ( ( rule__Create__Group__0 ) )
-            // InternalCsvMan.g:118:3: ( rule__Create__Group__0 )
+            // InternalCsvMan.g:142:2: ( ( rule__Create__Group__0 ) )
+            // InternalCsvMan.g:143:3: ( rule__Create__Group__0 )
             {
              before(grammarAccess.getCreateAccess().getGroup()); 
-            // InternalCsvMan.g:119:3: ( rule__Create__Group__0 )
-            // InternalCsvMan.g:119:4: rule__Create__Group__0
+            // InternalCsvMan.g:144:3: ( rule__Create__Group__0 )
+            // InternalCsvMan.g:144:4: rule__Create__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Create__Group__0();
@@ -318,11 +396,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleLoad"
-    // InternalCsvMan.g:128:1: entryRuleLoad : ruleLoad EOF ;
+    // InternalCsvMan.g:153:1: entryRuleLoad : ruleLoad EOF ;
     public final void entryRuleLoad() throws RecognitionException {
         try {
-            // InternalCsvMan.g:129:1: ( ruleLoad EOF )
-            // InternalCsvMan.g:130:1: ruleLoad EOF
+            // InternalCsvMan.g:154:1: ( ruleLoad EOF )
+            // InternalCsvMan.g:155:1: ruleLoad EOF
             {
              before(grammarAccess.getLoadRule()); 
             pushFollow(FOLLOW_1);
@@ -348,21 +426,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleLoad"
-    // InternalCsvMan.g:137:1: ruleLoad : ( ( rule__Load__Group__0 ) ) ;
+    // InternalCsvMan.g:162:1: ruleLoad : ( ( rule__Load__Group__0 ) ) ;
     public final void ruleLoad() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:141:2: ( ( ( rule__Load__Group__0 ) ) )
-            // InternalCsvMan.g:142:2: ( ( rule__Load__Group__0 ) )
+            // InternalCsvMan.g:166:2: ( ( ( rule__Load__Group__0 ) ) )
+            // InternalCsvMan.g:167:2: ( ( rule__Load__Group__0 ) )
             {
-            // InternalCsvMan.g:142:2: ( ( rule__Load__Group__0 ) )
-            // InternalCsvMan.g:143:3: ( rule__Load__Group__0 )
+            // InternalCsvMan.g:167:2: ( ( rule__Load__Group__0 ) )
+            // InternalCsvMan.g:168:3: ( rule__Load__Group__0 )
             {
              before(grammarAccess.getLoadAccess().getGroup()); 
-            // InternalCsvMan.g:144:3: ( rule__Load__Group__0 )
-            // InternalCsvMan.g:144:4: rule__Load__Group__0
+            // InternalCsvMan.g:169:3: ( rule__Load__Group__0 )
+            // InternalCsvMan.g:169:4: rule__Load__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Load__Group__0();
@@ -395,11 +473,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleShow"
-    // InternalCsvMan.g:153:1: entryRuleShow : ruleShow EOF ;
+    // InternalCsvMan.g:178:1: entryRuleShow : ruleShow EOF ;
     public final void entryRuleShow() throws RecognitionException {
         try {
-            // InternalCsvMan.g:154:1: ( ruleShow EOF )
-            // InternalCsvMan.g:155:1: ruleShow EOF
+            // InternalCsvMan.g:179:1: ( ruleShow EOF )
+            // InternalCsvMan.g:180:1: ruleShow EOF
             {
              before(grammarAccess.getShowRule()); 
             pushFollow(FOLLOW_1);
@@ -425,21 +503,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleShow"
-    // InternalCsvMan.g:162:1: ruleShow : ( ( rule__Show__Group__0 ) ) ;
+    // InternalCsvMan.g:187:1: ruleShow : ( ( rule__Show__Group__0 ) ) ;
     public final void ruleShow() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:166:2: ( ( ( rule__Show__Group__0 ) ) )
-            // InternalCsvMan.g:167:2: ( ( rule__Show__Group__0 ) )
+            // InternalCsvMan.g:191:2: ( ( ( rule__Show__Group__0 ) ) )
+            // InternalCsvMan.g:192:2: ( ( rule__Show__Group__0 ) )
             {
-            // InternalCsvMan.g:167:2: ( ( rule__Show__Group__0 ) )
-            // InternalCsvMan.g:168:3: ( rule__Show__Group__0 )
+            // InternalCsvMan.g:192:2: ( ( rule__Show__Group__0 ) )
+            // InternalCsvMan.g:193:3: ( rule__Show__Group__0 )
             {
              before(grammarAccess.getShowAccess().getGroup()); 
-            // InternalCsvMan.g:169:3: ( rule__Show__Group__0 )
-            // InternalCsvMan.g:169:4: rule__Show__Group__0
+            // InternalCsvMan.g:194:3: ( rule__Show__Group__0 )
+            // InternalCsvMan.g:194:4: rule__Show__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Show__Group__0();
@@ -472,11 +550,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleUpdate"
-    // InternalCsvMan.g:178:1: entryRuleUpdate : ruleUpdate EOF ;
+    // InternalCsvMan.g:203:1: entryRuleUpdate : ruleUpdate EOF ;
     public final void entryRuleUpdate() throws RecognitionException {
         try {
-            // InternalCsvMan.g:179:1: ( ruleUpdate EOF )
-            // InternalCsvMan.g:180:1: ruleUpdate EOF
+            // InternalCsvMan.g:204:1: ( ruleUpdate EOF )
+            // InternalCsvMan.g:205:1: ruleUpdate EOF
             {
              before(grammarAccess.getUpdateRule()); 
             pushFollow(FOLLOW_1);
@@ -502,21 +580,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleUpdate"
-    // InternalCsvMan.g:187:1: ruleUpdate : ( ( rule__Update__Group__0 ) ) ;
+    // InternalCsvMan.g:212:1: ruleUpdate : ( ( rule__Update__Group__0 ) ) ;
     public final void ruleUpdate() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:191:2: ( ( ( rule__Update__Group__0 ) ) )
-            // InternalCsvMan.g:192:2: ( ( rule__Update__Group__0 ) )
+            // InternalCsvMan.g:216:2: ( ( ( rule__Update__Group__0 ) ) )
+            // InternalCsvMan.g:217:2: ( ( rule__Update__Group__0 ) )
             {
-            // InternalCsvMan.g:192:2: ( ( rule__Update__Group__0 ) )
-            // InternalCsvMan.g:193:3: ( rule__Update__Group__0 )
+            // InternalCsvMan.g:217:2: ( ( rule__Update__Group__0 ) )
+            // InternalCsvMan.g:218:3: ( rule__Update__Group__0 )
             {
              before(grammarAccess.getUpdateAccess().getGroup()); 
-            // InternalCsvMan.g:194:3: ( rule__Update__Group__0 )
-            // InternalCsvMan.g:194:4: rule__Update__Group__0
+            // InternalCsvMan.g:219:3: ( rule__Update__Group__0 )
+            // InternalCsvMan.g:219:4: rule__Update__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Update__Group__0();
@@ -549,11 +627,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleAdd"
-    // InternalCsvMan.g:203:1: entryRuleAdd : ruleAdd EOF ;
+    // InternalCsvMan.g:228:1: entryRuleAdd : ruleAdd EOF ;
     public final void entryRuleAdd() throws RecognitionException {
         try {
-            // InternalCsvMan.g:204:1: ( ruleAdd EOF )
-            // InternalCsvMan.g:205:1: ruleAdd EOF
+            // InternalCsvMan.g:229:1: ( ruleAdd EOF )
+            // InternalCsvMan.g:230:1: ruleAdd EOF
             {
              before(grammarAccess.getAddRule()); 
             pushFollow(FOLLOW_1);
@@ -579,21 +657,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleAdd"
-    // InternalCsvMan.g:212:1: ruleAdd : ( ( rule__Add__Group__0 ) ) ;
+    // InternalCsvMan.g:237:1: ruleAdd : ( ( rule__Add__Group__0 ) ) ;
     public final void ruleAdd() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:216:2: ( ( ( rule__Add__Group__0 ) ) )
-            // InternalCsvMan.g:217:2: ( ( rule__Add__Group__0 ) )
+            // InternalCsvMan.g:241:2: ( ( ( rule__Add__Group__0 ) ) )
+            // InternalCsvMan.g:242:2: ( ( rule__Add__Group__0 ) )
             {
-            // InternalCsvMan.g:217:2: ( ( rule__Add__Group__0 ) )
-            // InternalCsvMan.g:218:3: ( rule__Add__Group__0 )
+            // InternalCsvMan.g:242:2: ( ( rule__Add__Group__0 ) )
+            // InternalCsvMan.g:243:3: ( rule__Add__Group__0 )
             {
              before(grammarAccess.getAddAccess().getGroup()); 
-            // InternalCsvMan.g:219:3: ( rule__Add__Group__0 )
-            // InternalCsvMan.g:219:4: rule__Add__Group__0
+            // InternalCsvMan.g:244:3: ( rule__Add__Group__0 )
+            // InternalCsvMan.g:244:4: rule__Add__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Add__Group__0();
@@ -626,11 +704,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleJoin"
-    // InternalCsvMan.g:228:1: entryRuleJoin : ruleJoin EOF ;
+    // InternalCsvMan.g:253:1: entryRuleJoin : ruleJoin EOF ;
     public final void entryRuleJoin() throws RecognitionException {
         try {
-            // InternalCsvMan.g:229:1: ( ruleJoin EOF )
-            // InternalCsvMan.g:230:1: ruleJoin EOF
+            // InternalCsvMan.g:254:1: ( ruleJoin EOF )
+            // InternalCsvMan.g:255:1: ruleJoin EOF
             {
              before(grammarAccess.getJoinRule()); 
             pushFollow(FOLLOW_1);
@@ -656,21 +734,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleJoin"
-    // InternalCsvMan.g:237:1: ruleJoin : ( ( rule__Join__Group__0 ) ) ;
+    // InternalCsvMan.g:262:1: ruleJoin : ( ( rule__Join__Group__0 ) ) ;
     public final void ruleJoin() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:241:2: ( ( ( rule__Join__Group__0 ) ) )
-            // InternalCsvMan.g:242:2: ( ( rule__Join__Group__0 ) )
+            // InternalCsvMan.g:266:2: ( ( ( rule__Join__Group__0 ) ) )
+            // InternalCsvMan.g:267:2: ( ( rule__Join__Group__0 ) )
             {
-            // InternalCsvMan.g:242:2: ( ( rule__Join__Group__0 ) )
-            // InternalCsvMan.g:243:3: ( rule__Join__Group__0 )
+            // InternalCsvMan.g:267:2: ( ( rule__Join__Group__0 ) )
+            // InternalCsvMan.g:268:3: ( rule__Join__Group__0 )
             {
              before(grammarAccess.getJoinAccess().getGroup()); 
-            // InternalCsvMan.g:244:3: ( rule__Join__Group__0 )
-            // InternalCsvMan.g:244:4: rule__Join__Group__0
+            // InternalCsvMan.g:269:3: ( rule__Join__Group__0 )
+            // InternalCsvMan.g:269:4: rule__Join__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Join__Group__0();
@@ -703,11 +781,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleDelete"
-    // InternalCsvMan.g:253:1: entryRuleDelete : ruleDelete EOF ;
+    // InternalCsvMan.g:278:1: entryRuleDelete : ruleDelete EOF ;
     public final void entryRuleDelete() throws RecognitionException {
         try {
-            // InternalCsvMan.g:254:1: ( ruleDelete EOF )
-            // InternalCsvMan.g:255:1: ruleDelete EOF
+            // InternalCsvMan.g:279:1: ( ruleDelete EOF )
+            // InternalCsvMan.g:280:1: ruleDelete EOF
             {
              before(grammarAccess.getDeleteRule()); 
             pushFollow(FOLLOW_1);
@@ -733,21 +811,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleDelete"
-    // InternalCsvMan.g:262:1: ruleDelete : ( ( rule__Delete__Group__0 ) ) ;
+    // InternalCsvMan.g:287:1: ruleDelete : ( ( rule__Delete__Group__0 ) ) ;
     public final void ruleDelete() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:266:2: ( ( ( rule__Delete__Group__0 ) ) )
-            // InternalCsvMan.g:267:2: ( ( rule__Delete__Group__0 ) )
+            // InternalCsvMan.g:291:2: ( ( ( rule__Delete__Group__0 ) ) )
+            // InternalCsvMan.g:292:2: ( ( rule__Delete__Group__0 ) )
             {
-            // InternalCsvMan.g:267:2: ( ( rule__Delete__Group__0 ) )
-            // InternalCsvMan.g:268:3: ( rule__Delete__Group__0 )
+            // InternalCsvMan.g:292:2: ( ( rule__Delete__Group__0 ) )
+            // InternalCsvMan.g:293:3: ( rule__Delete__Group__0 )
             {
              before(grammarAccess.getDeleteAccess().getGroup()); 
-            // InternalCsvMan.g:269:3: ( rule__Delete__Group__0 )
-            // InternalCsvMan.g:269:4: rule__Delete__Group__0
+            // InternalCsvMan.g:294:3: ( rule__Delete__Group__0 )
+            // InternalCsvMan.g:294:4: rule__Delete__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Delete__Group__0();
@@ -780,11 +858,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleExit"
-    // InternalCsvMan.g:278:1: entryRuleExit : ruleExit EOF ;
+    // InternalCsvMan.g:303:1: entryRuleExit : ruleExit EOF ;
     public final void entryRuleExit() throws RecognitionException {
         try {
-            // InternalCsvMan.g:279:1: ( ruleExit EOF )
-            // InternalCsvMan.g:280:1: ruleExit EOF
+            // InternalCsvMan.g:304:1: ( ruleExit EOF )
+            // InternalCsvMan.g:305:1: ruleExit EOF
             {
              before(grammarAccess.getExitRule()); 
             pushFollow(FOLLOW_1);
@@ -810,21 +888,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleExit"
-    // InternalCsvMan.g:287:1: ruleExit : ( ( rule__Exit__Group__0 ) ) ;
+    // InternalCsvMan.g:312:1: ruleExit : ( ( rule__Exit__Group__0 ) ) ;
     public final void ruleExit() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:291:2: ( ( ( rule__Exit__Group__0 ) ) )
-            // InternalCsvMan.g:292:2: ( ( rule__Exit__Group__0 ) )
+            // InternalCsvMan.g:316:2: ( ( ( rule__Exit__Group__0 ) ) )
+            // InternalCsvMan.g:317:2: ( ( rule__Exit__Group__0 ) )
             {
-            // InternalCsvMan.g:292:2: ( ( rule__Exit__Group__0 ) )
-            // InternalCsvMan.g:293:3: ( rule__Exit__Group__0 )
+            // InternalCsvMan.g:317:2: ( ( rule__Exit__Group__0 ) )
+            // InternalCsvMan.g:318:3: ( rule__Exit__Group__0 )
             {
              before(grammarAccess.getExitAccess().getGroup()); 
-            // InternalCsvMan.g:294:3: ( rule__Exit__Group__0 )
-            // InternalCsvMan.g:294:4: rule__Exit__Group__0
+            // InternalCsvMan.g:319:3: ( rule__Exit__Group__0 )
+            // InternalCsvMan.g:319:4: rule__Exit__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Exit__Group__0();
@@ -857,11 +935,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleWhere"
-    // InternalCsvMan.g:303:1: entryRuleWhere : ruleWhere EOF ;
+    // InternalCsvMan.g:328:1: entryRuleWhere : ruleWhere EOF ;
     public final void entryRuleWhere() throws RecognitionException {
         try {
-            // InternalCsvMan.g:304:1: ( ruleWhere EOF )
-            // InternalCsvMan.g:305:1: ruleWhere EOF
+            // InternalCsvMan.g:329:1: ( ruleWhere EOF )
+            // InternalCsvMan.g:330:1: ruleWhere EOF
             {
              before(grammarAccess.getWhereRule()); 
             pushFollow(FOLLOW_1);
@@ -887,21 +965,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleWhere"
-    // InternalCsvMan.g:312:1: ruleWhere : ( ( rule__Where__Group__0 ) ) ;
+    // InternalCsvMan.g:337:1: ruleWhere : ( ( rule__Where__Group__0 ) ) ;
     public final void ruleWhere() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:316:2: ( ( ( rule__Where__Group__0 ) ) )
-            // InternalCsvMan.g:317:2: ( ( rule__Where__Group__0 ) )
+            // InternalCsvMan.g:341:2: ( ( ( rule__Where__Group__0 ) ) )
+            // InternalCsvMan.g:342:2: ( ( rule__Where__Group__0 ) )
             {
-            // InternalCsvMan.g:317:2: ( ( rule__Where__Group__0 ) )
-            // InternalCsvMan.g:318:3: ( rule__Where__Group__0 )
+            // InternalCsvMan.g:342:2: ( ( rule__Where__Group__0 ) )
+            // InternalCsvMan.g:343:3: ( rule__Where__Group__0 )
             {
              before(grammarAccess.getWhereAccess().getGroup()); 
-            // InternalCsvMan.g:319:3: ( rule__Where__Group__0 )
-            // InternalCsvMan.g:319:4: rule__Where__Group__0
+            // InternalCsvMan.g:344:3: ( rule__Where__Group__0 )
+            // InternalCsvMan.g:344:4: rule__Where__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Where__Group__0();
@@ -934,11 +1012,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalCsvMan.g:328:1: entryRuleCondition : ruleCondition EOF ;
+    // InternalCsvMan.g:353:1: entryRuleCondition : ruleCondition EOF ;
     public final void entryRuleCondition() throws RecognitionException {
         try {
-            // InternalCsvMan.g:329:1: ( ruleCondition EOF )
-            // InternalCsvMan.g:330:1: ruleCondition EOF
+            // InternalCsvMan.g:354:1: ( ruleCondition EOF )
+            // InternalCsvMan.g:355:1: ruleCondition EOF
             {
              before(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -964,21 +1042,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalCsvMan.g:337:1: ruleCondition : ( ( rule__Condition__Group__0 ) ) ;
+    // InternalCsvMan.g:362:1: ruleCondition : ( ( rule__Condition__Group__0 ) ) ;
     public final void ruleCondition() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:341:2: ( ( ( rule__Condition__Group__0 ) ) )
-            // InternalCsvMan.g:342:2: ( ( rule__Condition__Group__0 ) )
+            // InternalCsvMan.g:366:2: ( ( ( rule__Condition__Group__0 ) ) )
+            // InternalCsvMan.g:367:2: ( ( rule__Condition__Group__0 ) )
             {
-            // InternalCsvMan.g:342:2: ( ( rule__Condition__Group__0 ) )
-            // InternalCsvMan.g:343:3: ( rule__Condition__Group__0 )
+            // InternalCsvMan.g:367:2: ( ( rule__Condition__Group__0 ) )
+            // InternalCsvMan.g:368:3: ( rule__Condition__Group__0 )
             {
              before(grammarAccess.getConditionAccess().getGroup()); 
-            // InternalCsvMan.g:344:3: ( rule__Condition__Group__0 )
-            // InternalCsvMan.g:344:4: rule__Condition__Group__0
+            // InternalCsvMan.g:369:3: ( rule__Condition__Group__0 )
+            // InternalCsvMan.g:369:4: rule__Condition__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Condition__Group__0();
@@ -1011,11 +1089,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleParameter"
-    // InternalCsvMan.g:353:1: entryRuleParameter : ruleParameter EOF ;
+    // InternalCsvMan.g:378:1: entryRuleParameter : ruleParameter EOF ;
     public final void entryRuleParameter() throws RecognitionException {
         try {
-            // InternalCsvMan.g:354:1: ( ruleParameter EOF )
-            // InternalCsvMan.g:355:1: ruleParameter EOF
+            // InternalCsvMan.g:379:1: ( ruleParameter EOF )
+            // InternalCsvMan.g:380:1: ruleParameter EOF
             {
              before(grammarAccess.getParameterRule()); 
             pushFollow(FOLLOW_1);
@@ -1041,21 +1119,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleParameter"
-    // InternalCsvMan.g:362:1: ruleParameter : ( ( rule__Parameter__Group__0 ) ) ;
+    // InternalCsvMan.g:387:1: ruleParameter : ( ( rule__Parameter__Group__0 ) ) ;
     public final void ruleParameter() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:366:2: ( ( ( rule__Parameter__Group__0 ) ) )
-            // InternalCsvMan.g:367:2: ( ( rule__Parameter__Group__0 ) )
+            // InternalCsvMan.g:391:2: ( ( ( rule__Parameter__Group__0 ) ) )
+            // InternalCsvMan.g:392:2: ( ( rule__Parameter__Group__0 ) )
             {
-            // InternalCsvMan.g:367:2: ( ( rule__Parameter__Group__0 ) )
-            // InternalCsvMan.g:368:3: ( rule__Parameter__Group__0 )
+            // InternalCsvMan.g:392:2: ( ( rule__Parameter__Group__0 ) )
+            // InternalCsvMan.g:393:3: ( rule__Parameter__Group__0 )
             {
              before(grammarAccess.getParameterAccess().getGroup()); 
-            // InternalCsvMan.g:369:3: ( rule__Parameter__Group__0 )
-            // InternalCsvMan.g:369:4: rule__Parameter__Group__0
+            // InternalCsvMan.g:394:3: ( rule__Parameter__Group__0 )
+            // InternalCsvMan.g:394:4: rule__Parameter__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__Group__0();
@@ -1088,11 +1166,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleComment"
-    // InternalCsvMan.g:378:1: entryRuleComment : ruleComment EOF ;
+    // InternalCsvMan.g:403:1: entryRuleComment : ruleComment EOF ;
     public final void entryRuleComment() throws RecognitionException {
         try {
-            // InternalCsvMan.g:379:1: ( ruleComment EOF )
-            // InternalCsvMan.g:380:1: ruleComment EOF
+            // InternalCsvMan.g:404:1: ( ruleComment EOF )
+            // InternalCsvMan.g:405:1: ruleComment EOF
             {
              before(grammarAccess.getCommentRule()); 
             pushFollow(FOLLOW_1);
@@ -1118,21 +1196,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleComment"
-    // InternalCsvMan.g:387:1: ruleComment : ( ( rule__Comment__Alternatives ) ) ;
+    // InternalCsvMan.g:412:1: ruleComment : ( ( rule__Comment__Alternatives ) ) ;
     public final void ruleComment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:391:2: ( ( ( rule__Comment__Alternatives ) ) )
-            // InternalCsvMan.g:392:2: ( ( rule__Comment__Alternatives ) )
+            // InternalCsvMan.g:416:2: ( ( ( rule__Comment__Alternatives ) ) )
+            // InternalCsvMan.g:417:2: ( ( rule__Comment__Alternatives ) )
             {
-            // InternalCsvMan.g:392:2: ( ( rule__Comment__Alternatives ) )
-            // InternalCsvMan.g:393:3: ( rule__Comment__Alternatives )
+            // InternalCsvMan.g:417:2: ( ( rule__Comment__Alternatives ) )
+            // InternalCsvMan.g:418:3: ( rule__Comment__Alternatives )
             {
              before(grammarAccess.getCommentAccess().getAlternatives()); 
-            // InternalCsvMan.g:394:3: ( rule__Comment__Alternatives )
-            // InternalCsvMan.g:394:4: rule__Comment__Alternatives
+            // InternalCsvMan.g:419:3: ( rule__Comment__Alternatives )
+            // InternalCsvMan.g:419:4: rule__Comment__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Comment__Alternatives();
@@ -1165,11 +1243,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalCsvMan.g:403:1: entryRuleEString : ruleEString EOF ;
+    // InternalCsvMan.g:428:1: entryRuleEString : ruleEString EOF ;
     public final void entryRuleEString() throws RecognitionException {
         try {
-            // InternalCsvMan.g:404:1: ( ruleEString EOF )
-            // InternalCsvMan.g:405:1: ruleEString EOF
+            // InternalCsvMan.g:429:1: ( ruleEString EOF )
+            // InternalCsvMan.g:430:1: ruleEString EOF
             {
              before(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -1195,21 +1273,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalCsvMan.g:412:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
+    // InternalCsvMan.g:437:1: ruleEString : ( ( rule__EString__Alternatives ) ) ;
     public final void ruleEString() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:416:2: ( ( ( rule__EString__Alternatives ) ) )
-            // InternalCsvMan.g:417:2: ( ( rule__EString__Alternatives ) )
+            // InternalCsvMan.g:441:2: ( ( ( rule__EString__Alternatives ) ) )
+            // InternalCsvMan.g:442:2: ( ( rule__EString__Alternatives ) )
             {
-            // InternalCsvMan.g:417:2: ( ( rule__EString__Alternatives ) )
-            // InternalCsvMan.g:418:3: ( rule__EString__Alternatives )
+            // InternalCsvMan.g:442:2: ( ( rule__EString__Alternatives ) )
+            // InternalCsvMan.g:443:3: ( rule__EString__Alternatives )
             {
              before(grammarAccess.getEStringAccess().getAlternatives()); 
-            // InternalCsvMan.g:419:3: ( rule__EString__Alternatives )
-            // InternalCsvMan.g:419:4: rule__EString__Alternatives
+            // InternalCsvMan.g:444:3: ( rule__EString__Alternatives )
+            // InternalCsvMan.g:444:4: rule__EString__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__EString__Alternatives();
@@ -1242,51 +1320,51 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instruction__Alternatives"
-    // InternalCsvMan.g:427:1: rule__Instruction__Alternatives : ( ( ruleCreate ) | ( ruleLoad ) | ( ruleShow ) | ( ruleUpdate ) | ( ruleAdd ) | ( ruleJoin ) | ( ruleDelete ) | ( ruleExit ) | ( ruleComment ) );
+    // InternalCsvMan.g:452:1: rule__Instruction__Alternatives : ( ( ruleCreate ) | ( ruleLoad ) | ( ruleShow ) | ( ruleUpdate ) | ( ruleAdd ) | ( ruleJoin ) | ( ruleDelete ) | ( ruleExit ) | ( ruleComment ) | ( ruleCopy ) );
     public final void rule__Instruction__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:431:1: ( ( ruleCreate ) | ( ruleLoad ) | ( ruleShow ) | ( ruleUpdate ) | ( ruleAdd ) | ( ruleJoin ) | ( ruleDelete ) | ( ruleExit ) | ( ruleComment ) )
-            int alt1=9;
+            // InternalCsvMan.g:456:1: ( ( ruleCreate ) | ( ruleLoad ) | ( ruleShow ) | ( ruleUpdate ) | ( ruleAdd ) | ( ruleJoin ) | ( ruleDelete ) | ( ruleExit ) | ( ruleComment ) | ( ruleCopy ) )
+            int alt1=10;
             switch ( input.LA(1) ) {
-            case 14:
+            case 16:
                 {
                 alt1=1;
                 }
                 break;
-            case 18:
+            case 20:
                 {
                 alt1=2;
                 }
                 break;
-            case 20:
+            case 22:
                 {
                 alt1=3;
                 }
                 break;
-            case 21:
+            case 23:
                 {
                 alt1=4;
                 }
                 break;
-            case 23:
+            case 25:
                 {
                 alt1=5;
                 }
                 break;
-            case 25:
+            case 26:
                 {
                 alt1=6;
                 }
                 break;
-            case 26:
+            case 27:
                 {
                 alt1=7;
                 }
                 break;
-            case 27:
+            case 28:
                 {
                 alt1=8;
                 }
@@ -1295,6 +1373,11 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             case RULE_SL_COMMENT:
                 {
                 alt1=9;
+                }
+                break;
+            case 14:
+                {
+                alt1=10;
                 }
                 break;
             default:
@@ -1306,10 +1389,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
             switch (alt1) {
                 case 1 :
-                    // InternalCsvMan.g:432:2: ( ruleCreate )
+                    // InternalCsvMan.g:457:2: ( ruleCreate )
                     {
-                    // InternalCsvMan.g:432:2: ( ruleCreate )
-                    // InternalCsvMan.g:433:3: ruleCreate
+                    // InternalCsvMan.g:457:2: ( ruleCreate )
+                    // InternalCsvMan.g:458:3: ruleCreate
                     {
                      before(grammarAccess.getInstructionAccess().getCreateParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1325,10 +1408,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:438:2: ( ruleLoad )
+                    // InternalCsvMan.g:463:2: ( ruleLoad )
                     {
-                    // InternalCsvMan.g:438:2: ( ruleLoad )
-                    // InternalCsvMan.g:439:3: ruleLoad
+                    // InternalCsvMan.g:463:2: ( ruleLoad )
+                    // InternalCsvMan.g:464:3: ruleLoad
                     {
                      before(grammarAccess.getInstructionAccess().getLoadParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1344,10 +1427,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalCsvMan.g:444:2: ( ruleShow )
+                    // InternalCsvMan.g:469:2: ( ruleShow )
                     {
-                    // InternalCsvMan.g:444:2: ( ruleShow )
-                    // InternalCsvMan.g:445:3: ruleShow
+                    // InternalCsvMan.g:469:2: ( ruleShow )
+                    // InternalCsvMan.g:470:3: ruleShow
                     {
                      before(grammarAccess.getInstructionAccess().getShowParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -1363,10 +1446,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalCsvMan.g:450:2: ( ruleUpdate )
+                    // InternalCsvMan.g:475:2: ( ruleUpdate )
                     {
-                    // InternalCsvMan.g:450:2: ( ruleUpdate )
-                    // InternalCsvMan.g:451:3: ruleUpdate
+                    // InternalCsvMan.g:475:2: ( ruleUpdate )
+                    // InternalCsvMan.g:476:3: ruleUpdate
                     {
                      before(grammarAccess.getInstructionAccess().getUpdateParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -1382,10 +1465,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalCsvMan.g:456:2: ( ruleAdd )
+                    // InternalCsvMan.g:481:2: ( ruleAdd )
                     {
-                    // InternalCsvMan.g:456:2: ( ruleAdd )
-                    // InternalCsvMan.g:457:3: ruleAdd
+                    // InternalCsvMan.g:481:2: ( ruleAdd )
+                    // InternalCsvMan.g:482:3: ruleAdd
                     {
                      before(grammarAccess.getInstructionAccess().getAddParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -1401,10 +1484,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalCsvMan.g:462:2: ( ruleJoin )
+                    // InternalCsvMan.g:487:2: ( ruleJoin )
                     {
-                    // InternalCsvMan.g:462:2: ( ruleJoin )
-                    // InternalCsvMan.g:463:3: ruleJoin
+                    // InternalCsvMan.g:487:2: ( ruleJoin )
+                    // InternalCsvMan.g:488:3: ruleJoin
                     {
                      before(grammarAccess.getInstructionAccess().getJoinParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -1420,10 +1503,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalCsvMan.g:468:2: ( ruleDelete )
+                    // InternalCsvMan.g:493:2: ( ruleDelete )
                     {
-                    // InternalCsvMan.g:468:2: ( ruleDelete )
-                    // InternalCsvMan.g:469:3: ruleDelete
+                    // InternalCsvMan.g:493:2: ( ruleDelete )
+                    // InternalCsvMan.g:494:3: ruleDelete
                     {
                      before(grammarAccess.getInstructionAccess().getDeleteParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
@@ -1439,10 +1522,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalCsvMan.g:474:2: ( ruleExit )
+                    // InternalCsvMan.g:499:2: ( ruleExit )
                     {
-                    // InternalCsvMan.g:474:2: ( ruleExit )
-                    // InternalCsvMan.g:475:3: ruleExit
+                    // InternalCsvMan.g:499:2: ( ruleExit )
+                    // InternalCsvMan.g:500:3: ruleExit
                     {
                      before(grammarAccess.getInstructionAccess().getExitParserRuleCall_7()); 
                     pushFollow(FOLLOW_2);
@@ -1458,10 +1541,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalCsvMan.g:480:2: ( ruleComment )
+                    // InternalCsvMan.g:505:2: ( ruleComment )
                     {
-                    // InternalCsvMan.g:480:2: ( ruleComment )
-                    // InternalCsvMan.g:481:3: ruleComment
+                    // InternalCsvMan.g:505:2: ( ruleComment )
+                    // InternalCsvMan.g:506:3: ruleComment
                     {
                      before(grammarAccess.getInstructionAccess().getCommentParserRuleCall_8()); 
                     pushFollow(FOLLOW_2);
@@ -1470,6 +1553,25 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     state._fsp--;
 
                      after(grammarAccess.getInstructionAccess().getCommentParserRuleCall_8()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 10 :
+                    // InternalCsvMan.g:511:2: ( ruleCopy )
+                    {
+                    // InternalCsvMan.g:511:2: ( ruleCopy )
+                    // InternalCsvMan.g:512:3: ruleCopy
+                    {
+                     before(grammarAccess.getInstructionAccess().getCopyParserRuleCall_9()); 
+                    pushFollow(FOLLOW_2);
+                    ruleCopy();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getInstructionAccess().getCopyParserRuleCall_9()); 
 
                     }
 
@@ -1494,13 +1596,13 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Alternatives_2"
-    // InternalCsvMan.g:490:1: rule__Condition__Alternatives_2 : ( ( '=' ) | ( RULE_OP ) );
+    // InternalCsvMan.g:521:1: rule__Condition__Alternatives_2 : ( ( '=' ) | ( RULE_OP ) );
     public final void rule__Condition__Alternatives_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:494:1: ( ( '=' ) | ( RULE_OP ) )
+            // InternalCsvMan.g:525:1: ( ( '=' ) | ( RULE_OP ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1518,10 +1620,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalCsvMan.g:495:2: ( '=' )
+                    // InternalCsvMan.g:526:2: ( '=' )
                     {
-                    // InternalCsvMan.g:495:2: ( '=' )
-                    // InternalCsvMan.g:496:3: '='
+                    // InternalCsvMan.g:526:2: ( '=' )
+                    // InternalCsvMan.g:527:3: '='
                     {
                      before(grammarAccess.getConditionAccess().getEqualsSignKeyword_2_0()); 
                     match(input,13,FOLLOW_2); 
@@ -1533,10 +1635,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:501:2: ( RULE_OP )
+                    // InternalCsvMan.g:532:2: ( RULE_OP )
                     {
-                    // InternalCsvMan.g:501:2: ( RULE_OP )
-                    // InternalCsvMan.g:502:3: RULE_OP
+                    // InternalCsvMan.g:532:2: ( RULE_OP )
+                    // InternalCsvMan.g:533:3: RULE_OP
                     {
                      before(grammarAccess.getConditionAccess().getOPTerminalRuleCall_2_1()); 
                     match(input,RULE_OP,FOLLOW_2); 
@@ -1565,13 +1667,13 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comment__Alternatives"
-    // InternalCsvMan.g:511:1: rule__Comment__Alternatives : ( ( RULE_ML_COMMENT ) | ( RULE_SL_COMMENT ) );
+    // InternalCsvMan.g:542:1: rule__Comment__Alternatives : ( ( RULE_ML_COMMENT ) | ( RULE_SL_COMMENT ) );
     public final void rule__Comment__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:515:1: ( ( RULE_ML_COMMENT ) | ( RULE_SL_COMMENT ) )
+            // InternalCsvMan.g:546:1: ( ( RULE_ML_COMMENT ) | ( RULE_SL_COMMENT ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1589,10 +1691,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalCsvMan.g:516:2: ( RULE_ML_COMMENT )
+                    // InternalCsvMan.g:547:2: ( RULE_ML_COMMENT )
                     {
-                    // InternalCsvMan.g:516:2: ( RULE_ML_COMMENT )
-                    // InternalCsvMan.g:517:3: RULE_ML_COMMENT
+                    // InternalCsvMan.g:547:2: ( RULE_ML_COMMENT )
+                    // InternalCsvMan.g:548:3: RULE_ML_COMMENT
                     {
                      before(grammarAccess.getCommentAccess().getML_COMMENTTerminalRuleCall_0()); 
                     match(input,RULE_ML_COMMENT,FOLLOW_2); 
@@ -1604,10 +1706,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:522:2: ( RULE_SL_COMMENT )
+                    // InternalCsvMan.g:553:2: ( RULE_SL_COMMENT )
                     {
-                    // InternalCsvMan.g:522:2: ( RULE_SL_COMMENT )
-                    // InternalCsvMan.g:523:3: RULE_SL_COMMENT
+                    // InternalCsvMan.g:553:2: ( RULE_SL_COMMENT )
+                    // InternalCsvMan.g:554:3: RULE_SL_COMMENT
                     {
                      before(grammarAccess.getCommentAccess().getSL_COMMENTTerminalRuleCall_1()); 
                     match(input,RULE_SL_COMMENT,FOLLOW_2); 
@@ -1636,13 +1738,13 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // InternalCsvMan.g:532:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) | ( RULE_INT ) );
+    // InternalCsvMan.g:563:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) | ( RULE_INT ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:536:1: ( ( RULE_STRING ) | ( RULE_ID ) | ( RULE_INT ) )
+            // InternalCsvMan.g:567:1: ( ( RULE_STRING ) | ( RULE_ID ) | ( RULE_INT ) )
             int alt4=3;
             switch ( input.LA(1) ) {
             case RULE_STRING:
@@ -1669,10 +1771,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
             switch (alt4) {
                 case 1 :
-                    // InternalCsvMan.g:537:2: ( RULE_STRING )
+                    // InternalCsvMan.g:568:2: ( RULE_STRING )
                     {
-                    // InternalCsvMan.g:537:2: ( RULE_STRING )
-                    // InternalCsvMan.g:538:3: RULE_STRING
+                    // InternalCsvMan.g:568:2: ( RULE_STRING )
+                    // InternalCsvMan.g:569:3: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FOLLOW_2); 
@@ -1684,10 +1786,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:543:2: ( RULE_ID )
+                    // InternalCsvMan.g:574:2: ( RULE_ID )
                     {
-                    // InternalCsvMan.g:543:2: ( RULE_ID )
-                    // InternalCsvMan.g:544:3: RULE_ID
+                    // InternalCsvMan.g:574:2: ( RULE_ID )
+                    // InternalCsvMan.g:575:3: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FOLLOW_2); 
@@ -1699,10 +1801,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalCsvMan.g:549:2: ( RULE_INT )
+                    // InternalCsvMan.g:580:2: ( RULE_INT )
                     {
-                    // InternalCsvMan.g:549:2: ( RULE_INT )
-                    // InternalCsvMan.g:550:3: RULE_INT
+                    // InternalCsvMan.g:580:2: ( RULE_INT )
+                    // InternalCsvMan.g:581:3: RULE_INT
                     {
                      before(grammarAccess.getEStringAccess().getINTTerminalRuleCall_2()); 
                     match(input,RULE_INT,FOLLOW_2); 
@@ -1731,14 +1833,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__0"
-    // InternalCsvMan.g:559:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
+    // InternalCsvMan.g:590:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
     public final void rule__Program__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:563:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
-            // InternalCsvMan.g:564:2: rule__Program__Group__0__Impl rule__Program__Group__1
+            // InternalCsvMan.g:594:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
+            // InternalCsvMan.g:595:2: rule__Program__Group__0__Impl rule__Program__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Program__Group__0__Impl();
@@ -1769,21 +1871,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__0__Impl"
-    // InternalCsvMan.g:571:1: rule__Program__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:602:1: rule__Program__Group__0__Impl : ( () ) ;
     public final void rule__Program__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:575:1: ( ( () ) )
-            // InternalCsvMan.g:576:1: ( () )
+            // InternalCsvMan.g:606:1: ( ( () ) )
+            // InternalCsvMan.g:607:1: ( () )
             {
-            // InternalCsvMan.g:576:1: ( () )
-            // InternalCsvMan.g:577:2: ()
+            // InternalCsvMan.g:607:1: ( () )
+            // InternalCsvMan.g:608:2: ()
             {
              before(grammarAccess.getProgramAccess().getProgramAction_0()); 
-            // InternalCsvMan.g:578:2: ()
-            // InternalCsvMan.g:578:3: 
+            // InternalCsvMan.g:609:2: ()
+            // InternalCsvMan.g:609:3: 
             {
             }
 
@@ -1806,14 +1908,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__1"
-    // InternalCsvMan.g:586:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
+    // InternalCsvMan.g:617:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
     public final void rule__Program__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:590:1: ( rule__Program__Group__1__Impl )
-            // InternalCsvMan.g:591:2: rule__Program__Group__1__Impl
+            // InternalCsvMan.g:621:1: ( rule__Program__Group__1__Impl )
+            // InternalCsvMan.g:622:2: rule__Program__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Program__Group__1__Impl();
@@ -1839,33 +1941,33 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__Group__1__Impl"
-    // InternalCsvMan.g:597:1: rule__Program__Group__1__Impl : ( ( rule__Program__InstructionAssignment_1 )* ) ;
+    // InternalCsvMan.g:628:1: rule__Program__Group__1__Impl : ( ( rule__Program__InstructionAssignment_1 )* ) ;
     public final void rule__Program__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:601:1: ( ( ( rule__Program__InstructionAssignment_1 )* ) )
-            // InternalCsvMan.g:602:1: ( ( rule__Program__InstructionAssignment_1 )* )
+            // InternalCsvMan.g:632:1: ( ( ( rule__Program__InstructionAssignment_1 )* ) )
+            // InternalCsvMan.g:633:1: ( ( rule__Program__InstructionAssignment_1 )* )
             {
-            // InternalCsvMan.g:602:1: ( ( rule__Program__InstructionAssignment_1 )* )
-            // InternalCsvMan.g:603:2: ( rule__Program__InstructionAssignment_1 )*
+            // InternalCsvMan.g:633:1: ( ( rule__Program__InstructionAssignment_1 )* )
+            // InternalCsvMan.g:634:2: ( rule__Program__InstructionAssignment_1 )*
             {
              before(grammarAccess.getProgramAccess().getInstructionAssignment_1()); 
-            // InternalCsvMan.g:604:2: ( rule__Program__InstructionAssignment_1 )*
+            // InternalCsvMan.g:635:2: ( rule__Program__InstructionAssignment_1 )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0>=RULE_ML_COMMENT && LA5_0<=RULE_SL_COMMENT)||LA5_0==14||LA5_0==18||(LA5_0>=20 && LA5_0<=21)||LA5_0==23||(LA5_0>=25 && LA5_0<=27)) ) {
+                if ( ((LA5_0>=RULE_ML_COMMENT && LA5_0<=RULE_SL_COMMENT)||LA5_0==14||LA5_0==16||LA5_0==20||(LA5_0>=22 && LA5_0<=23)||(LA5_0>=25 && LA5_0<=28)) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalCsvMan.g:604:3: rule__Program__InstructionAssignment_1
+            	    // InternalCsvMan.g:635:3: rule__Program__InstructionAssignment_1
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__Program__InstructionAssignment_1();
@@ -1903,17 +2005,482 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Program__Group__1__Impl"
 
 
+    // $ANTLR start "rule__Copy__Group__0"
+    // InternalCsvMan.g:644:1: rule__Copy__Group__0 : rule__Copy__Group__0__Impl rule__Copy__Group__1 ;
+    public final void rule__Copy__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:648:1: ( rule__Copy__Group__0__Impl rule__Copy__Group__1 )
+            // InternalCsvMan.g:649:2: rule__Copy__Group__0__Impl rule__Copy__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__Copy__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__0"
+
+
+    // $ANTLR start "rule__Copy__Group__0__Impl"
+    // InternalCsvMan.g:656:1: rule__Copy__Group__0__Impl : ( () ) ;
+    public final void rule__Copy__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:660:1: ( ( () ) )
+            // InternalCsvMan.g:661:1: ( () )
+            {
+            // InternalCsvMan.g:661:1: ( () )
+            // InternalCsvMan.g:662:2: ()
+            {
+             before(grammarAccess.getCopyAccess().getCopyAction_0()); 
+            // InternalCsvMan.g:663:2: ()
+            // InternalCsvMan.g:663:3: 
+            {
+            }
+
+             after(grammarAccess.getCopyAccess().getCopyAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Copy__Group__1"
+    // InternalCsvMan.g:671:1: rule__Copy__Group__1 : rule__Copy__Group__1__Impl rule__Copy__Group__2 ;
+    public final void rule__Copy__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:675:1: ( rule__Copy__Group__1__Impl rule__Copy__Group__2 )
+            // InternalCsvMan.g:676:2: rule__Copy__Group__1__Impl rule__Copy__Group__2
+            {
+            pushFollow(FOLLOW_5);
+            rule__Copy__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__1"
+
+
+    // $ANTLR start "rule__Copy__Group__1__Impl"
+    // InternalCsvMan.g:683:1: rule__Copy__Group__1__Impl : ( 'copy' ) ;
+    public final void rule__Copy__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:687:1: ( ( 'copy' ) )
+            // InternalCsvMan.g:688:1: ( 'copy' )
+            {
+            // InternalCsvMan.g:688:1: ( 'copy' )
+            // InternalCsvMan.g:689:2: 'copy'
+            {
+             before(grammarAccess.getCopyAccess().getCopyKeyword_1()); 
+            match(input,14,FOLLOW_2); 
+             after(grammarAccess.getCopyAccess().getCopyKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Copy__Group__2"
+    // InternalCsvMan.g:698:1: rule__Copy__Group__2 : rule__Copy__Group__2__Impl rule__Copy__Group__3 ;
+    public final void rule__Copy__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:702:1: ( rule__Copy__Group__2__Impl rule__Copy__Group__3 )
+            // InternalCsvMan.g:703:2: rule__Copy__Group__2__Impl rule__Copy__Group__3
+            {
+            pushFollow(FOLLOW_6);
+            rule__Copy__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__2"
+
+
+    // $ANTLR start "rule__Copy__Group__2__Impl"
+    // InternalCsvMan.g:710:1: rule__Copy__Group__2__Impl : ( ( rule__Copy__AliasAssignment_2 ) ) ;
+    public final void rule__Copy__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:714:1: ( ( ( rule__Copy__AliasAssignment_2 ) ) )
+            // InternalCsvMan.g:715:1: ( ( rule__Copy__AliasAssignment_2 ) )
+            {
+            // InternalCsvMan.g:715:1: ( ( rule__Copy__AliasAssignment_2 ) )
+            // InternalCsvMan.g:716:2: ( rule__Copy__AliasAssignment_2 )
+            {
+             before(grammarAccess.getCopyAccess().getAliasAssignment_2()); 
+            // InternalCsvMan.g:717:2: ( rule__Copy__AliasAssignment_2 )
+            // InternalCsvMan.g:717:3: rule__Copy__AliasAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__Copy__AliasAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCopyAccess().getAliasAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Copy__Group__3"
+    // InternalCsvMan.g:725:1: rule__Copy__Group__3 : rule__Copy__Group__3__Impl rule__Copy__Group__4 ;
+    public final void rule__Copy__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:729:1: ( rule__Copy__Group__3__Impl rule__Copy__Group__4 )
+            // InternalCsvMan.g:730:2: rule__Copy__Group__3__Impl rule__Copy__Group__4
+            {
+            pushFollow(FOLLOW_5);
+            rule__Copy__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__3"
+
+
+    // $ANTLR start "rule__Copy__Group__3__Impl"
+    // InternalCsvMan.g:737:1: rule__Copy__Group__3__Impl : ( 'in' ) ;
+    public final void rule__Copy__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:741:1: ( ( 'in' ) )
+            // InternalCsvMan.g:742:1: ( 'in' )
+            {
+            // InternalCsvMan.g:742:1: ( 'in' )
+            // InternalCsvMan.g:743:2: 'in'
+            {
+             before(grammarAccess.getCopyAccess().getInKeyword_3()); 
+            match(input,15,FOLLOW_2); 
+             after(grammarAccess.getCopyAccess().getInKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__3__Impl"
+
+
+    // $ANTLR start "rule__Copy__Group__4"
+    // InternalCsvMan.g:752:1: rule__Copy__Group__4 : rule__Copy__Group__4__Impl rule__Copy__Group__5 ;
+    public final void rule__Copy__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:756:1: ( rule__Copy__Group__4__Impl rule__Copy__Group__5 )
+            // InternalCsvMan.g:757:2: rule__Copy__Group__4__Impl rule__Copy__Group__5
+            {
+            pushFollow(FOLLOW_7);
+            rule__Copy__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__4"
+
+
+    // $ANTLR start "rule__Copy__Group__4__Impl"
+    // InternalCsvMan.g:764:1: rule__Copy__Group__4__Impl : ( ( rule__Copy__TableAssignment_4 ) ) ;
+    public final void rule__Copy__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:768:1: ( ( ( rule__Copy__TableAssignment_4 ) ) )
+            // InternalCsvMan.g:769:1: ( ( rule__Copy__TableAssignment_4 ) )
+            {
+            // InternalCsvMan.g:769:1: ( ( rule__Copy__TableAssignment_4 ) )
+            // InternalCsvMan.g:770:2: ( rule__Copy__TableAssignment_4 )
+            {
+             before(grammarAccess.getCopyAccess().getTableAssignment_4()); 
+            // InternalCsvMan.g:771:2: ( rule__Copy__TableAssignment_4 )
+            // InternalCsvMan.g:771:3: rule__Copy__TableAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__Copy__TableAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCopyAccess().getTableAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__4__Impl"
+
+
+    // $ANTLR start "rule__Copy__Group__5"
+    // InternalCsvMan.g:779:1: rule__Copy__Group__5 : rule__Copy__Group__5__Impl ;
+    public final void rule__Copy__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:783:1: ( rule__Copy__Group__5__Impl )
+            // InternalCsvMan.g:784:2: rule__Copy__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Copy__Group__5__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__5"
+
+
+    // $ANTLR start "rule__Copy__Group__5__Impl"
+    // InternalCsvMan.g:790:1: rule__Copy__Group__5__Impl : ( RULE_NL ) ;
+    public final void rule__Copy__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:794:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:795:1: ( RULE_NL )
+            {
+            // InternalCsvMan.g:795:1: ( RULE_NL )
+            // InternalCsvMan.g:796:2: RULE_NL
+            {
+             before(grammarAccess.getCopyAccess().getNLTerminalRuleCall_5()); 
+            match(input,RULE_NL,FOLLOW_2); 
+             after(grammarAccess.getCopyAccess().getNLTerminalRuleCall_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__Group__5__Impl"
+
+
     // $ANTLR start "rule__Create__Group__0"
-    // InternalCsvMan.g:613:1: rule__Create__Group__0 : rule__Create__Group__0__Impl rule__Create__Group__1 ;
+    // InternalCsvMan.g:806:1: rule__Create__Group__0 : rule__Create__Group__0__Impl rule__Create__Group__1 ;
     public final void rule__Create__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:617:1: ( rule__Create__Group__0__Impl rule__Create__Group__1 )
-            // InternalCsvMan.g:618:2: rule__Create__Group__0__Impl rule__Create__Group__1
+            // InternalCsvMan.g:810:1: ( rule__Create__Group__0__Impl rule__Create__Group__1 )
+            // InternalCsvMan.g:811:2: rule__Create__Group__0__Impl rule__Create__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_8);
             rule__Create__Group__0__Impl();
 
             state._fsp--;
@@ -1942,21 +2509,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__0__Impl"
-    // InternalCsvMan.g:625:1: rule__Create__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:818:1: rule__Create__Group__0__Impl : ( () ) ;
     public final void rule__Create__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:629:1: ( ( () ) )
-            // InternalCsvMan.g:630:1: ( () )
+            // InternalCsvMan.g:822:1: ( ( () ) )
+            // InternalCsvMan.g:823:1: ( () )
             {
-            // InternalCsvMan.g:630:1: ( () )
-            // InternalCsvMan.g:631:2: ()
+            // InternalCsvMan.g:823:1: ( () )
+            // InternalCsvMan.g:824:2: ()
             {
              before(grammarAccess.getCreateAccess().getCreateAction_0()); 
-            // InternalCsvMan.g:632:2: ()
-            // InternalCsvMan.g:632:3: 
+            // InternalCsvMan.g:825:2: ()
+            // InternalCsvMan.g:825:3: 
             {
             }
 
@@ -1979,16 +2546,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__1"
-    // InternalCsvMan.g:640:1: rule__Create__Group__1 : rule__Create__Group__1__Impl rule__Create__Group__2 ;
+    // InternalCsvMan.g:833:1: rule__Create__Group__1 : rule__Create__Group__1__Impl rule__Create__Group__2 ;
     public final void rule__Create__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:644:1: ( rule__Create__Group__1__Impl rule__Create__Group__2 )
-            // InternalCsvMan.g:645:2: rule__Create__Group__1__Impl rule__Create__Group__2
+            // InternalCsvMan.g:837:1: ( rule__Create__Group__1__Impl rule__Create__Group__2 )
+            // InternalCsvMan.g:838:2: rule__Create__Group__1__Impl rule__Create__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Create__Group__1__Impl();
 
             state._fsp--;
@@ -2017,20 +2584,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__1__Impl"
-    // InternalCsvMan.g:652:1: rule__Create__Group__1__Impl : ( 'create' ) ;
+    // InternalCsvMan.g:845:1: rule__Create__Group__1__Impl : ( 'create' ) ;
     public final void rule__Create__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:656:1: ( ( 'create' ) )
-            // InternalCsvMan.g:657:1: ( 'create' )
+            // InternalCsvMan.g:849:1: ( ( 'create' ) )
+            // InternalCsvMan.g:850:1: ( 'create' )
             {
-            // InternalCsvMan.g:657:1: ( 'create' )
-            // InternalCsvMan.g:658:2: 'create'
+            // InternalCsvMan.g:850:1: ( 'create' )
+            // InternalCsvMan.g:851:2: 'create'
             {
              before(grammarAccess.getCreateAccess().getCreateKeyword_1()); 
-            match(input,14,FOLLOW_2); 
+            match(input,16,FOLLOW_2); 
              after(grammarAccess.getCreateAccess().getCreateKeyword_1()); 
 
             }
@@ -2054,16 +2621,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__2"
-    // InternalCsvMan.g:667:1: rule__Create__Group__2 : rule__Create__Group__2__Impl rule__Create__Group__3 ;
+    // InternalCsvMan.g:860:1: rule__Create__Group__2 : rule__Create__Group__2__Impl rule__Create__Group__3 ;
     public final void rule__Create__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:671:1: ( rule__Create__Group__2__Impl rule__Create__Group__3 )
-            // InternalCsvMan.g:672:2: rule__Create__Group__2__Impl rule__Create__Group__3
+            // InternalCsvMan.g:864:1: ( rule__Create__Group__2__Impl rule__Create__Group__3 )
+            // InternalCsvMan.g:865:2: rule__Create__Group__2__Impl rule__Create__Group__3
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_9);
             rule__Create__Group__2__Impl();
 
             state._fsp--;
@@ -2092,21 +2659,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__2__Impl"
-    // InternalCsvMan.g:679:1: rule__Create__Group__2__Impl : ( ( rule__Create__TableAssignment_2 ) ) ;
+    // InternalCsvMan.g:872:1: rule__Create__Group__2__Impl : ( ( rule__Create__TableAssignment_2 ) ) ;
     public final void rule__Create__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:683:1: ( ( ( rule__Create__TableAssignment_2 ) ) )
-            // InternalCsvMan.g:684:1: ( ( rule__Create__TableAssignment_2 ) )
+            // InternalCsvMan.g:876:1: ( ( ( rule__Create__TableAssignment_2 ) ) )
+            // InternalCsvMan.g:877:1: ( ( rule__Create__TableAssignment_2 ) )
             {
-            // InternalCsvMan.g:684:1: ( ( rule__Create__TableAssignment_2 ) )
-            // InternalCsvMan.g:685:2: ( rule__Create__TableAssignment_2 )
+            // InternalCsvMan.g:877:1: ( ( rule__Create__TableAssignment_2 ) )
+            // InternalCsvMan.g:878:2: ( rule__Create__TableAssignment_2 )
             {
              before(grammarAccess.getCreateAccess().getTableAssignment_2()); 
-            // InternalCsvMan.g:686:2: ( rule__Create__TableAssignment_2 )
-            // InternalCsvMan.g:686:3: rule__Create__TableAssignment_2
+            // InternalCsvMan.g:879:2: ( rule__Create__TableAssignment_2 )
+            // InternalCsvMan.g:879:3: rule__Create__TableAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Create__TableAssignment_2();
@@ -2139,16 +2706,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__3"
-    // InternalCsvMan.g:694:1: rule__Create__Group__3 : rule__Create__Group__3__Impl rule__Create__Group__4 ;
+    // InternalCsvMan.g:887:1: rule__Create__Group__3 : rule__Create__Group__3__Impl rule__Create__Group__4 ;
     public final void rule__Create__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:698:1: ( rule__Create__Group__3__Impl rule__Create__Group__4 )
-            // InternalCsvMan.g:699:2: rule__Create__Group__3__Impl rule__Create__Group__4
+            // InternalCsvMan.g:891:1: ( rule__Create__Group__3__Impl rule__Create__Group__4 )
+            // InternalCsvMan.g:892:2: rule__Create__Group__3__Impl rule__Create__Group__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Create__Group__3__Impl();
 
             state._fsp--;
@@ -2177,20 +2744,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__3__Impl"
-    // InternalCsvMan.g:706:1: rule__Create__Group__3__Impl : ( '(' ) ;
+    // InternalCsvMan.g:899:1: rule__Create__Group__3__Impl : ( '(' ) ;
     public final void rule__Create__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:710:1: ( ( '(' ) )
-            // InternalCsvMan.g:711:1: ( '(' )
+            // InternalCsvMan.g:903:1: ( ( '(' ) )
+            // InternalCsvMan.g:904:1: ( '(' )
             {
-            // InternalCsvMan.g:711:1: ( '(' )
-            // InternalCsvMan.g:712:2: '('
+            // InternalCsvMan.g:904:1: ( '(' )
+            // InternalCsvMan.g:905:2: '('
             {
              before(grammarAccess.getCreateAccess().getLeftParenthesisKeyword_3()); 
-            match(input,15,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getCreateAccess().getLeftParenthesisKeyword_3()); 
 
             }
@@ -2214,16 +2781,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__4"
-    // InternalCsvMan.g:721:1: rule__Create__Group__4 : rule__Create__Group__4__Impl rule__Create__Group__5 ;
+    // InternalCsvMan.g:914:1: rule__Create__Group__4 : rule__Create__Group__4__Impl rule__Create__Group__5 ;
     public final void rule__Create__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:725:1: ( rule__Create__Group__4__Impl rule__Create__Group__5 )
-            // InternalCsvMan.g:726:2: rule__Create__Group__4__Impl rule__Create__Group__5
+            // InternalCsvMan.g:918:1: ( rule__Create__Group__4__Impl rule__Create__Group__5 )
+            // InternalCsvMan.g:919:2: rule__Create__Group__4__Impl rule__Create__Group__5
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Create__Group__4__Impl();
 
             state._fsp--;
@@ -2252,21 +2819,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__4__Impl"
-    // InternalCsvMan.g:733:1: rule__Create__Group__4__Impl : ( ( rule__Create__ColonneAssignment_4 ) ) ;
+    // InternalCsvMan.g:926:1: rule__Create__Group__4__Impl : ( ( rule__Create__ColonneAssignment_4 ) ) ;
     public final void rule__Create__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:737:1: ( ( ( rule__Create__ColonneAssignment_4 ) ) )
-            // InternalCsvMan.g:738:1: ( ( rule__Create__ColonneAssignment_4 ) )
+            // InternalCsvMan.g:930:1: ( ( ( rule__Create__ColonneAssignment_4 ) ) )
+            // InternalCsvMan.g:931:1: ( ( rule__Create__ColonneAssignment_4 ) )
             {
-            // InternalCsvMan.g:738:1: ( ( rule__Create__ColonneAssignment_4 ) )
-            // InternalCsvMan.g:739:2: ( rule__Create__ColonneAssignment_4 )
+            // InternalCsvMan.g:931:1: ( ( rule__Create__ColonneAssignment_4 ) )
+            // InternalCsvMan.g:932:2: ( rule__Create__ColonneAssignment_4 )
             {
              before(grammarAccess.getCreateAccess().getColonneAssignment_4()); 
-            // InternalCsvMan.g:740:2: ( rule__Create__ColonneAssignment_4 )
-            // InternalCsvMan.g:740:3: rule__Create__ColonneAssignment_4
+            // InternalCsvMan.g:933:2: ( rule__Create__ColonneAssignment_4 )
+            // InternalCsvMan.g:933:3: rule__Create__ColonneAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Create__ColonneAssignment_4();
@@ -2299,16 +2866,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__5"
-    // InternalCsvMan.g:748:1: rule__Create__Group__5 : rule__Create__Group__5__Impl rule__Create__Group__6 ;
+    // InternalCsvMan.g:941:1: rule__Create__Group__5 : rule__Create__Group__5__Impl rule__Create__Group__6 ;
     public final void rule__Create__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:752:1: ( rule__Create__Group__5__Impl rule__Create__Group__6 )
-            // InternalCsvMan.g:753:2: rule__Create__Group__5__Impl rule__Create__Group__6
+            // InternalCsvMan.g:945:1: ( rule__Create__Group__5__Impl rule__Create__Group__6 )
+            // InternalCsvMan.g:946:2: rule__Create__Group__5__Impl rule__Create__Group__6
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Create__Group__5__Impl();
 
             state._fsp--;
@@ -2337,35 +2904,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__5__Impl"
-    // InternalCsvMan.g:760:1: rule__Create__Group__5__Impl : ( ( rule__Create__Group_5__0 )* ) ;
+    // InternalCsvMan.g:953:1: rule__Create__Group__5__Impl : ( ( rule__Create__Group_5__0 )* ) ;
     public final void rule__Create__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:764:1: ( ( ( rule__Create__Group_5__0 )* ) )
-            // InternalCsvMan.g:765:1: ( ( rule__Create__Group_5__0 )* )
+            // InternalCsvMan.g:957:1: ( ( ( rule__Create__Group_5__0 )* ) )
+            // InternalCsvMan.g:958:1: ( ( rule__Create__Group_5__0 )* )
             {
-            // InternalCsvMan.g:765:1: ( ( rule__Create__Group_5__0 )* )
-            // InternalCsvMan.g:766:2: ( rule__Create__Group_5__0 )*
+            // InternalCsvMan.g:958:1: ( ( rule__Create__Group_5__0 )* )
+            // InternalCsvMan.g:959:2: ( rule__Create__Group_5__0 )*
             {
              before(grammarAccess.getCreateAccess().getGroup_5()); 
-            // InternalCsvMan.g:767:2: ( rule__Create__Group_5__0 )*
+            // InternalCsvMan.g:960:2: ( rule__Create__Group_5__0 )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==17) ) {
+                if ( (LA6_0==19) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalCsvMan.g:767:3: rule__Create__Group_5__0
+            	    // InternalCsvMan.g:960:3: rule__Create__Group_5__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_11);
             	    rule__Create__Group_5__0();
 
             	    state._fsp--;
@@ -2402,16 +2969,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__6"
-    // InternalCsvMan.g:775:1: rule__Create__Group__6 : rule__Create__Group__6__Impl rule__Create__Group__7 ;
+    // InternalCsvMan.g:968:1: rule__Create__Group__6 : rule__Create__Group__6__Impl rule__Create__Group__7 ;
     public final void rule__Create__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:779:1: ( rule__Create__Group__6__Impl rule__Create__Group__7 )
-            // InternalCsvMan.g:780:2: rule__Create__Group__6__Impl rule__Create__Group__7
+            // InternalCsvMan.g:972:1: ( rule__Create__Group__6__Impl rule__Create__Group__7 )
+            // InternalCsvMan.g:973:2: rule__Create__Group__6__Impl rule__Create__Group__7
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_7);
             rule__Create__Group__6__Impl();
 
             state._fsp--;
@@ -2440,20 +3007,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__6__Impl"
-    // InternalCsvMan.g:787:1: rule__Create__Group__6__Impl : ( ')' ) ;
+    // InternalCsvMan.g:980:1: rule__Create__Group__6__Impl : ( ')' ) ;
     public final void rule__Create__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:791:1: ( ( ')' ) )
-            // InternalCsvMan.g:792:1: ( ')' )
+            // InternalCsvMan.g:984:1: ( ( ')' ) )
+            // InternalCsvMan.g:985:1: ( ')' )
             {
-            // InternalCsvMan.g:792:1: ( ')' )
-            // InternalCsvMan.g:793:2: ')'
+            // InternalCsvMan.g:985:1: ( ')' )
+            // InternalCsvMan.g:986:2: ')'
             {
              before(grammarAccess.getCreateAccess().getRightParenthesisKeyword_6()); 
-            match(input,16,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getCreateAccess().getRightParenthesisKeyword_6()); 
 
             }
@@ -2477,14 +3044,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__7"
-    // InternalCsvMan.g:802:1: rule__Create__Group__7 : rule__Create__Group__7__Impl ;
+    // InternalCsvMan.g:995:1: rule__Create__Group__7 : rule__Create__Group__7__Impl ;
     public final void rule__Create__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:806:1: ( rule__Create__Group__7__Impl )
-            // InternalCsvMan.g:807:2: rule__Create__Group__7__Impl
+            // InternalCsvMan.g:999:1: ( rule__Create__Group__7__Impl )
+            // InternalCsvMan.g:1000:2: rule__Create__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Create__Group__7__Impl();
@@ -2510,17 +3077,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group__7__Impl"
-    // InternalCsvMan.g:813:1: rule__Create__Group__7__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:1006:1: rule__Create__Group__7__Impl : ( RULE_NL ) ;
     public final void rule__Create__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:817:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:818:1: ( RULE_NL )
+            // InternalCsvMan.g:1010:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:1011:1: ( RULE_NL )
             {
-            // InternalCsvMan.g:818:1: ( RULE_NL )
-            // InternalCsvMan.g:819:2: RULE_NL
+            // InternalCsvMan.g:1011:1: ( RULE_NL )
+            // InternalCsvMan.g:1012:2: RULE_NL
             {
              before(grammarAccess.getCreateAccess().getNLTerminalRuleCall_7()); 
             match(input,RULE_NL,FOLLOW_2); 
@@ -2547,16 +3114,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group_5__0"
-    // InternalCsvMan.g:829:1: rule__Create__Group_5__0 : rule__Create__Group_5__0__Impl rule__Create__Group_5__1 ;
+    // InternalCsvMan.g:1022:1: rule__Create__Group_5__0 : rule__Create__Group_5__0__Impl rule__Create__Group_5__1 ;
     public final void rule__Create__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:833:1: ( rule__Create__Group_5__0__Impl rule__Create__Group_5__1 )
-            // InternalCsvMan.g:834:2: rule__Create__Group_5__0__Impl rule__Create__Group_5__1
+            // InternalCsvMan.g:1026:1: ( rule__Create__Group_5__0__Impl rule__Create__Group_5__1 )
+            // InternalCsvMan.g:1027:2: rule__Create__Group_5__0__Impl rule__Create__Group_5__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Create__Group_5__0__Impl();
 
             state._fsp--;
@@ -2585,20 +3152,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group_5__0__Impl"
-    // InternalCsvMan.g:841:1: rule__Create__Group_5__0__Impl : ( ',' ) ;
+    // InternalCsvMan.g:1034:1: rule__Create__Group_5__0__Impl : ( ',' ) ;
     public final void rule__Create__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:845:1: ( ( ',' ) )
-            // InternalCsvMan.g:846:1: ( ',' )
+            // InternalCsvMan.g:1038:1: ( ( ',' ) )
+            // InternalCsvMan.g:1039:1: ( ',' )
             {
-            // InternalCsvMan.g:846:1: ( ',' )
-            // InternalCsvMan.g:847:2: ','
+            // InternalCsvMan.g:1039:1: ( ',' )
+            // InternalCsvMan.g:1040:2: ','
             {
              before(grammarAccess.getCreateAccess().getCommaKeyword_5_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getCreateAccess().getCommaKeyword_5_0()); 
 
             }
@@ -2622,14 +3189,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group_5__1"
-    // InternalCsvMan.g:856:1: rule__Create__Group_5__1 : rule__Create__Group_5__1__Impl ;
+    // InternalCsvMan.g:1049:1: rule__Create__Group_5__1 : rule__Create__Group_5__1__Impl ;
     public final void rule__Create__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:860:1: ( rule__Create__Group_5__1__Impl )
-            // InternalCsvMan.g:861:2: rule__Create__Group_5__1__Impl
+            // InternalCsvMan.g:1053:1: ( rule__Create__Group_5__1__Impl )
+            // InternalCsvMan.g:1054:2: rule__Create__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Create__Group_5__1__Impl();
@@ -2655,21 +3222,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__Group_5__1__Impl"
-    // InternalCsvMan.g:867:1: rule__Create__Group_5__1__Impl : ( ( rule__Create__ColonneAssignment_5_1 ) ) ;
+    // InternalCsvMan.g:1060:1: rule__Create__Group_5__1__Impl : ( ( rule__Create__ColonneAssignment_5_1 ) ) ;
     public final void rule__Create__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:871:1: ( ( ( rule__Create__ColonneAssignment_5_1 ) ) )
-            // InternalCsvMan.g:872:1: ( ( rule__Create__ColonneAssignment_5_1 ) )
+            // InternalCsvMan.g:1064:1: ( ( ( rule__Create__ColonneAssignment_5_1 ) ) )
+            // InternalCsvMan.g:1065:1: ( ( rule__Create__ColonneAssignment_5_1 ) )
             {
-            // InternalCsvMan.g:872:1: ( ( rule__Create__ColonneAssignment_5_1 ) )
-            // InternalCsvMan.g:873:2: ( rule__Create__ColonneAssignment_5_1 )
+            // InternalCsvMan.g:1065:1: ( ( rule__Create__ColonneAssignment_5_1 ) )
+            // InternalCsvMan.g:1066:2: ( rule__Create__ColonneAssignment_5_1 )
             {
              before(grammarAccess.getCreateAccess().getColonneAssignment_5_1()); 
-            // InternalCsvMan.g:874:2: ( rule__Create__ColonneAssignment_5_1 )
-            // InternalCsvMan.g:874:3: rule__Create__ColonneAssignment_5_1
+            // InternalCsvMan.g:1067:2: ( rule__Create__ColonneAssignment_5_1 )
+            // InternalCsvMan.g:1067:3: rule__Create__ColonneAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__Create__ColonneAssignment_5_1();
@@ -2702,16 +3269,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__0"
-    // InternalCsvMan.g:883:1: rule__Load__Group__0 : rule__Load__Group__0__Impl rule__Load__Group__1 ;
+    // InternalCsvMan.g:1076:1: rule__Load__Group__0 : rule__Load__Group__0__Impl rule__Load__Group__1 ;
     public final void rule__Load__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:887:1: ( rule__Load__Group__0__Impl rule__Load__Group__1 )
-            // InternalCsvMan.g:888:2: rule__Load__Group__0__Impl rule__Load__Group__1
+            // InternalCsvMan.g:1080:1: ( rule__Load__Group__0__Impl rule__Load__Group__1 )
+            // InternalCsvMan.g:1081:2: rule__Load__Group__0__Impl rule__Load__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__Load__Group__0__Impl();
 
             state._fsp--;
@@ -2740,21 +3307,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__0__Impl"
-    // InternalCsvMan.g:895:1: rule__Load__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:1088:1: rule__Load__Group__0__Impl : ( () ) ;
     public final void rule__Load__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:899:1: ( ( () ) )
-            // InternalCsvMan.g:900:1: ( () )
+            // InternalCsvMan.g:1092:1: ( ( () ) )
+            // InternalCsvMan.g:1093:1: ( () )
             {
-            // InternalCsvMan.g:900:1: ( () )
-            // InternalCsvMan.g:901:2: ()
+            // InternalCsvMan.g:1093:1: ( () )
+            // InternalCsvMan.g:1094:2: ()
             {
              before(grammarAccess.getLoadAccess().getLoadAction_0()); 
-            // InternalCsvMan.g:902:2: ()
-            // InternalCsvMan.g:902:3: 
+            // InternalCsvMan.g:1095:2: ()
+            // InternalCsvMan.g:1095:3: 
             {
             }
 
@@ -2777,16 +3344,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__1"
-    // InternalCsvMan.g:910:1: rule__Load__Group__1 : rule__Load__Group__1__Impl rule__Load__Group__2 ;
+    // InternalCsvMan.g:1103:1: rule__Load__Group__1 : rule__Load__Group__1__Impl rule__Load__Group__2 ;
     public final void rule__Load__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:914:1: ( rule__Load__Group__1__Impl rule__Load__Group__2 )
-            // InternalCsvMan.g:915:2: rule__Load__Group__1__Impl rule__Load__Group__2
+            // InternalCsvMan.g:1107:1: ( rule__Load__Group__1__Impl rule__Load__Group__2 )
+            // InternalCsvMan.g:1108:2: rule__Load__Group__1__Impl rule__Load__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Load__Group__1__Impl();
 
             state._fsp--;
@@ -2815,20 +3382,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__1__Impl"
-    // InternalCsvMan.g:922:1: rule__Load__Group__1__Impl : ( 'load' ) ;
+    // InternalCsvMan.g:1115:1: rule__Load__Group__1__Impl : ( 'load' ) ;
     public final void rule__Load__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:926:1: ( ( 'load' ) )
-            // InternalCsvMan.g:927:1: ( 'load' )
+            // InternalCsvMan.g:1119:1: ( ( 'load' ) )
+            // InternalCsvMan.g:1120:1: ( 'load' )
             {
-            // InternalCsvMan.g:927:1: ( 'load' )
-            // InternalCsvMan.g:928:2: 'load'
+            // InternalCsvMan.g:1120:1: ( 'load' )
+            // InternalCsvMan.g:1121:2: 'load'
             {
              before(grammarAccess.getLoadAccess().getLoadKeyword_1()); 
-            match(input,18,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getLoadAccess().getLoadKeyword_1()); 
 
             }
@@ -2852,16 +3419,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__2"
-    // InternalCsvMan.g:937:1: rule__Load__Group__2 : rule__Load__Group__2__Impl rule__Load__Group__3 ;
+    // InternalCsvMan.g:1130:1: rule__Load__Group__2 : rule__Load__Group__2__Impl rule__Load__Group__3 ;
     public final void rule__Load__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:941:1: ( rule__Load__Group__2__Impl rule__Load__Group__3 )
-            // InternalCsvMan.g:942:2: rule__Load__Group__2__Impl rule__Load__Group__3
+            // InternalCsvMan.g:1134:1: ( rule__Load__Group__2__Impl rule__Load__Group__3 )
+            // InternalCsvMan.g:1135:2: rule__Load__Group__2__Impl rule__Load__Group__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Load__Group__2__Impl();
 
             state._fsp--;
@@ -2890,21 +3457,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__2__Impl"
-    // InternalCsvMan.g:949:1: rule__Load__Group__2__Impl : ( ( rule__Load__TableAssignment_2 ) ) ;
+    // InternalCsvMan.g:1142:1: rule__Load__Group__2__Impl : ( ( rule__Load__TableAssignment_2 ) ) ;
     public final void rule__Load__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:953:1: ( ( ( rule__Load__TableAssignment_2 ) ) )
-            // InternalCsvMan.g:954:1: ( ( rule__Load__TableAssignment_2 ) )
+            // InternalCsvMan.g:1146:1: ( ( ( rule__Load__TableAssignment_2 ) ) )
+            // InternalCsvMan.g:1147:1: ( ( rule__Load__TableAssignment_2 ) )
             {
-            // InternalCsvMan.g:954:1: ( ( rule__Load__TableAssignment_2 ) )
-            // InternalCsvMan.g:955:2: ( rule__Load__TableAssignment_2 )
+            // InternalCsvMan.g:1147:1: ( ( rule__Load__TableAssignment_2 ) )
+            // InternalCsvMan.g:1148:2: ( rule__Load__TableAssignment_2 )
             {
              before(grammarAccess.getLoadAccess().getTableAssignment_2()); 
-            // InternalCsvMan.g:956:2: ( rule__Load__TableAssignment_2 )
-            // InternalCsvMan.g:956:3: rule__Load__TableAssignment_2
+            // InternalCsvMan.g:1149:2: ( rule__Load__TableAssignment_2 )
+            // InternalCsvMan.g:1149:3: rule__Load__TableAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Load__TableAssignment_2();
@@ -2937,16 +3504,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__3"
-    // InternalCsvMan.g:964:1: rule__Load__Group__3 : rule__Load__Group__3__Impl rule__Load__Group__4 ;
+    // InternalCsvMan.g:1157:1: rule__Load__Group__3 : rule__Load__Group__3__Impl rule__Load__Group__4 ;
     public final void rule__Load__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:968:1: ( rule__Load__Group__3__Impl rule__Load__Group__4 )
-            // InternalCsvMan.g:969:2: rule__Load__Group__3__Impl rule__Load__Group__4
+            // InternalCsvMan.g:1161:1: ( rule__Load__Group__3__Impl rule__Load__Group__4 )
+            // InternalCsvMan.g:1162:2: rule__Load__Group__3__Impl rule__Load__Group__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Load__Group__3__Impl();
 
             state._fsp--;
@@ -2975,20 +3542,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__3__Impl"
-    // InternalCsvMan.g:976:1: rule__Load__Group__3__Impl : ( 'as' ) ;
+    // InternalCsvMan.g:1169:1: rule__Load__Group__3__Impl : ( 'as' ) ;
     public final void rule__Load__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:980:1: ( ( 'as' ) )
-            // InternalCsvMan.g:981:1: ( 'as' )
+            // InternalCsvMan.g:1173:1: ( ( 'as' ) )
+            // InternalCsvMan.g:1174:1: ( 'as' )
             {
-            // InternalCsvMan.g:981:1: ( 'as' )
-            // InternalCsvMan.g:982:2: 'as'
+            // InternalCsvMan.g:1174:1: ( 'as' )
+            // InternalCsvMan.g:1175:2: 'as'
             {
              before(grammarAccess.getLoadAccess().getAsKeyword_3()); 
-            match(input,19,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getLoadAccess().getAsKeyword_3()); 
 
             }
@@ -3012,16 +3579,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__4"
-    // InternalCsvMan.g:991:1: rule__Load__Group__4 : rule__Load__Group__4__Impl rule__Load__Group__5 ;
+    // InternalCsvMan.g:1184:1: rule__Load__Group__4 : rule__Load__Group__4__Impl rule__Load__Group__5 ;
     public final void rule__Load__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:995:1: ( rule__Load__Group__4__Impl rule__Load__Group__5 )
-            // InternalCsvMan.g:996:2: rule__Load__Group__4__Impl rule__Load__Group__5
+            // InternalCsvMan.g:1188:1: ( rule__Load__Group__4__Impl rule__Load__Group__5 )
+            // InternalCsvMan.g:1189:2: rule__Load__Group__4__Impl rule__Load__Group__5
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_7);
             rule__Load__Group__4__Impl();
 
             state._fsp--;
@@ -3050,21 +3617,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__4__Impl"
-    // InternalCsvMan.g:1003:1: rule__Load__Group__4__Impl : ( ( rule__Load__AliasAssignment_4 ) ) ;
+    // InternalCsvMan.g:1196:1: rule__Load__Group__4__Impl : ( ( rule__Load__AliasAssignment_4 ) ) ;
     public final void rule__Load__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1007:1: ( ( ( rule__Load__AliasAssignment_4 ) ) )
-            // InternalCsvMan.g:1008:1: ( ( rule__Load__AliasAssignment_4 ) )
+            // InternalCsvMan.g:1200:1: ( ( ( rule__Load__AliasAssignment_4 ) ) )
+            // InternalCsvMan.g:1201:1: ( ( rule__Load__AliasAssignment_4 ) )
             {
-            // InternalCsvMan.g:1008:1: ( ( rule__Load__AliasAssignment_4 ) )
-            // InternalCsvMan.g:1009:2: ( rule__Load__AliasAssignment_4 )
+            // InternalCsvMan.g:1201:1: ( ( rule__Load__AliasAssignment_4 ) )
+            // InternalCsvMan.g:1202:2: ( rule__Load__AliasAssignment_4 )
             {
              before(grammarAccess.getLoadAccess().getAliasAssignment_4()); 
-            // InternalCsvMan.g:1010:2: ( rule__Load__AliasAssignment_4 )
-            // InternalCsvMan.g:1010:3: rule__Load__AliasAssignment_4
+            // InternalCsvMan.g:1203:2: ( rule__Load__AliasAssignment_4 )
+            // InternalCsvMan.g:1203:3: rule__Load__AliasAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Load__AliasAssignment_4();
@@ -3097,14 +3664,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__5"
-    // InternalCsvMan.g:1018:1: rule__Load__Group__5 : rule__Load__Group__5__Impl ;
+    // InternalCsvMan.g:1211:1: rule__Load__Group__5 : rule__Load__Group__5__Impl ;
     public final void rule__Load__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1022:1: ( rule__Load__Group__5__Impl )
-            // InternalCsvMan.g:1023:2: rule__Load__Group__5__Impl
+            // InternalCsvMan.g:1215:1: ( rule__Load__Group__5__Impl )
+            // InternalCsvMan.g:1216:2: rule__Load__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Load__Group__5__Impl();
@@ -3130,17 +3697,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__Group__5__Impl"
-    // InternalCsvMan.g:1029:1: rule__Load__Group__5__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:1222:1: rule__Load__Group__5__Impl : ( RULE_NL ) ;
     public final void rule__Load__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1033:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:1034:1: ( RULE_NL )
+            // InternalCsvMan.g:1226:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:1227:1: ( RULE_NL )
             {
-            // InternalCsvMan.g:1034:1: ( RULE_NL )
-            // InternalCsvMan.g:1035:2: RULE_NL
+            // InternalCsvMan.g:1227:1: ( RULE_NL )
+            // InternalCsvMan.g:1228:2: RULE_NL
             {
              before(grammarAccess.getLoadAccess().getNLTerminalRuleCall_5()); 
             match(input,RULE_NL,FOLLOW_2); 
@@ -3167,16 +3734,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__0"
-    // InternalCsvMan.g:1045:1: rule__Show__Group__0 : rule__Show__Group__0__Impl rule__Show__Group__1 ;
+    // InternalCsvMan.g:1238:1: rule__Show__Group__0 : rule__Show__Group__0__Impl rule__Show__Group__1 ;
     public final void rule__Show__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1049:1: ( rule__Show__Group__0__Impl rule__Show__Group__1 )
-            // InternalCsvMan.g:1050:2: rule__Show__Group__0__Impl rule__Show__Group__1
+            // InternalCsvMan.g:1242:1: ( rule__Show__Group__0__Impl rule__Show__Group__1 )
+            // InternalCsvMan.g:1243:2: rule__Show__Group__0__Impl rule__Show__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Show__Group__0__Impl();
 
             state._fsp--;
@@ -3205,21 +3772,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__0__Impl"
-    // InternalCsvMan.g:1057:1: rule__Show__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:1250:1: rule__Show__Group__0__Impl : ( () ) ;
     public final void rule__Show__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1061:1: ( ( () ) )
-            // InternalCsvMan.g:1062:1: ( () )
+            // InternalCsvMan.g:1254:1: ( ( () ) )
+            // InternalCsvMan.g:1255:1: ( () )
             {
-            // InternalCsvMan.g:1062:1: ( () )
-            // InternalCsvMan.g:1063:2: ()
+            // InternalCsvMan.g:1255:1: ( () )
+            // InternalCsvMan.g:1256:2: ()
             {
              before(grammarAccess.getShowAccess().getShowAction_0()); 
-            // InternalCsvMan.g:1064:2: ()
-            // InternalCsvMan.g:1064:3: 
+            // InternalCsvMan.g:1257:2: ()
+            // InternalCsvMan.g:1257:3: 
             {
             }
 
@@ -3242,16 +3809,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__1"
-    // InternalCsvMan.g:1072:1: rule__Show__Group__1 : rule__Show__Group__1__Impl rule__Show__Group__2 ;
+    // InternalCsvMan.g:1265:1: rule__Show__Group__1 : rule__Show__Group__1__Impl rule__Show__Group__2 ;
     public final void rule__Show__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1076:1: ( rule__Show__Group__1__Impl rule__Show__Group__2 )
-            // InternalCsvMan.g:1077:2: rule__Show__Group__1__Impl rule__Show__Group__2
+            // InternalCsvMan.g:1269:1: ( rule__Show__Group__1__Impl rule__Show__Group__2 )
+            // InternalCsvMan.g:1270:2: rule__Show__Group__1__Impl rule__Show__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Show__Group__1__Impl();
 
             state._fsp--;
@@ -3280,20 +3847,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__1__Impl"
-    // InternalCsvMan.g:1084:1: rule__Show__Group__1__Impl : ( 'show' ) ;
+    // InternalCsvMan.g:1277:1: rule__Show__Group__1__Impl : ( 'show' ) ;
     public final void rule__Show__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1088:1: ( ( 'show' ) )
-            // InternalCsvMan.g:1089:1: ( 'show' )
+            // InternalCsvMan.g:1281:1: ( ( 'show' ) )
+            // InternalCsvMan.g:1282:1: ( 'show' )
             {
-            // InternalCsvMan.g:1089:1: ( 'show' )
-            // InternalCsvMan.g:1090:2: 'show'
+            // InternalCsvMan.g:1282:1: ( 'show' )
+            // InternalCsvMan.g:1283:2: 'show'
             {
              before(grammarAccess.getShowAccess().getShowKeyword_1()); 
-            match(input,20,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getShowAccess().getShowKeyword_1()); 
 
             }
@@ -3317,16 +3884,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__2"
-    // InternalCsvMan.g:1099:1: rule__Show__Group__2 : rule__Show__Group__2__Impl rule__Show__Group__3 ;
+    // InternalCsvMan.g:1292:1: rule__Show__Group__2 : rule__Show__Group__2__Impl rule__Show__Group__3 ;
     public final void rule__Show__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1103:1: ( rule__Show__Group__2__Impl rule__Show__Group__3 )
-            // InternalCsvMan.g:1104:2: rule__Show__Group__2__Impl rule__Show__Group__3
+            // InternalCsvMan.g:1296:1: ( rule__Show__Group__2__Impl rule__Show__Group__3 )
+            // InternalCsvMan.g:1297:2: rule__Show__Group__2__Impl rule__Show__Group__3
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__Show__Group__2__Impl();
 
             state._fsp--;
@@ -3355,21 +3922,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__2__Impl"
-    // InternalCsvMan.g:1111:1: rule__Show__Group__2__Impl : ( ( rule__Show__TableAssignment_2 ) ) ;
+    // InternalCsvMan.g:1304:1: rule__Show__Group__2__Impl : ( ( rule__Show__TableAssignment_2 ) ) ;
     public final void rule__Show__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1115:1: ( ( ( rule__Show__TableAssignment_2 ) ) )
-            // InternalCsvMan.g:1116:1: ( ( rule__Show__TableAssignment_2 ) )
+            // InternalCsvMan.g:1308:1: ( ( ( rule__Show__TableAssignment_2 ) ) )
+            // InternalCsvMan.g:1309:1: ( ( rule__Show__TableAssignment_2 ) )
             {
-            // InternalCsvMan.g:1116:1: ( ( rule__Show__TableAssignment_2 ) )
-            // InternalCsvMan.g:1117:2: ( rule__Show__TableAssignment_2 )
+            // InternalCsvMan.g:1309:1: ( ( rule__Show__TableAssignment_2 ) )
+            // InternalCsvMan.g:1310:2: ( rule__Show__TableAssignment_2 )
             {
              before(grammarAccess.getShowAccess().getTableAssignment_2()); 
-            // InternalCsvMan.g:1118:2: ( rule__Show__TableAssignment_2 )
-            // InternalCsvMan.g:1118:3: rule__Show__TableAssignment_2
+            // InternalCsvMan.g:1311:2: ( rule__Show__TableAssignment_2 )
+            // InternalCsvMan.g:1311:3: rule__Show__TableAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Show__TableAssignment_2();
@@ -3402,16 +3969,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__3"
-    // InternalCsvMan.g:1126:1: rule__Show__Group__3 : rule__Show__Group__3__Impl rule__Show__Group__4 ;
+    // InternalCsvMan.g:1319:1: rule__Show__Group__3 : rule__Show__Group__3__Impl rule__Show__Group__4 ;
     public final void rule__Show__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1130:1: ( rule__Show__Group__3__Impl rule__Show__Group__4 )
-            // InternalCsvMan.g:1131:2: rule__Show__Group__3__Impl rule__Show__Group__4
+            // InternalCsvMan.g:1323:1: ( rule__Show__Group__3__Impl rule__Show__Group__4 )
+            // InternalCsvMan.g:1324:2: rule__Show__Group__3__Impl rule__Show__Group__4
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__Show__Group__3__Impl();
 
             state._fsp--;
@@ -3440,29 +4007,29 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__3__Impl"
-    // InternalCsvMan.g:1138:1: rule__Show__Group__3__Impl : ( ( rule__Show__Group_3__0 )? ) ;
+    // InternalCsvMan.g:1331:1: rule__Show__Group__3__Impl : ( ( rule__Show__Group_3__0 )? ) ;
     public final void rule__Show__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1142:1: ( ( ( rule__Show__Group_3__0 )? ) )
-            // InternalCsvMan.g:1143:1: ( ( rule__Show__Group_3__0 )? )
+            // InternalCsvMan.g:1335:1: ( ( ( rule__Show__Group_3__0 )? ) )
+            // InternalCsvMan.g:1336:1: ( ( rule__Show__Group_3__0 )? )
             {
-            // InternalCsvMan.g:1143:1: ( ( rule__Show__Group_3__0 )? )
-            // InternalCsvMan.g:1144:2: ( rule__Show__Group_3__0 )?
+            // InternalCsvMan.g:1336:1: ( ( rule__Show__Group_3__0 )? )
+            // InternalCsvMan.g:1337:2: ( rule__Show__Group_3__0 )?
             {
              before(grammarAccess.getShowAccess().getGroup_3()); 
-            // InternalCsvMan.g:1145:2: ( rule__Show__Group_3__0 )?
+            // InternalCsvMan.g:1338:2: ( rule__Show__Group_3__0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==15) ) {
+            if ( (LA7_0==17) ) {
                 alt7=1;
             }
             switch (alt7) {
                 case 1 :
-                    // InternalCsvMan.g:1145:3: rule__Show__Group_3__0
+                    // InternalCsvMan.g:1338:3: rule__Show__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Show__Group_3__0();
@@ -3498,16 +4065,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__4"
-    // InternalCsvMan.g:1153:1: rule__Show__Group__4 : rule__Show__Group__4__Impl rule__Show__Group__5 ;
+    // InternalCsvMan.g:1346:1: rule__Show__Group__4 : rule__Show__Group__4__Impl rule__Show__Group__5 ;
     public final void rule__Show__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1157:1: ( rule__Show__Group__4__Impl rule__Show__Group__5 )
-            // InternalCsvMan.g:1158:2: rule__Show__Group__4__Impl rule__Show__Group__5
+            // InternalCsvMan.g:1350:1: ( rule__Show__Group__4__Impl rule__Show__Group__5 )
+            // InternalCsvMan.g:1351:2: rule__Show__Group__4__Impl rule__Show__Group__5
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__Show__Group__4__Impl();
 
             state._fsp--;
@@ -3536,29 +4103,29 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__4__Impl"
-    // InternalCsvMan.g:1165:1: rule__Show__Group__4__Impl : ( ( rule__Show__WhereAssignment_4 )? ) ;
+    // InternalCsvMan.g:1358:1: rule__Show__Group__4__Impl : ( ( rule__Show__WhereAssignment_4 )? ) ;
     public final void rule__Show__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1169:1: ( ( ( rule__Show__WhereAssignment_4 )? ) )
-            // InternalCsvMan.g:1170:1: ( ( rule__Show__WhereAssignment_4 )? )
+            // InternalCsvMan.g:1362:1: ( ( ( rule__Show__WhereAssignment_4 )? ) )
+            // InternalCsvMan.g:1363:1: ( ( rule__Show__WhereAssignment_4 )? )
             {
-            // InternalCsvMan.g:1170:1: ( ( rule__Show__WhereAssignment_4 )? )
-            // InternalCsvMan.g:1171:2: ( rule__Show__WhereAssignment_4 )?
+            // InternalCsvMan.g:1363:1: ( ( rule__Show__WhereAssignment_4 )? )
+            // InternalCsvMan.g:1364:2: ( rule__Show__WhereAssignment_4 )?
             {
              before(grammarAccess.getShowAccess().getWhereAssignment_4()); 
-            // InternalCsvMan.g:1172:2: ( rule__Show__WhereAssignment_4 )?
+            // InternalCsvMan.g:1365:2: ( rule__Show__WhereAssignment_4 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==28) ) {
+            if ( (LA8_0==29) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalCsvMan.g:1172:3: rule__Show__WhereAssignment_4
+                    // InternalCsvMan.g:1365:3: rule__Show__WhereAssignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__Show__WhereAssignment_4();
@@ -3594,14 +4161,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__5"
-    // InternalCsvMan.g:1180:1: rule__Show__Group__5 : rule__Show__Group__5__Impl ;
+    // InternalCsvMan.g:1373:1: rule__Show__Group__5 : rule__Show__Group__5__Impl ;
     public final void rule__Show__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1184:1: ( rule__Show__Group__5__Impl )
-            // InternalCsvMan.g:1185:2: rule__Show__Group__5__Impl
+            // InternalCsvMan.g:1377:1: ( rule__Show__Group__5__Impl )
+            // InternalCsvMan.g:1378:2: rule__Show__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Show__Group__5__Impl();
@@ -3627,17 +4194,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group__5__Impl"
-    // InternalCsvMan.g:1191:1: rule__Show__Group__5__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:1384:1: rule__Show__Group__5__Impl : ( RULE_NL ) ;
     public final void rule__Show__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1195:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:1196:1: ( RULE_NL )
+            // InternalCsvMan.g:1388:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:1389:1: ( RULE_NL )
             {
-            // InternalCsvMan.g:1196:1: ( RULE_NL )
-            // InternalCsvMan.g:1197:2: RULE_NL
+            // InternalCsvMan.g:1389:1: ( RULE_NL )
+            // InternalCsvMan.g:1390:2: RULE_NL
             {
              before(grammarAccess.getShowAccess().getNLTerminalRuleCall_5()); 
             match(input,RULE_NL,FOLLOW_2); 
@@ -3664,16 +4231,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__0"
-    // InternalCsvMan.g:1207:1: rule__Show__Group_3__0 : rule__Show__Group_3__0__Impl rule__Show__Group_3__1 ;
+    // InternalCsvMan.g:1400:1: rule__Show__Group_3__0 : rule__Show__Group_3__0__Impl rule__Show__Group_3__1 ;
     public final void rule__Show__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1211:1: ( rule__Show__Group_3__0__Impl rule__Show__Group_3__1 )
-            // InternalCsvMan.g:1212:2: rule__Show__Group_3__0__Impl rule__Show__Group_3__1
+            // InternalCsvMan.g:1404:1: ( rule__Show__Group_3__0__Impl rule__Show__Group_3__1 )
+            // InternalCsvMan.g:1405:2: rule__Show__Group_3__0__Impl rule__Show__Group_3__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Show__Group_3__0__Impl();
 
             state._fsp--;
@@ -3702,20 +4269,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__0__Impl"
-    // InternalCsvMan.g:1219:1: rule__Show__Group_3__0__Impl : ( '(' ) ;
+    // InternalCsvMan.g:1412:1: rule__Show__Group_3__0__Impl : ( '(' ) ;
     public final void rule__Show__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1223:1: ( ( '(' ) )
-            // InternalCsvMan.g:1224:1: ( '(' )
+            // InternalCsvMan.g:1416:1: ( ( '(' ) )
+            // InternalCsvMan.g:1417:1: ( '(' )
             {
-            // InternalCsvMan.g:1224:1: ( '(' )
-            // InternalCsvMan.g:1225:2: '('
+            // InternalCsvMan.g:1417:1: ( '(' )
+            // InternalCsvMan.g:1418:2: '('
             {
              before(grammarAccess.getShowAccess().getLeftParenthesisKeyword_3_0()); 
-            match(input,15,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getShowAccess().getLeftParenthesisKeyword_3_0()); 
 
             }
@@ -3739,16 +4306,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__1"
-    // InternalCsvMan.g:1234:1: rule__Show__Group_3__1 : rule__Show__Group_3__1__Impl rule__Show__Group_3__2 ;
+    // InternalCsvMan.g:1427:1: rule__Show__Group_3__1 : rule__Show__Group_3__1__Impl rule__Show__Group_3__2 ;
     public final void rule__Show__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1238:1: ( rule__Show__Group_3__1__Impl rule__Show__Group_3__2 )
-            // InternalCsvMan.g:1239:2: rule__Show__Group_3__1__Impl rule__Show__Group_3__2
+            // InternalCsvMan.g:1431:1: ( rule__Show__Group_3__1__Impl rule__Show__Group_3__2 )
+            // InternalCsvMan.g:1432:2: rule__Show__Group_3__1__Impl rule__Show__Group_3__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Show__Group_3__1__Impl();
 
             state._fsp--;
@@ -3777,21 +4344,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__1__Impl"
-    // InternalCsvMan.g:1246:1: rule__Show__Group_3__1__Impl : ( ( rule__Show__ColonneAssignment_3_1 ) ) ;
+    // InternalCsvMan.g:1439:1: rule__Show__Group_3__1__Impl : ( ( rule__Show__ColonneAssignment_3_1 ) ) ;
     public final void rule__Show__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1250:1: ( ( ( rule__Show__ColonneAssignment_3_1 ) ) )
-            // InternalCsvMan.g:1251:1: ( ( rule__Show__ColonneAssignment_3_1 ) )
+            // InternalCsvMan.g:1443:1: ( ( ( rule__Show__ColonneAssignment_3_1 ) ) )
+            // InternalCsvMan.g:1444:1: ( ( rule__Show__ColonneAssignment_3_1 ) )
             {
-            // InternalCsvMan.g:1251:1: ( ( rule__Show__ColonneAssignment_3_1 ) )
-            // InternalCsvMan.g:1252:2: ( rule__Show__ColonneAssignment_3_1 )
+            // InternalCsvMan.g:1444:1: ( ( rule__Show__ColonneAssignment_3_1 ) )
+            // InternalCsvMan.g:1445:2: ( rule__Show__ColonneAssignment_3_1 )
             {
              before(grammarAccess.getShowAccess().getColonneAssignment_3_1()); 
-            // InternalCsvMan.g:1253:2: ( rule__Show__ColonneAssignment_3_1 )
-            // InternalCsvMan.g:1253:3: rule__Show__ColonneAssignment_3_1
+            // InternalCsvMan.g:1446:2: ( rule__Show__ColonneAssignment_3_1 )
+            // InternalCsvMan.g:1446:3: rule__Show__ColonneAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Show__ColonneAssignment_3_1();
@@ -3824,16 +4391,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__2"
-    // InternalCsvMan.g:1261:1: rule__Show__Group_3__2 : rule__Show__Group_3__2__Impl rule__Show__Group_3__3 ;
+    // InternalCsvMan.g:1454:1: rule__Show__Group_3__2 : rule__Show__Group_3__2__Impl rule__Show__Group_3__3 ;
     public final void rule__Show__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1265:1: ( rule__Show__Group_3__2__Impl rule__Show__Group_3__3 )
-            // InternalCsvMan.g:1266:2: rule__Show__Group_3__2__Impl rule__Show__Group_3__3
+            // InternalCsvMan.g:1458:1: ( rule__Show__Group_3__2__Impl rule__Show__Group_3__3 )
+            // InternalCsvMan.g:1459:2: rule__Show__Group_3__2__Impl rule__Show__Group_3__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Show__Group_3__2__Impl();
 
             state._fsp--;
@@ -3862,35 +4429,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__2__Impl"
-    // InternalCsvMan.g:1273:1: rule__Show__Group_3__2__Impl : ( ( rule__Show__Group_3_2__0 )* ) ;
+    // InternalCsvMan.g:1466:1: rule__Show__Group_3__2__Impl : ( ( rule__Show__Group_3_2__0 )* ) ;
     public final void rule__Show__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1277:1: ( ( ( rule__Show__Group_3_2__0 )* ) )
-            // InternalCsvMan.g:1278:1: ( ( rule__Show__Group_3_2__0 )* )
+            // InternalCsvMan.g:1470:1: ( ( ( rule__Show__Group_3_2__0 )* ) )
+            // InternalCsvMan.g:1471:1: ( ( rule__Show__Group_3_2__0 )* )
             {
-            // InternalCsvMan.g:1278:1: ( ( rule__Show__Group_3_2__0 )* )
-            // InternalCsvMan.g:1279:2: ( rule__Show__Group_3_2__0 )*
+            // InternalCsvMan.g:1471:1: ( ( rule__Show__Group_3_2__0 )* )
+            // InternalCsvMan.g:1472:2: ( rule__Show__Group_3_2__0 )*
             {
              before(grammarAccess.getShowAccess().getGroup_3_2()); 
-            // InternalCsvMan.g:1280:2: ( rule__Show__Group_3_2__0 )*
+            // InternalCsvMan.g:1473:2: ( rule__Show__Group_3_2__0 )*
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==17) ) {
+                if ( (LA9_0==19) ) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalCsvMan.g:1280:3: rule__Show__Group_3_2__0
+            	    // InternalCsvMan.g:1473:3: rule__Show__Group_3_2__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_11);
             	    rule__Show__Group_3_2__0();
 
             	    state._fsp--;
@@ -3927,14 +4494,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__3"
-    // InternalCsvMan.g:1288:1: rule__Show__Group_3__3 : rule__Show__Group_3__3__Impl ;
+    // InternalCsvMan.g:1481:1: rule__Show__Group_3__3 : rule__Show__Group_3__3__Impl ;
     public final void rule__Show__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1292:1: ( rule__Show__Group_3__3__Impl )
-            // InternalCsvMan.g:1293:2: rule__Show__Group_3__3__Impl
+            // InternalCsvMan.g:1485:1: ( rule__Show__Group_3__3__Impl )
+            // InternalCsvMan.g:1486:2: rule__Show__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Show__Group_3__3__Impl();
@@ -3960,20 +4527,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3__3__Impl"
-    // InternalCsvMan.g:1299:1: rule__Show__Group_3__3__Impl : ( ')' ) ;
+    // InternalCsvMan.g:1492:1: rule__Show__Group_3__3__Impl : ( ')' ) ;
     public final void rule__Show__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1303:1: ( ( ')' ) )
-            // InternalCsvMan.g:1304:1: ( ')' )
+            // InternalCsvMan.g:1496:1: ( ( ')' ) )
+            // InternalCsvMan.g:1497:1: ( ')' )
             {
-            // InternalCsvMan.g:1304:1: ( ')' )
-            // InternalCsvMan.g:1305:2: ')'
+            // InternalCsvMan.g:1497:1: ( ')' )
+            // InternalCsvMan.g:1498:2: ')'
             {
              before(grammarAccess.getShowAccess().getRightParenthesisKeyword_3_3()); 
-            match(input,16,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getShowAccess().getRightParenthesisKeyword_3_3()); 
 
             }
@@ -3997,16 +4564,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3_2__0"
-    // InternalCsvMan.g:1315:1: rule__Show__Group_3_2__0 : rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1 ;
+    // InternalCsvMan.g:1508:1: rule__Show__Group_3_2__0 : rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1 ;
     public final void rule__Show__Group_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1319:1: ( rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1 )
-            // InternalCsvMan.g:1320:2: rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1
+            // InternalCsvMan.g:1512:1: ( rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1 )
+            // InternalCsvMan.g:1513:2: rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Show__Group_3_2__0__Impl();
 
             state._fsp--;
@@ -4035,20 +4602,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3_2__0__Impl"
-    // InternalCsvMan.g:1327:1: rule__Show__Group_3_2__0__Impl : ( ',' ) ;
+    // InternalCsvMan.g:1520:1: rule__Show__Group_3_2__0__Impl : ( ',' ) ;
     public final void rule__Show__Group_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1331:1: ( ( ',' ) )
-            // InternalCsvMan.g:1332:1: ( ',' )
+            // InternalCsvMan.g:1524:1: ( ( ',' ) )
+            // InternalCsvMan.g:1525:1: ( ',' )
             {
-            // InternalCsvMan.g:1332:1: ( ',' )
-            // InternalCsvMan.g:1333:2: ','
+            // InternalCsvMan.g:1525:1: ( ',' )
+            // InternalCsvMan.g:1526:2: ','
             {
              before(grammarAccess.getShowAccess().getCommaKeyword_3_2_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getShowAccess().getCommaKeyword_3_2_0()); 
 
             }
@@ -4072,14 +4639,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3_2__1"
-    // InternalCsvMan.g:1342:1: rule__Show__Group_3_2__1 : rule__Show__Group_3_2__1__Impl ;
+    // InternalCsvMan.g:1535:1: rule__Show__Group_3_2__1 : rule__Show__Group_3_2__1__Impl ;
     public final void rule__Show__Group_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1346:1: ( rule__Show__Group_3_2__1__Impl )
-            // InternalCsvMan.g:1347:2: rule__Show__Group_3_2__1__Impl
+            // InternalCsvMan.g:1539:1: ( rule__Show__Group_3_2__1__Impl )
+            // InternalCsvMan.g:1540:2: rule__Show__Group_3_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Show__Group_3_2__1__Impl();
@@ -4105,21 +4672,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__Group_3_2__1__Impl"
-    // InternalCsvMan.g:1353:1: rule__Show__Group_3_2__1__Impl : ( ( rule__Show__ColonneAssignment_3_2_1 ) ) ;
+    // InternalCsvMan.g:1546:1: rule__Show__Group_3_2__1__Impl : ( ( rule__Show__ColonneAssignment_3_2_1 ) ) ;
     public final void rule__Show__Group_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1357:1: ( ( ( rule__Show__ColonneAssignment_3_2_1 ) ) )
-            // InternalCsvMan.g:1358:1: ( ( rule__Show__ColonneAssignment_3_2_1 ) )
+            // InternalCsvMan.g:1550:1: ( ( ( rule__Show__ColonneAssignment_3_2_1 ) ) )
+            // InternalCsvMan.g:1551:1: ( ( rule__Show__ColonneAssignment_3_2_1 ) )
             {
-            // InternalCsvMan.g:1358:1: ( ( rule__Show__ColonneAssignment_3_2_1 ) )
-            // InternalCsvMan.g:1359:2: ( rule__Show__ColonneAssignment_3_2_1 )
+            // InternalCsvMan.g:1551:1: ( ( rule__Show__ColonneAssignment_3_2_1 ) )
+            // InternalCsvMan.g:1552:2: ( rule__Show__ColonneAssignment_3_2_1 )
             {
              before(grammarAccess.getShowAccess().getColonneAssignment_3_2_1()); 
-            // InternalCsvMan.g:1360:2: ( rule__Show__ColonneAssignment_3_2_1 )
-            // InternalCsvMan.g:1360:3: rule__Show__ColonneAssignment_3_2_1
+            // InternalCsvMan.g:1553:2: ( rule__Show__ColonneAssignment_3_2_1 )
+            // InternalCsvMan.g:1553:3: rule__Show__ColonneAssignment_3_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Show__ColonneAssignment_3_2_1();
@@ -4152,16 +4719,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__0"
-    // InternalCsvMan.g:1369:1: rule__Update__Group__0 : rule__Update__Group__0__Impl rule__Update__Group__1 ;
+    // InternalCsvMan.g:1562:1: rule__Update__Group__0 : rule__Update__Group__0__Impl rule__Update__Group__1 ;
     public final void rule__Update__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1373:1: ( rule__Update__Group__0__Impl rule__Update__Group__1 )
-            // InternalCsvMan.g:1374:2: rule__Update__Group__0__Impl rule__Update__Group__1
+            // InternalCsvMan.g:1566:1: ( rule__Update__Group__0__Impl rule__Update__Group__1 )
+            // InternalCsvMan.g:1567:2: rule__Update__Group__0__Impl rule__Update__Group__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Update__Group__0__Impl();
 
             state._fsp--;
@@ -4190,21 +4757,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__0__Impl"
-    // InternalCsvMan.g:1381:1: rule__Update__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:1574:1: rule__Update__Group__0__Impl : ( () ) ;
     public final void rule__Update__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1385:1: ( ( () ) )
-            // InternalCsvMan.g:1386:1: ( () )
+            // InternalCsvMan.g:1578:1: ( ( () ) )
+            // InternalCsvMan.g:1579:1: ( () )
             {
-            // InternalCsvMan.g:1386:1: ( () )
-            // InternalCsvMan.g:1387:2: ()
+            // InternalCsvMan.g:1579:1: ( () )
+            // InternalCsvMan.g:1580:2: ()
             {
              before(grammarAccess.getUpdateAccess().getUpdateAction_0()); 
-            // InternalCsvMan.g:1388:2: ()
-            // InternalCsvMan.g:1388:3: 
+            // InternalCsvMan.g:1581:2: ()
+            // InternalCsvMan.g:1581:3: 
             {
             }
 
@@ -4227,16 +4794,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__1"
-    // InternalCsvMan.g:1396:1: rule__Update__Group__1 : rule__Update__Group__1__Impl rule__Update__Group__2 ;
+    // InternalCsvMan.g:1589:1: rule__Update__Group__1 : rule__Update__Group__1__Impl rule__Update__Group__2 ;
     public final void rule__Update__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1400:1: ( rule__Update__Group__1__Impl rule__Update__Group__2 )
-            // InternalCsvMan.g:1401:2: rule__Update__Group__1__Impl rule__Update__Group__2
+            // InternalCsvMan.g:1593:1: ( rule__Update__Group__1__Impl rule__Update__Group__2 )
+            // InternalCsvMan.g:1594:2: rule__Update__Group__1__Impl rule__Update__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Update__Group__1__Impl();
 
             state._fsp--;
@@ -4265,20 +4832,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__1__Impl"
-    // InternalCsvMan.g:1408:1: rule__Update__Group__1__Impl : ( 'update' ) ;
+    // InternalCsvMan.g:1601:1: rule__Update__Group__1__Impl : ( 'update' ) ;
     public final void rule__Update__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1412:1: ( ( 'update' ) )
-            // InternalCsvMan.g:1413:1: ( 'update' )
+            // InternalCsvMan.g:1605:1: ( ( 'update' ) )
+            // InternalCsvMan.g:1606:1: ( 'update' )
             {
-            // InternalCsvMan.g:1413:1: ( 'update' )
-            // InternalCsvMan.g:1414:2: 'update'
+            // InternalCsvMan.g:1606:1: ( 'update' )
+            // InternalCsvMan.g:1607:2: 'update'
             {
              before(grammarAccess.getUpdateAccess().getUpdateKeyword_1()); 
-            match(input,21,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getUpdateAccess().getUpdateKeyword_1()); 
 
             }
@@ -4302,16 +4869,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__2"
-    // InternalCsvMan.g:1423:1: rule__Update__Group__2 : rule__Update__Group__2__Impl rule__Update__Group__3 ;
+    // InternalCsvMan.g:1616:1: rule__Update__Group__2 : rule__Update__Group__2__Impl rule__Update__Group__3 ;
     public final void rule__Update__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1427:1: ( rule__Update__Group__2__Impl rule__Update__Group__3 )
-            // InternalCsvMan.g:1428:2: rule__Update__Group__2__Impl rule__Update__Group__3
+            // InternalCsvMan.g:1620:1: ( rule__Update__Group__2__Impl rule__Update__Group__3 )
+            // InternalCsvMan.g:1621:2: rule__Update__Group__2__Impl rule__Update__Group__3
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__Update__Group__2__Impl();
 
             state._fsp--;
@@ -4340,21 +4907,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__2__Impl"
-    // InternalCsvMan.g:1435:1: rule__Update__Group__2__Impl : ( ( rule__Update__TableAssignment_2 ) ) ;
+    // InternalCsvMan.g:1628:1: rule__Update__Group__2__Impl : ( ( rule__Update__TableAssignment_2 ) ) ;
     public final void rule__Update__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1439:1: ( ( ( rule__Update__TableAssignment_2 ) ) )
-            // InternalCsvMan.g:1440:1: ( ( rule__Update__TableAssignment_2 ) )
+            // InternalCsvMan.g:1632:1: ( ( ( rule__Update__TableAssignment_2 ) ) )
+            // InternalCsvMan.g:1633:1: ( ( rule__Update__TableAssignment_2 ) )
             {
-            // InternalCsvMan.g:1440:1: ( ( rule__Update__TableAssignment_2 ) )
-            // InternalCsvMan.g:1441:2: ( rule__Update__TableAssignment_2 )
+            // InternalCsvMan.g:1633:1: ( ( rule__Update__TableAssignment_2 ) )
+            // InternalCsvMan.g:1634:2: ( rule__Update__TableAssignment_2 )
             {
              before(grammarAccess.getUpdateAccess().getTableAssignment_2()); 
-            // InternalCsvMan.g:1442:2: ( rule__Update__TableAssignment_2 )
-            // InternalCsvMan.g:1442:3: rule__Update__TableAssignment_2
+            // InternalCsvMan.g:1635:2: ( rule__Update__TableAssignment_2 )
+            // InternalCsvMan.g:1635:3: rule__Update__TableAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Update__TableAssignment_2();
@@ -4387,16 +4954,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__3"
-    // InternalCsvMan.g:1450:1: rule__Update__Group__3 : rule__Update__Group__3__Impl rule__Update__Group__4 ;
+    // InternalCsvMan.g:1643:1: rule__Update__Group__3 : rule__Update__Group__3__Impl rule__Update__Group__4 ;
     public final void rule__Update__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1454:1: ( rule__Update__Group__3__Impl rule__Update__Group__4 )
-            // InternalCsvMan.g:1455:2: rule__Update__Group__3__Impl rule__Update__Group__4
+            // InternalCsvMan.g:1647:1: ( rule__Update__Group__3__Impl rule__Update__Group__4 )
+            // InternalCsvMan.g:1648:2: rule__Update__Group__3__Impl rule__Update__Group__4
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Update__Group__3__Impl();
 
             state._fsp--;
@@ -4425,20 +4992,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__3__Impl"
-    // InternalCsvMan.g:1462:1: rule__Update__Group__3__Impl : ( 'set' ) ;
+    // InternalCsvMan.g:1655:1: rule__Update__Group__3__Impl : ( 'set' ) ;
     public final void rule__Update__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1466:1: ( ( 'set' ) )
-            // InternalCsvMan.g:1467:1: ( 'set' )
+            // InternalCsvMan.g:1659:1: ( ( 'set' ) )
+            // InternalCsvMan.g:1660:1: ( 'set' )
             {
-            // InternalCsvMan.g:1467:1: ( 'set' )
-            // InternalCsvMan.g:1468:2: 'set'
+            // InternalCsvMan.g:1660:1: ( 'set' )
+            // InternalCsvMan.g:1661:2: 'set'
             {
              before(grammarAccess.getUpdateAccess().getSetKeyword_3()); 
-            match(input,22,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getUpdateAccess().getSetKeyword_3()); 
 
             }
@@ -4462,16 +5029,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__4"
-    // InternalCsvMan.g:1477:1: rule__Update__Group__4 : rule__Update__Group__4__Impl rule__Update__Group__5 ;
+    // InternalCsvMan.g:1670:1: rule__Update__Group__4 : rule__Update__Group__4__Impl rule__Update__Group__5 ;
     public final void rule__Update__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1481:1: ( rule__Update__Group__4__Impl rule__Update__Group__5 )
-            // InternalCsvMan.g:1482:2: rule__Update__Group__4__Impl rule__Update__Group__5
+            // InternalCsvMan.g:1674:1: ( rule__Update__Group__4__Impl rule__Update__Group__5 )
+            // InternalCsvMan.g:1675:2: rule__Update__Group__4__Impl rule__Update__Group__5
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__Update__Group__4__Impl();
 
             state._fsp--;
@@ -4500,21 +5067,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__4__Impl"
-    // InternalCsvMan.g:1489:1: rule__Update__Group__4__Impl : ( ( rule__Update__ParameterAssignment_4 ) ) ;
+    // InternalCsvMan.g:1682:1: rule__Update__Group__4__Impl : ( ( rule__Update__ParameterAssignment_4 ) ) ;
     public final void rule__Update__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1493:1: ( ( ( rule__Update__ParameterAssignment_4 ) ) )
-            // InternalCsvMan.g:1494:1: ( ( rule__Update__ParameterAssignment_4 ) )
+            // InternalCsvMan.g:1686:1: ( ( ( rule__Update__ParameterAssignment_4 ) ) )
+            // InternalCsvMan.g:1687:1: ( ( rule__Update__ParameterAssignment_4 ) )
             {
-            // InternalCsvMan.g:1494:1: ( ( rule__Update__ParameterAssignment_4 ) )
-            // InternalCsvMan.g:1495:2: ( rule__Update__ParameterAssignment_4 )
+            // InternalCsvMan.g:1687:1: ( ( rule__Update__ParameterAssignment_4 ) )
+            // InternalCsvMan.g:1688:2: ( rule__Update__ParameterAssignment_4 )
             {
              before(grammarAccess.getUpdateAccess().getParameterAssignment_4()); 
-            // InternalCsvMan.g:1496:2: ( rule__Update__ParameterAssignment_4 )
-            // InternalCsvMan.g:1496:3: rule__Update__ParameterAssignment_4
+            // InternalCsvMan.g:1689:2: ( rule__Update__ParameterAssignment_4 )
+            // InternalCsvMan.g:1689:3: rule__Update__ParameterAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Update__ParameterAssignment_4();
@@ -4547,16 +5114,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__5"
-    // InternalCsvMan.g:1504:1: rule__Update__Group__5 : rule__Update__Group__5__Impl rule__Update__Group__6 ;
+    // InternalCsvMan.g:1697:1: rule__Update__Group__5 : rule__Update__Group__5__Impl rule__Update__Group__6 ;
     public final void rule__Update__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1508:1: ( rule__Update__Group__5__Impl rule__Update__Group__6 )
-            // InternalCsvMan.g:1509:2: rule__Update__Group__5__Impl rule__Update__Group__6
+            // InternalCsvMan.g:1701:1: ( rule__Update__Group__5__Impl rule__Update__Group__6 )
+            // InternalCsvMan.g:1702:2: rule__Update__Group__5__Impl rule__Update__Group__6
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__Update__Group__5__Impl();
 
             state._fsp--;
@@ -4585,35 +5152,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__5__Impl"
-    // InternalCsvMan.g:1516:1: rule__Update__Group__5__Impl : ( ( rule__Update__Group_5__0 )* ) ;
+    // InternalCsvMan.g:1709:1: rule__Update__Group__5__Impl : ( ( rule__Update__Group_5__0 )* ) ;
     public final void rule__Update__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1520:1: ( ( ( rule__Update__Group_5__0 )* ) )
-            // InternalCsvMan.g:1521:1: ( ( rule__Update__Group_5__0 )* )
+            // InternalCsvMan.g:1713:1: ( ( ( rule__Update__Group_5__0 )* ) )
+            // InternalCsvMan.g:1714:1: ( ( rule__Update__Group_5__0 )* )
             {
-            // InternalCsvMan.g:1521:1: ( ( rule__Update__Group_5__0 )* )
-            // InternalCsvMan.g:1522:2: ( rule__Update__Group_5__0 )*
+            // InternalCsvMan.g:1714:1: ( ( rule__Update__Group_5__0 )* )
+            // InternalCsvMan.g:1715:2: ( rule__Update__Group_5__0 )*
             {
              before(grammarAccess.getUpdateAccess().getGroup_5()); 
-            // InternalCsvMan.g:1523:2: ( rule__Update__Group_5__0 )*
+            // InternalCsvMan.g:1716:2: ( rule__Update__Group_5__0 )*
             loop10:
             do {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==17) ) {
+                if ( (LA10_0==19) ) {
                     alt10=1;
                 }
 
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalCsvMan.g:1523:3: rule__Update__Group_5__0
+            	    // InternalCsvMan.g:1716:3: rule__Update__Group_5__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_11);
             	    rule__Update__Group_5__0();
 
             	    state._fsp--;
@@ -4650,16 +5217,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__6"
-    // InternalCsvMan.g:1531:1: rule__Update__Group__6 : rule__Update__Group__6__Impl rule__Update__Group__7 ;
+    // InternalCsvMan.g:1724:1: rule__Update__Group__6 : rule__Update__Group__6__Impl rule__Update__Group__7 ;
     public final void rule__Update__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1535:1: ( rule__Update__Group__6__Impl rule__Update__Group__7 )
-            // InternalCsvMan.g:1536:2: rule__Update__Group__6__Impl rule__Update__Group__7
+            // InternalCsvMan.g:1728:1: ( rule__Update__Group__6__Impl rule__Update__Group__7 )
+            // InternalCsvMan.g:1729:2: rule__Update__Group__6__Impl rule__Update__Group__7
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__Update__Group__6__Impl();
 
             state._fsp--;
@@ -4688,29 +5255,29 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__6__Impl"
-    // InternalCsvMan.g:1543:1: rule__Update__Group__6__Impl : ( ( rule__Update__WhereAssignment_6 )? ) ;
+    // InternalCsvMan.g:1736:1: rule__Update__Group__6__Impl : ( ( rule__Update__WhereAssignment_6 )? ) ;
     public final void rule__Update__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1547:1: ( ( ( rule__Update__WhereAssignment_6 )? ) )
-            // InternalCsvMan.g:1548:1: ( ( rule__Update__WhereAssignment_6 )? )
+            // InternalCsvMan.g:1740:1: ( ( ( rule__Update__WhereAssignment_6 )? ) )
+            // InternalCsvMan.g:1741:1: ( ( rule__Update__WhereAssignment_6 )? )
             {
-            // InternalCsvMan.g:1548:1: ( ( rule__Update__WhereAssignment_6 )? )
-            // InternalCsvMan.g:1549:2: ( rule__Update__WhereAssignment_6 )?
+            // InternalCsvMan.g:1741:1: ( ( rule__Update__WhereAssignment_6 )? )
+            // InternalCsvMan.g:1742:2: ( rule__Update__WhereAssignment_6 )?
             {
              before(grammarAccess.getUpdateAccess().getWhereAssignment_6()); 
-            // InternalCsvMan.g:1550:2: ( rule__Update__WhereAssignment_6 )?
+            // InternalCsvMan.g:1743:2: ( rule__Update__WhereAssignment_6 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==28) ) {
+            if ( (LA11_0==29) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // InternalCsvMan.g:1550:3: rule__Update__WhereAssignment_6
+                    // InternalCsvMan.g:1743:3: rule__Update__WhereAssignment_6
                     {
                     pushFollow(FOLLOW_2);
                     rule__Update__WhereAssignment_6();
@@ -4746,14 +5313,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__7"
-    // InternalCsvMan.g:1558:1: rule__Update__Group__7 : rule__Update__Group__7__Impl ;
+    // InternalCsvMan.g:1751:1: rule__Update__Group__7 : rule__Update__Group__7__Impl ;
     public final void rule__Update__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1562:1: ( rule__Update__Group__7__Impl )
-            // InternalCsvMan.g:1563:2: rule__Update__Group__7__Impl
+            // InternalCsvMan.g:1755:1: ( rule__Update__Group__7__Impl )
+            // InternalCsvMan.g:1756:2: rule__Update__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Update__Group__7__Impl();
@@ -4779,17 +5346,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group__7__Impl"
-    // InternalCsvMan.g:1569:1: rule__Update__Group__7__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:1762:1: rule__Update__Group__7__Impl : ( RULE_NL ) ;
     public final void rule__Update__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1573:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:1574:1: ( RULE_NL )
+            // InternalCsvMan.g:1766:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:1767:1: ( RULE_NL )
             {
-            // InternalCsvMan.g:1574:1: ( RULE_NL )
-            // InternalCsvMan.g:1575:2: RULE_NL
+            // InternalCsvMan.g:1767:1: ( RULE_NL )
+            // InternalCsvMan.g:1768:2: RULE_NL
             {
              before(grammarAccess.getUpdateAccess().getNLTerminalRuleCall_7()); 
             match(input,RULE_NL,FOLLOW_2); 
@@ -4816,16 +5383,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group_5__0"
-    // InternalCsvMan.g:1585:1: rule__Update__Group_5__0 : rule__Update__Group_5__0__Impl rule__Update__Group_5__1 ;
+    // InternalCsvMan.g:1778:1: rule__Update__Group_5__0 : rule__Update__Group_5__0__Impl rule__Update__Group_5__1 ;
     public final void rule__Update__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1589:1: ( rule__Update__Group_5__0__Impl rule__Update__Group_5__1 )
-            // InternalCsvMan.g:1590:2: rule__Update__Group_5__0__Impl rule__Update__Group_5__1
+            // InternalCsvMan.g:1782:1: ( rule__Update__Group_5__0__Impl rule__Update__Group_5__1 )
+            // InternalCsvMan.g:1783:2: rule__Update__Group_5__0__Impl rule__Update__Group_5__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Update__Group_5__0__Impl();
 
             state._fsp--;
@@ -4854,20 +5421,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group_5__0__Impl"
-    // InternalCsvMan.g:1597:1: rule__Update__Group_5__0__Impl : ( ',' ) ;
+    // InternalCsvMan.g:1790:1: rule__Update__Group_5__0__Impl : ( ',' ) ;
     public final void rule__Update__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1601:1: ( ( ',' ) )
-            // InternalCsvMan.g:1602:1: ( ',' )
+            // InternalCsvMan.g:1794:1: ( ( ',' ) )
+            // InternalCsvMan.g:1795:1: ( ',' )
             {
-            // InternalCsvMan.g:1602:1: ( ',' )
-            // InternalCsvMan.g:1603:2: ','
+            // InternalCsvMan.g:1795:1: ( ',' )
+            // InternalCsvMan.g:1796:2: ','
             {
              before(grammarAccess.getUpdateAccess().getCommaKeyword_5_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getUpdateAccess().getCommaKeyword_5_0()); 
 
             }
@@ -4891,14 +5458,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group_5__1"
-    // InternalCsvMan.g:1612:1: rule__Update__Group_5__1 : rule__Update__Group_5__1__Impl ;
+    // InternalCsvMan.g:1805:1: rule__Update__Group_5__1 : rule__Update__Group_5__1__Impl ;
     public final void rule__Update__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1616:1: ( rule__Update__Group_5__1__Impl )
-            // InternalCsvMan.g:1617:2: rule__Update__Group_5__1__Impl
+            // InternalCsvMan.g:1809:1: ( rule__Update__Group_5__1__Impl )
+            // InternalCsvMan.g:1810:2: rule__Update__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Update__Group_5__1__Impl();
@@ -4924,21 +5491,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__Group_5__1__Impl"
-    // InternalCsvMan.g:1623:1: rule__Update__Group_5__1__Impl : ( ( rule__Update__ParameterAssignment_5_1 ) ) ;
+    // InternalCsvMan.g:1816:1: rule__Update__Group_5__1__Impl : ( ( rule__Update__ParameterAssignment_5_1 ) ) ;
     public final void rule__Update__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1627:1: ( ( ( rule__Update__ParameterAssignment_5_1 ) ) )
-            // InternalCsvMan.g:1628:1: ( ( rule__Update__ParameterAssignment_5_1 ) )
+            // InternalCsvMan.g:1820:1: ( ( ( rule__Update__ParameterAssignment_5_1 ) ) )
+            // InternalCsvMan.g:1821:1: ( ( rule__Update__ParameterAssignment_5_1 ) )
             {
-            // InternalCsvMan.g:1628:1: ( ( rule__Update__ParameterAssignment_5_1 ) )
-            // InternalCsvMan.g:1629:2: ( rule__Update__ParameterAssignment_5_1 )
+            // InternalCsvMan.g:1821:1: ( ( rule__Update__ParameterAssignment_5_1 ) )
+            // InternalCsvMan.g:1822:2: ( rule__Update__ParameterAssignment_5_1 )
             {
              before(grammarAccess.getUpdateAccess().getParameterAssignment_5_1()); 
-            // InternalCsvMan.g:1630:2: ( rule__Update__ParameterAssignment_5_1 )
-            // InternalCsvMan.g:1630:3: rule__Update__ParameterAssignment_5_1
+            // InternalCsvMan.g:1823:2: ( rule__Update__ParameterAssignment_5_1 )
+            // InternalCsvMan.g:1823:3: rule__Update__ParameterAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__Update__ParameterAssignment_5_1();
@@ -4971,16 +5538,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__0"
-    // InternalCsvMan.g:1639:1: rule__Add__Group__0 : rule__Add__Group__0__Impl rule__Add__Group__1 ;
+    // InternalCsvMan.g:1832:1: rule__Add__Group__0 : rule__Add__Group__0__Impl rule__Add__Group__1 ;
     public final void rule__Add__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1643:1: ( rule__Add__Group__0__Impl rule__Add__Group__1 )
-            // InternalCsvMan.g:1644:2: rule__Add__Group__0__Impl rule__Add__Group__1
+            // InternalCsvMan.g:1836:1: ( rule__Add__Group__0__Impl rule__Add__Group__1 )
+            // InternalCsvMan.g:1837:2: rule__Add__Group__0__Impl rule__Add__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             rule__Add__Group__0__Impl();
 
             state._fsp--;
@@ -5009,21 +5576,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__0__Impl"
-    // InternalCsvMan.g:1651:1: rule__Add__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:1844:1: rule__Add__Group__0__Impl : ( () ) ;
     public final void rule__Add__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1655:1: ( ( () ) )
-            // InternalCsvMan.g:1656:1: ( () )
+            // InternalCsvMan.g:1848:1: ( ( () ) )
+            // InternalCsvMan.g:1849:1: ( () )
             {
-            // InternalCsvMan.g:1656:1: ( () )
-            // InternalCsvMan.g:1657:2: ()
+            // InternalCsvMan.g:1849:1: ( () )
+            // InternalCsvMan.g:1850:2: ()
             {
              before(grammarAccess.getAddAccess().getAddAction_0()); 
-            // InternalCsvMan.g:1658:2: ()
-            // InternalCsvMan.g:1658:3: 
+            // InternalCsvMan.g:1851:2: ()
+            // InternalCsvMan.g:1851:3: 
             {
             }
 
@@ -5046,16 +5613,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__1"
-    // InternalCsvMan.g:1666:1: rule__Add__Group__1 : rule__Add__Group__1__Impl rule__Add__Group__2 ;
+    // InternalCsvMan.g:1859:1: rule__Add__Group__1 : rule__Add__Group__1__Impl rule__Add__Group__2 ;
     public final void rule__Add__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1670:1: ( rule__Add__Group__1__Impl rule__Add__Group__2 )
-            // InternalCsvMan.g:1671:2: rule__Add__Group__1__Impl rule__Add__Group__2
+            // InternalCsvMan.g:1863:1: ( rule__Add__Group__1__Impl rule__Add__Group__2 )
+            // InternalCsvMan.g:1864:2: rule__Add__Group__1__Impl rule__Add__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_9);
             rule__Add__Group__1__Impl();
 
             state._fsp--;
@@ -5084,20 +5651,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__1__Impl"
-    // InternalCsvMan.g:1678:1: rule__Add__Group__1__Impl : ( 'add' ) ;
+    // InternalCsvMan.g:1871:1: rule__Add__Group__1__Impl : ( 'add' ) ;
     public final void rule__Add__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1682:1: ( ( 'add' ) )
-            // InternalCsvMan.g:1683:1: ( 'add' )
+            // InternalCsvMan.g:1875:1: ( ( 'add' ) )
+            // InternalCsvMan.g:1876:1: ( 'add' )
             {
-            // InternalCsvMan.g:1683:1: ( 'add' )
-            // InternalCsvMan.g:1684:2: 'add'
+            // InternalCsvMan.g:1876:1: ( 'add' )
+            // InternalCsvMan.g:1877:2: 'add'
             {
              before(grammarAccess.getAddAccess().getAddKeyword_1()); 
-            match(input,23,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getAddAccess().getAddKeyword_1()); 
 
             }
@@ -5121,16 +5688,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__2"
-    // InternalCsvMan.g:1693:1: rule__Add__Group__2 : rule__Add__Group__2__Impl rule__Add__Group__3 ;
+    // InternalCsvMan.g:1886:1: rule__Add__Group__2 : rule__Add__Group__2__Impl rule__Add__Group__3 ;
     public final void rule__Add__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1697:1: ( rule__Add__Group__2__Impl rule__Add__Group__3 )
-            // InternalCsvMan.g:1698:2: rule__Add__Group__2__Impl rule__Add__Group__3
+            // InternalCsvMan.g:1890:1: ( rule__Add__Group__2__Impl rule__Add__Group__3 )
+            // InternalCsvMan.g:1891:2: rule__Add__Group__2__Impl rule__Add__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Add__Group__2__Impl();
 
             state._fsp--;
@@ -5159,20 +5726,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__2__Impl"
-    // InternalCsvMan.g:1705:1: rule__Add__Group__2__Impl : ( '(' ) ;
+    // InternalCsvMan.g:1898:1: rule__Add__Group__2__Impl : ( '(' ) ;
     public final void rule__Add__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1709:1: ( ( '(' ) )
-            // InternalCsvMan.g:1710:1: ( '(' )
+            // InternalCsvMan.g:1902:1: ( ( '(' ) )
+            // InternalCsvMan.g:1903:1: ( '(' )
             {
-            // InternalCsvMan.g:1710:1: ( '(' )
-            // InternalCsvMan.g:1711:2: '('
+            // InternalCsvMan.g:1903:1: ( '(' )
+            // InternalCsvMan.g:1904:2: '('
             {
              before(grammarAccess.getAddAccess().getLeftParenthesisKeyword_2()); 
-            match(input,15,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getAddAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -5196,16 +5763,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__3"
-    // InternalCsvMan.g:1720:1: rule__Add__Group__3 : rule__Add__Group__3__Impl rule__Add__Group__4 ;
+    // InternalCsvMan.g:1913:1: rule__Add__Group__3 : rule__Add__Group__3__Impl rule__Add__Group__4 ;
     public final void rule__Add__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1724:1: ( rule__Add__Group__3__Impl rule__Add__Group__4 )
-            // InternalCsvMan.g:1725:2: rule__Add__Group__3__Impl rule__Add__Group__4
+            // InternalCsvMan.g:1917:1: ( rule__Add__Group__3__Impl rule__Add__Group__4 )
+            // InternalCsvMan.g:1918:2: rule__Add__Group__3__Impl rule__Add__Group__4
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Add__Group__3__Impl();
 
             state._fsp--;
@@ -5234,21 +5801,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__3__Impl"
-    // InternalCsvMan.g:1732:1: rule__Add__Group__3__Impl : ( ( rule__Add__ValeurAssignment_3 ) ) ;
+    // InternalCsvMan.g:1925:1: rule__Add__Group__3__Impl : ( ( rule__Add__ValeurAssignment_3 ) ) ;
     public final void rule__Add__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1736:1: ( ( ( rule__Add__ValeurAssignment_3 ) ) )
-            // InternalCsvMan.g:1737:1: ( ( rule__Add__ValeurAssignment_3 ) )
+            // InternalCsvMan.g:1929:1: ( ( ( rule__Add__ValeurAssignment_3 ) ) )
+            // InternalCsvMan.g:1930:1: ( ( rule__Add__ValeurAssignment_3 ) )
             {
-            // InternalCsvMan.g:1737:1: ( ( rule__Add__ValeurAssignment_3 ) )
-            // InternalCsvMan.g:1738:2: ( rule__Add__ValeurAssignment_3 )
+            // InternalCsvMan.g:1930:1: ( ( rule__Add__ValeurAssignment_3 ) )
+            // InternalCsvMan.g:1931:2: ( rule__Add__ValeurAssignment_3 )
             {
              before(grammarAccess.getAddAccess().getValeurAssignment_3()); 
-            // InternalCsvMan.g:1739:2: ( rule__Add__ValeurAssignment_3 )
-            // InternalCsvMan.g:1739:3: rule__Add__ValeurAssignment_3
+            // InternalCsvMan.g:1932:2: ( rule__Add__ValeurAssignment_3 )
+            // InternalCsvMan.g:1932:3: rule__Add__ValeurAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Add__ValeurAssignment_3();
@@ -5281,16 +5848,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__4"
-    // InternalCsvMan.g:1747:1: rule__Add__Group__4 : rule__Add__Group__4__Impl rule__Add__Group__5 ;
+    // InternalCsvMan.g:1940:1: rule__Add__Group__4 : rule__Add__Group__4__Impl rule__Add__Group__5 ;
     public final void rule__Add__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1751:1: ( rule__Add__Group__4__Impl rule__Add__Group__5 )
-            // InternalCsvMan.g:1752:2: rule__Add__Group__4__Impl rule__Add__Group__5
+            // InternalCsvMan.g:1944:1: ( rule__Add__Group__4__Impl rule__Add__Group__5 )
+            // InternalCsvMan.g:1945:2: rule__Add__Group__4__Impl rule__Add__Group__5
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_10);
             rule__Add__Group__4__Impl();
 
             state._fsp--;
@@ -5319,35 +5886,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__4__Impl"
-    // InternalCsvMan.g:1759:1: rule__Add__Group__4__Impl : ( ( rule__Add__Group_4__0 )* ) ;
+    // InternalCsvMan.g:1952:1: rule__Add__Group__4__Impl : ( ( rule__Add__Group_4__0 )* ) ;
     public final void rule__Add__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1763:1: ( ( ( rule__Add__Group_4__0 )* ) )
-            // InternalCsvMan.g:1764:1: ( ( rule__Add__Group_4__0 )* )
+            // InternalCsvMan.g:1956:1: ( ( ( rule__Add__Group_4__0 )* ) )
+            // InternalCsvMan.g:1957:1: ( ( rule__Add__Group_4__0 )* )
             {
-            // InternalCsvMan.g:1764:1: ( ( rule__Add__Group_4__0 )* )
-            // InternalCsvMan.g:1765:2: ( rule__Add__Group_4__0 )*
+            // InternalCsvMan.g:1957:1: ( ( rule__Add__Group_4__0 )* )
+            // InternalCsvMan.g:1958:2: ( rule__Add__Group_4__0 )*
             {
              before(grammarAccess.getAddAccess().getGroup_4()); 
-            // InternalCsvMan.g:1766:2: ( rule__Add__Group_4__0 )*
+            // InternalCsvMan.g:1959:2: ( rule__Add__Group_4__0 )*
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==17) ) {
+                if ( (LA12_0==19) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalCsvMan.g:1766:3: rule__Add__Group_4__0
+            	    // InternalCsvMan.g:1959:3: rule__Add__Group_4__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_11);
             	    rule__Add__Group_4__0();
 
             	    state._fsp--;
@@ -5384,16 +5951,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__5"
-    // InternalCsvMan.g:1774:1: rule__Add__Group__5 : rule__Add__Group__5__Impl rule__Add__Group__6 ;
+    // InternalCsvMan.g:1967:1: rule__Add__Group__5 : rule__Add__Group__5__Impl rule__Add__Group__6 ;
     public final void rule__Add__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1778:1: ( rule__Add__Group__5__Impl rule__Add__Group__6 )
-            // InternalCsvMan.g:1779:2: rule__Add__Group__5__Impl rule__Add__Group__6
+            // InternalCsvMan.g:1971:1: ( rule__Add__Group__5__Impl rule__Add__Group__6 )
+            // InternalCsvMan.g:1972:2: rule__Add__Group__5__Impl rule__Add__Group__6
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_6);
             rule__Add__Group__5__Impl();
 
             state._fsp--;
@@ -5422,20 +5989,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__5__Impl"
-    // InternalCsvMan.g:1786:1: rule__Add__Group__5__Impl : ( ')' ) ;
+    // InternalCsvMan.g:1979:1: rule__Add__Group__5__Impl : ( ')' ) ;
     public final void rule__Add__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1790:1: ( ( ')' ) )
-            // InternalCsvMan.g:1791:1: ( ')' )
+            // InternalCsvMan.g:1983:1: ( ( ')' ) )
+            // InternalCsvMan.g:1984:1: ( ')' )
             {
-            // InternalCsvMan.g:1791:1: ( ')' )
-            // InternalCsvMan.g:1792:2: ')'
+            // InternalCsvMan.g:1984:1: ( ')' )
+            // InternalCsvMan.g:1985:2: ')'
             {
              before(grammarAccess.getAddAccess().getRightParenthesisKeyword_5()); 
-            match(input,16,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getAddAccess().getRightParenthesisKeyword_5()); 
 
             }
@@ -5459,16 +6026,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__6"
-    // InternalCsvMan.g:1801:1: rule__Add__Group__6 : rule__Add__Group__6__Impl rule__Add__Group__7 ;
+    // InternalCsvMan.g:1994:1: rule__Add__Group__6 : rule__Add__Group__6__Impl rule__Add__Group__7 ;
     public final void rule__Add__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1805:1: ( rule__Add__Group__6__Impl rule__Add__Group__7 )
-            // InternalCsvMan.g:1806:2: rule__Add__Group__6__Impl rule__Add__Group__7
+            // InternalCsvMan.g:1998:1: ( rule__Add__Group__6__Impl rule__Add__Group__7 )
+            // InternalCsvMan.g:1999:2: rule__Add__Group__6__Impl rule__Add__Group__7
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Add__Group__6__Impl();
 
             state._fsp--;
@@ -5497,20 +6064,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__6__Impl"
-    // InternalCsvMan.g:1813:1: rule__Add__Group__6__Impl : ( 'in' ) ;
+    // InternalCsvMan.g:2006:1: rule__Add__Group__6__Impl : ( 'in' ) ;
     public final void rule__Add__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1817:1: ( ( 'in' ) )
-            // InternalCsvMan.g:1818:1: ( 'in' )
+            // InternalCsvMan.g:2010:1: ( ( 'in' ) )
+            // InternalCsvMan.g:2011:1: ( 'in' )
             {
-            // InternalCsvMan.g:1818:1: ( 'in' )
-            // InternalCsvMan.g:1819:2: 'in'
+            // InternalCsvMan.g:2011:1: ( 'in' )
+            // InternalCsvMan.g:2012:2: 'in'
             {
              before(grammarAccess.getAddAccess().getInKeyword_6()); 
-            match(input,24,FOLLOW_2); 
+            match(input,15,FOLLOW_2); 
              after(grammarAccess.getAddAccess().getInKeyword_6()); 
 
             }
@@ -5534,16 +6101,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__7"
-    // InternalCsvMan.g:1828:1: rule__Add__Group__7 : rule__Add__Group__7__Impl rule__Add__Group__8 ;
+    // InternalCsvMan.g:2021:1: rule__Add__Group__7 : rule__Add__Group__7__Impl rule__Add__Group__8 ;
     public final void rule__Add__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1832:1: ( rule__Add__Group__7__Impl rule__Add__Group__8 )
-            // InternalCsvMan.g:1833:2: rule__Add__Group__7__Impl rule__Add__Group__8
+            // InternalCsvMan.g:2025:1: ( rule__Add__Group__7__Impl rule__Add__Group__8 )
+            // InternalCsvMan.g:2026:2: rule__Add__Group__7__Impl rule__Add__Group__8
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_7);
             rule__Add__Group__7__Impl();
 
             state._fsp--;
@@ -5572,21 +6139,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__7__Impl"
-    // InternalCsvMan.g:1840:1: rule__Add__Group__7__Impl : ( ( rule__Add__TableAssignment_7 ) ) ;
+    // InternalCsvMan.g:2033:1: rule__Add__Group__7__Impl : ( ( rule__Add__TableAssignment_7 ) ) ;
     public final void rule__Add__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1844:1: ( ( ( rule__Add__TableAssignment_7 ) ) )
-            // InternalCsvMan.g:1845:1: ( ( rule__Add__TableAssignment_7 ) )
+            // InternalCsvMan.g:2037:1: ( ( ( rule__Add__TableAssignment_7 ) ) )
+            // InternalCsvMan.g:2038:1: ( ( rule__Add__TableAssignment_7 ) )
             {
-            // InternalCsvMan.g:1845:1: ( ( rule__Add__TableAssignment_7 ) )
-            // InternalCsvMan.g:1846:2: ( rule__Add__TableAssignment_7 )
+            // InternalCsvMan.g:2038:1: ( ( rule__Add__TableAssignment_7 ) )
+            // InternalCsvMan.g:2039:2: ( rule__Add__TableAssignment_7 )
             {
              before(grammarAccess.getAddAccess().getTableAssignment_7()); 
-            // InternalCsvMan.g:1847:2: ( rule__Add__TableAssignment_7 )
-            // InternalCsvMan.g:1847:3: rule__Add__TableAssignment_7
+            // InternalCsvMan.g:2040:2: ( rule__Add__TableAssignment_7 )
+            // InternalCsvMan.g:2040:3: rule__Add__TableAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__Add__TableAssignment_7();
@@ -5619,14 +6186,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__8"
-    // InternalCsvMan.g:1855:1: rule__Add__Group__8 : rule__Add__Group__8__Impl ;
+    // InternalCsvMan.g:2048:1: rule__Add__Group__8 : rule__Add__Group__8__Impl ;
     public final void rule__Add__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1859:1: ( rule__Add__Group__8__Impl )
-            // InternalCsvMan.g:1860:2: rule__Add__Group__8__Impl
+            // InternalCsvMan.g:2052:1: ( rule__Add__Group__8__Impl )
+            // InternalCsvMan.g:2053:2: rule__Add__Group__8__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Add__Group__8__Impl();
@@ -5652,17 +6219,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group__8__Impl"
-    // InternalCsvMan.g:1866:1: rule__Add__Group__8__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:2059:1: rule__Add__Group__8__Impl : ( RULE_NL ) ;
     public final void rule__Add__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1870:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:1871:1: ( RULE_NL )
+            // InternalCsvMan.g:2063:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:2064:1: ( RULE_NL )
             {
-            // InternalCsvMan.g:1871:1: ( RULE_NL )
-            // InternalCsvMan.g:1872:2: RULE_NL
+            // InternalCsvMan.g:2064:1: ( RULE_NL )
+            // InternalCsvMan.g:2065:2: RULE_NL
             {
              before(grammarAccess.getAddAccess().getNLTerminalRuleCall_8()); 
             match(input,RULE_NL,FOLLOW_2); 
@@ -5689,16 +6256,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group_4__0"
-    // InternalCsvMan.g:1882:1: rule__Add__Group_4__0 : rule__Add__Group_4__0__Impl rule__Add__Group_4__1 ;
+    // InternalCsvMan.g:2075:1: rule__Add__Group_4__0 : rule__Add__Group_4__0__Impl rule__Add__Group_4__1 ;
     public final void rule__Add__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1886:1: ( rule__Add__Group_4__0__Impl rule__Add__Group_4__1 )
-            // InternalCsvMan.g:1887:2: rule__Add__Group_4__0__Impl rule__Add__Group_4__1
+            // InternalCsvMan.g:2079:1: ( rule__Add__Group_4__0__Impl rule__Add__Group_4__1 )
+            // InternalCsvMan.g:2080:2: rule__Add__Group_4__0__Impl rule__Add__Group_4__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Add__Group_4__0__Impl();
 
             state._fsp--;
@@ -5727,20 +6294,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group_4__0__Impl"
-    // InternalCsvMan.g:1894:1: rule__Add__Group_4__0__Impl : ( ',' ) ;
+    // InternalCsvMan.g:2087:1: rule__Add__Group_4__0__Impl : ( ',' ) ;
     public final void rule__Add__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1898:1: ( ( ',' ) )
-            // InternalCsvMan.g:1899:1: ( ',' )
+            // InternalCsvMan.g:2091:1: ( ( ',' ) )
+            // InternalCsvMan.g:2092:1: ( ',' )
             {
-            // InternalCsvMan.g:1899:1: ( ',' )
-            // InternalCsvMan.g:1900:2: ','
+            // InternalCsvMan.g:2092:1: ( ',' )
+            // InternalCsvMan.g:2093:2: ','
             {
              before(grammarAccess.getAddAccess().getCommaKeyword_4_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getAddAccess().getCommaKeyword_4_0()); 
 
             }
@@ -5764,14 +6331,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group_4__1"
-    // InternalCsvMan.g:1909:1: rule__Add__Group_4__1 : rule__Add__Group_4__1__Impl ;
+    // InternalCsvMan.g:2102:1: rule__Add__Group_4__1 : rule__Add__Group_4__1__Impl ;
     public final void rule__Add__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1913:1: ( rule__Add__Group_4__1__Impl )
-            // InternalCsvMan.g:1914:2: rule__Add__Group_4__1__Impl
+            // InternalCsvMan.g:2106:1: ( rule__Add__Group_4__1__Impl )
+            // InternalCsvMan.g:2107:2: rule__Add__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Add__Group_4__1__Impl();
@@ -5797,21 +6364,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group_4__1__Impl"
-    // InternalCsvMan.g:1920:1: rule__Add__Group_4__1__Impl : ( ( rule__Add__ValeurAssignment_4_1 ) ) ;
+    // InternalCsvMan.g:2113:1: rule__Add__Group_4__1__Impl : ( ( rule__Add__ValeurAssignment_4_1 ) ) ;
     public final void rule__Add__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1924:1: ( ( ( rule__Add__ValeurAssignment_4_1 ) ) )
-            // InternalCsvMan.g:1925:1: ( ( rule__Add__ValeurAssignment_4_1 ) )
+            // InternalCsvMan.g:2117:1: ( ( ( rule__Add__ValeurAssignment_4_1 ) ) )
+            // InternalCsvMan.g:2118:1: ( ( rule__Add__ValeurAssignment_4_1 ) )
             {
-            // InternalCsvMan.g:1925:1: ( ( rule__Add__ValeurAssignment_4_1 ) )
-            // InternalCsvMan.g:1926:2: ( rule__Add__ValeurAssignment_4_1 )
+            // InternalCsvMan.g:2118:1: ( ( rule__Add__ValeurAssignment_4_1 ) )
+            // InternalCsvMan.g:2119:2: ( rule__Add__ValeurAssignment_4_1 )
             {
              before(grammarAccess.getAddAccess().getValeurAssignment_4_1()); 
-            // InternalCsvMan.g:1927:2: ( rule__Add__ValeurAssignment_4_1 )
-            // InternalCsvMan.g:1927:3: rule__Add__ValeurAssignment_4_1
+            // InternalCsvMan.g:2120:2: ( rule__Add__ValeurAssignment_4_1 )
+            // InternalCsvMan.g:2120:3: rule__Add__ValeurAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Add__ValeurAssignment_4_1();
@@ -5844,14 +6411,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__0"
-    // InternalCsvMan.g:1936:1: rule__Join__Group__0 : rule__Join__Group__0__Impl rule__Join__Group__1 ;
+    // InternalCsvMan.g:2129:1: rule__Join__Group__0 : rule__Join__Group__0__Impl rule__Join__Group__1 ;
     public final void rule__Join__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1940:1: ( rule__Join__Group__0__Impl rule__Join__Group__1 )
-            // InternalCsvMan.g:1941:2: rule__Join__Group__0__Impl rule__Join__Group__1
+            // InternalCsvMan.g:2133:1: ( rule__Join__Group__0__Impl rule__Join__Group__1 )
+            // InternalCsvMan.g:2134:2: rule__Join__Group__0__Impl rule__Join__Group__1
             {
             pushFollow(FOLLOW_20);
             rule__Join__Group__0__Impl();
@@ -5882,21 +6449,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__0__Impl"
-    // InternalCsvMan.g:1948:1: rule__Join__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:2141:1: rule__Join__Group__0__Impl : ( () ) ;
     public final void rule__Join__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1952:1: ( ( () ) )
-            // InternalCsvMan.g:1953:1: ( () )
+            // InternalCsvMan.g:2145:1: ( ( () ) )
+            // InternalCsvMan.g:2146:1: ( () )
             {
-            // InternalCsvMan.g:1953:1: ( () )
-            // InternalCsvMan.g:1954:2: ()
+            // InternalCsvMan.g:2146:1: ( () )
+            // InternalCsvMan.g:2147:2: ()
             {
              before(grammarAccess.getJoinAccess().getJoinAction_0()); 
-            // InternalCsvMan.g:1955:2: ()
-            // InternalCsvMan.g:1955:3: 
+            // InternalCsvMan.g:2148:2: ()
+            // InternalCsvMan.g:2148:3: 
             {
             }
 
@@ -5919,16 +6486,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__1"
-    // InternalCsvMan.g:1963:1: rule__Join__Group__1 : rule__Join__Group__1__Impl rule__Join__Group__2 ;
+    // InternalCsvMan.g:2156:1: rule__Join__Group__1 : rule__Join__Group__1__Impl rule__Join__Group__2 ;
     public final void rule__Join__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1967:1: ( rule__Join__Group__1__Impl rule__Join__Group__2 )
-            // InternalCsvMan.g:1968:2: rule__Join__Group__1__Impl rule__Join__Group__2
+            // InternalCsvMan.g:2160:1: ( rule__Join__Group__1__Impl rule__Join__Group__2 )
+            // InternalCsvMan.g:2161:2: rule__Join__Group__1__Impl rule__Join__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Join__Group__1__Impl();
 
             state._fsp--;
@@ -5957,20 +6524,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__1__Impl"
-    // InternalCsvMan.g:1975:1: rule__Join__Group__1__Impl : ( 'join' ) ;
+    // InternalCsvMan.g:2168:1: rule__Join__Group__1__Impl : ( 'join' ) ;
     public final void rule__Join__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1979:1: ( ( 'join' ) )
-            // InternalCsvMan.g:1980:1: ( 'join' )
+            // InternalCsvMan.g:2172:1: ( ( 'join' ) )
+            // InternalCsvMan.g:2173:1: ( 'join' )
             {
-            // InternalCsvMan.g:1980:1: ( 'join' )
-            // InternalCsvMan.g:1981:2: 'join'
+            // InternalCsvMan.g:2173:1: ( 'join' )
+            // InternalCsvMan.g:2174:2: 'join'
             {
              before(grammarAccess.getJoinAccess().getJoinKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getJoinAccess().getJoinKeyword_1()); 
 
             }
@@ -5994,16 +6561,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__2"
-    // InternalCsvMan.g:1990:1: rule__Join__Group__2 : rule__Join__Group__2__Impl rule__Join__Group__3 ;
+    // InternalCsvMan.g:2183:1: rule__Join__Group__2 : rule__Join__Group__2__Impl rule__Join__Group__3 ;
     public final void rule__Join__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:1994:1: ( rule__Join__Group__2__Impl rule__Join__Group__3 )
-            // InternalCsvMan.g:1995:2: rule__Join__Group__2__Impl rule__Join__Group__3
+            // InternalCsvMan.g:2187:1: ( rule__Join__Group__2__Impl rule__Join__Group__3 )
+            // InternalCsvMan.g:2188:2: rule__Join__Group__2__Impl rule__Join__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Join__Group__2__Impl();
 
             state._fsp--;
@@ -6032,21 +6599,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__2__Impl"
-    // InternalCsvMan.g:2002:1: rule__Join__Group__2__Impl : ( ( rule__Join__Table1Assignment_2 ) ) ;
+    // InternalCsvMan.g:2195:1: rule__Join__Group__2__Impl : ( ( rule__Join__Table1Assignment_2 ) ) ;
     public final void rule__Join__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2006:1: ( ( ( rule__Join__Table1Assignment_2 ) ) )
-            // InternalCsvMan.g:2007:1: ( ( rule__Join__Table1Assignment_2 ) )
+            // InternalCsvMan.g:2199:1: ( ( ( rule__Join__Table1Assignment_2 ) ) )
+            // InternalCsvMan.g:2200:1: ( ( rule__Join__Table1Assignment_2 ) )
             {
-            // InternalCsvMan.g:2007:1: ( ( rule__Join__Table1Assignment_2 ) )
-            // InternalCsvMan.g:2008:2: ( rule__Join__Table1Assignment_2 )
+            // InternalCsvMan.g:2200:1: ( ( rule__Join__Table1Assignment_2 ) )
+            // InternalCsvMan.g:2201:2: ( rule__Join__Table1Assignment_2 )
             {
              before(grammarAccess.getJoinAccess().getTable1Assignment_2()); 
-            // InternalCsvMan.g:2009:2: ( rule__Join__Table1Assignment_2 )
-            // InternalCsvMan.g:2009:3: rule__Join__Table1Assignment_2
+            // InternalCsvMan.g:2202:2: ( rule__Join__Table1Assignment_2 )
+            // InternalCsvMan.g:2202:3: rule__Join__Table1Assignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Join__Table1Assignment_2();
@@ -6079,16 +6646,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__3"
-    // InternalCsvMan.g:2017:1: rule__Join__Group__3 : rule__Join__Group__3__Impl rule__Join__Group__4 ;
+    // InternalCsvMan.g:2210:1: rule__Join__Group__3 : rule__Join__Group__3__Impl rule__Join__Group__4 ;
     public final void rule__Join__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2021:1: ( rule__Join__Group__3__Impl rule__Join__Group__4 )
-            // InternalCsvMan.g:2022:2: rule__Join__Group__3__Impl rule__Join__Group__4
+            // InternalCsvMan.g:2214:1: ( rule__Join__Group__3__Impl rule__Join__Group__4 )
+            // InternalCsvMan.g:2215:2: rule__Join__Group__3__Impl rule__Join__Group__4
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Join__Group__3__Impl();
 
             state._fsp--;
@@ -6117,21 +6684,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__3__Impl"
-    // InternalCsvMan.g:2029:1: rule__Join__Group__3__Impl : ( ( rule__Join__Table2Assignment_3 ) ) ;
+    // InternalCsvMan.g:2222:1: rule__Join__Group__3__Impl : ( ( rule__Join__Table2Assignment_3 ) ) ;
     public final void rule__Join__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2033:1: ( ( ( rule__Join__Table2Assignment_3 ) ) )
-            // InternalCsvMan.g:2034:1: ( ( rule__Join__Table2Assignment_3 ) )
+            // InternalCsvMan.g:2226:1: ( ( ( rule__Join__Table2Assignment_3 ) ) )
+            // InternalCsvMan.g:2227:1: ( ( rule__Join__Table2Assignment_3 ) )
             {
-            // InternalCsvMan.g:2034:1: ( ( rule__Join__Table2Assignment_3 ) )
-            // InternalCsvMan.g:2035:2: ( rule__Join__Table2Assignment_3 )
+            // InternalCsvMan.g:2227:1: ( ( rule__Join__Table2Assignment_3 ) )
+            // InternalCsvMan.g:2228:2: ( rule__Join__Table2Assignment_3 )
             {
              before(grammarAccess.getJoinAccess().getTable2Assignment_3()); 
-            // InternalCsvMan.g:2036:2: ( rule__Join__Table2Assignment_3 )
-            // InternalCsvMan.g:2036:3: rule__Join__Table2Assignment_3
+            // InternalCsvMan.g:2229:2: ( rule__Join__Table2Assignment_3 )
+            // InternalCsvMan.g:2229:3: rule__Join__Table2Assignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Join__Table2Assignment_3();
@@ -6164,17 +6731,22 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__4"
-    // InternalCsvMan.g:2044:1: rule__Join__Group__4 : rule__Join__Group__4__Impl ;
+    // InternalCsvMan.g:2237:1: rule__Join__Group__4 : rule__Join__Group__4__Impl rule__Join__Group__5 ;
     public final void rule__Join__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2048:1: ( rule__Join__Group__4__Impl )
-            // InternalCsvMan.g:2049:2: rule__Join__Group__4__Impl
+            // InternalCsvMan.g:2241:1: ( rule__Join__Group__4__Impl rule__Join__Group__5 )
+            // InternalCsvMan.g:2242:2: rule__Join__Group__4__Impl rule__Join__Group__5
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_5);
             rule__Join__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Join__Group__5();
 
             state._fsp--;
 
@@ -6197,21 +6769,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Group__4__Impl"
-    // InternalCsvMan.g:2055:1: rule__Join__Group__4__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:2249:1: rule__Join__Group__4__Impl : ( 'in' ) ;
     public final void rule__Join__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2059:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:2060:1: ( RULE_NL )
+            // InternalCsvMan.g:2253:1: ( ( 'in' ) )
+            // InternalCsvMan.g:2254:1: ( 'in' )
             {
-            // InternalCsvMan.g:2060:1: ( RULE_NL )
-            // InternalCsvMan.g:2061:2: RULE_NL
+            // InternalCsvMan.g:2254:1: ( 'in' )
+            // InternalCsvMan.g:2255:2: 'in'
             {
-             before(grammarAccess.getJoinAccess().getNLTerminalRuleCall_4()); 
-            match(input,RULE_NL,FOLLOW_2); 
-             after(grammarAccess.getJoinAccess().getNLTerminalRuleCall_4()); 
+             before(grammarAccess.getJoinAccess().getInKeyword_4()); 
+            match(input,15,FOLLOW_2); 
+             after(grammarAccess.getJoinAccess().getInKeyword_4()); 
 
             }
 
@@ -6233,15 +6805,170 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Join__Group__4__Impl"
 
 
+    // $ANTLR start "rule__Join__Group__5"
+    // InternalCsvMan.g:2264:1: rule__Join__Group__5 : rule__Join__Group__5__Impl rule__Join__Group__6 ;
+    public final void rule__Join__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:2268:1: ( rule__Join__Group__5__Impl rule__Join__Group__6 )
+            // InternalCsvMan.g:2269:2: rule__Join__Group__5__Impl rule__Join__Group__6
+            {
+            pushFollow(FOLLOW_7);
+            rule__Join__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Join__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Join__Group__5"
+
+
+    // $ANTLR start "rule__Join__Group__5__Impl"
+    // InternalCsvMan.g:2276:1: rule__Join__Group__5__Impl : ( ( rule__Join__Table3Assignment_5 ) ) ;
+    public final void rule__Join__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:2280:1: ( ( ( rule__Join__Table3Assignment_5 ) ) )
+            // InternalCsvMan.g:2281:1: ( ( rule__Join__Table3Assignment_5 ) )
+            {
+            // InternalCsvMan.g:2281:1: ( ( rule__Join__Table3Assignment_5 ) )
+            // InternalCsvMan.g:2282:2: ( rule__Join__Table3Assignment_5 )
+            {
+             before(grammarAccess.getJoinAccess().getTable3Assignment_5()); 
+            // InternalCsvMan.g:2283:2: ( rule__Join__Table3Assignment_5 )
+            // InternalCsvMan.g:2283:3: rule__Join__Table3Assignment_5
+            {
+            pushFollow(FOLLOW_2);
+            rule__Join__Table3Assignment_5();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getJoinAccess().getTable3Assignment_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Join__Group__5__Impl"
+
+
+    // $ANTLR start "rule__Join__Group__6"
+    // InternalCsvMan.g:2291:1: rule__Join__Group__6 : rule__Join__Group__6__Impl ;
+    public final void rule__Join__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:2295:1: ( rule__Join__Group__6__Impl )
+            // InternalCsvMan.g:2296:2: rule__Join__Group__6__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Join__Group__6__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Join__Group__6"
+
+
+    // $ANTLR start "rule__Join__Group__6__Impl"
+    // InternalCsvMan.g:2302:1: rule__Join__Group__6__Impl : ( RULE_NL ) ;
+    public final void rule__Join__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:2306:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:2307:1: ( RULE_NL )
+            {
+            // InternalCsvMan.g:2307:1: ( RULE_NL )
+            // InternalCsvMan.g:2308:2: RULE_NL
+            {
+             before(grammarAccess.getJoinAccess().getNLTerminalRuleCall_6()); 
+            match(input,RULE_NL,FOLLOW_2); 
+             after(grammarAccess.getJoinAccess().getNLTerminalRuleCall_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Join__Group__6__Impl"
+
+
     // $ANTLR start "rule__Delete__Group__0"
-    // InternalCsvMan.g:2071:1: rule__Delete__Group__0 : rule__Delete__Group__0__Impl rule__Delete__Group__1 ;
+    // InternalCsvMan.g:2318:1: rule__Delete__Group__0 : rule__Delete__Group__0__Impl rule__Delete__Group__1 ;
     public final void rule__Delete__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2075:1: ( rule__Delete__Group__0__Impl rule__Delete__Group__1 )
-            // InternalCsvMan.g:2076:2: rule__Delete__Group__0__Impl rule__Delete__Group__1
+            // InternalCsvMan.g:2322:1: ( rule__Delete__Group__0__Impl rule__Delete__Group__1 )
+            // InternalCsvMan.g:2323:2: rule__Delete__Group__0__Impl rule__Delete__Group__1
             {
             pushFollow(FOLLOW_21);
             rule__Delete__Group__0__Impl();
@@ -6272,21 +6999,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__0__Impl"
-    // InternalCsvMan.g:2083:1: rule__Delete__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:2330:1: rule__Delete__Group__0__Impl : ( () ) ;
     public final void rule__Delete__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2087:1: ( ( () ) )
-            // InternalCsvMan.g:2088:1: ( () )
+            // InternalCsvMan.g:2334:1: ( ( () ) )
+            // InternalCsvMan.g:2335:1: ( () )
             {
-            // InternalCsvMan.g:2088:1: ( () )
-            // InternalCsvMan.g:2089:2: ()
+            // InternalCsvMan.g:2335:1: ( () )
+            // InternalCsvMan.g:2336:2: ()
             {
              before(grammarAccess.getDeleteAccess().getDeleteAction_0()); 
-            // InternalCsvMan.g:2090:2: ()
-            // InternalCsvMan.g:2090:3: 
+            // InternalCsvMan.g:2337:2: ()
+            // InternalCsvMan.g:2337:3: 
             {
             }
 
@@ -6309,16 +7036,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__1"
-    // InternalCsvMan.g:2098:1: rule__Delete__Group__1 : rule__Delete__Group__1__Impl rule__Delete__Group__2 ;
+    // InternalCsvMan.g:2345:1: rule__Delete__Group__1 : rule__Delete__Group__1__Impl rule__Delete__Group__2 ;
     public final void rule__Delete__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2102:1: ( rule__Delete__Group__1__Impl rule__Delete__Group__2 )
-            // InternalCsvMan.g:2103:2: rule__Delete__Group__1__Impl rule__Delete__Group__2
+            // InternalCsvMan.g:2349:1: ( rule__Delete__Group__1__Impl rule__Delete__Group__2 )
+            // InternalCsvMan.g:2350:2: rule__Delete__Group__1__Impl rule__Delete__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Delete__Group__1__Impl();
 
             state._fsp--;
@@ -6347,20 +7074,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__1__Impl"
-    // InternalCsvMan.g:2110:1: rule__Delete__Group__1__Impl : ( 'delete' ) ;
+    // InternalCsvMan.g:2357:1: rule__Delete__Group__1__Impl : ( 'delete' ) ;
     public final void rule__Delete__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2114:1: ( ( 'delete' ) )
-            // InternalCsvMan.g:2115:1: ( 'delete' )
+            // InternalCsvMan.g:2361:1: ( ( 'delete' ) )
+            // InternalCsvMan.g:2362:1: ( 'delete' )
             {
-            // InternalCsvMan.g:2115:1: ( 'delete' )
-            // InternalCsvMan.g:2116:2: 'delete'
+            // InternalCsvMan.g:2362:1: ( 'delete' )
+            // InternalCsvMan.g:2363:2: 'delete'
             {
              before(grammarAccess.getDeleteAccess().getDeleteKeyword_1()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getDeleteAccess().getDeleteKeyword_1()); 
 
             }
@@ -6384,14 +7111,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__2"
-    // InternalCsvMan.g:2125:1: rule__Delete__Group__2 : rule__Delete__Group__2__Impl rule__Delete__Group__3 ;
+    // InternalCsvMan.g:2372:1: rule__Delete__Group__2 : rule__Delete__Group__2__Impl rule__Delete__Group__3 ;
     public final void rule__Delete__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2129:1: ( rule__Delete__Group__2__Impl rule__Delete__Group__3 )
-            // InternalCsvMan.g:2130:2: rule__Delete__Group__2__Impl rule__Delete__Group__3
+            // InternalCsvMan.g:2376:1: ( rule__Delete__Group__2__Impl rule__Delete__Group__3 )
+            // InternalCsvMan.g:2377:2: rule__Delete__Group__2__Impl rule__Delete__Group__3
             {
             pushFollow(FOLLOW_22);
             rule__Delete__Group__2__Impl();
@@ -6422,21 +7149,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__2__Impl"
-    // InternalCsvMan.g:2137:1: rule__Delete__Group__2__Impl : ( ( rule__Delete__TableAssignment_2 ) ) ;
+    // InternalCsvMan.g:2384:1: rule__Delete__Group__2__Impl : ( ( rule__Delete__TableAssignment_2 ) ) ;
     public final void rule__Delete__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2141:1: ( ( ( rule__Delete__TableAssignment_2 ) ) )
-            // InternalCsvMan.g:2142:1: ( ( rule__Delete__TableAssignment_2 ) )
+            // InternalCsvMan.g:2388:1: ( ( ( rule__Delete__TableAssignment_2 ) ) )
+            // InternalCsvMan.g:2389:1: ( ( rule__Delete__TableAssignment_2 ) )
             {
-            // InternalCsvMan.g:2142:1: ( ( rule__Delete__TableAssignment_2 ) )
-            // InternalCsvMan.g:2143:2: ( rule__Delete__TableAssignment_2 )
+            // InternalCsvMan.g:2389:1: ( ( rule__Delete__TableAssignment_2 ) )
+            // InternalCsvMan.g:2390:2: ( rule__Delete__TableAssignment_2 )
             {
              before(grammarAccess.getDeleteAccess().getTableAssignment_2()); 
-            // InternalCsvMan.g:2144:2: ( rule__Delete__TableAssignment_2 )
-            // InternalCsvMan.g:2144:3: rule__Delete__TableAssignment_2
+            // InternalCsvMan.g:2391:2: ( rule__Delete__TableAssignment_2 )
+            // InternalCsvMan.g:2391:3: rule__Delete__TableAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Delete__TableAssignment_2();
@@ -6469,14 +7196,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__3"
-    // InternalCsvMan.g:2152:1: rule__Delete__Group__3 : rule__Delete__Group__3__Impl rule__Delete__Group__4 ;
+    // InternalCsvMan.g:2399:1: rule__Delete__Group__3 : rule__Delete__Group__3__Impl rule__Delete__Group__4 ;
     public final void rule__Delete__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2156:1: ( rule__Delete__Group__3__Impl rule__Delete__Group__4 )
-            // InternalCsvMan.g:2157:2: rule__Delete__Group__3__Impl rule__Delete__Group__4
+            // InternalCsvMan.g:2403:1: ( rule__Delete__Group__3__Impl rule__Delete__Group__4 )
+            // InternalCsvMan.g:2404:2: rule__Delete__Group__3__Impl rule__Delete__Group__4
             {
             pushFollow(FOLLOW_22);
             rule__Delete__Group__3__Impl();
@@ -6507,29 +7234,29 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__3__Impl"
-    // InternalCsvMan.g:2164:1: rule__Delete__Group__3__Impl : ( ( rule__Delete__WhereAssignment_3 )? ) ;
+    // InternalCsvMan.g:2411:1: rule__Delete__Group__3__Impl : ( ( rule__Delete__WhereAssignment_3 )? ) ;
     public final void rule__Delete__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2168:1: ( ( ( rule__Delete__WhereAssignment_3 )? ) )
-            // InternalCsvMan.g:2169:1: ( ( rule__Delete__WhereAssignment_3 )? )
+            // InternalCsvMan.g:2415:1: ( ( ( rule__Delete__WhereAssignment_3 )? ) )
+            // InternalCsvMan.g:2416:1: ( ( rule__Delete__WhereAssignment_3 )? )
             {
-            // InternalCsvMan.g:2169:1: ( ( rule__Delete__WhereAssignment_3 )? )
-            // InternalCsvMan.g:2170:2: ( rule__Delete__WhereAssignment_3 )?
+            // InternalCsvMan.g:2416:1: ( ( rule__Delete__WhereAssignment_3 )? )
+            // InternalCsvMan.g:2417:2: ( rule__Delete__WhereAssignment_3 )?
             {
              before(grammarAccess.getDeleteAccess().getWhereAssignment_3()); 
-            // InternalCsvMan.g:2171:2: ( rule__Delete__WhereAssignment_3 )?
+            // InternalCsvMan.g:2418:2: ( rule__Delete__WhereAssignment_3 )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==28) ) {
+            if ( (LA13_0==29) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalCsvMan.g:2171:3: rule__Delete__WhereAssignment_3
+                    // InternalCsvMan.g:2418:3: rule__Delete__WhereAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__Delete__WhereAssignment_3();
@@ -6565,14 +7292,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__4"
-    // InternalCsvMan.g:2179:1: rule__Delete__Group__4 : rule__Delete__Group__4__Impl ;
+    // InternalCsvMan.g:2426:1: rule__Delete__Group__4 : rule__Delete__Group__4__Impl ;
     public final void rule__Delete__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2183:1: ( rule__Delete__Group__4__Impl )
-            // InternalCsvMan.g:2184:2: rule__Delete__Group__4__Impl
+            // InternalCsvMan.g:2430:1: ( rule__Delete__Group__4__Impl )
+            // InternalCsvMan.g:2431:2: rule__Delete__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Delete__Group__4__Impl();
@@ -6598,17 +7325,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__Group__4__Impl"
-    // InternalCsvMan.g:2190:1: rule__Delete__Group__4__Impl : ( RULE_NL ) ;
+    // InternalCsvMan.g:2437:1: rule__Delete__Group__4__Impl : ( RULE_NL ) ;
     public final void rule__Delete__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2194:1: ( ( RULE_NL ) )
-            // InternalCsvMan.g:2195:1: ( RULE_NL )
+            // InternalCsvMan.g:2441:1: ( ( RULE_NL ) )
+            // InternalCsvMan.g:2442:1: ( RULE_NL )
             {
-            // InternalCsvMan.g:2195:1: ( RULE_NL )
-            // InternalCsvMan.g:2196:2: RULE_NL
+            // InternalCsvMan.g:2442:1: ( RULE_NL )
+            // InternalCsvMan.g:2443:2: RULE_NL
             {
              before(grammarAccess.getDeleteAccess().getNLTerminalRuleCall_4()); 
             match(input,RULE_NL,FOLLOW_2); 
@@ -6635,14 +7362,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Exit__Group__0"
-    // InternalCsvMan.g:2206:1: rule__Exit__Group__0 : rule__Exit__Group__0__Impl rule__Exit__Group__1 ;
+    // InternalCsvMan.g:2453:1: rule__Exit__Group__0 : rule__Exit__Group__0__Impl rule__Exit__Group__1 ;
     public final void rule__Exit__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2210:1: ( rule__Exit__Group__0__Impl rule__Exit__Group__1 )
-            // InternalCsvMan.g:2211:2: rule__Exit__Group__0__Impl rule__Exit__Group__1
+            // InternalCsvMan.g:2457:1: ( rule__Exit__Group__0__Impl rule__Exit__Group__1 )
+            // InternalCsvMan.g:2458:2: rule__Exit__Group__0__Impl rule__Exit__Group__1
             {
             pushFollow(FOLLOW_23);
             rule__Exit__Group__0__Impl();
@@ -6673,21 +7400,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Exit__Group__0__Impl"
-    // InternalCsvMan.g:2218:1: rule__Exit__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:2465:1: rule__Exit__Group__0__Impl : ( () ) ;
     public final void rule__Exit__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2222:1: ( ( () ) )
-            // InternalCsvMan.g:2223:1: ( () )
+            // InternalCsvMan.g:2469:1: ( ( () ) )
+            // InternalCsvMan.g:2470:1: ( () )
             {
-            // InternalCsvMan.g:2223:1: ( () )
-            // InternalCsvMan.g:2224:2: ()
+            // InternalCsvMan.g:2470:1: ( () )
+            // InternalCsvMan.g:2471:2: ()
             {
              before(grammarAccess.getExitAccess().getExitAction_0()); 
-            // InternalCsvMan.g:2225:2: ()
-            // InternalCsvMan.g:2225:3: 
+            // InternalCsvMan.g:2472:2: ()
+            // InternalCsvMan.g:2472:3: 
             {
             }
 
@@ -6710,14 +7437,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Exit__Group__1"
-    // InternalCsvMan.g:2233:1: rule__Exit__Group__1 : rule__Exit__Group__1__Impl ;
+    // InternalCsvMan.g:2480:1: rule__Exit__Group__1 : rule__Exit__Group__1__Impl ;
     public final void rule__Exit__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2237:1: ( rule__Exit__Group__1__Impl )
-            // InternalCsvMan.g:2238:2: rule__Exit__Group__1__Impl
+            // InternalCsvMan.g:2484:1: ( rule__Exit__Group__1__Impl )
+            // InternalCsvMan.g:2485:2: rule__Exit__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Exit__Group__1__Impl();
@@ -6743,20 +7470,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Exit__Group__1__Impl"
-    // InternalCsvMan.g:2244:1: rule__Exit__Group__1__Impl : ( 'exit' ) ;
+    // InternalCsvMan.g:2491:1: rule__Exit__Group__1__Impl : ( 'exit' ) ;
     public final void rule__Exit__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2248:1: ( ( 'exit' ) )
-            // InternalCsvMan.g:2249:1: ( 'exit' )
+            // InternalCsvMan.g:2495:1: ( ( 'exit' ) )
+            // InternalCsvMan.g:2496:1: ( 'exit' )
             {
-            // InternalCsvMan.g:2249:1: ( 'exit' )
-            // InternalCsvMan.g:2250:2: 'exit'
+            // InternalCsvMan.g:2496:1: ( 'exit' )
+            // InternalCsvMan.g:2497:2: 'exit'
             {
              before(grammarAccess.getExitAccess().getExitKeyword_1()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getExitAccess().getExitKeyword_1()); 
 
             }
@@ -6780,14 +7507,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__0"
-    // InternalCsvMan.g:2260:1: rule__Where__Group__0 : rule__Where__Group__0__Impl rule__Where__Group__1 ;
+    // InternalCsvMan.g:2507:1: rule__Where__Group__0 : rule__Where__Group__0__Impl rule__Where__Group__1 ;
     public final void rule__Where__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2264:1: ( rule__Where__Group__0__Impl rule__Where__Group__1 )
-            // InternalCsvMan.g:2265:2: rule__Where__Group__0__Impl rule__Where__Group__1
+            // InternalCsvMan.g:2511:1: ( rule__Where__Group__0__Impl rule__Where__Group__1 )
+            // InternalCsvMan.g:2512:2: rule__Where__Group__0__Impl rule__Where__Group__1
             {
             pushFollow(FOLLOW_24);
             rule__Where__Group__0__Impl();
@@ -6818,21 +7545,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__0__Impl"
-    // InternalCsvMan.g:2272:1: rule__Where__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:2519:1: rule__Where__Group__0__Impl : ( () ) ;
     public final void rule__Where__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2276:1: ( ( () ) )
-            // InternalCsvMan.g:2277:1: ( () )
+            // InternalCsvMan.g:2523:1: ( ( () ) )
+            // InternalCsvMan.g:2524:1: ( () )
             {
-            // InternalCsvMan.g:2277:1: ( () )
-            // InternalCsvMan.g:2278:2: ()
+            // InternalCsvMan.g:2524:1: ( () )
+            // InternalCsvMan.g:2525:2: ()
             {
              before(grammarAccess.getWhereAccess().getWhereAction_0()); 
-            // InternalCsvMan.g:2279:2: ()
-            // InternalCsvMan.g:2279:3: 
+            // InternalCsvMan.g:2526:2: ()
+            // InternalCsvMan.g:2526:3: 
             {
             }
 
@@ -6855,16 +7582,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__1"
-    // InternalCsvMan.g:2287:1: rule__Where__Group__1 : rule__Where__Group__1__Impl rule__Where__Group__2 ;
+    // InternalCsvMan.g:2534:1: rule__Where__Group__1 : rule__Where__Group__1__Impl rule__Where__Group__2 ;
     public final void rule__Where__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2291:1: ( rule__Where__Group__1__Impl rule__Where__Group__2 )
-            // InternalCsvMan.g:2292:2: rule__Where__Group__1__Impl rule__Where__Group__2
+            // InternalCsvMan.g:2538:1: ( rule__Where__Group__1__Impl rule__Where__Group__2 )
+            // InternalCsvMan.g:2539:2: rule__Where__Group__1__Impl rule__Where__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Where__Group__1__Impl();
 
             state._fsp--;
@@ -6893,20 +7620,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__1__Impl"
-    // InternalCsvMan.g:2299:1: rule__Where__Group__1__Impl : ( 'where' ) ;
+    // InternalCsvMan.g:2546:1: rule__Where__Group__1__Impl : ( 'where' ) ;
     public final void rule__Where__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2303:1: ( ( 'where' ) )
-            // InternalCsvMan.g:2304:1: ( 'where' )
+            // InternalCsvMan.g:2550:1: ( ( 'where' ) )
+            // InternalCsvMan.g:2551:1: ( 'where' )
             {
-            // InternalCsvMan.g:2304:1: ( 'where' )
-            // InternalCsvMan.g:2305:2: 'where'
+            // InternalCsvMan.g:2551:1: ( 'where' )
+            // InternalCsvMan.g:2552:2: 'where'
             {
              before(grammarAccess.getWhereAccess().getWhereKeyword_1()); 
-            match(input,28,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getWhereAccess().getWhereKeyword_1()); 
 
             }
@@ -6930,14 +7657,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__2"
-    // InternalCsvMan.g:2314:1: rule__Where__Group__2 : rule__Where__Group__2__Impl rule__Where__Group__3 ;
+    // InternalCsvMan.g:2561:1: rule__Where__Group__2 : rule__Where__Group__2__Impl rule__Where__Group__3 ;
     public final void rule__Where__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2318:1: ( rule__Where__Group__2__Impl rule__Where__Group__3 )
-            // InternalCsvMan.g:2319:2: rule__Where__Group__2__Impl rule__Where__Group__3
+            // InternalCsvMan.g:2565:1: ( rule__Where__Group__2__Impl rule__Where__Group__3 )
+            // InternalCsvMan.g:2566:2: rule__Where__Group__2__Impl rule__Where__Group__3
             {
             pushFollow(FOLLOW_25);
             rule__Where__Group__2__Impl();
@@ -6968,21 +7695,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__2__Impl"
-    // InternalCsvMan.g:2326:1: rule__Where__Group__2__Impl : ( ( rule__Where__ConditionAssignment_2 ) ) ;
+    // InternalCsvMan.g:2573:1: rule__Where__Group__2__Impl : ( ( rule__Where__ConditionAssignment_2 ) ) ;
     public final void rule__Where__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2330:1: ( ( ( rule__Where__ConditionAssignment_2 ) ) )
-            // InternalCsvMan.g:2331:1: ( ( rule__Where__ConditionAssignment_2 ) )
+            // InternalCsvMan.g:2577:1: ( ( ( rule__Where__ConditionAssignment_2 ) ) )
+            // InternalCsvMan.g:2578:1: ( ( rule__Where__ConditionAssignment_2 ) )
             {
-            // InternalCsvMan.g:2331:1: ( ( rule__Where__ConditionAssignment_2 ) )
-            // InternalCsvMan.g:2332:2: ( rule__Where__ConditionAssignment_2 )
+            // InternalCsvMan.g:2578:1: ( ( rule__Where__ConditionAssignment_2 ) )
+            // InternalCsvMan.g:2579:2: ( rule__Where__ConditionAssignment_2 )
             {
              before(grammarAccess.getWhereAccess().getConditionAssignment_2()); 
-            // InternalCsvMan.g:2333:2: ( rule__Where__ConditionAssignment_2 )
-            // InternalCsvMan.g:2333:3: rule__Where__ConditionAssignment_2
+            // InternalCsvMan.g:2580:2: ( rule__Where__ConditionAssignment_2 )
+            // InternalCsvMan.g:2580:3: rule__Where__ConditionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Where__ConditionAssignment_2();
@@ -7015,14 +7742,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__3"
-    // InternalCsvMan.g:2341:1: rule__Where__Group__3 : rule__Where__Group__3__Impl ;
+    // InternalCsvMan.g:2588:1: rule__Where__Group__3 : rule__Where__Group__3__Impl ;
     public final void rule__Where__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2345:1: ( rule__Where__Group__3__Impl )
-            // InternalCsvMan.g:2346:2: rule__Where__Group__3__Impl
+            // InternalCsvMan.g:2592:1: ( rule__Where__Group__3__Impl )
+            // InternalCsvMan.g:2593:2: rule__Where__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Where__Group__3__Impl();
@@ -7048,35 +7775,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group__3__Impl"
-    // InternalCsvMan.g:2352:1: rule__Where__Group__3__Impl : ( ( rule__Where__Group_3__0 )* ) ;
+    // InternalCsvMan.g:2599:1: rule__Where__Group__3__Impl : ( ( rule__Where__Group_3__0 )* ) ;
     public final void rule__Where__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2356:1: ( ( ( rule__Where__Group_3__0 )* ) )
-            // InternalCsvMan.g:2357:1: ( ( rule__Where__Group_3__0 )* )
+            // InternalCsvMan.g:2603:1: ( ( ( rule__Where__Group_3__0 )* ) )
+            // InternalCsvMan.g:2604:1: ( ( rule__Where__Group_3__0 )* )
             {
-            // InternalCsvMan.g:2357:1: ( ( rule__Where__Group_3__0 )* )
-            // InternalCsvMan.g:2358:2: ( rule__Where__Group_3__0 )*
+            // InternalCsvMan.g:2604:1: ( ( rule__Where__Group_3__0 )* )
+            // InternalCsvMan.g:2605:2: ( rule__Where__Group_3__0 )*
             {
              before(grammarAccess.getWhereAccess().getGroup_3()); 
-            // InternalCsvMan.g:2359:2: ( rule__Where__Group_3__0 )*
+            // InternalCsvMan.g:2606:2: ( rule__Where__Group_3__0 )*
             loop14:
             do {
                 int alt14=2;
                 int LA14_0 = input.LA(1);
 
-                if ( (LA14_0==17) ) {
+                if ( (LA14_0==19) ) {
                     alt14=1;
                 }
 
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalCsvMan.g:2359:3: rule__Where__Group_3__0
+            	    // InternalCsvMan.g:2606:3: rule__Where__Group_3__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_11);
             	    rule__Where__Group_3__0();
 
             	    state._fsp--;
@@ -7113,16 +7840,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group_3__0"
-    // InternalCsvMan.g:2368:1: rule__Where__Group_3__0 : rule__Where__Group_3__0__Impl rule__Where__Group_3__1 ;
+    // InternalCsvMan.g:2615:1: rule__Where__Group_3__0 : rule__Where__Group_3__0__Impl rule__Where__Group_3__1 ;
     public final void rule__Where__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2372:1: ( rule__Where__Group_3__0__Impl rule__Where__Group_3__1 )
-            // InternalCsvMan.g:2373:2: rule__Where__Group_3__0__Impl rule__Where__Group_3__1
+            // InternalCsvMan.g:2619:1: ( rule__Where__Group_3__0__Impl rule__Where__Group_3__1 )
+            // InternalCsvMan.g:2620:2: rule__Where__Group_3__0__Impl rule__Where__Group_3__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Where__Group_3__0__Impl();
 
             state._fsp--;
@@ -7151,20 +7878,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group_3__0__Impl"
-    // InternalCsvMan.g:2380:1: rule__Where__Group_3__0__Impl : ( ',' ) ;
+    // InternalCsvMan.g:2627:1: rule__Where__Group_3__0__Impl : ( ',' ) ;
     public final void rule__Where__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2384:1: ( ( ',' ) )
-            // InternalCsvMan.g:2385:1: ( ',' )
+            // InternalCsvMan.g:2631:1: ( ( ',' ) )
+            // InternalCsvMan.g:2632:1: ( ',' )
             {
-            // InternalCsvMan.g:2385:1: ( ',' )
-            // InternalCsvMan.g:2386:2: ','
+            // InternalCsvMan.g:2632:1: ( ',' )
+            // InternalCsvMan.g:2633:2: ','
             {
              before(grammarAccess.getWhereAccess().getCommaKeyword_3_0()); 
-            match(input,17,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getWhereAccess().getCommaKeyword_3_0()); 
 
             }
@@ -7188,14 +7915,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group_3__1"
-    // InternalCsvMan.g:2395:1: rule__Where__Group_3__1 : rule__Where__Group_3__1__Impl ;
+    // InternalCsvMan.g:2642:1: rule__Where__Group_3__1 : rule__Where__Group_3__1__Impl ;
     public final void rule__Where__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2399:1: ( rule__Where__Group_3__1__Impl )
-            // InternalCsvMan.g:2400:2: rule__Where__Group_3__1__Impl
+            // InternalCsvMan.g:2646:1: ( rule__Where__Group_3__1__Impl )
+            // InternalCsvMan.g:2647:2: rule__Where__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Where__Group_3__1__Impl();
@@ -7221,21 +7948,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__Group_3__1__Impl"
-    // InternalCsvMan.g:2406:1: rule__Where__Group_3__1__Impl : ( ( rule__Where__ConditionAssignment_3_1 ) ) ;
+    // InternalCsvMan.g:2653:1: rule__Where__Group_3__1__Impl : ( ( rule__Where__ConditionAssignment_3_1 ) ) ;
     public final void rule__Where__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2410:1: ( ( ( rule__Where__ConditionAssignment_3_1 ) ) )
-            // InternalCsvMan.g:2411:1: ( ( rule__Where__ConditionAssignment_3_1 ) )
+            // InternalCsvMan.g:2657:1: ( ( ( rule__Where__ConditionAssignment_3_1 ) ) )
+            // InternalCsvMan.g:2658:1: ( ( rule__Where__ConditionAssignment_3_1 ) )
             {
-            // InternalCsvMan.g:2411:1: ( ( rule__Where__ConditionAssignment_3_1 ) )
-            // InternalCsvMan.g:2412:2: ( rule__Where__ConditionAssignment_3_1 )
+            // InternalCsvMan.g:2658:1: ( ( rule__Where__ConditionAssignment_3_1 ) )
+            // InternalCsvMan.g:2659:2: ( rule__Where__ConditionAssignment_3_1 )
             {
              before(grammarAccess.getWhereAccess().getConditionAssignment_3_1()); 
-            // InternalCsvMan.g:2413:2: ( rule__Where__ConditionAssignment_3_1 )
-            // InternalCsvMan.g:2413:3: rule__Where__ConditionAssignment_3_1
+            // InternalCsvMan.g:2660:2: ( rule__Where__ConditionAssignment_3_1 )
+            // InternalCsvMan.g:2660:3: rule__Where__ConditionAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Where__ConditionAssignment_3_1();
@@ -7268,16 +7995,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__0"
-    // InternalCsvMan.g:2422:1: rule__Condition__Group__0 : rule__Condition__Group__0__Impl rule__Condition__Group__1 ;
+    // InternalCsvMan.g:2669:1: rule__Condition__Group__0 : rule__Condition__Group__0__Impl rule__Condition__Group__1 ;
     public final void rule__Condition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2426:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
-            // InternalCsvMan.g:2427:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
+            // InternalCsvMan.g:2673:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
+            // InternalCsvMan.g:2674:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Condition__Group__0__Impl();
 
             state._fsp--;
@@ -7306,21 +8033,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__0__Impl"
-    // InternalCsvMan.g:2434:1: rule__Condition__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:2681:1: rule__Condition__Group__0__Impl : ( () ) ;
     public final void rule__Condition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2438:1: ( ( () ) )
-            // InternalCsvMan.g:2439:1: ( () )
+            // InternalCsvMan.g:2685:1: ( ( () ) )
+            // InternalCsvMan.g:2686:1: ( () )
             {
-            // InternalCsvMan.g:2439:1: ( () )
-            // InternalCsvMan.g:2440:2: ()
+            // InternalCsvMan.g:2686:1: ( () )
+            // InternalCsvMan.g:2687:2: ()
             {
              before(grammarAccess.getConditionAccess().getConditionAction_0()); 
-            // InternalCsvMan.g:2441:2: ()
-            // InternalCsvMan.g:2441:3: 
+            // InternalCsvMan.g:2688:2: ()
+            // InternalCsvMan.g:2688:3: 
             {
             }
 
@@ -7343,14 +8070,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__1"
-    // InternalCsvMan.g:2449:1: rule__Condition__Group__1 : rule__Condition__Group__1__Impl rule__Condition__Group__2 ;
+    // InternalCsvMan.g:2696:1: rule__Condition__Group__1 : rule__Condition__Group__1__Impl rule__Condition__Group__2 ;
     public final void rule__Condition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2453:1: ( rule__Condition__Group__1__Impl rule__Condition__Group__2 )
-            // InternalCsvMan.g:2454:2: rule__Condition__Group__1__Impl rule__Condition__Group__2
+            // InternalCsvMan.g:2700:1: ( rule__Condition__Group__1__Impl rule__Condition__Group__2 )
+            // InternalCsvMan.g:2701:2: rule__Condition__Group__1__Impl rule__Condition__Group__2
             {
             pushFollow(FOLLOW_26);
             rule__Condition__Group__1__Impl();
@@ -7381,21 +8108,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__1__Impl"
-    // InternalCsvMan.g:2461:1: rule__Condition__Group__1__Impl : ( ( rule__Condition__AtributAssignment_1 ) ) ;
+    // InternalCsvMan.g:2708:1: rule__Condition__Group__1__Impl : ( ( rule__Condition__AtributAssignment_1 ) ) ;
     public final void rule__Condition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2465:1: ( ( ( rule__Condition__AtributAssignment_1 ) ) )
-            // InternalCsvMan.g:2466:1: ( ( rule__Condition__AtributAssignment_1 ) )
+            // InternalCsvMan.g:2712:1: ( ( ( rule__Condition__AtributAssignment_1 ) ) )
+            // InternalCsvMan.g:2713:1: ( ( rule__Condition__AtributAssignment_1 ) )
             {
-            // InternalCsvMan.g:2466:1: ( ( rule__Condition__AtributAssignment_1 ) )
-            // InternalCsvMan.g:2467:2: ( rule__Condition__AtributAssignment_1 )
+            // InternalCsvMan.g:2713:1: ( ( rule__Condition__AtributAssignment_1 ) )
+            // InternalCsvMan.g:2714:2: ( rule__Condition__AtributAssignment_1 )
             {
              before(grammarAccess.getConditionAccess().getAtributAssignment_1()); 
-            // InternalCsvMan.g:2468:2: ( rule__Condition__AtributAssignment_1 )
-            // InternalCsvMan.g:2468:3: rule__Condition__AtributAssignment_1
+            // InternalCsvMan.g:2715:2: ( rule__Condition__AtributAssignment_1 )
+            // InternalCsvMan.g:2715:3: rule__Condition__AtributAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Condition__AtributAssignment_1();
@@ -7428,16 +8155,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__2"
-    // InternalCsvMan.g:2476:1: rule__Condition__Group__2 : rule__Condition__Group__2__Impl rule__Condition__Group__3 ;
+    // InternalCsvMan.g:2723:1: rule__Condition__Group__2 : rule__Condition__Group__2__Impl rule__Condition__Group__3 ;
     public final void rule__Condition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2480:1: ( rule__Condition__Group__2__Impl rule__Condition__Group__3 )
-            // InternalCsvMan.g:2481:2: rule__Condition__Group__2__Impl rule__Condition__Group__3
+            // InternalCsvMan.g:2727:1: ( rule__Condition__Group__2__Impl rule__Condition__Group__3 )
+            // InternalCsvMan.g:2728:2: rule__Condition__Group__2__Impl rule__Condition__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Condition__Group__2__Impl();
 
             state._fsp--;
@@ -7466,21 +8193,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__2__Impl"
-    // InternalCsvMan.g:2488:1: rule__Condition__Group__2__Impl : ( ( rule__Condition__Alternatives_2 ) ) ;
+    // InternalCsvMan.g:2735:1: rule__Condition__Group__2__Impl : ( ( rule__Condition__Alternatives_2 ) ) ;
     public final void rule__Condition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2492:1: ( ( ( rule__Condition__Alternatives_2 ) ) )
-            // InternalCsvMan.g:2493:1: ( ( rule__Condition__Alternatives_2 ) )
+            // InternalCsvMan.g:2739:1: ( ( ( rule__Condition__Alternatives_2 ) ) )
+            // InternalCsvMan.g:2740:1: ( ( rule__Condition__Alternatives_2 ) )
             {
-            // InternalCsvMan.g:2493:1: ( ( rule__Condition__Alternatives_2 ) )
-            // InternalCsvMan.g:2494:2: ( rule__Condition__Alternatives_2 )
+            // InternalCsvMan.g:2740:1: ( ( rule__Condition__Alternatives_2 ) )
+            // InternalCsvMan.g:2741:2: ( rule__Condition__Alternatives_2 )
             {
              before(grammarAccess.getConditionAccess().getAlternatives_2()); 
-            // InternalCsvMan.g:2495:2: ( rule__Condition__Alternatives_2 )
-            // InternalCsvMan.g:2495:3: rule__Condition__Alternatives_2
+            // InternalCsvMan.g:2742:2: ( rule__Condition__Alternatives_2 )
+            // InternalCsvMan.g:2742:3: rule__Condition__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__Condition__Alternatives_2();
@@ -7513,14 +8240,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__3"
-    // InternalCsvMan.g:2503:1: rule__Condition__Group__3 : rule__Condition__Group__3__Impl ;
+    // InternalCsvMan.g:2750:1: rule__Condition__Group__3 : rule__Condition__Group__3__Impl ;
     public final void rule__Condition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2507:1: ( rule__Condition__Group__3__Impl )
-            // InternalCsvMan.g:2508:2: rule__Condition__Group__3__Impl
+            // InternalCsvMan.g:2754:1: ( rule__Condition__Group__3__Impl )
+            // InternalCsvMan.g:2755:2: rule__Condition__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Condition__Group__3__Impl();
@@ -7546,21 +8273,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__Group__3__Impl"
-    // InternalCsvMan.g:2514:1: rule__Condition__Group__3__Impl : ( ( rule__Condition__ValeurAssignment_3 ) ) ;
+    // InternalCsvMan.g:2761:1: rule__Condition__Group__3__Impl : ( ( rule__Condition__ValeurAssignment_3 ) ) ;
     public final void rule__Condition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2518:1: ( ( ( rule__Condition__ValeurAssignment_3 ) ) )
-            // InternalCsvMan.g:2519:1: ( ( rule__Condition__ValeurAssignment_3 ) )
+            // InternalCsvMan.g:2765:1: ( ( ( rule__Condition__ValeurAssignment_3 ) ) )
+            // InternalCsvMan.g:2766:1: ( ( rule__Condition__ValeurAssignment_3 ) )
             {
-            // InternalCsvMan.g:2519:1: ( ( rule__Condition__ValeurAssignment_3 ) )
-            // InternalCsvMan.g:2520:2: ( rule__Condition__ValeurAssignment_3 )
+            // InternalCsvMan.g:2766:1: ( ( rule__Condition__ValeurAssignment_3 ) )
+            // InternalCsvMan.g:2767:2: ( rule__Condition__ValeurAssignment_3 )
             {
              before(grammarAccess.getConditionAccess().getValeurAssignment_3()); 
-            // InternalCsvMan.g:2521:2: ( rule__Condition__ValeurAssignment_3 )
-            // InternalCsvMan.g:2521:3: rule__Condition__ValeurAssignment_3
+            // InternalCsvMan.g:2768:2: ( rule__Condition__ValeurAssignment_3 )
+            // InternalCsvMan.g:2768:3: rule__Condition__ValeurAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Condition__ValeurAssignment_3();
@@ -7593,16 +8320,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__0"
-    // InternalCsvMan.g:2530:1: rule__Parameter__Group__0 : rule__Parameter__Group__0__Impl rule__Parameter__Group__1 ;
+    // InternalCsvMan.g:2777:1: rule__Parameter__Group__0 : rule__Parameter__Group__0__Impl rule__Parameter__Group__1 ;
     public final void rule__Parameter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2534:1: ( rule__Parameter__Group__0__Impl rule__Parameter__Group__1 )
-            // InternalCsvMan.g:2535:2: rule__Parameter__Group__0__Impl rule__Parameter__Group__1
+            // InternalCsvMan.g:2781:1: ( rule__Parameter__Group__0__Impl rule__Parameter__Group__1 )
+            // InternalCsvMan.g:2782:2: rule__Parameter__Group__0__Impl rule__Parameter__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Parameter__Group__0__Impl();
 
             state._fsp--;
@@ -7631,21 +8358,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__0__Impl"
-    // InternalCsvMan.g:2542:1: rule__Parameter__Group__0__Impl : ( () ) ;
+    // InternalCsvMan.g:2789:1: rule__Parameter__Group__0__Impl : ( () ) ;
     public final void rule__Parameter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2546:1: ( ( () ) )
-            // InternalCsvMan.g:2547:1: ( () )
+            // InternalCsvMan.g:2793:1: ( ( () ) )
+            // InternalCsvMan.g:2794:1: ( () )
             {
-            // InternalCsvMan.g:2547:1: ( () )
-            // InternalCsvMan.g:2548:2: ()
+            // InternalCsvMan.g:2794:1: ( () )
+            // InternalCsvMan.g:2795:2: ()
             {
              before(grammarAccess.getParameterAccess().getParameterAction_0()); 
-            // InternalCsvMan.g:2549:2: ()
-            // InternalCsvMan.g:2549:3: 
+            // InternalCsvMan.g:2796:2: ()
+            // InternalCsvMan.g:2796:3: 
             {
             }
 
@@ -7668,14 +8395,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__1"
-    // InternalCsvMan.g:2557:1: rule__Parameter__Group__1 : rule__Parameter__Group__1__Impl rule__Parameter__Group__2 ;
+    // InternalCsvMan.g:2804:1: rule__Parameter__Group__1 : rule__Parameter__Group__1__Impl rule__Parameter__Group__2 ;
     public final void rule__Parameter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2561:1: ( rule__Parameter__Group__1__Impl rule__Parameter__Group__2 )
-            // InternalCsvMan.g:2562:2: rule__Parameter__Group__1__Impl rule__Parameter__Group__2
+            // InternalCsvMan.g:2808:1: ( rule__Parameter__Group__1__Impl rule__Parameter__Group__2 )
+            // InternalCsvMan.g:2809:2: rule__Parameter__Group__1__Impl rule__Parameter__Group__2
             {
             pushFollow(FOLLOW_27);
             rule__Parameter__Group__1__Impl();
@@ -7706,21 +8433,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__1__Impl"
-    // InternalCsvMan.g:2569:1: rule__Parameter__Group__1__Impl : ( ( rule__Parameter__ColonneAssignment_1 ) ) ;
+    // InternalCsvMan.g:2816:1: rule__Parameter__Group__1__Impl : ( ( rule__Parameter__ColonneAssignment_1 ) ) ;
     public final void rule__Parameter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2573:1: ( ( ( rule__Parameter__ColonneAssignment_1 ) ) )
-            // InternalCsvMan.g:2574:1: ( ( rule__Parameter__ColonneAssignment_1 ) )
+            // InternalCsvMan.g:2820:1: ( ( ( rule__Parameter__ColonneAssignment_1 ) ) )
+            // InternalCsvMan.g:2821:1: ( ( rule__Parameter__ColonneAssignment_1 ) )
             {
-            // InternalCsvMan.g:2574:1: ( ( rule__Parameter__ColonneAssignment_1 ) )
-            // InternalCsvMan.g:2575:2: ( rule__Parameter__ColonneAssignment_1 )
+            // InternalCsvMan.g:2821:1: ( ( rule__Parameter__ColonneAssignment_1 ) )
+            // InternalCsvMan.g:2822:2: ( rule__Parameter__ColonneAssignment_1 )
             {
              before(grammarAccess.getParameterAccess().getColonneAssignment_1()); 
-            // InternalCsvMan.g:2576:2: ( rule__Parameter__ColonneAssignment_1 )
-            // InternalCsvMan.g:2576:3: rule__Parameter__ColonneAssignment_1
+            // InternalCsvMan.g:2823:2: ( rule__Parameter__ColonneAssignment_1 )
+            // InternalCsvMan.g:2823:3: rule__Parameter__ColonneAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__ColonneAssignment_1();
@@ -7753,16 +8480,16 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__2"
-    // InternalCsvMan.g:2584:1: rule__Parameter__Group__2 : rule__Parameter__Group__2__Impl rule__Parameter__Group__3 ;
+    // InternalCsvMan.g:2831:1: rule__Parameter__Group__2 : rule__Parameter__Group__2__Impl rule__Parameter__Group__3 ;
     public final void rule__Parameter__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2588:1: ( rule__Parameter__Group__2__Impl rule__Parameter__Group__3 )
-            // InternalCsvMan.g:2589:2: rule__Parameter__Group__2__Impl rule__Parameter__Group__3
+            // InternalCsvMan.g:2835:1: ( rule__Parameter__Group__2__Impl rule__Parameter__Group__3 )
+            // InternalCsvMan.g:2836:2: rule__Parameter__Group__2__Impl rule__Parameter__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             rule__Parameter__Group__2__Impl();
 
             state._fsp--;
@@ -7791,17 +8518,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__2__Impl"
-    // InternalCsvMan.g:2596:1: rule__Parameter__Group__2__Impl : ( '=' ) ;
+    // InternalCsvMan.g:2843:1: rule__Parameter__Group__2__Impl : ( '=' ) ;
     public final void rule__Parameter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2600:1: ( ( '=' ) )
-            // InternalCsvMan.g:2601:1: ( '=' )
+            // InternalCsvMan.g:2847:1: ( ( '=' ) )
+            // InternalCsvMan.g:2848:1: ( '=' )
             {
-            // InternalCsvMan.g:2601:1: ( '=' )
-            // InternalCsvMan.g:2602:2: '='
+            // InternalCsvMan.g:2848:1: ( '=' )
+            // InternalCsvMan.g:2849:2: '='
             {
              before(grammarAccess.getParameterAccess().getEqualsSignKeyword_2()); 
             match(input,13,FOLLOW_2); 
@@ -7828,14 +8555,14 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__3"
-    // InternalCsvMan.g:2611:1: rule__Parameter__Group__3 : rule__Parameter__Group__3__Impl ;
+    // InternalCsvMan.g:2858:1: rule__Parameter__Group__3 : rule__Parameter__Group__3__Impl ;
     public final void rule__Parameter__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2615:1: ( rule__Parameter__Group__3__Impl )
-            // InternalCsvMan.g:2616:2: rule__Parameter__Group__3__Impl
+            // InternalCsvMan.g:2862:1: ( rule__Parameter__Group__3__Impl )
+            // InternalCsvMan.g:2863:2: rule__Parameter__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__Group__3__Impl();
@@ -7861,21 +8588,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__3__Impl"
-    // InternalCsvMan.g:2622:1: rule__Parameter__Group__3__Impl : ( ( rule__Parameter__ValueAssignment_3 ) ) ;
+    // InternalCsvMan.g:2869:1: rule__Parameter__Group__3__Impl : ( ( rule__Parameter__ValueAssignment_3 ) ) ;
     public final void rule__Parameter__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2626:1: ( ( ( rule__Parameter__ValueAssignment_3 ) ) )
-            // InternalCsvMan.g:2627:1: ( ( rule__Parameter__ValueAssignment_3 ) )
+            // InternalCsvMan.g:2873:1: ( ( ( rule__Parameter__ValueAssignment_3 ) ) )
+            // InternalCsvMan.g:2874:1: ( ( rule__Parameter__ValueAssignment_3 ) )
             {
-            // InternalCsvMan.g:2627:1: ( ( rule__Parameter__ValueAssignment_3 ) )
-            // InternalCsvMan.g:2628:2: ( rule__Parameter__ValueAssignment_3 )
+            // InternalCsvMan.g:2874:1: ( ( rule__Parameter__ValueAssignment_3 ) )
+            // InternalCsvMan.g:2875:2: ( rule__Parameter__ValueAssignment_3 )
             {
              before(grammarAccess.getParameterAccess().getValueAssignment_3()); 
-            // InternalCsvMan.g:2629:2: ( rule__Parameter__ValueAssignment_3 )
-            // InternalCsvMan.g:2629:3: rule__Parameter__ValueAssignment_3
+            // InternalCsvMan.g:2876:2: ( rule__Parameter__ValueAssignment_3 )
+            // InternalCsvMan.g:2876:3: rule__Parameter__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__ValueAssignment_3();
@@ -7908,17 +8635,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Program__InstructionAssignment_1"
-    // InternalCsvMan.g:2638:1: rule__Program__InstructionAssignment_1 : ( ruleInstruction ) ;
+    // InternalCsvMan.g:2885:1: rule__Program__InstructionAssignment_1 : ( ruleInstruction ) ;
     public final void rule__Program__InstructionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2642:1: ( ( ruleInstruction ) )
-            // InternalCsvMan.g:2643:2: ( ruleInstruction )
+            // InternalCsvMan.g:2889:1: ( ( ruleInstruction ) )
+            // InternalCsvMan.g:2890:2: ( ruleInstruction )
             {
-            // InternalCsvMan.g:2643:2: ( ruleInstruction )
-            // InternalCsvMan.g:2644:3: ruleInstruction
+            // InternalCsvMan.g:2890:2: ( ruleInstruction )
+            // InternalCsvMan.g:2891:3: ruleInstruction
             {
              before(grammarAccess.getProgramAccess().getInstructionInstructionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7948,18 +8675,100 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Program__InstructionAssignment_1"
 
 
+    // $ANTLR start "rule__Copy__AliasAssignment_2"
+    // InternalCsvMan.g:2900:1: rule__Copy__AliasAssignment_2 : ( ruleEString ) ;
+    public final void rule__Copy__AliasAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:2904:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2905:2: ( ruleEString )
+            {
+            // InternalCsvMan.g:2905:2: ( ruleEString )
+            // InternalCsvMan.g:2906:3: ruleEString
+            {
+             before(grammarAccess.getCopyAccess().getAliasEStringParserRuleCall_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getCopyAccess().getAliasEStringParserRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__AliasAssignment_2"
+
+
+    // $ANTLR start "rule__Copy__TableAssignment_4"
+    // InternalCsvMan.g:2915:1: rule__Copy__TableAssignment_4 : ( ruleEString ) ;
+    public final void rule__Copy__TableAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:2919:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2920:2: ( ruleEString )
+            {
+            // InternalCsvMan.g:2920:2: ( ruleEString )
+            // InternalCsvMan.g:2921:3: ruleEString
+            {
+             before(grammarAccess.getCopyAccess().getTableEStringParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getCopyAccess().getTableEStringParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Copy__TableAssignment_4"
+
+
     // $ANTLR start "rule__Create__TableAssignment_2"
-    // InternalCsvMan.g:2653:1: rule__Create__TableAssignment_2 : ( ruleEString ) ;
+    // InternalCsvMan.g:2930:1: rule__Create__TableAssignment_2 : ( ruleEString ) ;
     public final void rule__Create__TableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2657:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2658:2: ( ruleEString )
+            // InternalCsvMan.g:2934:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2935:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2658:2: ( ruleEString )
-            // InternalCsvMan.g:2659:3: ruleEString
+            // InternalCsvMan.g:2935:2: ( ruleEString )
+            // InternalCsvMan.g:2936:3: ruleEString
             {
              before(grammarAccess.getCreateAccess().getTableEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7990,17 +8799,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__ColonneAssignment_4"
-    // InternalCsvMan.g:2668:1: rule__Create__ColonneAssignment_4 : ( ruleEString ) ;
+    // InternalCsvMan.g:2945:1: rule__Create__ColonneAssignment_4 : ( ruleEString ) ;
     public final void rule__Create__ColonneAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2672:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2673:2: ( ruleEString )
+            // InternalCsvMan.g:2949:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2950:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2673:2: ( ruleEString )
-            // InternalCsvMan.g:2674:3: ruleEString
+            // InternalCsvMan.g:2950:2: ( ruleEString )
+            // InternalCsvMan.g:2951:3: ruleEString
             {
              before(grammarAccess.getCreateAccess().getColonneEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -8031,17 +8840,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Create__ColonneAssignment_5_1"
-    // InternalCsvMan.g:2683:1: rule__Create__ColonneAssignment_5_1 : ( ruleEString ) ;
+    // InternalCsvMan.g:2960:1: rule__Create__ColonneAssignment_5_1 : ( ruleEString ) ;
     public final void rule__Create__ColonneAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2687:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2688:2: ( ruleEString )
+            // InternalCsvMan.g:2964:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2965:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2688:2: ( ruleEString )
-            // InternalCsvMan.g:2689:3: ruleEString
+            // InternalCsvMan.g:2965:2: ( ruleEString )
+            // InternalCsvMan.g:2966:3: ruleEString
             {
              before(grammarAccess.getCreateAccess().getColonneEStringParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8072,17 +8881,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__TableAssignment_2"
-    // InternalCsvMan.g:2698:1: rule__Load__TableAssignment_2 : ( ruleEString ) ;
+    // InternalCsvMan.g:2975:1: rule__Load__TableAssignment_2 : ( ruleEString ) ;
     public final void rule__Load__TableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2702:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2703:2: ( ruleEString )
+            // InternalCsvMan.g:2979:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2980:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2703:2: ( ruleEString )
-            // InternalCsvMan.g:2704:3: ruleEString
+            // InternalCsvMan.g:2980:2: ( ruleEString )
+            // InternalCsvMan.g:2981:3: ruleEString
             {
              before(grammarAccess.getLoadAccess().getTableEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8113,17 +8922,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Load__AliasAssignment_4"
-    // InternalCsvMan.g:2713:1: rule__Load__AliasAssignment_4 : ( ruleEString ) ;
+    // InternalCsvMan.g:2990:1: rule__Load__AliasAssignment_4 : ( ruleEString ) ;
     public final void rule__Load__AliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2717:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2718:2: ( ruleEString )
+            // InternalCsvMan.g:2994:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:2995:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2718:2: ( ruleEString )
-            // InternalCsvMan.g:2719:3: ruleEString
+            // InternalCsvMan.g:2995:2: ( ruleEString )
+            // InternalCsvMan.g:2996:3: ruleEString
             {
              before(grammarAccess.getLoadAccess().getAliasEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -8154,17 +8963,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__TableAssignment_2"
-    // InternalCsvMan.g:2728:1: rule__Show__TableAssignment_2 : ( ruleEString ) ;
+    // InternalCsvMan.g:3005:1: rule__Show__TableAssignment_2 : ( ruleEString ) ;
     public final void rule__Show__TableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2732:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2733:2: ( ruleEString )
+            // InternalCsvMan.g:3009:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3010:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2733:2: ( ruleEString )
-            // InternalCsvMan.g:2734:3: ruleEString
+            // InternalCsvMan.g:3010:2: ( ruleEString )
+            // InternalCsvMan.g:3011:3: ruleEString
             {
              before(grammarAccess.getShowAccess().getTableEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8195,17 +9004,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__ColonneAssignment_3_1"
-    // InternalCsvMan.g:2743:1: rule__Show__ColonneAssignment_3_1 : ( ruleEString ) ;
+    // InternalCsvMan.g:3020:1: rule__Show__ColonneAssignment_3_1 : ( ruleEString ) ;
     public final void rule__Show__ColonneAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2747:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2748:2: ( ruleEString )
+            // InternalCsvMan.g:3024:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3025:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2748:2: ( ruleEString )
-            // InternalCsvMan.g:2749:3: ruleEString
+            // InternalCsvMan.g:3025:2: ( ruleEString )
+            // InternalCsvMan.g:3026:3: ruleEString
             {
              before(grammarAccess.getShowAccess().getColonneEStringParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8236,17 +9045,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__ColonneAssignment_3_2_1"
-    // InternalCsvMan.g:2758:1: rule__Show__ColonneAssignment_3_2_1 : ( ruleEString ) ;
+    // InternalCsvMan.g:3035:1: rule__Show__ColonneAssignment_3_2_1 : ( ruleEString ) ;
     public final void rule__Show__ColonneAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2762:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2763:2: ( ruleEString )
+            // InternalCsvMan.g:3039:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3040:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2763:2: ( ruleEString )
-            // InternalCsvMan.g:2764:3: ruleEString
+            // InternalCsvMan.g:3040:2: ( ruleEString )
+            // InternalCsvMan.g:3041:3: ruleEString
             {
              before(grammarAccess.getShowAccess().getColonneEStringParserRuleCall_3_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8277,17 +9086,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Show__WhereAssignment_4"
-    // InternalCsvMan.g:2773:1: rule__Show__WhereAssignment_4 : ( ruleWhere ) ;
+    // InternalCsvMan.g:3050:1: rule__Show__WhereAssignment_4 : ( ruleWhere ) ;
     public final void rule__Show__WhereAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2777:1: ( ( ruleWhere ) )
-            // InternalCsvMan.g:2778:2: ( ruleWhere )
+            // InternalCsvMan.g:3054:1: ( ( ruleWhere ) )
+            // InternalCsvMan.g:3055:2: ( ruleWhere )
             {
-            // InternalCsvMan.g:2778:2: ( ruleWhere )
-            // InternalCsvMan.g:2779:3: ruleWhere
+            // InternalCsvMan.g:3055:2: ( ruleWhere )
+            // InternalCsvMan.g:3056:3: ruleWhere
             {
              before(grammarAccess.getShowAccess().getWhereWhereParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -8318,17 +9127,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__TableAssignment_2"
-    // InternalCsvMan.g:2788:1: rule__Update__TableAssignment_2 : ( ruleEString ) ;
+    // InternalCsvMan.g:3065:1: rule__Update__TableAssignment_2 : ( ruleEString ) ;
     public final void rule__Update__TableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2792:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2793:2: ( ruleEString )
+            // InternalCsvMan.g:3069:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3070:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2793:2: ( ruleEString )
-            // InternalCsvMan.g:2794:3: ruleEString
+            // InternalCsvMan.g:3070:2: ( ruleEString )
+            // InternalCsvMan.g:3071:3: ruleEString
             {
              before(grammarAccess.getUpdateAccess().getTableEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8359,17 +9168,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__ParameterAssignment_4"
-    // InternalCsvMan.g:2803:1: rule__Update__ParameterAssignment_4 : ( ruleParameter ) ;
+    // InternalCsvMan.g:3080:1: rule__Update__ParameterAssignment_4 : ( ruleParameter ) ;
     public final void rule__Update__ParameterAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2807:1: ( ( ruleParameter ) )
-            // InternalCsvMan.g:2808:2: ( ruleParameter )
+            // InternalCsvMan.g:3084:1: ( ( ruleParameter ) )
+            // InternalCsvMan.g:3085:2: ( ruleParameter )
             {
-            // InternalCsvMan.g:2808:2: ( ruleParameter )
-            // InternalCsvMan.g:2809:3: ruleParameter
+            // InternalCsvMan.g:3085:2: ( ruleParameter )
+            // InternalCsvMan.g:3086:3: ruleParameter
             {
              before(grammarAccess.getUpdateAccess().getParameterParameterParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -8400,17 +9209,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__ParameterAssignment_5_1"
-    // InternalCsvMan.g:2818:1: rule__Update__ParameterAssignment_5_1 : ( ruleParameter ) ;
+    // InternalCsvMan.g:3095:1: rule__Update__ParameterAssignment_5_1 : ( ruleParameter ) ;
     public final void rule__Update__ParameterAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2822:1: ( ( ruleParameter ) )
-            // InternalCsvMan.g:2823:2: ( ruleParameter )
+            // InternalCsvMan.g:3099:1: ( ( ruleParameter ) )
+            // InternalCsvMan.g:3100:2: ( ruleParameter )
             {
-            // InternalCsvMan.g:2823:2: ( ruleParameter )
-            // InternalCsvMan.g:2824:3: ruleParameter
+            // InternalCsvMan.g:3100:2: ( ruleParameter )
+            // InternalCsvMan.g:3101:3: ruleParameter
             {
              before(grammarAccess.getUpdateAccess().getParameterParameterParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8441,17 +9250,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Update__WhereAssignment_6"
-    // InternalCsvMan.g:2833:1: rule__Update__WhereAssignment_6 : ( ruleWhere ) ;
+    // InternalCsvMan.g:3110:1: rule__Update__WhereAssignment_6 : ( ruleWhere ) ;
     public final void rule__Update__WhereAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2837:1: ( ( ruleWhere ) )
-            // InternalCsvMan.g:2838:2: ( ruleWhere )
+            // InternalCsvMan.g:3114:1: ( ( ruleWhere ) )
+            // InternalCsvMan.g:3115:2: ( ruleWhere )
             {
-            // InternalCsvMan.g:2838:2: ( ruleWhere )
-            // InternalCsvMan.g:2839:3: ruleWhere
+            // InternalCsvMan.g:3115:2: ( ruleWhere )
+            // InternalCsvMan.g:3116:3: ruleWhere
             {
              before(grammarAccess.getUpdateAccess().getWhereWhereParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -8482,17 +9291,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__ValeurAssignment_3"
-    // InternalCsvMan.g:2848:1: rule__Add__ValeurAssignment_3 : ( ruleEString ) ;
+    // InternalCsvMan.g:3125:1: rule__Add__ValeurAssignment_3 : ( ruleEString ) ;
     public final void rule__Add__ValeurAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2852:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2853:2: ( ruleEString )
+            // InternalCsvMan.g:3129:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3130:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2853:2: ( ruleEString )
-            // InternalCsvMan.g:2854:3: ruleEString
+            // InternalCsvMan.g:3130:2: ( ruleEString )
+            // InternalCsvMan.g:3131:3: ruleEString
             {
              before(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -8523,17 +9332,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__ValeurAssignment_4_1"
-    // InternalCsvMan.g:2863:1: rule__Add__ValeurAssignment_4_1 : ( ruleEString ) ;
+    // InternalCsvMan.g:3140:1: rule__Add__ValeurAssignment_4_1 : ( ruleEString ) ;
     public final void rule__Add__ValeurAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2867:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2868:2: ( ruleEString )
+            // InternalCsvMan.g:3144:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3145:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2868:2: ( ruleEString )
-            // InternalCsvMan.g:2869:3: ruleEString
+            // InternalCsvMan.g:3145:2: ( ruleEString )
+            // InternalCsvMan.g:3146:3: ruleEString
             {
              before(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8564,17 +9373,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__TableAssignment_7"
-    // InternalCsvMan.g:2878:1: rule__Add__TableAssignment_7 : ( ruleEString ) ;
+    // InternalCsvMan.g:3155:1: rule__Add__TableAssignment_7 : ( ruleEString ) ;
     public final void rule__Add__TableAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2882:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2883:2: ( ruleEString )
+            // InternalCsvMan.g:3159:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3160:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2883:2: ( ruleEString )
-            // InternalCsvMan.g:2884:3: ruleEString
+            // InternalCsvMan.g:3160:2: ( ruleEString )
+            // InternalCsvMan.g:3161:3: ruleEString
             {
              before(grammarAccess.getAddAccess().getTableEStringParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -8605,17 +9414,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Table1Assignment_2"
-    // InternalCsvMan.g:2893:1: rule__Join__Table1Assignment_2 : ( ruleEString ) ;
+    // InternalCsvMan.g:3170:1: rule__Join__Table1Assignment_2 : ( ruleEString ) ;
     public final void rule__Join__Table1Assignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2897:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2898:2: ( ruleEString )
+            // InternalCsvMan.g:3174:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3175:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2898:2: ( ruleEString )
-            // InternalCsvMan.g:2899:3: ruleEString
+            // InternalCsvMan.g:3175:2: ( ruleEString )
+            // InternalCsvMan.g:3176:3: ruleEString
             {
              before(grammarAccess.getJoinAccess().getTable1EStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8646,17 +9455,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Join__Table2Assignment_3"
-    // InternalCsvMan.g:2908:1: rule__Join__Table2Assignment_3 : ( ruleEString ) ;
+    // InternalCsvMan.g:3185:1: rule__Join__Table2Assignment_3 : ( ruleEString ) ;
     public final void rule__Join__Table2Assignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2912:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2913:2: ( ruleEString )
+            // InternalCsvMan.g:3189:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3190:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2913:2: ( ruleEString )
-            // InternalCsvMan.g:2914:3: ruleEString
+            // InternalCsvMan.g:3190:2: ( ruleEString )
+            // InternalCsvMan.g:3191:3: ruleEString
             {
              before(grammarAccess.getJoinAccess().getTable2EStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -8686,18 +9495,59 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Join__Table2Assignment_3"
 
 
+    // $ANTLR start "rule__Join__Table3Assignment_5"
+    // InternalCsvMan.g:3200:1: rule__Join__Table3Assignment_5 : ( ruleEString ) ;
+    public final void rule__Join__Table3Assignment_5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCsvMan.g:3204:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3205:2: ( ruleEString )
+            {
+            // InternalCsvMan.g:3205:2: ( ruleEString )
+            // InternalCsvMan.g:3206:3: ruleEString
+            {
+             before(grammarAccess.getJoinAccess().getTable3EStringParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getJoinAccess().getTable3EStringParserRuleCall_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Join__Table3Assignment_5"
+
+
     // $ANTLR start "rule__Delete__TableAssignment_2"
-    // InternalCsvMan.g:2923:1: rule__Delete__TableAssignment_2 : ( ruleEString ) ;
+    // InternalCsvMan.g:3215:1: rule__Delete__TableAssignment_2 : ( ruleEString ) ;
     public final void rule__Delete__TableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2927:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2928:2: ( ruleEString )
+            // InternalCsvMan.g:3219:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3220:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2928:2: ( ruleEString )
-            // InternalCsvMan.g:2929:3: ruleEString
+            // InternalCsvMan.g:3220:2: ( ruleEString )
+            // InternalCsvMan.g:3221:3: ruleEString
             {
              before(grammarAccess.getDeleteAccess().getTableEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8728,17 +9578,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Delete__WhereAssignment_3"
-    // InternalCsvMan.g:2938:1: rule__Delete__WhereAssignment_3 : ( ruleWhere ) ;
+    // InternalCsvMan.g:3230:1: rule__Delete__WhereAssignment_3 : ( ruleWhere ) ;
     public final void rule__Delete__WhereAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2942:1: ( ( ruleWhere ) )
-            // InternalCsvMan.g:2943:2: ( ruleWhere )
+            // InternalCsvMan.g:3234:1: ( ( ruleWhere ) )
+            // InternalCsvMan.g:3235:2: ( ruleWhere )
             {
-            // InternalCsvMan.g:2943:2: ( ruleWhere )
-            // InternalCsvMan.g:2944:3: ruleWhere
+            // InternalCsvMan.g:3235:2: ( ruleWhere )
+            // InternalCsvMan.g:3236:3: ruleWhere
             {
              before(grammarAccess.getDeleteAccess().getWhereWhereParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -8769,17 +9619,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__ConditionAssignment_2"
-    // InternalCsvMan.g:2953:1: rule__Where__ConditionAssignment_2 : ( ruleCondition ) ;
+    // InternalCsvMan.g:3245:1: rule__Where__ConditionAssignment_2 : ( ruleCondition ) ;
     public final void rule__Where__ConditionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2957:1: ( ( ruleCondition ) )
-            // InternalCsvMan.g:2958:2: ( ruleCondition )
+            // InternalCsvMan.g:3249:1: ( ( ruleCondition ) )
+            // InternalCsvMan.g:3250:2: ( ruleCondition )
             {
-            // InternalCsvMan.g:2958:2: ( ruleCondition )
-            // InternalCsvMan.g:2959:3: ruleCondition
+            // InternalCsvMan.g:3250:2: ( ruleCondition )
+            // InternalCsvMan.g:3251:3: ruleCondition
             {
              before(grammarAccess.getWhereAccess().getConditionConditionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -8810,17 +9660,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Where__ConditionAssignment_3_1"
-    // InternalCsvMan.g:2968:1: rule__Where__ConditionAssignment_3_1 : ( ruleCondition ) ;
+    // InternalCsvMan.g:3260:1: rule__Where__ConditionAssignment_3_1 : ( ruleCondition ) ;
     public final void rule__Where__ConditionAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2972:1: ( ( ruleCondition ) )
-            // InternalCsvMan.g:2973:2: ( ruleCondition )
+            // InternalCsvMan.g:3264:1: ( ( ruleCondition ) )
+            // InternalCsvMan.g:3265:2: ( ruleCondition )
             {
-            // InternalCsvMan.g:2973:2: ( ruleCondition )
-            // InternalCsvMan.g:2974:3: ruleCondition
+            // InternalCsvMan.g:3265:2: ( ruleCondition )
+            // InternalCsvMan.g:3266:3: ruleCondition
             {
              before(grammarAccess.getWhereAccess().getConditionConditionParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8851,17 +9701,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__AtributAssignment_1"
-    // InternalCsvMan.g:2983:1: rule__Condition__AtributAssignment_1 : ( ruleEString ) ;
+    // InternalCsvMan.g:3275:1: rule__Condition__AtributAssignment_1 : ( ruleEString ) ;
     public final void rule__Condition__AtributAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2987:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:2988:2: ( ruleEString )
+            // InternalCsvMan.g:3279:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3280:2: ( ruleEString )
             {
-            // InternalCsvMan.g:2988:2: ( ruleEString )
-            // InternalCsvMan.g:2989:3: ruleEString
+            // InternalCsvMan.g:3280:2: ( ruleEString )
+            // InternalCsvMan.g:3281:3: ruleEString
             {
              before(grammarAccess.getConditionAccess().getAtributEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8892,17 +9742,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Condition__ValeurAssignment_3"
-    // InternalCsvMan.g:2998:1: rule__Condition__ValeurAssignment_3 : ( ruleEString ) ;
+    // InternalCsvMan.g:3290:1: rule__Condition__ValeurAssignment_3 : ( ruleEString ) ;
     public final void rule__Condition__ValeurAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:3002:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:3003:2: ( ruleEString )
+            // InternalCsvMan.g:3294:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3295:2: ( ruleEString )
             {
-            // InternalCsvMan.g:3003:2: ( ruleEString )
-            // InternalCsvMan.g:3004:3: ruleEString
+            // InternalCsvMan.g:3295:2: ( ruleEString )
+            // InternalCsvMan.g:3296:3: ruleEString
             {
              before(grammarAccess.getConditionAccess().getValeurEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -8933,17 +9783,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__ColonneAssignment_1"
-    // InternalCsvMan.g:3013:1: rule__Parameter__ColonneAssignment_1 : ( ruleEString ) ;
+    // InternalCsvMan.g:3305:1: rule__Parameter__ColonneAssignment_1 : ( ruleEString ) ;
     public final void rule__Parameter__ColonneAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:3017:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:3018:2: ( ruleEString )
+            // InternalCsvMan.g:3309:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3310:2: ( ruleEString )
             {
-            // InternalCsvMan.g:3018:2: ( ruleEString )
-            // InternalCsvMan.g:3019:3: ruleEString
+            // InternalCsvMan.g:3310:2: ( ruleEString )
+            // InternalCsvMan.g:3311:3: ruleEString
             {
              before(grammarAccess.getParameterAccess().getColonneEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8974,17 +9824,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__ValueAssignment_3"
-    // InternalCsvMan.g:3028:1: rule__Parameter__ValueAssignment_3 : ( ruleEString ) ;
+    // InternalCsvMan.g:3320:1: rule__Parameter__ValueAssignment_3 : ( ruleEString ) ;
     public final void rule__Parameter__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:3032:1: ( ( ruleEString ) )
-            // InternalCsvMan.g:3033:2: ( ruleEString )
+            // InternalCsvMan.g:3324:1: ( ( ruleEString ) )
+            // InternalCsvMan.g:3325:2: ( ruleEString )
             {
-            // InternalCsvMan.g:3033:2: ( ruleEString )
-            // InternalCsvMan.g:3034:3: ruleEString
+            // InternalCsvMan.g:3325:2: ( ruleEString )
+            // InternalCsvMan.g:3326:3: ruleEString
             {
              before(grammarAccess.getParameterAccess().getValueEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9020,29 +9870,29 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000000EB44060L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000EB44062L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000380L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000030000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000010008400L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000010020400L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000010000400L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000001ED14060L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000001ED14062L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000380L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000020020400L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000020080400L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000020000400L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000002010L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000002000L});
 

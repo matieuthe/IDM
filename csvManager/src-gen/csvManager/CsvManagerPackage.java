@@ -453,13 +453,22 @@ public interface CsvManagerPackage extends EPackage {
 	int JOIN__WHERE = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Table3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOIN__TABLE3 = INSTRUCTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Join</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOIN_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
+	int JOIN_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Join</em>' class.
@@ -654,6 +663,52 @@ public interface CsvManagerPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMENT_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link csvManager.impl.CopyImpl <em>Copy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see csvManager.impl.CopyImpl
+	 * @see csvManager.impl.CsvManagerPackageImpl#getCopy()
+	 * @generated
+	 */
+	int COPY = 14;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COPY__ALIAS = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COPY__TABLE = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Copy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COPY_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Copy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COPY_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link csvManager.Program <em>Program</em>}'.
@@ -944,6 +999,17 @@ public interface CsvManagerPackage extends EPackage {
 	EReference getJoin_Where();
 
 	/**
+	 * Returns the meta object for the attribute '{@link csvManager.Join#getTable3 <em>Table3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table3</em>'.
+	 * @see csvManager.Join#getTable3()
+	 * @see #getJoin()
+	 * @generated
+	 */
+	EAttribute getJoin_Table3();
+
+	/**
 	 * Returns the meta object for class '{@link csvManager.Exit <em>Exit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1026,6 +1092,38 @@ public interface CsvManagerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getComment();
+
+	/**
+	 * Returns the meta object for class '{@link csvManager.Copy <em>Copy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Copy</em>'.
+	 * @see csvManager.Copy
+	 * @generated
+	 */
+	EClass getCopy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link csvManager.Copy#getAlias <em>Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alias</em>'.
+	 * @see csvManager.Copy#getAlias()
+	 * @see #getCopy()
+	 * @generated
+	 */
+	EAttribute getCopy_Alias();
+
+	/**
+	 * Returns the meta object for the attribute '{@link csvManager.Copy#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table</em>'.
+	 * @see csvManager.Copy#getTable()
+	 * @see #getCopy()
+	 * @generated
+	 */
+	EAttribute getCopy_Table();
 
 	/**
 	 * Returns the meta object for class '{@link csvManager.Where <em>Where</em>}'.
@@ -1306,6 +1404,14 @@ public interface CsvManagerPackage extends EPackage {
 		EReference JOIN__WHERE = eINSTANCE.getJoin_Where();
 
 		/**
+		 * The meta object literal for the '<em><b>Table3</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOIN__TABLE3 = eINSTANCE.getJoin_Table3();
+
+		/**
 		 * The meta object literal for the '{@link csvManager.impl.ExitImpl <em>Exit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1376,6 +1482,32 @@ public interface CsvManagerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMMENT = eINSTANCE.getComment();
+
+		/**
+		 * The meta object literal for the '{@link csvManager.impl.CopyImpl <em>Copy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see csvManager.impl.CopyImpl
+		 * @see csvManager.impl.CsvManagerPackageImpl#getCopy()
+		 * @generated
+		 */
+		EClass COPY = eINSTANCE.getCopy();
+
+		/**
+		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COPY__ALIAS = eINSTANCE.getCopy_Alias();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COPY__TABLE = eINSTANCE.getCopy_Table();
 
 		/**
 		 * The meta object literal for the '{@link csvManager.impl.WhereImpl <em>Where</em>}' class.

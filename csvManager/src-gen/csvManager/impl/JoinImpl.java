@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link csvManager.impl.JoinImpl#getTable1 <em>Table1</em>}</li>
  *   <li>{@link csvManager.impl.JoinImpl#getTable2 <em>Table2</em>}</li>
  *   <li>{@link csvManager.impl.JoinImpl#getWhere <em>Where</em>}</li>
+ *   <li>{@link csvManager.impl.JoinImpl#getTable3 <em>Table3</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +75,25 @@ public class JoinImpl extends InstructionImpl implements Join {
 	 * @ordered
 	 */
 	protected Where where;
+
+	/**
+	 * The default value of the '{@link #getTable3() <em>Table3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTable3()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TABLE3_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getTable3() <em>Table3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTable3()
+	 * @generated
+	 * @ordered
+	 */
+	protected String table3 = TABLE3_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +210,27 @@ public class JoinImpl extends InstructionImpl implements Join {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTable3() {
+		return table3;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTable3(String newTable3) {
+		String oldTable3 = table3;
+		table3 = newTable3;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CsvManagerPackage.JOIN__TABLE3, oldTable3, table3));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -213,6 +254,8 @@ public class JoinImpl extends InstructionImpl implements Join {
 			return getTable2();
 		case CsvManagerPackage.JOIN__WHERE:
 			return getWhere();
+		case CsvManagerPackage.JOIN__TABLE3:
+			return getTable3();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,6 +276,9 @@ public class JoinImpl extends InstructionImpl implements Join {
 			return;
 		case CsvManagerPackage.JOIN__WHERE:
 			setWhere((Where) newValue);
+			return;
+		case CsvManagerPackage.JOIN__TABLE3:
+			setTable3((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,6 +301,9 @@ public class JoinImpl extends InstructionImpl implements Join {
 		case CsvManagerPackage.JOIN__WHERE:
 			setWhere((Where) null);
 			return;
+		case CsvManagerPackage.JOIN__TABLE3:
+			setTable3(TABLE3_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -273,6 +322,8 @@ public class JoinImpl extends InstructionImpl implements Join {
 			return TABLE2_EDEFAULT == null ? table2 != null : !TABLE2_EDEFAULT.equals(table2);
 		case CsvManagerPackage.JOIN__WHERE:
 			return where != null;
+		case CsvManagerPackage.JOIN__TABLE3:
+			return TABLE3_EDEFAULT == null ? table3 != null : !TABLE3_EDEFAULT.equals(table3);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -292,6 +343,8 @@ public class JoinImpl extends InstructionImpl implements Join {
 		result.append(table1);
 		result.append(", table2: ");
 		result.append(table2);
+		result.append(", table3: ");
+		result.append(table3);
 		result.append(')');
 		return result.toString();
 	}

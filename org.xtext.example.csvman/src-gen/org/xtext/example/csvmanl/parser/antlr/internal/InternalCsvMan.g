@@ -201,6 +201,91 @@ ruleInstruction returns [EObject current=null]
 			$current = $this_Comment_8.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getInstructionAccess().getCopyParserRuleCall_9());
+		}
+		this_Copy_9=ruleCopy
+		{
+			$current = $this_Copy_9.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleCopy
+entryRuleCopy returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCopyRule()); }
+	iv_ruleCopy=ruleCopy
+	{ $current=$iv_ruleCopy.current; }
+	EOF;
+
+// Rule Copy
+ruleCopy returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getCopyAccess().getCopyAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='copy'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCopyAccess().getCopyKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCopyAccess().getAliasEStringParserRuleCall_2_0());
+				}
+				lv_alias_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCopyRule());
+					}
+					set(
+						$current,
+						"alias",
+						lv_alias_2_0,
+						"org.xtext.example.csvmanl.CsvMan.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='in'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getCopyAccess().getInKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCopyAccess().getTableEStringParserRuleCall_4_0());
+				}
+				lv_table_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCopyRule());
+					}
+					set(
+						$current,
+						"table",
+						lv_table_4_0,
+						"org.xtext.example.csvmanl.CsvMan.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		this_NL_5=RULE_NL
+		{
+			newLeafNode(this_NL_5, grammarAccess.getCopyAccess().getNLTerminalRuleCall_5());
+		}
 	)
 ;
 
@@ -805,9 +890,32 @@ ruleJoin returns [EObject current=null]
 				}
 			)
 		)
-		this_NL_4=RULE_NL
+		otherlv_4='in'
 		{
-			newLeafNode(this_NL_4, grammarAccess.getJoinAccess().getNLTerminalRuleCall_4());
+			newLeafNode(otherlv_4, grammarAccess.getJoinAccess().getInKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getJoinAccess().getTable3EStringParserRuleCall_5_0());
+				}
+				lv_table3_5_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getJoinRule());
+					}
+					set(
+						$current,
+						"table3",
+						lv_table3_5_0,
+						"org.xtext.example.csvmanl.CsvMan.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		this_NL_6=RULE_NL
+		{
+			newLeafNode(this_NL_6, grammarAccess.getJoinAccess().getNLTerminalRuleCall_6());
 		}
 	)
 ;

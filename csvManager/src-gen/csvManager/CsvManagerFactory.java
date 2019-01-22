@@ -139,6 +139,15 @@ public interface CsvManagerFactory extends EFactory {
 	Comment createComment();
 
 	/**
+	 * Returns a new object of class '<em>Copy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Copy</em>'.
+	 * @generated
+	 */
+	Copy createCopy();
+
+	/**
 	 * Returns a new object of class '<em>Where</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

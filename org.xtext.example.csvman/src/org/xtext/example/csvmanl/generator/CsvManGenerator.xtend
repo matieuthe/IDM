@@ -14,6 +14,12 @@ import csvManager.Load
 import csvManager.Create
 import csvManager.Where
 import java.util.concurrent.locks.Condition
+import csvManager.Update
+import csvManager.Add
+import csvManager.Exit
+import csvManager.Delete
+import csvManager.Join
+import csvManager.Copy
 
 /**
  * Generates code from your model files on save.
@@ -57,10 +63,13 @@ class CsvManGenerator extends AbstractGenerator {
 		        this.index2 = 0;
 		    }
 		
-		    public void resetTabs(int length1, int length2){
-		        this.tempTab1 = new String[length1];
-		        this.tempTab2 = new String[length2];
+		    public void resetTab1(int length){
+		        this.tempTab1 = new String[length];
 		        this.index1 = 0;
+		    }
+		
+		    public void resetTab2(int length){
+		        this.tempTab2 = new String[length];
 		        this.index2 = 0;
 		    }
 		
@@ -281,33 +290,35 @@ class CsvManGenerator extends AbstractGenerator {
 		     */
 		    public void add(String alias, String[] parameters){
 		        try {
-		            CSVParser csvParser = this.getParser(alias);
-		            Map<String, Integer> header = csvParser.getHeaderMap();
-		
-		            String[] resultat = new String[header.size()];
-		            for(int i = 0; i < parameters.length; i+=2){
-		                if(header.containsKey(parameters[i].trim())){
-		                    resultat[header.get(parameters[i])] = parameters[i+1];
-		                }else throw new Exception("Ce champ n'existe pas");
-		            }
-		
-		            String res = "";
-		
-		            for(int i = 0; i < resultat.length - 1; i++){
-		                if(resultat[i] == null)
-		                    res += ",";
-		                else
-		                    res += resultat[i] + ",";
-		            }
-		
-		            if(resultat.length - 1 >= 0 && resultat[resultat.length -1] != null) res += resultat[resultat.length -1];
-		            res+= "\n";
-		
-		            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), true); //appended in file
-		            fileWriter.write(res);
-		            fileWriter.flush();
-		            fileWriter.close();
-		        }catch (Exception e) {
+			            CSVParser csvParser = this.getParser(alias);
+			            Map<String, Integer> header = csvParser.getHeaderMap();
+			
+			            //String[] resultat = new String[header.size()];
+			            if(parameters.length > header.size()) new Exception("Ce champ n'existe pas");
+			            /*
+			            for(int i = 0; i < parameters.length; i+=2){
+			                if(header.containsKey(parameters[i].trim())){
+			                    resultat[header.get(parameters[i])] = parameters[i+1];
+			                }else throw new Exception("Ce champ n'existe pas");
+			            }*/
+			
+			            String res = "";
+			
+			            for(int i = 0; i < parameters.length - 1; i++){
+			                if(parameters[i] == null)
+			                    res += ",";
+			                else
+			                    res += parameters[i] + ",";
+			            }
+			
+		            if(parameters.length - 1 >= 0 && parameters[parameters.length -1] != null) res += parameters[parameters.length -1];
+		                res+= "\n";
+			
+			            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), true); //appended in file
+			            fileWriter.write(res);
+			            fileWriter.flush();
+			            fileWriter.close();	        
+			    }catch (Exception e) {
 		            e.printStackTrace();
 		        }
 		    }
@@ -377,7 +388,7 @@ class CsvManGenerator extends AbstractGenerator {
 		        }
 		    }
 		
-		    public void join(String alias1, String alias2){
+		    public void join(String alias1, String alias2, String alias3){
 		        try {
 		            CSVParser csvParser1 = this.getParser(alias1);
 		            CSVParser csvParser2 = this.getParser(alias2);
@@ -428,7 +439,7 @@ class CsvManGenerator extends AbstractGenerator {
 		        }
 		    }
 		    public static void main(String[] args){
-		    		CsvMan man = new CsvMan();
+		    	CsvMan man = new CsvMan();
 				«FOR exp: program.instruction»
 					«exp.compile»				
 				«ENDFOR»
@@ -436,35 +447,118 @@ class CsvManGenerator extends AbstractGenerator {
 		}
 		'''
 		
+		/*
+		 * Load Function
+		 */
 		def dispatch compile(Load load)
 			'''
 				man.load("«load.table»", "«load.alias»");
 			'''
 		
-		def dispatch compile(Create create)
+		/*
+		 * Create Function
+		 */
+		def dispatch compile(Create created)
 			'''
-				//man.create();
+				man.resetTab1(«created.colonne.length»);
+				«FOR exp: created.colonne»
+					man.addElmtTab1("«exp»");
+				«ENDFOR»
+				man.create("«created.table»", man.getTempTab1());
 			'''
 		
+				
+		/*
+		 * Show function
+		 */
 		def dispatch compile(Show show)
 			'''
-				man.resetTabs(«show.colonne.length», 0);
+				man.resetTab1(«show.colonne.length»);
 				«FOR exp: show.colonne»
 					man.addElmtTab1("«exp»");
 				«ENDFOR»
 				«IF show.where !== null»
 					«show.where.compile»
 				«ENDIF»
-				man.show(«show.table», man.getTempTab1(), man.getTempTab2());
+				man.show("«show.table»", man.getTempTab1(), man.getTempTab2());
 			'''
-	
-			def dispatch compile(Where where)
+		
+		/*
+		 * Update function
+		 */
+		def dispatch compile(Update update)
 			'''
-				«FOR exp: where.condition»
-					man.addElmtTab2("«exp.atribut»");
-					man.addElmtTab2("«exp.valeur»");
+				man.resetTab1(«update.parameter.length»*2);
+				«FOR exp: update.parameter»
+					man.addElmtTab1("«exp.colonne»");
+					man.addElmtTab1("«exp.value»");
 				«ENDFOR»
+
+				«IF update.where !== null»
+					«update.where.compile»
+				«ENDIF»
+				man.update("«update.table»", man.getTempTab1(), man.getTempTab2());
+			'''		 
+		
+		/*
+		 * Add
+		 */
+		 def dispatch compile(Add add)
 			'''
+				man.resetTab1(«add.valeur.length»);
+				«FOR exp: add.valeur»
+					man.addElmtTab1("«exp»");
+				«ENDFOR»
+				man.add("«add.table»", man.getTempTab1());
+			'''		 
+		 
+		
+				/*
+		 * EXIT
+		 */
+		def dispatch compile(Copy copy)
+			'''
+				man.copy("«copy.table»", "«copy.alias»");
+			'''		
+				
+		/*
+		 * EXIT
+		 */
+		def dispatch compile(Exit exit)
+			'''
+				return;
+			'''		
+		 
+		/*
+		 * Delete function
+		 */
+		def dispatch compile(Delete delete)
+			'''
+				«IF delete.where !== null»
+					«delete.where.compile»
+					man.delete("«delete.table»", man.getTempTab2());
+				«ELSE»
+					man.delete("«delete.table»");
+				«ENDIF»
+			'''		
+		
+				 
+		/*
+		 * Join function
+		 */
+		def dispatch compile(Join join)
+			'''
+				man.join("«join.table1»", "«join.table2»", "«join.table3»");
+			'''			
+		
+		def dispatch compile(Where where)
+		'''
+			man.resetTab2(«where.condition.length»*2);
+			«FOR exp: where.condition»
+				man.addElmtTab2("«exp.atribut»");
+				man.addElmtTab2("«exp.valeur»");
+			«ENDFOR»
+		'''
 
 		
 	def dispatch compile(Instruction instruction)

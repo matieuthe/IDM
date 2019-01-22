@@ -96,7 +96,7 @@ public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     ML_COMMENT | SL_COMMENT
+	 *     SL_COMMENT | ML_COMMENT
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)

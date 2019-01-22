@@ -43,6 +43,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Join/table1"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Join/table2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference csvManager.ecore#//Join/where"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Join/table3"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Exit"/>
     <genClasses ecoreClass="csvManager.ecore#//Where">
@@ -57,5 +58,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Parameter/colonne"/>
     </genClasses>
     <genClasses ecoreClass="csvManager.ecore#//Comment"/>
+    <genClasses ecoreClass="csvManager.ecore#//Copy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Copy/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute csvManager.ecore#//Copy/table"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -9,8 +9,11 @@ Program returns Program:
 		instruction+=Instruction* ;
 
 Instruction returns Instruction:
-	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment;
+	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy;
 
+Copy returns Copy:
+	{Copy}
+	'copy' alias=EString 'in' table=EString NL;
 
 Create returns Create:
 	{Create}
@@ -34,7 +37,7 @@ Add returns Add:
 
 Join returns Join:
 	{Join}
-	'join' table1=EString table2=EString NL;
+	'join' table1=EString table2=EString 'in' table3=EString NL;
 
 Delete returns Delete:
 	{Delete}

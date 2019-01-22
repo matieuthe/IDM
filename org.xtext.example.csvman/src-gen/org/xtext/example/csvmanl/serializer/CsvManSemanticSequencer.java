@@ -6,6 +6,7 @@ package org.xtext.example.csvmanl.serializer;
 import com.google.inject.Inject;
 import csvManager.Add;
 import csvManager.Condition;
+import csvManager.Copy;
 import csvManager.Create;
 import csvManager.CsvManagerPackage;
 import csvManager.Delete;
@@ -47,6 +48,9 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case CsvManagerPackage.CONDITION:
 				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
+			case CsvManagerPackage.COPY:
+				sequence_Copy(context, (Copy) semanticObject); 
 				return; 
 			case CsvManagerPackage.CREATE:
 				sequence_Create(context, (Create) semanticObject); 
@@ -119,6 +123,28 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Instruction returns Copy
+	 *     Copy returns Copy
+	 *
+	 * Constraint:
+	 *     (alias=EString table=EString)
+	 */
+	protected void sequence_Copy(ISerializationContext context, Copy semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.COPY__ALIAS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.COPY__ALIAS));
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.COPY__TABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.COPY__TABLE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCopyAccess().getAliasEStringParserRuleCall_2_0(), semanticObject.getAlias());
+		feeder.accept(grammarAccess.getCopyAccess().getTableEStringParserRuleCall_4_0(), semanticObject.getTable());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Instruction returns Create
 	 *     Create returns Create
 	 *
@@ -162,7 +188,7 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Join returns Join
 	 *
 	 * Constraint:
-	 *     (table1=EString table2=EString)
+	 *     (table1=EString table2=EString table3=EString)
 	 */
 	protected void sequence_Join(ISerializationContext context, Join semanticObject) {
 		if (errorAcceptor != null) {
@@ -170,10 +196,13 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.JOIN__TABLE1));
 			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.JOIN__TABLE2) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.JOIN__TABLE2));
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.JOIN__TABLE3) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.JOIN__TABLE3));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getJoinAccess().getTable1EStringParserRuleCall_2_0(), semanticObject.getTable1());
 		feeder.accept(grammarAccess.getJoinAccess().getTable2EStringParserRuleCall_3_0(), semanticObject.getTable2());
+		feeder.accept(grammarAccess.getJoinAccess().getTable3EStringParserRuleCall_5_0(), semanticObject.getTable3());
 		feeder.finish();
 	}
 	

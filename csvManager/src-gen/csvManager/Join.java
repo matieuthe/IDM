@@ -14,6 +14,7 @@ package csvManager;
  *   <li>{@link csvManager.Join#getTable1 <em>Table1</em>}</li>
  *   <li>{@link csvManager.Join#getTable2 <em>Table2</em>}</li>
  *   <li>{@link csvManager.Join#getWhere <em>Where</em>}</li>
+ *   <li>{@link csvManager.Join#getTable3 <em>Table3</em>}</li>
  * </ul>
  *
  * @see csvManager.CsvManagerPackage#getJoin()
@@ -99,4 +100,30 @@ public interface Join extends Instruction {
 	 * @generated
 	 */
 	void setWhere(Where value);
+
+	/**
+	 * Returns the value of the '<em><b>Table3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Table3</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Table3</em>' attribute.
+	 * @see #setTable3(String)
+	 * @see csvManager.CsvManagerPackage#getJoin_Table3()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getTable3();
+
+	/**
+	 * Sets the value of the '{@link csvManager.Join#getTable3 <em>Table3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Table3</em>' attribute.
+	 * @see #getTable3()
+	 * @generated
+	 */
+	void setTable3(String value);
 } // Join

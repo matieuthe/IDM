@@ -32,10 +32,12 @@ public class CsvManParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
+					put(grammarAccess.getAddAccess().getAlternatives_2(), "rule__Add__Alternatives_2");
 					put(grammarAccess.getConditionAccess().getAlternatives_2(), "rule__Condition__Alternatives_2");
 					put(grammarAccess.getCommentAccess().getAlternatives(), "rule__Comment__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
+					put(grammarAccess.getRemoveAccess().getGroup(), "rule__Remove__Group__0");
 					put(grammarAccess.getCopyAccess().getGroup(), "rule__Copy__Group__0");
 					put(grammarAccess.getCreateAccess().getGroup(), "rule__Create__Group__0");
 					put(grammarAccess.getCreateAccess().getGroup_5(), "rule__Create__Group_5__0");
@@ -46,7 +48,10 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUpdateAccess().getGroup(), "rule__Update__Group__0");
 					put(grammarAccess.getUpdateAccess().getGroup_5(), "rule__Update__Group_5__0");
 					put(grammarAccess.getAddAccess().getGroup(), "rule__Add__Group__0");
-					put(grammarAccess.getAddAccess().getGroup_4(), "rule__Add__Group_4__0");
+					put(grammarAccess.getAddAccess().getGroup_2_0(), "rule__Add__Group_2_0__0");
+					put(grammarAccess.getAddAccess().getGroup_2_0_2(), "rule__Add__Group_2_0_2__0");
+					put(grammarAccess.getAddAccess().getGroup_2_1(), "rule__Add__Group_2_1__0");
+					put(grammarAccess.getAddAccess().getGroup_2_1_2(), "rule__Add__Group_2_1_2__0");
 					put(grammarAccess.getJoinAccess().getGroup(), "rule__Join__Group__0");
 					put(grammarAccess.getDeleteAccess().getGroup(), "rule__Delete__Group__0");
 					put(grammarAccess.getExitAccess().getGroup(), "rule__Exit__Group__0");
@@ -55,6 +60,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getProgramAccess().getInstructionAssignment_1(), "rule__Program__InstructionAssignment_1");
+					put(grammarAccess.getRemoveAccess().getTableAssignment_2(), "rule__Remove__TableAssignment_2");
 					put(grammarAccess.getCopyAccess().getAliasAssignment_2(), "rule__Copy__AliasAssignment_2");
 					put(grammarAccess.getCopyAccess().getTableAssignment_4(), "rule__Copy__TableAssignment_4");
 					put(grammarAccess.getCreateAccess().getTableAssignment_2(), "rule__Create__TableAssignment_2");
@@ -70,9 +76,11 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUpdateAccess().getParameterAssignment_4(), "rule__Update__ParameterAssignment_4");
 					put(grammarAccess.getUpdateAccess().getParameterAssignment_5_1(), "rule__Update__ParameterAssignment_5_1");
 					put(grammarAccess.getUpdateAccess().getWhereAssignment_6(), "rule__Update__WhereAssignment_6");
-					put(grammarAccess.getAddAccess().getValeurAssignment_3(), "rule__Add__ValeurAssignment_3");
-					put(grammarAccess.getAddAccess().getValeurAssignment_4_1(), "rule__Add__ValeurAssignment_4_1");
-					put(grammarAccess.getAddAccess().getTableAssignment_7(), "rule__Add__TableAssignment_7");
+					put(grammarAccess.getAddAccess().getValeurAssignment_2_0_1(), "rule__Add__ValeurAssignment_2_0_1");
+					put(grammarAccess.getAddAccess().getValeurAssignment_2_0_2_1(), "rule__Add__ValeurAssignment_2_0_2_1");
+					put(grammarAccess.getAddAccess().getParameterAssignment_2_1_1(), "rule__Add__ParameterAssignment_2_1_1");
+					put(grammarAccess.getAddAccess().getParameterAssignment_2_1_2_1(), "rule__Add__ParameterAssignment_2_1_2_1");
+					put(grammarAccess.getAddAccess().getTableAssignment_4(), "rule__Add__TableAssignment_4");
 					put(grammarAccess.getJoinAccess().getTable1Assignment_2(), "rule__Join__Table1Assignment_2");
 					put(grammarAccess.getJoinAccess().getTable2Assignment_3(), "rule__Join__Table2Assignment_3");
 					put(grammarAccess.getJoinAccess().getTable3Assignment_5(), "rule__Join__Table3Assignment_5");

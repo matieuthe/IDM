@@ -14,6 +14,7 @@ import csvManager.Exit;
 import csvManager.Join;
 import csvManager.Load;
 import csvManager.Program;
+import csvManager.Remove;
 import csvManager.Show;
 import csvManager.Update;
 import csvManager.Where;
@@ -73,6 +74,9 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case CsvManagerPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
 				return; 
+			case CsvManagerPackage.REMOVE:
+				sequence_Remove(context, (Remove) semanticObject); 
+				return; 
 			case CsvManagerPackage.SHOW:
 				sequence_Show(context, (Show) semanticObject); 
 				return; 
@@ -93,7 +97,7 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Add returns Add
 	 *
 	 * Constraint:
-	 *     (valeur+=EString valeur+=EString* table=EString)
+	 *     (((valeur+=EString valeur+=EString*) | (parameter+=Parameter parameter+=Parameter*)) table=EString)
 	 */
 	protected void sequence_Add(ISerializationContext context, Add semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -259,6 +263,25 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Instruction returns Remove
+	 *     Remove returns Remove
+	 *
+	 * Constraint:
+	 *     table=EString
+	 */
+	protected void sequence_Remove(ISerializationContext context, Remove semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.REMOVE__TABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.REMOVE__TABLE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRemoveAccess().getTableEStringParserRuleCall_2_0(), semanticObject.getTable());
+		feeder.finish();
 	}
 	
 	

@@ -148,6 +148,15 @@ public interface CsvManagerFactory extends EFactory {
 	Copy createCopy();
 
 	/**
+	 * Returns a new object of class '<em>Remove</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Remove</em>'.
+	 * @generated
+	 */
+	Remove createRemove();
+
+	/**
 	 * Returns a new object of class '<em>Where</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

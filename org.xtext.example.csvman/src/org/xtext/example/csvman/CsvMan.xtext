@@ -9,7 +9,11 @@ Program returns Program:
 		instruction+=Instruction* ;
 
 Instruction returns Instruction:
-	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy;
+	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy | Remove;
+	
+Remove returns Remove:
+	{Remove}
+	'remove' table=EString NL;
 
 Copy returns Copy:
 	{Copy}
@@ -33,7 +37,13 @@ Update returns Update:
 
 Add returns Add:
 	{Add}
-	'add' '(' valeur+=EString (',' valeur+=EString)* ')' 'in' table=EString NL;
+	'add' 
+	(
+	('(' valeur+=EString (',' valeur+=EString)* ')')
+	|
+	('(' parameter+=Parameter (',' parameter+=Parameter)* ')')
+	)
+	'in' table=EString NL;
 
 Join returns Join:
 	{Join}

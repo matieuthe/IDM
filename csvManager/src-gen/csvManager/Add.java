@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link csvManager.Add#getTable <em>Table</em>}</li>
  *   <li>{@link csvManager.Add#getValeur <em>Valeur</em>}</li>
+ *   <li>{@link csvManager.Add#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @see csvManager.CsvManagerPackage#getAdd()
@@ -60,8 +61,24 @@ public interface Add extends Instruction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valeur</em>' attribute list.
 	 * @see csvManager.CsvManagerPackage#getAdd_Valeur()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<String> getValeur();
+
+	/**
+	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
+	 * The list contents are of type {@link csvManager.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameter</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter</em>' containment reference list.
+	 * @see csvManager.CsvManagerPackage#getAdd_Parameter()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter> getParameter();
 } // Add

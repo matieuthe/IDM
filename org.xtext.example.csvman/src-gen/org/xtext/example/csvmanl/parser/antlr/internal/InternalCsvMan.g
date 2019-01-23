@@ -210,6 +210,68 @@ ruleInstruction returns [EObject current=null]
 			$current = $this_Copy_9.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getInstructionAccess().getRemoveParserRuleCall_10());
+		}
+		this_Remove_10=ruleRemove
+		{
+			$current = $this_Remove_10.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleRemove
+entryRuleRemove returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRemoveRule()); }
+	iv_ruleRemove=ruleRemove
+	{ $current=$iv_ruleRemove.current; }
+	EOF;
+
+// Rule Remove
+ruleRemove returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getRemoveAccess().getRemoveAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='remove'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRemoveAccess().getRemoveKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRemoveAccess().getTableEStringParserRuleCall_2_0());
+				}
+				lv_table_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRemoveRule());
+					}
+					set(
+						$current,
+						"table",
+						lv_table_2_0,
+						"org.xtext.example.csvmanl.CsvMan.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		this_NL_3=RULE_NL
+		{
+			newLeafNode(this_NL_3, grammarAccess.getRemoveAccess().getNLTerminalRuleCall_3());
+		}
 	)
 ;
 
@@ -743,68 +805,127 @@ ruleAdd returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getAddAccess().getAddKeyword_1());
 		}
-		otherlv_2='('
-		{
-			newLeafNode(otherlv_2, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2());
-		}
 		(
 			(
+				otherlv_2='('
 				{
-					newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_3_0());
+					newLeafNode(otherlv_2, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2_0_0());
 				}
-				lv_valeur_3_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAddRule());
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_2_0_1_0());
+						}
+						lv_valeur_3_0=ruleEString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getAddRule());
+							}
+							add(
+								$current,
+								"valeur",
+								lv_valeur_3_0,
+								"org.xtext.example.csvmanl.CsvMan.EString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_4=','
+					{
+						newLeafNode(otherlv_4, grammarAccess.getAddAccess().getCommaKeyword_2_0_2_0());
 					}
-					add(
-						$current,
-						"valeur",
-						lv_valeur_3_0,
-						"org.xtext.example.csvmanl.CsvMan.EString");
-					afterParserOrEnumRuleCall();
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_2_0_2_1_0());
+							}
+							lv_valeur_5_0=ruleEString
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getAddRule());
+								}
+								add(
+									$current,
+									"valeur",
+									lv_valeur_5_0,
+									"org.xtext.example.csvmanl.CsvMan.EString");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+				otherlv_6=')'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getAddAccess().getRightParenthesisKeyword_2_0_3());
+				}
+			)
+			    |
+			(
+				otherlv_7='('
+				{
+					newLeafNode(otherlv_7, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getAddAccess().getParameterParameterParserRuleCall_2_1_1_0());
+						}
+						lv_parameter_8_0=ruleParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getAddRule());
+							}
+							add(
+								$current,
+								"parameter",
+								lv_parameter_8_0,
+								"org.xtext.example.csvmanl.CsvMan.Parameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					otherlv_9=','
+					{
+						newLeafNode(otherlv_9, grammarAccess.getAddAccess().getCommaKeyword_2_1_2_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getAddAccess().getParameterParameterParserRuleCall_2_1_2_1_0());
+							}
+							lv_parameter_10_0=ruleParameter
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getAddRule());
+								}
+								add(
+									$current,
+									"parameter",
+									lv_parameter_10_0,
+									"org.xtext.example.csvmanl.CsvMan.Parameter");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)*
+				otherlv_11=')'
+				{
+					newLeafNode(otherlv_11, grammarAccess.getAddAccess().getRightParenthesisKeyword_2_1_3());
 				}
 			)
 		)
-		(
-			otherlv_4=','
-			{
-				newLeafNode(otherlv_4, grammarAccess.getAddAccess().getCommaKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_4_1_0());
-					}
-					lv_valeur_5_0=ruleEString
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAddRule());
-						}
-						add(
-							$current,
-							"valeur",
-							lv_valeur_5_0,
-							"org.xtext.example.csvmanl.CsvMan.EString");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-		otherlv_6=')'
+		otherlv_12='in'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getAddAccess().getRightParenthesisKeyword_5());
-		}
-		otherlv_7='in'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getAddAccess().getInKeyword_6());
+			newLeafNode(otherlv_12, grammarAccess.getAddAccess().getInKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAddAccess().getTableEStringParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getAddAccess().getTableEStringParserRuleCall_4_0());
 				}
-				lv_table_8_0=ruleEString
+				lv_table_13_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAddRule());
@@ -812,15 +933,15 @@ ruleAdd returns [EObject current=null]
 					set(
 						$current,
 						"table",
-						lv_table_8_0,
+						lv_table_13_0,
 						"org.xtext.example.csvmanl.CsvMan.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		this_NL_9=RULE_NL
+		this_NL_14=RULE_NL
 		{
-			newLeafNode(this_NL_9, grammarAccess.getAddAccess().getNLTerminalRuleCall_8());
+			newLeafNode(this_NL_14, grammarAccess.getAddAccess().getNLTerminalRuleCall_5());
 		}
 	)
 ;

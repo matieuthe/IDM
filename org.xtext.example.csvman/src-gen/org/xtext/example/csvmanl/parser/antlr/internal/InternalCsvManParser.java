@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCsvManParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NL", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_WS", "RULE_ANY_OTHER", "'copy'", "'in'", "'create'", "'('", "','", "')'", "'load'", "'as'", "'show'", "'update'", "'set'", "'add'", "'join'", "'delete'", "'exit'", "'where'", "'='"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NL", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_WS", "RULE_ANY_OTHER", "'remove'", "'copy'", "'in'", "'create'", "'('", "','", "')'", "'load'", "'as'", "'show'", "'update'", "'set'", "'add'", "'join'", "'delete'", "'exit'", "'where'", "'='"
     };
     public static final int RULE_STRING=8;
     public static final int RULE_SL_COMMENT=7;
@@ -33,6 +33,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__30=30;
     public static final int RULE_OP=5;
     public static final int RULE_ID=9;
     public static final int RULE_WS=11;
@@ -161,7 +162,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=RULE_ML_COMMENT && LA1_0<=RULE_SL_COMMENT)||LA1_0==13||LA1_0==15||LA1_0==19||(LA1_0>=21 && LA1_0<=22)||(LA1_0>=24 && LA1_0<=27)) ) {
+                if ( ((LA1_0>=RULE_ML_COMMENT && LA1_0<=RULE_SL_COMMENT)||(LA1_0>=13 && LA1_0<=14)||LA1_0==16||LA1_0==20||(LA1_0>=22 && LA1_0<=23)||(LA1_0>=25 && LA1_0<=28)) ) {
                     alt1=1;
                 }
 
@@ -263,7 +264,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInstruction"
-    // InternalCsvMan.g:116:1: ruleInstruction returns [EObject current=null] : (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy ) ;
+    // InternalCsvMan.g:116:1: ruleInstruction returns [EObject current=null] : (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy | this_Remove_10= ruleRemove ) ;
     public final EObject ruleInstruction() throws RecognitionException {
         EObject current = null;
 
@@ -287,53 +288,55 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
         EObject this_Copy_9 = null;
 
+        EObject this_Remove_10 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalCsvMan.g:122:2: ( (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy ) )
-            // InternalCsvMan.g:123:2: (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy )
+            // InternalCsvMan.g:122:2: ( (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy | this_Remove_10= ruleRemove ) )
+            // InternalCsvMan.g:123:2: (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy | this_Remove_10= ruleRemove )
             {
-            // InternalCsvMan.g:123:2: (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy )
-            int alt2=10;
+            // InternalCsvMan.g:123:2: (this_Create_0= ruleCreate | this_Load_1= ruleLoad | this_Show_2= ruleShow | this_Update_3= ruleUpdate | this_Add_4= ruleAdd | this_Join_5= ruleJoin | this_Delete_6= ruleDelete | this_Exit_7= ruleExit | this_Comment_8= ruleComment | this_Copy_9= ruleCopy | this_Remove_10= ruleRemove )
+            int alt2=11;
             switch ( input.LA(1) ) {
-            case 15:
+            case 16:
                 {
                 alt2=1;
                 }
                 break;
-            case 19:
+            case 20:
                 {
                 alt2=2;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt2=3;
                 }
                 break;
-            case 22:
+            case 23:
                 {
                 alt2=4;
                 }
                 break;
-            case 24:
+            case 25:
                 {
                 alt2=5;
                 }
                 break;
-            case 25:
+            case 26:
                 {
                 alt2=6;
                 }
                 break;
-            case 26:
+            case 27:
                 {
                 alt2=7;
                 }
                 break;
-            case 27:
+            case 28:
                 {
                 alt2=8;
                 }
@@ -344,9 +347,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                 alt2=9;
                 }
                 break;
-            case 13:
+            case 14:
                 {
                 alt2=10;
+                }
+                break;
+            case 13:
+                {
+                alt2=11;
                 }
                 break;
             default:
@@ -537,6 +545,24 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 11 :
+                    // InternalCsvMan.g:214:3: this_Remove_10= ruleRemove
+                    {
+
+                    			newCompositeNode(grammarAccess.getInstructionAccess().getRemoveParserRuleCall_10());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Remove_10=ruleRemove();
+
+                    state._fsp--;
+
+
+                    			current = this_Remove_10;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
 
             }
 
@@ -559,8 +585,136 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleInstruction"
 
 
+    // $ANTLR start "entryRuleRemove"
+    // InternalCsvMan.g:226:1: entryRuleRemove returns [EObject current=null] : iv_ruleRemove= ruleRemove EOF ;
+    public final EObject entryRuleRemove() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleRemove = null;
+
+
+        try {
+            // InternalCsvMan.g:226:47: (iv_ruleRemove= ruleRemove EOF )
+            // InternalCsvMan.g:227:2: iv_ruleRemove= ruleRemove EOF
+            {
+             newCompositeNode(grammarAccess.getRemoveRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleRemove=ruleRemove();
+
+            state._fsp--;
+
+             current =iv_ruleRemove; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleRemove"
+
+
+    // $ANTLR start "ruleRemove"
+    // InternalCsvMan.g:233:1: ruleRemove returns [EObject current=null] : ( () otherlv_1= 'remove' ( (lv_table_2_0= ruleEString ) ) this_NL_3= RULE_NL ) ;
+    public final EObject ruleRemove() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token this_NL_3=null;
+        AntlrDatatypeRuleToken lv_table_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalCsvMan.g:239:2: ( ( () otherlv_1= 'remove' ( (lv_table_2_0= ruleEString ) ) this_NL_3= RULE_NL ) )
+            // InternalCsvMan.g:240:2: ( () otherlv_1= 'remove' ( (lv_table_2_0= ruleEString ) ) this_NL_3= RULE_NL )
+            {
+            // InternalCsvMan.g:240:2: ( () otherlv_1= 'remove' ( (lv_table_2_0= ruleEString ) ) this_NL_3= RULE_NL )
+            // InternalCsvMan.g:241:3: () otherlv_1= 'remove' ( (lv_table_2_0= ruleEString ) ) this_NL_3= RULE_NL
+            {
+            // InternalCsvMan.g:241:3: ()
+            // InternalCsvMan.g:242:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getRemoveAccess().getRemoveAction_0(),
+            					current);
+            			
+
+            }
+
+            otherlv_1=(Token)match(input,13,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getRemoveAccess().getRemoveKeyword_1());
+            		
+            // InternalCsvMan.g:252:3: ( (lv_table_2_0= ruleEString ) )
+            // InternalCsvMan.g:253:4: (lv_table_2_0= ruleEString )
+            {
+            // InternalCsvMan.g:253:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:254:5: lv_table_2_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getRemoveAccess().getTableEStringParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_5);
+            lv_table_2_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getRemoveRule());
+            					}
+            					set(
+            						current,
+            						"table",
+            						lv_table_2_0,
+            						"org.xtext.example.csvmanl.CsvMan.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            this_NL_3=(Token)match(input,RULE_NL,FOLLOW_2); 
+
+            			newLeafNode(this_NL_3, grammarAccess.getRemoveAccess().getNLTerminalRuleCall_3());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleRemove"
+
+
     // $ANTLR start "entryRuleCopy"
-    // InternalCsvMan.g:217:1: entryRuleCopy returns [EObject current=null] : iv_ruleCopy= ruleCopy EOF ;
+    // InternalCsvMan.g:279:1: entryRuleCopy returns [EObject current=null] : iv_ruleCopy= ruleCopy EOF ;
     public final EObject entryRuleCopy() throws RecognitionException {
         EObject current = null;
 
@@ -568,8 +722,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:217:45: (iv_ruleCopy= ruleCopy EOF )
-            // InternalCsvMan.g:218:2: iv_ruleCopy= ruleCopy EOF
+            // InternalCsvMan.g:279:45: (iv_ruleCopy= ruleCopy EOF )
+            // InternalCsvMan.g:280:2: iv_ruleCopy= ruleCopy EOF
             {
              newCompositeNode(grammarAccess.getCopyRule()); 
             pushFollow(FOLLOW_1);
@@ -596,7 +750,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCopy"
-    // InternalCsvMan.g:224:1: ruleCopy returns [EObject current=null] : ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL ) ;
+    // InternalCsvMan.g:286:1: ruleCopy returns [EObject current=null] : ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL ) ;
     public final EObject ruleCopy() throws RecognitionException {
         EObject current = null;
 
@@ -612,14 +766,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:230:2: ( ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL ) )
-            // InternalCsvMan.g:231:2: ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL )
+            // InternalCsvMan.g:292:2: ( ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL ) )
+            // InternalCsvMan.g:293:2: ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL )
             {
-            // InternalCsvMan.g:231:2: ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL )
-            // InternalCsvMan.g:232:3: () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL
+            // InternalCsvMan.g:293:2: ( () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL )
+            // InternalCsvMan.g:294:3: () otherlv_1= 'copy' ( (lv_alias_2_0= ruleEString ) ) otherlv_3= 'in' ( (lv_table_4_0= ruleEString ) ) this_NL_5= RULE_NL
             {
-            // InternalCsvMan.g:232:3: ()
-            // InternalCsvMan.g:233:4: 
+            // InternalCsvMan.g:294:3: ()
+            // InternalCsvMan.g:295:4: 
             {
 
             				current = forceCreateModelElement(
@@ -629,20 +783,20 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,13,FOLLOW_4); 
+            otherlv_1=(Token)match(input,14,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCopyAccess().getCopyKeyword_1());
             		
-            // InternalCsvMan.g:243:3: ( (lv_alias_2_0= ruleEString ) )
-            // InternalCsvMan.g:244:4: (lv_alias_2_0= ruleEString )
+            // InternalCsvMan.g:305:3: ( (lv_alias_2_0= ruleEString ) )
+            // InternalCsvMan.g:306:4: (lv_alias_2_0= ruleEString )
             {
-            // InternalCsvMan.g:244:4: (lv_alias_2_0= ruleEString )
-            // InternalCsvMan.g:245:5: lv_alias_2_0= ruleEString
+            // InternalCsvMan.g:306:4: (lv_alias_2_0= ruleEString )
+            // InternalCsvMan.g:307:5: lv_alias_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getCopyAccess().getAliasEStringParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             lv_alias_2_0=ruleEString();
 
             state._fsp--;
@@ -664,20 +818,20 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,14,FOLLOW_4); 
+            otherlv_3=(Token)match(input,15,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getCopyAccess().getInKeyword_3());
             		
-            // InternalCsvMan.g:266:3: ( (lv_table_4_0= ruleEString ) )
-            // InternalCsvMan.g:267:4: (lv_table_4_0= ruleEString )
+            // InternalCsvMan.g:328:3: ( (lv_table_4_0= ruleEString ) )
+            // InternalCsvMan.g:329:4: (lv_table_4_0= ruleEString )
             {
-            // InternalCsvMan.g:267:4: (lv_table_4_0= ruleEString )
-            // InternalCsvMan.g:268:5: lv_table_4_0= ruleEString
+            // InternalCsvMan.g:329:4: (lv_table_4_0= ruleEString )
+            // InternalCsvMan.g:330:5: lv_table_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getCopyAccess().getTableEStringParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             lv_table_4_0=ruleEString();
 
             state._fsp--;
@@ -726,7 +880,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCreate"
-    // InternalCsvMan.g:293:1: entryRuleCreate returns [EObject current=null] : iv_ruleCreate= ruleCreate EOF ;
+    // InternalCsvMan.g:355:1: entryRuleCreate returns [EObject current=null] : iv_ruleCreate= ruleCreate EOF ;
     public final EObject entryRuleCreate() throws RecognitionException {
         EObject current = null;
 
@@ -734,8 +888,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:293:47: (iv_ruleCreate= ruleCreate EOF )
-            // InternalCsvMan.g:294:2: iv_ruleCreate= ruleCreate EOF
+            // InternalCsvMan.g:355:47: (iv_ruleCreate= ruleCreate EOF )
+            // InternalCsvMan.g:356:2: iv_ruleCreate= ruleCreate EOF
             {
              newCompositeNode(grammarAccess.getCreateRule()); 
             pushFollow(FOLLOW_1);
@@ -762,7 +916,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCreate"
-    // InternalCsvMan.g:300:1: ruleCreate returns [EObject current=null] : ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL ) ;
+    // InternalCsvMan.g:362:1: ruleCreate returns [EObject current=null] : ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL ) ;
     public final EObject ruleCreate() throws RecognitionException {
         EObject current = null;
 
@@ -782,14 +936,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:306:2: ( ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL ) )
-            // InternalCsvMan.g:307:2: ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL )
+            // InternalCsvMan.g:368:2: ( ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL ) )
+            // InternalCsvMan.g:369:2: ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL )
             {
-            // InternalCsvMan.g:307:2: ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL )
-            // InternalCsvMan.g:308:3: () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL
+            // InternalCsvMan.g:369:2: ( () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL )
+            // InternalCsvMan.g:370:3: () otherlv_1= 'create' ( (lv_table_2_0= ruleEString ) ) otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' this_NL_8= RULE_NL
             {
-            // InternalCsvMan.g:308:3: ()
-            // InternalCsvMan.g:309:4: 
+            // InternalCsvMan.g:370:3: ()
+            // InternalCsvMan.g:371:4: 
             {
 
             				current = forceCreateModelElement(
@@ -799,15 +953,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,15,FOLLOW_4); 
+            otherlv_1=(Token)match(input,16,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCreateAccess().getCreateKeyword_1());
             		
-            // InternalCsvMan.g:319:3: ( (lv_table_2_0= ruleEString ) )
-            // InternalCsvMan.g:320:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:381:3: ( (lv_table_2_0= ruleEString ) )
+            // InternalCsvMan.g:382:4: (lv_table_2_0= ruleEString )
             {
-            // InternalCsvMan.g:320:4: (lv_table_2_0= ruleEString )
-            // InternalCsvMan.g:321:5: lv_table_2_0= ruleEString
+            // InternalCsvMan.g:382:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:383:5: lv_table_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getCreateAccess().getTableEStringParserRuleCall_2_0());
@@ -834,15 +988,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,16,FOLLOW_4); 
+            otherlv_3=(Token)match(input,17,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getCreateAccess().getLeftParenthesisKeyword_3());
             		
-            // InternalCsvMan.g:342:3: ( (lv_colonne_4_0= ruleEString ) )
-            // InternalCsvMan.g:343:4: (lv_colonne_4_0= ruleEString )
+            // InternalCsvMan.g:404:3: ( (lv_colonne_4_0= ruleEString ) )
+            // InternalCsvMan.g:405:4: (lv_colonne_4_0= ruleEString )
             {
-            // InternalCsvMan.g:343:4: (lv_colonne_4_0= ruleEString )
-            // InternalCsvMan.g:344:5: lv_colonne_4_0= ruleEString
+            // InternalCsvMan.g:405:4: (lv_colonne_4_0= ruleEString )
+            // InternalCsvMan.g:406:5: lv_colonne_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getCreateAccess().getColonneEStringParserRuleCall_4_0());
@@ -869,30 +1023,30 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:361:3: (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )*
+            // InternalCsvMan.g:423:3: (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==17) ) {
+                if ( (LA3_0==18) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalCsvMan.g:362:4: otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) )
+            	    // InternalCsvMan.g:424:4: otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) )
             	    {
-            	    otherlv_5=(Token)match(input,17,FOLLOW_4); 
+            	    otherlv_5=(Token)match(input,18,FOLLOW_4); 
 
             	    				newLeafNode(otherlv_5, grammarAccess.getCreateAccess().getCommaKeyword_5_0());
             	    			
-            	    // InternalCsvMan.g:366:4: ( (lv_colonne_6_0= ruleEString ) )
-            	    // InternalCsvMan.g:367:5: (lv_colonne_6_0= ruleEString )
+            	    // InternalCsvMan.g:428:4: ( (lv_colonne_6_0= ruleEString ) )
+            	    // InternalCsvMan.g:429:5: (lv_colonne_6_0= ruleEString )
             	    {
-            	    // InternalCsvMan.g:367:5: (lv_colonne_6_0= ruleEString )
-            	    // InternalCsvMan.g:368:6: lv_colonne_6_0= ruleEString
+            	    // InternalCsvMan.g:429:5: (lv_colonne_6_0= ruleEString )
+            	    // InternalCsvMan.g:430:6: lv_colonne_6_0= ruleEString
             	    {
 
             	    						newCompositeNode(grammarAccess.getCreateAccess().getColonneEStringParserRuleCall_5_1_0());
@@ -928,7 +1082,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,18,FOLLOW_6); 
+            otherlv_7=(Token)match(input,19,FOLLOW_5); 
 
             			newLeafNode(otherlv_7, grammarAccess.getCreateAccess().getRightParenthesisKeyword_6());
             		
@@ -959,7 +1113,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLoad"
-    // InternalCsvMan.g:398:1: entryRuleLoad returns [EObject current=null] : iv_ruleLoad= ruleLoad EOF ;
+    // InternalCsvMan.g:460:1: entryRuleLoad returns [EObject current=null] : iv_ruleLoad= ruleLoad EOF ;
     public final EObject entryRuleLoad() throws RecognitionException {
         EObject current = null;
 
@@ -967,8 +1121,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:398:45: (iv_ruleLoad= ruleLoad EOF )
-            // InternalCsvMan.g:399:2: iv_ruleLoad= ruleLoad EOF
+            // InternalCsvMan.g:460:45: (iv_ruleLoad= ruleLoad EOF )
+            // InternalCsvMan.g:461:2: iv_ruleLoad= ruleLoad EOF
             {
              newCompositeNode(grammarAccess.getLoadRule()); 
             pushFollow(FOLLOW_1);
@@ -995,7 +1149,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLoad"
-    // InternalCsvMan.g:405:1: ruleLoad returns [EObject current=null] : ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL ) ;
+    // InternalCsvMan.g:467:1: ruleLoad returns [EObject current=null] : ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL ) ;
     public final EObject ruleLoad() throws RecognitionException {
         EObject current = null;
 
@@ -1011,14 +1165,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:411:2: ( ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL ) )
-            // InternalCsvMan.g:412:2: ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL )
+            // InternalCsvMan.g:473:2: ( ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL ) )
+            // InternalCsvMan.g:474:2: ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL )
             {
-            // InternalCsvMan.g:412:2: ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL )
-            // InternalCsvMan.g:413:3: () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL
+            // InternalCsvMan.g:474:2: ( () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL )
+            // InternalCsvMan.g:475:3: () otherlv_1= 'load' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'as' ( (lv_alias_4_0= ruleEString ) ) this_NL_5= RULE_NL
             {
-            // InternalCsvMan.g:413:3: ()
-            // InternalCsvMan.g:414:4: 
+            // InternalCsvMan.g:475:3: ()
+            // InternalCsvMan.g:476:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1028,15 +1182,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,19,FOLLOW_4); 
+            otherlv_1=(Token)match(input,20,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getLoadAccess().getLoadKeyword_1());
             		
-            // InternalCsvMan.g:424:3: ( (lv_table_2_0= ruleEString ) )
-            // InternalCsvMan.g:425:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:486:3: ( (lv_table_2_0= ruleEString ) )
+            // InternalCsvMan.g:487:4: (lv_table_2_0= ruleEString )
             {
-            // InternalCsvMan.g:425:4: (lv_table_2_0= ruleEString )
-            // InternalCsvMan.g:426:5: lv_table_2_0= ruleEString
+            // InternalCsvMan.g:487:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:488:5: lv_table_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getLoadAccess().getTableEStringParserRuleCall_2_0());
@@ -1063,20 +1217,20 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,20,FOLLOW_4); 
+            otherlv_3=(Token)match(input,21,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getLoadAccess().getAsKeyword_3());
             		
-            // InternalCsvMan.g:447:3: ( (lv_alias_4_0= ruleEString ) )
-            // InternalCsvMan.g:448:4: (lv_alias_4_0= ruleEString )
+            // InternalCsvMan.g:509:3: ( (lv_alias_4_0= ruleEString ) )
+            // InternalCsvMan.g:510:4: (lv_alias_4_0= ruleEString )
             {
-            // InternalCsvMan.g:448:4: (lv_alias_4_0= ruleEString )
-            // InternalCsvMan.g:449:5: lv_alias_4_0= ruleEString
+            // InternalCsvMan.g:510:4: (lv_alias_4_0= ruleEString )
+            // InternalCsvMan.g:511:5: lv_alias_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getLoadAccess().getAliasEStringParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             lv_alias_4_0=ruleEString();
 
             state._fsp--;
@@ -1125,7 +1279,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleShow"
-    // InternalCsvMan.g:474:1: entryRuleShow returns [EObject current=null] : iv_ruleShow= ruleShow EOF ;
+    // InternalCsvMan.g:536:1: entryRuleShow returns [EObject current=null] : iv_ruleShow= ruleShow EOF ;
     public final EObject entryRuleShow() throws RecognitionException {
         EObject current = null;
 
@@ -1133,8 +1287,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:474:45: (iv_ruleShow= ruleShow EOF )
-            // InternalCsvMan.g:475:2: iv_ruleShow= ruleShow EOF
+            // InternalCsvMan.g:536:45: (iv_ruleShow= ruleShow EOF )
+            // InternalCsvMan.g:537:2: iv_ruleShow= ruleShow EOF
             {
              newCompositeNode(grammarAccess.getShowRule()); 
             pushFollow(FOLLOW_1);
@@ -1161,7 +1315,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleShow"
-    // InternalCsvMan.g:481:1: ruleShow returns [EObject current=null] : ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL ) ;
+    // InternalCsvMan.g:543:1: ruleShow returns [EObject current=null] : ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL ) ;
     public final EObject ruleShow() throws RecognitionException {
         EObject current = null;
 
@@ -1183,14 +1337,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:487:2: ( ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL ) )
-            // InternalCsvMan.g:488:2: ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL )
+            // InternalCsvMan.g:549:2: ( ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL ) )
+            // InternalCsvMan.g:550:2: ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL )
             {
-            // InternalCsvMan.g:488:2: ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL )
-            // InternalCsvMan.g:489:3: () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL
+            // InternalCsvMan.g:550:2: ( () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL )
+            // InternalCsvMan.g:551:3: () otherlv_1= 'show' ( (lv_table_2_0= ruleEString ) ) (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )? ( (lv_where_8_0= ruleWhere ) )? this_NL_9= RULE_NL
             {
-            // InternalCsvMan.g:489:3: ()
-            // InternalCsvMan.g:490:4: 
+            // InternalCsvMan.g:551:3: ()
+            // InternalCsvMan.g:552:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1200,15 +1354,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_4); 
+            otherlv_1=(Token)match(input,22,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getShowAccess().getShowKeyword_1());
             		
-            // InternalCsvMan.g:500:3: ( (lv_table_2_0= ruleEString ) )
-            // InternalCsvMan.g:501:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:562:3: ( (lv_table_2_0= ruleEString ) )
+            // InternalCsvMan.g:563:4: (lv_table_2_0= ruleEString )
             {
-            // InternalCsvMan.g:501:4: (lv_table_2_0= ruleEString )
-            // InternalCsvMan.g:502:5: lv_table_2_0= ruleEString
+            // InternalCsvMan.g:563:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:564:5: lv_table_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getShowAccess().getTableEStringParserRuleCall_2_0());
@@ -1235,26 +1389,26 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:519:3: (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )?
+            // InternalCsvMan.g:581:3: (otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==16) ) {
+            if ( (LA5_0==17) ) {
                 alt5=1;
             }
             switch (alt5) {
                 case 1 :
-                    // InternalCsvMan.g:520:4: otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')'
+                    // InternalCsvMan.g:582:4: otherlv_3= '(' ( (lv_colonne_4_0= ruleEString ) ) (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )* otherlv_7= ')'
                     {
-                    otherlv_3=(Token)match(input,16,FOLLOW_4); 
+                    otherlv_3=(Token)match(input,17,FOLLOW_4); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getShowAccess().getLeftParenthesisKeyword_3_0());
                     			
-                    // InternalCsvMan.g:524:4: ( (lv_colonne_4_0= ruleEString ) )
-                    // InternalCsvMan.g:525:5: (lv_colonne_4_0= ruleEString )
+                    // InternalCsvMan.g:586:4: ( (lv_colonne_4_0= ruleEString ) )
+                    // InternalCsvMan.g:587:5: (lv_colonne_4_0= ruleEString )
                     {
-                    // InternalCsvMan.g:525:5: (lv_colonne_4_0= ruleEString )
-                    // InternalCsvMan.g:526:6: lv_colonne_4_0= ruleEString
+                    // InternalCsvMan.g:587:5: (lv_colonne_4_0= ruleEString )
+                    // InternalCsvMan.g:588:6: lv_colonne_4_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getShowAccess().getColonneEStringParserRuleCall_3_1_0());
@@ -1281,30 +1435,30 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalCsvMan.g:543:4: (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )*
+                    // InternalCsvMan.g:605:4: (otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) ) )*
                     loop4:
                     do {
                         int alt4=2;
                         int LA4_0 = input.LA(1);
 
-                        if ( (LA4_0==17) ) {
+                        if ( (LA4_0==18) ) {
                             alt4=1;
                         }
 
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalCsvMan.g:544:5: otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) )
+                    	    // InternalCsvMan.g:606:5: otherlv_5= ',' ( (lv_colonne_6_0= ruleEString ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,17,FOLLOW_4); 
+                    	    otherlv_5=(Token)match(input,18,FOLLOW_4); 
 
                     	    					newLeafNode(otherlv_5, grammarAccess.getShowAccess().getCommaKeyword_3_2_0());
                     	    				
-                    	    // InternalCsvMan.g:548:5: ( (lv_colonne_6_0= ruleEString ) )
-                    	    // InternalCsvMan.g:549:6: (lv_colonne_6_0= ruleEString )
+                    	    // InternalCsvMan.g:610:5: ( (lv_colonne_6_0= ruleEString ) )
+                    	    // InternalCsvMan.g:611:6: (lv_colonne_6_0= ruleEString )
                     	    {
-                    	    // InternalCsvMan.g:549:6: (lv_colonne_6_0= ruleEString )
-                    	    // InternalCsvMan.g:550:7: lv_colonne_6_0= ruleEString
+                    	    // InternalCsvMan.g:611:6: (lv_colonne_6_0= ruleEString )
+                    	    // InternalCsvMan.g:612:7: lv_colonne_6_0= ruleEString
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getShowAccess().getColonneEStringParserRuleCall_3_2_1_0());
@@ -1340,7 +1494,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_7=(Token)match(input,18,FOLLOW_11); 
+                    otherlv_7=(Token)match(input,19,FOLLOW_11); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getShowAccess().getRightParenthesisKeyword_3_3());
                     			
@@ -1350,24 +1504,24 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:573:3: ( (lv_where_8_0= ruleWhere ) )?
+            // InternalCsvMan.g:635:3: ( (lv_where_8_0= ruleWhere ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==28) ) {
+            if ( (LA6_0==29) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // InternalCsvMan.g:574:4: (lv_where_8_0= ruleWhere )
+                    // InternalCsvMan.g:636:4: (lv_where_8_0= ruleWhere )
                     {
-                    // InternalCsvMan.g:574:4: (lv_where_8_0= ruleWhere )
-                    // InternalCsvMan.g:575:5: lv_where_8_0= ruleWhere
+                    // InternalCsvMan.g:636:4: (lv_where_8_0= ruleWhere )
+                    // InternalCsvMan.g:637:5: lv_where_8_0= ruleWhere
                     {
 
                     					newCompositeNode(grammarAccess.getShowAccess().getWhereWhereParserRuleCall_4_0());
                     				
-                    pushFollow(FOLLOW_6);
+                    pushFollow(FOLLOW_5);
                     lv_where_8_0=ruleWhere();
 
                     state._fsp--;
@@ -1419,7 +1573,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUpdate"
-    // InternalCsvMan.g:600:1: entryRuleUpdate returns [EObject current=null] : iv_ruleUpdate= ruleUpdate EOF ;
+    // InternalCsvMan.g:662:1: entryRuleUpdate returns [EObject current=null] : iv_ruleUpdate= ruleUpdate EOF ;
     public final EObject entryRuleUpdate() throws RecognitionException {
         EObject current = null;
 
@@ -1427,8 +1581,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:600:47: (iv_ruleUpdate= ruleUpdate EOF )
-            // InternalCsvMan.g:601:2: iv_ruleUpdate= ruleUpdate EOF
+            // InternalCsvMan.g:662:47: (iv_ruleUpdate= ruleUpdate EOF )
+            // InternalCsvMan.g:663:2: iv_ruleUpdate= ruleUpdate EOF
             {
              newCompositeNode(grammarAccess.getUpdateRule()); 
             pushFollow(FOLLOW_1);
@@ -1455,7 +1609,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUpdate"
-    // InternalCsvMan.g:607:1: ruleUpdate returns [EObject current=null] : ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL ) ;
+    // InternalCsvMan.g:669:1: ruleUpdate returns [EObject current=null] : ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL ) ;
     public final EObject ruleUpdate() throws RecognitionException {
         EObject current = null;
 
@@ -1476,14 +1630,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:613:2: ( ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL ) )
-            // InternalCsvMan.g:614:2: ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL )
+            // InternalCsvMan.g:675:2: ( ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL ) )
+            // InternalCsvMan.g:676:2: ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL )
             {
-            // InternalCsvMan.g:614:2: ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL )
-            // InternalCsvMan.g:615:3: () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL
+            // InternalCsvMan.g:676:2: ( () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL )
+            // InternalCsvMan.g:677:3: () otherlv_1= 'update' ( (lv_table_2_0= ruleEString ) ) otherlv_3= 'set' ( (lv_parameter_4_0= ruleParameter ) ) (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )* ( (lv_where_7_0= ruleWhere ) )? this_NL_8= RULE_NL
             {
-            // InternalCsvMan.g:615:3: ()
-            // InternalCsvMan.g:616:4: 
+            // InternalCsvMan.g:677:3: ()
+            // InternalCsvMan.g:678:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1493,15 +1647,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,22,FOLLOW_4); 
+            otherlv_1=(Token)match(input,23,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getUpdateAccess().getUpdateKeyword_1());
             		
-            // InternalCsvMan.g:626:3: ( (lv_table_2_0= ruleEString ) )
-            // InternalCsvMan.g:627:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:688:3: ( (lv_table_2_0= ruleEString ) )
+            // InternalCsvMan.g:689:4: (lv_table_2_0= ruleEString )
             {
-            // InternalCsvMan.g:627:4: (lv_table_2_0= ruleEString )
-            // InternalCsvMan.g:628:5: lv_table_2_0= ruleEString
+            // InternalCsvMan.g:689:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:690:5: lv_table_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getUpdateAccess().getTableEStringParserRuleCall_2_0());
@@ -1528,15 +1682,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,23,FOLLOW_4); 
+            otherlv_3=(Token)match(input,24,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getUpdateAccess().getSetKeyword_3());
             		
-            // InternalCsvMan.g:649:3: ( (lv_parameter_4_0= ruleParameter ) )
-            // InternalCsvMan.g:650:4: (lv_parameter_4_0= ruleParameter )
+            // InternalCsvMan.g:711:3: ( (lv_parameter_4_0= ruleParameter ) )
+            // InternalCsvMan.g:712:4: (lv_parameter_4_0= ruleParameter )
             {
-            // InternalCsvMan.g:650:4: (lv_parameter_4_0= ruleParameter )
-            // InternalCsvMan.g:651:5: lv_parameter_4_0= ruleParameter
+            // InternalCsvMan.g:712:4: (lv_parameter_4_0= ruleParameter )
+            // InternalCsvMan.g:713:5: lv_parameter_4_0= ruleParameter
             {
 
             					newCompositeNode(grammarAccess.getUpdateAccess().getParameterParameterParserRuleCall_4_0());
@@ -1563,30 +1717,30 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:668:3: (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )*
+            // InternalCsvMan.g:730:3: (otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) ) )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==17) ) {
+                if ( (LA7_0==18) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalCsvMan.g:669:4: otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) )
+            	    // InternalCsvMan.g:731:4: otherlv_5= ',' ( (lv_parameter_6_0= ruleParameter ) )
             	    {
-            	    otherlv_5=(Token)match(input,17,FOLLOW_4); 
+            	    otherlv_5=(Token)match(input,18,FOLLOW_4); 
 
             	    				newLeafNode(otherlv_5, grammarAccess.getUpdateAccess().getCommaKeyword_5_0());
             	    			
-            	    // InternalCsvMan.g:673:4: ( (lv_parameter_6_0= ruleParameter ) )
-            	    // InternalCsvMan.g:674:5: (lv_parameter_6_0= ruleParameter )
+            	    // InternalCsvMan.g:735:4: ( (lv_parameter_6_0= ruleParameter ) )
+            	    // InternalCsvMan.g:736:5: (lv_parameter_6_0= ruleParameter )
             	    {
-            	    // InternalCsvMan.g:674:5: (lv_parameter_6_0= ruleParameter )
-            	    // InternalCsvMan.g:675:6: lv_parameter_6_0= ruleParameter
+            	    // InternalCsvMan.g:736:5: (lv_parameter_6_0= ruleParameter )
+            	    // InternalCsvMan.g:737:6: lv_parameter_6_0= ruleParameter
             	    {
 
             	    						newCompositeNode(grammarAccess.getUpdateAccess().getParameterParameterParserRuleCall_5_1_0());
@@ -1622,24 +1776,24 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalCsvMan.g:693:3: ( (lv_where_7_0= ruleWhere ) )?
+            // InternalCsvMan.g:755:3: ( (lv_where_7_0= ruleWhere ) )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==28) ) {
+            if ( (LA8_0==29) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalCsvMan.g:694:4: (lv_where_7_0= ruleWhere )
+                    // InternalCsvMan.g:756:4: (lv_where_7_0= ruleWhere )
                     {
-                    // InternalCsvMan.g:694:4: (lv_where_7_0= ruleWhere )
-                    // InternalCsvMan.g:695:5: lv_where_7_0= ruleWhere
+                    // InternalCsvMan.g:756:4: (lv_where_7_0= ruleWhere )
+                    // InternalCsvMan.g:757:5: lv_where_7_0= ruleWhere
                     {
 
                     					newCompositeNode(grammarAccess.getUpdateAccess().getWhereWhereParserRuleCall_6_0());
                     				
-                    pushFollow(FOLLOW_6);
+                    pushFollow(FOLLOW_5);
                     lv_where_7_0=ruleWhere();
 
                     state._fsp--;
@@ -1691,7 +1845,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAdd"
-    // InternalCsvMan.g:720:1: entryRuleAdd returns [EObject current=null] : iv_ruleAdd= ruleAdd EOF ;
+    // InternalCsvMan.g:782:1: entryRuleAdd returns [EObject current=null] : iv_ruleAdd= ruleAdd EOF ;
     public final EObject entryRuleAdd() throws RecognitionException {
         EObject current = null;
 
@@ -1699,8 +1853,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:720:44: (iv_ruleAdd= ruleAdd EOF )
-            // InternalCsvMan.g:721:2: iv_ruleAdd= ruleAdd EOF
+            // InternalCsvMan.g:782:44: (iv_ruleAdd= ruleAdd EOF )
+            // InternalCsvMan.g:783:2: iv_ruleAdd= ruleAdd EOF
             {
              newCompositeNode(grammarAccess.getAddRule()); 
             pushFollow(FOLLOW_1);
@@ -1727,7 +1881,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAdd"
-    // InternalCsvMan.g:727:1: ruleAdd returns [EObject current=null] : ( () otherlv_1= 'add' otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' otherlv_7= 'in' ( (lv_table_8_0= ruleEString ) ) this_NL_9= RULE_NL ) ;
+    // InternalCsvMan.g:789:1: ruleAdd returns [EObject current=null] : ( () otherlv_1= 'add' ( (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' ) | (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' ) ) otherlv_12= 'in' ( (lv_table_13_0= ruleEString ) ) this_NL_14= RULE_NL ) ;
     public final EObject ruleAdd() throws RecognitionException {
         EObject current = null;
 
@@ -1736,26 +1890,33 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
-        Token this_NL_9=null;
+        Token otherlv_9=null;
+        Token otherlv_11=null;
+        Token otherlv_12=null;
+        Token this_NL_14=null;
         AntlrDatatypeRuleToken lv_valeur_3_0 = null;
 
         AntlrDatatypeRuleToken lv_valeur_5_0 = null;
 
-        AntlrDatatypeRuleToken lv_table_8_0 = null;
+        EObject lv_parameter_8_0 = null;
+
+        EObject lv_parameter_10_0 = null;
+
+        AntlrDatatypeRuleToken lv_table_13_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalCsvMan.g:733:2: ( ( () otherlv_1= 'add' otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' otherlv_7= 'in' ( (lv_table_8_0= ruleEString ) ) this_NL_9= RULE_NL ) )
-            // InternalCsvMan.g:734:2: ( () otherlv_1= 'add' otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' otherlv_7= 'in' ( (lv_table_8_0= ruleEString ) ) this_NL_9= RULE_NL )
+            // InternalCsvMan.g:795:2: ( ( () otherlv_1= 'add' ( (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' ) | (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' ) ) otherlv_12= 'in' ( (lv_table_13_0= ruleEString ) ) this_NL_14= RULE_NL ) )
+            // InternalCsvMan.g:796:2: ( () otherlv_1= 'add' ( (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' ) | (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' ) ) otherlv_12= 'in' ( (lv_table_13_0= ruleEString ) ) this_NL_14= RULE_NL )
             {
-            // InternalCsvMan.g:734:2: ( () otherlv_1= 'add' otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' otherlv_7= 'in' ( (lv_table_8_0= ruleEString ) ) this_NL_9= RULE_NL )
-            // InternalCsvMan.g:735:3: () otherlv_1= 'add' otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' otherlv_7= 'in' ( (lv_table_8_0= ruleEString ) ) this_NL_9= RULE_NL
+            // InternalCsvMan.g:796:2: ( () otherlv_1= 'add' ( (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' ) | (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' ) ) otherlv_12= 'in' ( (lv_table_13_0= ruleEString ) ) this_NL_14= RULE_NL )
+            // InternalCsvMan.g:797:3: () otherlv_1= 'add' ( (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' ) | (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' ) ) otherlv_12= 'in' ( (lv_table_13_0= ruleEString ) ) this_NL_14= RULE_NL
             {
-            // InternalCsvMan.g:735:3: ()
-            // InternalCsvMan.g:736:4: 
+            // InternalCsvMan.g:797:3: ()
+            // InternalCsvMan.g:798:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1765,123 +1926,323 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FOLLOW_7); 
+            otherlv_1=(Token)match(input,25,FOLLOW_7); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAddAccess().getAddKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_4); 
+            // InternalCsvMan.g:808:3: ( (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' ) | (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' ) )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            			newLeafNode(otherlv_2, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2());
-            		
-            // InternalCsvMan.g:750:3: ( (lv_valeur_3_0= ruleEString ) )
-            // InternalCsvMan.g:751:4: (lv_valeur_3_0= ruleEString )
-            {
-            // InternalCsvMan.g:751:4: (lv_valeur_3_0= ruleEString )
-            // InternalCsvMan.g:752:5: lv_valeur_3_0= ruleEString
-            {
+            if ( (LA11_0==17) ) {
+                switch ( input.LA(2) ) {
+                case RULE_STRING:
+                    {
+                    int LA11_2 = input.LA(3);
 
-            					newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_3_0());
-            				
-            pushFollow(FOLLOW_8);
-            lv_valeur_3_0=ruleEString();
+                    if ( ((LA11_2>=18 && LA11_2<=19)) ) {
+                        alt11=1;
+                    }
+                    else if ( (LA11_2==30) ) {
+                        alt11=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 11, 2, input);
 
-            state._fsp--;
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    int LA11_3 = input.LA(3);
+
+                    if ( ((LA11_3>=18 && LA11_3<=19)) ) {
+                        alt11=1;
+                    }
+                    else if ( (LA11_3==30) ) {
+                        alt11=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 11, 3, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case RULE_INT:
+                    {
+                    int LA11_4 = input.LA(3);
+
+                    if ( ((LA11_4>=18 && LA11_4<=19)) ) {
+                        alt11=1;
+                    }
+                    else if ( (LA11_4==30) ) {
+                        alt11=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 11, 4, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                default:
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 11, 1, input);
+
+                    throw nvae;
+                }
+
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 11, 0, input);
+
+                throw nvae;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalCsvMan.g:809:4: (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' )
+                    {
+                    // InternalCsvMan.g:809:4: (otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')' )
+                    // InternalCsvMan.g:810:5: otherlv_2= '(' ( (lv_valeur_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )* otherlv_6= ')'
+                    {
+                    otherlv_2=(Token)match(input,17,FOLLOW_4); 
+
+                    					newLeafNode(otherlv_2, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2_0_0());
+                    				
+                    // InternalCsvMan.g:814:5: ( (lv_valeur_3_0= ruleEString ) )
+                    // InternalCsvMan.g:815:6: (lv_valeur_3_0= ruleEString )
+                    {
+                    // InternalCsvMan.g:815:6: (lv_valeur_3_0= ruleEString )
+                    // InternalCsvMan.g:816:7: lv_valeur_3_0= ruleEString
+                    {
+
+                    							newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_2_0_1_0());
+                    						
+                    pushFollow(FOLLOW_8);
+                    lv_valeur_3_0=ruleEString();
+
+                    state._fsp--;
 
 
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getAddRule());
-            					}
-            					add(
-            						current,
-            						"valeur",
-            						lv_valeur_3_0,
-            						"org.xtext.example.csvmanl.CsvMan.EString");
-            					afterParserOrEnumRuleCall();
-            				
+                    							if (current==null) {
+                    								current = createModelElementForParent(grammarAccess.getAddRule());
+                    							}
+                    							add(
+                    								current,
+                    								"valeur",
+                    								lv_valeur_3_0,
+                    								"org.xtext.example.csvmanl.CsvMan.EString");
+                    							afterParserOrEnumRuleCall();
+                    						
+
+                    }
+
+
+                    }
+
+                    // InternalCsvMan.g:833:5: (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )*
+                    loop9:
+                    do {
+                        int alt9=2;
+                        int LA9_0 = input.LA(1);
+
+                        if ( (LA9_0==18) ) {
+                            alt9=1;
+                        }
+
+
+                        switch (alt9) {
+                    	case 1 :
+                    	    // InternalCsvMan.g:834:6: otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) )
+                    	    {
+                    	    otherlv_4=(Token)match(input,18,FOLLOW_4); 
+
+                    	    						newLeafNode(otherlv_4, grammarAccess.getAddAccess().getCommaKeyword_2_0_2_0());
+                    	    					
+                    	    // InternalCsvMan.g:838:6: ( (lv_valeur_5_0= ruleEString ) )
+                    	    // InternalCsvMan.g:839:7: (lv_valeur_5_0= ruleEString )
+                    	    {
+                    	    // InternalCsvMan.g:839:7: (lv_valeur_5_0= ruleEString )
+                    	    // InternalCsvMan.g:840:8: lv_valeur_5_0= ruleEString
+                    	    {
+
+                    	    								newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_2_0_2_1_0());
+                    	    							
+                    	    pushFollow(FOLLOW_8);
+                    	    lv_valeur_5_0=ruleEString();
+
+                    	    state._fsp--;
+
+
+                    	    								if (current==null) {
+                    	    									current = createModelElementForParent(grammarAccess.getAddRule());
+                    	    								}
+                    	    								add(
+                    	    									current,
+                    	    									"valeur",
+                    	    									lv_valeur_5_0,
+                    	    									"org.xtext.example.csvmanl.CsvMan.EString");
+                    	    								afterParserOrEnumRuleCall();
+                    	    							
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop9;
+                        }
+                    } while (true);
+
+                    otherlv_6=(Token)match(input,19,FOLLOW_6); 
+
+                    					newLeafNode(otherlv_6, grammarAccess.getAddAccess().getRightParenthesisKeyword_2_0_3());
+                    				
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalCsvMan.g:864:4: (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' )
+                    {
+                    // InternalCsvMan.g:864:4: (otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')' )
+                    // InternalCsvMan.g:865:5: otherlv_7= '(' ( (lv_parameter_8_0= ruleParameter ) ) (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )* otherlv_11= ')'
+                    {
+                    otherlv_7=(Token)match(input,17,FOLLOW_4); 
+
+                    					newLeafNode(otherlv_7, grammarAccess.getAddAccess().getLeftParenthesisKeyword_2_1_0());
+                    				
+                    // InternalCsvMan.g:869:5: ( (lv_parameter_8_0= ruleParameter ) )
+                    // InternalCsvMan.g:870:6: (lv_parameter_8_0= ruleParameter )
+                    {
+                    // InternalCsvMan.g:870:6: (lv_parameter_8_0= ruleParameter )
+                    // InternalCsvMan.g:871:7: lv_parameter_8_0= ruleParameter
+                    {
+
+                    							newCompositeNode(grammarAccess.getAddAccess().getParameterParameterParserRuleCall_2_1_1_0());
+                    						
+                    pushFollow(FOLLOW_8);
+                    lv_parameter_8_0=ruleParameter();
+
+                    state._fsp--;
+
+
+                    							if (current==null) {
+                    								current = createModelElementForParent(grammarAccess.getAddRule());
+                    							}
+                    							add(
+                    								current,
+                    								"parameter",
+                    								lv_parameter_8_0,
+                    								"org.xtext.example.csvmanl.CsvMan.Parameter");
+                    							afterParserOrEnumRuleCall();
+                    						
+
+                    }
+
+
+                    }
+
+                    // InternalCsvMan.g:888:5: (otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) ) )*
+                    loop10:
+                    do {
+                        int alt10=2;
+                        int LA10_0 = input.LA(1);
+
+                        if ( (LA10_0==18) ) {
+                            alt10=1;
+                        }
+
+
+                        switch (alt10) {
+                    	case 1 :
+                    	    // InternalCsvMan.g:889:6: otherlv_9= ',' ( (lv_parameter_10_0= ruleParameter ) )
+                    	    {
+                    	    otherlv_9=(Token)match(input,18,FOLLOW_4); 
+
+                    	    						newLeafNode(otherlv_9, grammarAccess.getAddAccess().getCommaKeyword_2_1_2_0());
+                    	    					
+                    	    // InternalCsvMan.g:893:6: ( (lv_parameter_10_0= ruleParameter ) )
+                    	    // InternalCsvMan.g:894:7: (lv_parameter_10_0= ruleParameter )
+                    	    {
+                    	    // InternalCsvMan.g:894:7: (lv_parameter_10_0= ruleParameter )
+                    	    // InternalCsvMan.g:895:8: lv_parameter_10_0= ruleParameter
+                    	    {
+
+                    	    								newCompositeNode(grammarAccess.getAddAccess().getParameterParameterParserRuleCall_2_1_2_1_0());
+                    	    							
+                    	    pushFollow(FOLLOW_8);
+                    	    lv_parameter_10_0=ruleParameter();
+
+                    	    state._fsp--;
+
+
+                    	    								if (current==null) {
+                    	    									current = createModelElementForParent(grammarAccess.getAddRule());
+                    	    								}
+                    	    								add(
+                    	    									current,
+                    	    									"parameter",
+                    	    									lv_parameter_10_0,
+                    	    									"org.xtext.example.csvmanl.CsvMan.Parameter");
+                    	    								afterParserOrEnumRuleCall();
+                    	    							
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop10;
+                        }
+                    } while (true);
+
+                    otherlv_11=(Token)match(input,19,FOLLOW_6); 
+
+                    					newLeafNode(otherlv_11, grammarAccess.getAddAccess().getRightParenthesisKeyword_2_1_3());
+                    				
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
+            otherlv_12=(Token)match(input,15,FOLLOW_4); 
 
-            }
-
-            // InternalCsvMan.g:769:3: (otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) ) )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0==17) ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // InternalCsvMan.g:770:4: otherlv_4= ',' ( (lv_valeur_5_0= ruleEString ) )
-            	    {
-            	    otherlv_4=(Token)match(input,17,FOLLOW_4); 
-
-            	    				newLeafNode(otherlv_4, grammarAccess.getAddAccess().getCommaKeyword_4_0());
-            	    			
-            	    // InternalCsvMan.g:774:4: ( (lv_valeur_5_0= ruleEString ) )
-            	    // InternalCsvMan.g:775:5: (lv_valeur_5_0= ruleEString )
-            	    {
-            	    // InternalCsvMan.g:775:5: (lv_valeur_5_0= ruleEString )
-            	    // InternalCsvMan.g:776:6: lv_valeur_5_0= ruleEString
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getAddAccess().getValeurEStringParserRuleCall_4_1_0());
-            	    					
-            	    pushFollow(FOLLOW_8);
-            	    lv_valeur_5_0=ruleEString();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getAddRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"valeur",
-            	    							lv_valeur_5_0,
-            	    							"org.xtext.example.csvmanl.CsvMan.EString");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-            otherlv_6=(Token)match(input,18,FOLLOW_5); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getAddAccess().getRightParenthesisKeyword_5());
+            			newLeafNode(otherlv_12, grammarAccess.getAddAccess().getInKeyword_3());
             		
-            otherlv_7=(Token)match(input,14,FOLLOW_4); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getAddAccess().getInKeyword_6());
-            		
-            // InternalCsvMan.g:802:3: ( (lv_table_8_0= ruleEString ) )
-            // InternalCsvMan.g:803:4: (lv_table_8_0= ruleEString )
+            // InternalCsvMan.g:923:3: ( (lv_table_13_0= ruleEString ) )
+            // InternalCsvMan.g:924:4: (lv_table_13_0= ruleEString )
             {
-            // InternalCsvMan.g:803:4: (lv_table_8_0= ruleEString )
-            // InternalCsvMan.g:804:5: lv_table_8_0= ruleEString
+            // InternalCsvMan.g:924:4: (lv_table_13_0= ruleEString )
+            // InternalCsvMan.g:925:5: lv_table_13_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getAddAccess().getTableEStringParserRuleCall_7_0());
+            					newCompositeNode(grammarAccess.getAddAccess().getTableEStringParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_6);
-            lv_table_8_0=ruleEString();
+            pushFollow(FOLLOW_5);
+            lv_table_13_0=ruleEString();
 
             state._fsp--;
 
@@ -1892,7 +2253,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"table",
-            						lv_table_8_0,
+            						lv_table_13_0,
             						"org.xtext.example.csvmanl.CsvMan.EString");
             					afterParserOrEnumRuleCall();
             				
@@ -1902,9 +2263,9 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_NL_9=(Token)match(input,RULE_NL,FOLLOW_2); 
+            this_NL_14=(Token)match(input,RULE_NL,FOLLOW_2); 
 
-            			newLeafNode(this_NL_9, grammarAccess.getAddAccess().getNLTerminalRuleCall_8());
+            			newLeafNode(this_NL_14, grammarAccess.getAddAccess().getNLTerminalRuleCall_5());
             		
 
             }
@@ -1929,7 +2290,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJoin"
-    // InternalCsvMan.g:829:1: entryRuleJoin returns [EObject current=null] : iv_ruleJoin= ruleJoin EOF ;
+    // InternalCsvMan.g:950:1: entryRuleJoin returns [EObject current=null] : iv_ruleJoin= ruleJoin EOF ;
     public final EObject entryRuleJoin() throws RecognitionException {
         EObject current = null;
 
@@ -1937,8 +2298,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:829:45: (iv_ruleJoin= ruleJoin EOF )
-            // InternalCsvMan.g:830:2: iv_ruleJoin= ruleJoin EOF
+            // InternalCsvMan.g:950:45: (iv_ruleJoin= ruleJoin EOF )
+            // InternalCsvMan.g:951:2: iv_ruleJoin= ruleJoin EOF
             {
              newCompositeNode(grammarAccess.getJoinRule()); 
             pushFollow(FOLLOW_1);
@@ -1965,7 +2326,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJoin"
-    // InternalCsvMan.g:836:1: ruleJoin returns [EObject current=null] : ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL ) ;
+    // InternalCsvMan.g:957:1: ruleJoin returns [EObject current=null] : ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL ) ;
     public final EObject ruleJoin() throws RecognitionException {
         EObject current = null;
 
@@ -1983,14 +2344,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:842:2: ( ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL ) )
-            // InternalCsvMan.g:843:2: ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL )
+            // InternalCsvMan.g:963:2: ( ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL ) )
+            // InternalCsvMan.g:964:2: ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL )
             {
-            // InternalCsvMan.g:843:2: ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL )
-            // InternalCsvMan.g:844:3: () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL
+            // InternalCsvMan.g:964:2: ( () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL )
+            // InternalCsvMan.g:965:3: () otherlv_1= 'join' ( (lv_table1_2_0= ruleEString ) ) ( (lv_table2_3_0= ruleEString ) ) otherlv_4= 'in' ( (lv_table3_5_0= ruleEString ) ) this_NL_6= RULE_NL
             {
-            // InternalCsvMan.g:844:3: ()
-            // InternalCsvMan.g:845:4: 
+            // InternalCsvMan.g:965:3: ()
+            // InternalCsvMan.g:966:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2000,15 +2361,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,25,FOLLOW_4); 
+            otherlv_1=(Token)match(input,26,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getJoinAccess().getJoinKeyword_1());
             		
-            // InternalCsvMan.g:855:3: ( (lv_table1_2_0= ruleEString ) )
-            // InternalCsvMan.g:856:4: (lv_table1_2_0= ruleEString )
+            // InternalCsvMan.g:976:3: ( (lv_table1_2_0= ruleEString ) )
+            // InternalCsvMan.g:977:4: (lv_table1_2_0= ruleEString )
             {
-            // InternalCsvMan.g:856:4: (lv_table1_2_0= ruleEString )
-            // InternalCsvMan.g:857:5: lv_table1_2_0= ruleEString
+            // InternalCsvMan.g:977:4: (lv_table1_2_0= ruleEString )
+            // InternalCsvMan.g:978:5: lv_table1_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getJoinAccess().getTable1EStringParserRuleCall_2_0());
@@ -2035,16 +2396,16 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:874:3: ( (lv_table2_3_0= ruleEString ) )
-            // InternalCsvMan.g:875:4: (lv_table2_3_0= ruleEString )
+            // InternalCsvMan.g:995:3: ( (lv_table2_3_0= ruleEString ) )
+            // InternalCsvMan.g:996:4: (lv_table2_3_0= ruleEString )
             {
-            // InternalCsvMan.g:875:4: (lv_table2_3_0= ruleEString )
-            // InternalCsvMan.g:876:5: lv_table2_3_0= ruleEString
+            // InternalCsvMan.g:996:4: (lv_table2_3_0= ruleEString )
+            // InternalCsvMan.g:997:5: lv_table2_3_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getJoinAccess().getTable2EStringParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             lv_table2_3_0=ruleEString();
 
             state._fsp--;
@@ -2066,20 +2427,20 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,14,FOLLOW_4); 
+            otherlv_4=(Token)match(input,15,FOLLOW_4); 
 
             			newLeafNode(otherlv_4, grammarAccess.getJoinAccess().getInKeyword_4());
             		
-            // InternalCsvMan.g:897:3: ( (lv_table3_5_0= ruleEString ) )
-            // InternalCsvMan.g:898:4: (lv_table3_5_0= ruleEString )
+            // InternalCsvMan.g:1018:3: ( (lv_table3_5_0= ruleEString ) )
+            // InternalCsvMan.g:1019:4: (lv_table3_5_0= ruleEString )
             {
-            // InternalCsvMan.g:898:4: (lv_table3_5_0= ruleEString )
-            // InternalCsvMan.g:899:5: lv_table3_5_0= ruleEString
+            // InternalCsvMan.g:1019:4: (lv_table3_5_0= ruleEString )
+            // InternalCsvMan.g:1020:5: lv_table3_5_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getJoinAccess().getTable3EStringParserRuleCall_5_0());
             				
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_5);
             lv_table3_5_0=ruleEString();
 
             state._fsp--;
@@ -2128,7 +2489,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDelete"
-    // InternalCsvMan.g:924:1: entryRuleDelete returns [EObject current=null] : iv_ruleDelete= ruleDelete EOF ;
+    // InternalCsvMan.g:1045:1: entryRuleDelete returns [EObject current=null] : iv_ruleDelete= ruleDelete EOF ;
     public final EObject entryRuleDelete() throws RecognitionException {
         EObject current = null;
 
@@ -2136,8 +2497,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:924:47: (iv_ruleDelete= ruleDelete EOF )
-            // InternalCsvMan.g:925:2: iv_ruleDelete= ruleDelete EOF
+            // InternalCsvMan.g:1045:47: (iv_ruleDelete= ruleDelete EOF )
+            // InternalCsvMan.g:1046:2: iv_ruleDelete= ruleDelete EOF
             {
              newCompositeNode(grammarAccess.getDeleteRule()); 
             pushFollow(FOLLOW_1);
@@ -2164,7 +2525,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDelete"
-    // InternalCsvMan.g:931:1: ruleDelete returns [EObject current=null] : ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL ) ;
+    // InternalCsvMan.g:1052:1: ruleDelete returns [EObject current=null] : ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL ) ;
     public final EObject ruleDelete() throws RecognitionException {
         EObject current = null;
 
@@ -2179,14 +2540,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:937:2: ( ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL ) )
-            // InternalCsvMan.g:938:2: ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL )
+            // InternalCsvMan.g:1058:2: ( ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL ) )
+            // InternalCsvMan.g:1059:2: ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL )
             {
-            // InternalCsvMan.g:938:2: ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL )
-            // InternalCsvMan.g:939:3: () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL
+            // InternalCsvMan.g:1059:2: ( () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL )
+            // InternalCsvMan.g:1060:3: () otherlv_1= 'delete' ( (lv_table_2_0= ruleEString ) ) ( (lv_where_3_0= ruleWhere ) )? this_NL_4= RULE_NL
             {
-            // InternalCsvMan.g:939:3: ()
-            // InternalCsvMan.g:940:4: 
+            // InternalCsvMan.g:1060:3: ()
+            // InternalCsvMan.g:1061:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2196,15 +2557,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,26,FOLLOW_4); 
+            otherlv_1=(Token)match(input,27,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDeleteAccess().getDeleteKeyword_1());
             		
-            // InternalCsvMan.g:950:3: ( (lv_table_2_0= ruleEString ) )
-            // InternalCsvMan.g:951:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:1071:3: ( (lv_table_2_0= ruleEString ) )
+            // InternalCsvMan.g:1072:4: (lv_table_2_0= ruleEString )
             {
-            // InternalCsvMan.g:951:4: (lv_table_2_0= ruleEString )
-            // InternalCsvMan.g:952:5: lv_table_2_0= ruleEString
+            // InternalCsvMan.g:1072:4: (lv_table_2_0= ruleEString )
+            // InternalCsvMan.g:1073:5: lv_table_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getDeleteAccess().getTableEStringParserRuleCall_2_0());
@@ -2231,24 +2592,24 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:969:3: ( (lv_where_3_0= ruleWhere ) )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalCsvMan.g:1090:3: ( (lv_where_3_0= ruleWhere ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA10_0==28) ) {
-                alt10=1;
+            if ( (LA12_0==29) ) {
+                alt12=1;
             }
-            switch (alt10) {
+            switch (alt12) {
                 case 1 :
-                    // InternalCsvMan.g:970:4: (lv_where_3_0= ruleWhere )
+                    // InternalCsvMan.g:1091:4: (lv_where_3_0= ruleWhere )
                     {
-                    // InternalCsvMan.g:970:4: (lv_where_3_0= ruleWhere )
-                    // InternalCsvMan.g:971:5: lv_where_3_0= ruleWhere
+                    // InternalCsvMan.g:1091:4: (lv_where_3_0= ruleWhere )
+                    // InternalCsvMan.g:1092:5: lv_where_3_0= ruleWhere
                     {
 
                     					newCompositeNode(grammarAccess.getDeleteAccess().getWhereWhereParserRuleCall_3_0());
                     				
-                    pushFollow(FOLLOW_6);
+                    pushFollow(FOLLOW_5);
                     lv_where_3_0=ruleWhere();
 
                     state._fsp--;
@@ -2300,7 +2661,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExit"
-    // InternalCsvMan.g:996:1: entryRuleExit returns [EObject current=null] : iv_ruleExit= ruleExit EOF ;
+    // InternalCsvMan.g:1117:1: entryRuleExit returns [EObject current=null] : iv_ruleExit= ruleExit EOF ;
     public final EObject entryRuleExit() throws RecognitionException {
         EObject current = null;
 
@@ -2308,8 +2669,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:996:45: (iv_ruleExit= ruleExit EOF )
-            // InternalCsvMan.g:997:2: iv_ruleExit= ruleExit EOF
+            // InternalCsvMan.g:1117:45: (iv_ruleExit= ruleExit EOF )
+            // InternalCsvMan.g:1118:2: iv_ruleExit= ruleExit EOF
             {
              newCompositeNode(grammarAccess.getExitRule()); 
             pushFollow(FOLLOW_1);
@@ -2336,7 +2697,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExit"
-    // InternalCsvMan.g:1003:1: ruleExit returns [EObject current=null] : ( () otherlv_1= 'exit' ) ;
+    // InternalCsvMan.g:1124:1: ruleExit returns [EObject current=null] : ( () otherlv_1= 'exit' ) ;
     public final EObject ruleExit() throws RecognitionException {
         EObject current = null;
 
@@ -2346,14 +2707,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1009:2: ( ( () otherlv_1= 'exit' ) )
-            // InternalCsvMan.g:1010:2: ( () otherlv_1= 'exit' )
+            // InternalCsvMan.g:1130:2: ( ( () otherlv_1= 'exit' ) )
+            // InternalCsvMan.g:1131:2: ( () otherlv_1= 'exit' )
             {
-            // InternalCsvMan.g:1010:2: ( () otherlv_1= 'exit' )
-            // InternalCsvMan.g:1011:3: () otherlv_1= 'exit'
+            // InternalCsvMan.g:1131:2: ( () otherlv_1= 'exit' )
+            // InternalCsvMan.g:1132:3: () otherlv_1= 'exit'
             {
-            // InternalCsvMan.g:1011:3: ()
-            // InternalCsvMan.g:1012:4: 
+            // InternalCsvMan.g:1132:3: ()
+            // InternalCsvMan.g:1133:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2363,7 +2724,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,27,FOLLOW_2); 
+            otherlv_1=(Token)match(input,28,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getExitAccess().getExitKeyword_1());
             		
@@ -2390,7 +2751,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWhere"
-    // InternalCsvMan.g:1026:1: entryRuleWhere returns [EObject current=null] : iv_ruleWhere= ruleWhere EOF ;
+    // InternalCsvMan.g:1147:1: entryRuleWhere returns [EObject current=null] : iv_ruleWhere= ruleWhere EOF ;
     public final EObject entryRuleWhere() throws RecognitionException {
         EObject current = null;
 
@@ -2398,8 +2759,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:1026:46: (iv_ruleWhere= ruleWhere EOF )
-            // InternalCsvMan.g:1027:2: iv_ruleWhere= ruleWhere EOF
+            // InternalCsvMan.g:1147:46: (iv_ruleWhere= ruleWhere EOF )
+            // InternalCsvMan.g:1148:2: iv_ruleWhere= ruleWhere EOF
             {
              newCompositeNode(grammarAccess.getWhereRule()); 
             pushFollow(FOLLOW_1);
@@ -2426,7 +2787,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhere"
-    // InternalCsvMan.g:1033:1: ruleWhere returns [EObject current=null] : ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* ) ;
+    // InternalCsvMan.g:1154:1: ruleWhere returns [EObject current=null] : ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* ) ;
     public final EObject ruleWhere() throws RecognitionException {
         EObject current = null;
 
@@ -2441,14 +2802,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1039:2: ( ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* ) )
-            // InternalCsvMan.g:1040:2: ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* )
+            // InternalCsvMan.g:1160:2: ( ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* ) )
+            // InternalCsvMan.g:1161:2: ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* )
             {
-            // InternalCsvMan.g:1040:2: ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* )
-            // InternalCsvMan.g:1041:3: () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )*
+            // InternalCsvMan.g:1161:2: ( () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )* )
+            // InternalCsvMan.g:1162:3: () otherlv_1= 'where' ( (lv_condition_2_0= ruleCondition ) ) (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )*
             {
-            // InternalCsvMan.g:1041:3: ()
-            // InternalCsvMan.g:1042:4: 
+            // InternalCsvMan.g:1162:3: ()
+            // InternalCsvMan.g:1163:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2458,15 +2819,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,28,FOLLOW_4); 
+            otherlv_1=(Token)match(input,29,FOLLOW_4); 
 
             			newLeafNode(otherlv_1, grammarAccess.getWhereAccess().getWhereKeyword_1());
             		
-            // InternalCsvMan.g:1052:3: ( (lv_condition_2_0= ruleCondition ) )
-            // InternalCsvMan.g:1053:4: (lv_condition_2_0= ruleCondition )
+            // InternalCsvMan.g:1173:3: ( (lv_condition_2_0= ruleCondition ) )
+            // InternalCsvMan.g:1174:4: (lv_condition_2_0= ruleCondition )
             {
-            // InternalCsvMan.g:1053:4: (lv_condition_2_0= ruleCondition )
-            // InternalCsvMan.g:1054:5: lv_condition_2_0= ruleCondition
+            // InternalCsvMan.g:1174:4: (lv_condition_2_0= ruleCondition )
+            // InternalCsvMan.g:1175:5: lv_condition_2_0= ruleCondition
             {
 
             					newCompositeNode(grammarAccess.getWhereAccess().getConditionConditionParserRuleCall_2_0());
@@ -2493,30 +2854,30 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:1071:3: (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )*
-            loop11:
+            // InternalCsvMan.g:1192:3: (otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) ) )*
+            loop13:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA11_0==17) ) {
-                    alt11=1;
+                if ( (LA13_0==18) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalCsvMan.g:1072:4: otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) )
+            	    // InternalCsvMan.g:1193:4: otherlv_3= ',' ( (lv_condition_4_0= ruleCondition ) )
             	    {
-            	    otherlv_3=(Token)match(input,17,FOLLOW_4); 
+            	    otherlv_3=(Token)match(input,18,FOLLOW_4); 
 
             	    				newLeafNode(otherlv_3, grammarAccess.getWhereAccess().getCommaKeyword_3_0());
             	    			
-            	    // InternalCsvMan.g:1076:4: ( (lv_condition_4_0= ruleCondition ) )
-            	    // InternalCsvMan.g:1077:5: (lv_condition_4_0= ruleCondition )
+            	    // InternalCsvMan.g:1197:4: ( (lv_condition_4_0= ruleCondition ) )
+            	    // InternalCsvMan.g:1198:5: (lv_condition_4_0= ruleCondition )
             	    {
-            	    // InternalCsvMan.g:1077:5: (lv_condition_4_0= ruleCondition )
-            	    // InternalCsvMan.g:1078:6: lv_condition_4_0= ruleCondition
+            	    // InternalCsvMan.g:1198:5: (lv_condition_4_0= ruleCondition )
+            	    // InternalCsvMan.g:1199:6: lv_condition_4_0= ruleCondition
             	    {
 
             	    						newCompositeNode(grammarAccess.getWhereAccess().getConditionConditionParserRuleCall_3_1_0());
@@ -2548,7 +2909,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop13;
                 }
             } while (true);
 
@@ -2575,7 +2936,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalCsvMan.g:1100:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalCsvMan.g:1221:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2583,8 +2944,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:1100:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalCsvMan.g:1101:2: iv_ruleCondition= ruleCondition EOF
+            // InternalCsvMan.g:1221:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalCsvMan.g:1222:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -2611,7 +2972,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalCsvMan.g:1107:1: ruleCondition returns [EObject current=null] : ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) ) ;
+    // InternalCsvMan.g:1228:1: ruleCondition returns [EObject current=null] : ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -2626,14 +2987,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1113:2: ( ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) ) )
-            // InternalCsvMan.g:1114:2: ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) )
+            // InternalCsvMan.g:1234:2: ( ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) ) )
+            // InternalCsvMan.g:1235:2: ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) )
             {
-            // InternalCsvMan.g:1114:2: ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) )
-            // InternalCsvMan.g:1115:3: () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) )
+            // InternalCsvMan.g:1235:2: ( () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) ) )
+            // InternalCsvMan.g:1236:3: () ( (lv_atribut_1_0= ruleEString ) ) (otherlv_2= '=' | this_OP_3= RULE_OP ) ( (lv_valeur_4_0= ruleEString ) )
             {
-            // InternalCsvMan.g:1115:3: ()
-            // InternalCsvMan.g:1116:4: 
+            // InternalCsvMan.g:1236:3: ()
+            // InternalCsvMan.g:1237:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2643,11 +3004,11 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:1122:3: ( (lv_atribut_1_0= ruleEString ) )
-            // InternalCsvMan.g:1123:4: (lv_atribut_1_0= ruleEString )
+            // InternalCsvMan.g:1243:3: ( (lv_atribut_1_0= ruleEString ) )
+            // InternalCsvMan.g:1244:4: (lv_atribut_1_0= ruleEString )
             {
-            // InternalCsvMan.g:1123:4: (lv_atribut_1_0= ruleEString )
-            // InternalCsvMan.g:1124:5: lv_atribut_1_0= ruleEString
+            // InternalCsvMan.g:1244:4: (lv_atribut_1_0= ruleEString )
+            // InternalCsvMan.g:1245:5: lv_atribut_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getConditionAccess().getAtributEStringParserRuleCall_1_0());
@@ -2674,27 +3035,27 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:1141:3: (otherlv_2= '=' | this_OP_3= RULE_OP )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalCsvMan.g:1262:3: (otherlv_2= '=' | this_OP_3= RULE_OP )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA12_0==29) ) {
-                alt12=1;
+            if ( (LA14_0==30) ) {
+                alt14=1;
             }
-            else if ( (LA12_0==RULE_OP) ) {
-                alt12=2;
+            else if ( (LA14_0==RULE_OP) ) {
+                alt14=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt14) {
                 case 1 :
-                    // InternalCsvMan.g:1142:4: otherlv_2= '='
+                    // InternalCsvMan.g:1263:4: otherlv_2= '='
                     {
-                    otherlv_2=(Token)match(input,29,FOLLOW_4); 
+                    otherlv_2=(Token)match(input,30,FOLLOW_4); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getEqualsSignKeyword_2_0());
                     			
@@ -2702,7 +3063,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1147:4: this_OP_3= RULE_OP
+                    // InternalCsvMan.g:1268:4: this_OP_3= RULE_OP
                     {
                     this_OP_3=(Token)match(input,RULE_OP,FOLLOW_4); 
 
@@ -2714,11 +3075,11 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:1152:3: ( (lv_valeur_4_0= ruleEString ) )
-            // InternalCsvMan.g:1153:4: (lv_valeur_4_0= ruleEString )
+            // InternalCsvMan.g:1273:3: ( (lv_valeur_4_0= ruleEString ) )
+            // InternalCsvMan.g:1274:4: (lv_valeur_4_0= ruleEString )
             {
-            // InternalCsvMan.g:1153:4: (lv_valeur_4_0= ruleEString )
-            // InternalCsvMan.g:1154:5: lv_valeur_4_0= ruleEString
+            // InternalCsvMan.g:1274:4: (lv_valeur_4_0= ruleEString )
+            // InternalCsvMan.g:1275:5: lv_valeur_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getConditionAccess().getValeurEStringParserRuleCall_3_0());
@@ -2768,7 +3129,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParameter"
-    // InternalCsvMan.g:1175:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // InternalCsvMan.g:1296:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final EObject entryRuleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -2776,8 +3137,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:1175:50: (iv_ruleParameter= ruleParameter EOF )
-            // InternalCsvMan.g:1176:2: iv_ruleParameter= ruleParameter EOF
+            // InternalCsvMan.g:1296:50: (iv_ruleParameter= ruleParameter EOF )
+            // InternalCsvMan.g:1297:2: iv_ruleParameter= ruleParameter EOF
             {
              newCompositeNode(grammarAccess.getParameterRule()); 
             pushFollow(FOLLOW_1);
@@ -2804,7 +3165,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParameter"
-    // InternalCsvMan.g:1182:1: ruleParameter returns [EObject current=null] : ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) ) ;
+    // InternalCsvMan.g:1303:1: ruleParameter returns [EObject current=null] : ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) ) ;
     public final EObject ruleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -2818,14 +3179,14 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1188:2: ( ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) ) )
-            // InternalCsvMan.g:1189:2: ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) )
+            // InternalCsvMan.g:1309:2: ( ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) ) )
+            // InternalCsvMan.g:1310:2: ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) )
             {
-            // InternalCsvMan.g:1189:2: ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) )
-            // InternalCsvMan.g:1190:3: () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) )
+            // InternalCsvMan.g:1310:2: ( () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) ) )
+            // InternalCsvMan.g:1311:3: () ( (lv_colonne_1_0= ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleEString ) )
             {
-            // InternalCsvMan.g:1190:3: ()
-            // InternalCsvMan.g:1191:4: 
+            // InternalCsvMan.g:1311:3: ()
+            // InternalCsvMan.g:1312:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2835,11 +3196,11 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCsvMan.g:1197:3: ( (lv_colonne_1_0= ruleEString ) )
-            // InternalCsvMan.g:1198:4: (lv_colonne_1_0= ruleEString )
+            // InternalCsvMan.g:1318:3: ( (lv_colonne_1_0= ruleEString ) )
+            // InternalCsvMan.g:1319:4: (lv_colonne_1_0= ruleEString )
             {
-            // InternalCsvMan.g:1198:4: (lv_colonne_1_0= ruleEString )
-            // InternalCsvMan.g:1199:5: lv_colonne_1_0= ruleEString
+            // InternalCsvMan.g:1319:4: (lv_colonne_1_0= ruleEString )
+            // InternalCsvMan.g:1320:5: lv_colonne_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getParameterAccess().getColonneEStringParserRuleCall_1_0());
@@ -2866,15 +3227,15 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,29,FOLLOW_4); 
+            otherlv_2=(Token)match(input,30,FOLLOW_4); 
 
             			newLeafNode(otherlv_2, grammarAccess.getParameterAccess().getEqualsSignKeyword_2());
             		
-            // InternalCsvMan.g:1220:3: ( (lv_value_3_0= ruleEString ) )
-            // InternalCsvMan.g:1221:4: (lv_value_3_0= ruleEString )
+            // InternalCsvMan.g:1341:3: ( (lv_value_3_0= ruleEString ) )
+            // InternalCsvMan.g:1342:4: (lv_value_3_0= ruleEString )
             {
-            // InternalCsvMan.g:1221:4: (lv_value_3_0= ruleEString )
-            // InternalCsvMan.g:1222:5: lv_value_3_0= ruleEString
+            // InternalCsvMan.g:1342:4: (lv_value_3_0= ruleEString )
+            // InternalCsvMan.g:1343:5: lv_value_3_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getParameterAccess().getValueEStringParserRuleCall_3_0());
@@ -2924,7 +3285,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComment"
-    // InternalCsvMan.g:1243:1: entryRuleComment returns [EObject current=null] : iv_ruleComment= ruleComment EOF ;
+    // InternalCsvMan.g:1364:1: entryRuleComment returns [EObject current=null] : iv_ruleComment= ruleComment EOF ;
     public final EObject entryRuleComment() throws RecognitionException {
         EObject current = null;
 
@@ -2932,8 +3293,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:1243:48: (iv_ruleComment= ruleComment EOF )
-            // InternalCsvMan.g:1244:2: iv_ruleComment= ruleComment EOF
+            // InternalCsvMan.g:1364:48: (iv_ruleComment= ruleComment EOF )
+            // InternalCsvMan.g:1365:2: iv_ruleComment= ruleComment EOF
             {
              newCompositeNode(grammarAccess.getCommentRule()); 
             pushFollow(FOLLOW_1);
@@ -2960,7 +3321,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComment"
-    // InternalCsvMan.g:1250:1: ruleComment returns [EObject current=null] : (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) ;
+    // InternalCsvMan.g:1371:1: ruleComment returns [EObject current=null] : (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) ;
     public final EObject ruleComment() throws RecognitionException {
         EObject current = null;
 
@@ -2971,28 +3332,28 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1256:2: ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) )
-            // InternalCsvMan.g:1257:2: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
+            // InternalCsvMan.g:1377:2: ( (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT ) )
+            // InternalCsvMan.g:1378:2: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
             {
-            // InternalCsvMan.g:1257:2: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalCsvMan.g:1378:2: (this_ML_COMMENT_0= RULE_ML_COMMENT | this_SL_COMMENT_1= RULE_SL_COMMENT )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_ML_COMMENT) ) {
-                alt13=1;
+            if ( (LA15_0==RULE_ML_COMMENT) ) {
+                alt15=1;
             }
-            else if ( (LA13_0==RULE_SL_COMMENT) ) {
-                alt13=2;
+            else if ( (LA15_0==RULE_SL_COMMENT) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt13) {
+            switch (alt15) {
                 case 1 :
-                    // InternalCsvMan.g:1258:3: this_ML_COMMENT_0= RULE_ML_COMMENT
+                    // InternalCsvMan.g:1379:3: this_ML_COMMENT_0= RULE_ML_COMMENT
                     {
                     this_ML_COMMENT_0=(Token)match(input,RULE_ML_COMMENT,FOLLOW_2); 
 
@@ -3002,7 +3363,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1263:3: this_SL_COMMENT_1= RULE_SL_COMMENT
+                    // InternalCsvMan.g:1384:3: this_SL_COMMENT_1= RULE_SL_COMMENT
                     {
                     this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_2); 
 
@@ -3034,7 +3395,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalCsvMan.g:1271:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalCsvMan.g:1392:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -3042,8 +3403,8 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCsvMan.g:1271:47: (iv_ruleEString= ruleEString EOF )
-            // InternalCsvMan.g:1272:2: iv_ruleEString= ruleEString EOF
+            // InternalCsvMan.g:1392:47: (iv_ruleEString= ruleEString EOF )
+            // InternalCsvMan.g:1393:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -3070,7 +3431,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalCsvMan.g:1278:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) ;
+    // InternalCsvMan.g:1399:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3082,37 +3443,37 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:1284:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) )
-            // InternalCsvMan.g:1285:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
+            // InternalCsvMan.g:1405:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT ) )
+            // InternalCsvMan.g:1406:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
             {
-            // InternalCsvMan.g:1285:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
-            int alt14=3;
+            // InternalCsvMan.g:1406:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID | this_INT_2= RULE_INT )
+            int alt16=3;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                alt14=1;
+                alt16=1;
                 }
                 break;
             case RULE_ID:
                 {
-                alt14=2;
+                alt16=2;
                 }
                 break;
             case RULE_INT:
                 {
-                alt14=3;
+                alt16=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt16) {
                 case 1 :
-                    // InternalCsvMan.g:1286:3: this_STRING_0= RULE_STRING
+                    // InternalCsvMan.g:1407:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3125,7 +3486,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalCsvMan.g:1294:3: this_ID_1= RULE_ID
+                    // InternalCsvMan.g:1415:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -3138,7 +3499,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalCsvMan.g:1302:3: this_INT_2= RULE_INT
+                    // InternalCsvMan.g:1423:3: this_INT_2= RULE_INT
                     {
                     this_INT_2=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -3178,19 +3539,19 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000000F68A0C2L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000001ED160C2L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000700L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000010010010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000010000010L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000010020010L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000020000020L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000020020010L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000020000010L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000020040010L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000040000020L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000040000000L});
 
 }

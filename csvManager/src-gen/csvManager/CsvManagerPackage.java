@@ -398,13 +398,22 @@ public interface CsvManagerPackage extends EPackage {
 	int ADD__VALEUR = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD__PARAMETER = INSTRUCTION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Add</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADD_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+	int ADD_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Add</em>' class.
@@ -711,6 +720,43 @@ public interface CsvManagerPackage extends EPackage {
 	int COPY_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link csvManager.impl.RemoveImpl <em>Remove</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see csvManager.impl.RemoveImpl
+	 * @see csvManager.impl.CsvManagerPackageImpl#getRemove()
+	 * @generated
+	 */
+	int REMOVE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE__TABLE = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Remove</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Remove</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link csvManager.Program <em>Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -956,6 +1002,17 @@ public interface CsvManagerPackage extends EPackage {
 	EAttribute getAdd_Valeur();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link csvManager.Add#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter</em>'.
+	 * @see csvManager.Add#getParameter()
+	 * @see #getAdd()
+	 * @generated
+	 */
+	EReference getAdd_Parameter();
+
+	/**
 	 * Returns the meta object for class '{@link csvManager.Join <em>Join</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,6 +1181,27 @@ public interface CsvManagerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCopy_Table();
+
+	/**
+	 * Returns the meta object for class '{@link csvManager.Remove <em>Remove</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Remove</em>'.
+	 * @see csvManager.Remove
+	 * @generated
+	 */
+	EClass getRemove();
+
+	/**
+	 * Returns the meta object for the attribute '{@link csvManager.Remove#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table</em>'.
+	 * @see csvManager.Remove#getTable()
+	 * @see #getRemove()
+	 * @generated
+	 */
+	EAttribute getRemove_Table();
 
 	/**
 	 * Returns the meta object for class '{@link csvManager.Where <em>Where</em>}'.
@@ -1370,6 +1448,14 @@ public interface CsvManagerPackage extends EPackage {
 		EAttribute ADD__VALEUR = eINSTANCE.getAdd_Valeur();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD__PARAMETER = eINSTANCE.getAdd_Parameter();
+
+		/**
 		 * The meta object literal for the '{@link csvManager.impl.JoinImpl <em>Join</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1508,6 +1594,24 @@ public interface CsvManagerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COPY__TABLE = eINSTANCE.getCopy_Table();
+
+		/**
+		 * The meta object literal for the '{@link csvManager.impl.RemoveImpl <em>Remove</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see csvManager.impl.RemoveImpl
+		 * @see csvManager.impl.CsvManagerPackageImpl#getRemove()
+		 * @generated
+		 */
+		EClass REMOVE = eINSTANCE.getRemove();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REMOVE__TABLE = eINSTANCE.getRemove_Table();
 
 		/**
 		 * The meta object literal for the '{@link csvManager.impl.WhereImpl <em>Where</em>}' class.

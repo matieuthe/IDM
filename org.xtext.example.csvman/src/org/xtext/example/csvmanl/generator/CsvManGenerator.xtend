@@ -20,6 +20,7 @@ import csvManager.Exit
 import csvManager.Delete
 import csvManager.Join
 import csvManager.Copy
+import csvManager.Remove
 
 /**
  * Generates code from your model files on save.
@@ -48,47 +49,83 @@ class CsvManGenerator extends AbstractGenerator {
 		import java.util.*;
 		
 		public class CsvMan {
+		    
 		    private Map<String, String> aliasMaps;
-		
-		    private String[] tempTab1;
-		    int index1;
-		    private String[] tempTab2;
-		    int index2;
+		    private String[] paramTab;
+		    private int idxParamTab;
+		    private String[] conditionTab;
+		    private int idxConditionTab;
 		
 		    public CsvMan(){
 		        this.aliasMaps = new HashMap<>();
-		        this.tempTab1 = new String[0];
-		        this.tempTab2 = new String[0];
-		        this.index1 = 0;
-		        this.index2 = 0;
+		        this.paramTab = new String[0];
+		        this.conditionTab = new String[0];
+		        this.idxParamTab = 0;
+		        this.idxConditionTab = 0;
 		    }
 		
-		    public void resetTab1(int length){
-		        this.tempTab1 = new String[length];
-		        this.index1 = 0;
+		    public static void main(String[] args){
+		    	CsvMan man = new CsvMan();
+				«FOR exp: program.instruction»
+					«exp.compile»				
+				«ENDFOR»
+			
 		    }
 		
-		    public void resetTab2(int length){
-		        this.tempTab2 = new String[length];
-		        this.index2 = 0;
+		    public void resetParamTab(int length){
+		        this.paramTab = new String[length];
+		        this.idxParamTab = 0;
 		    }
 		
-		    public void addElmtTab1(String elmt){
-		        this.tempTab1[index1++] = elmt;
+		    public void resetConditionTab(int length){
+		        this.conditionTab = new String[length];
+		        this.idxConditionTab = 0;
 		    }
 		
-		    public void addElmtTab2(String elmt){
-		        this.tempTab2[index2++] = elmt;
+		    public void addElmtParamTab(String elmt){
+		        this.paramTab[idxParamTab++] = elmt;
 		    }
 		
-		    public String[] getTempTab1(){
-		        return this.tempTab1;
+		    public void addElmtConditionTab(String elmt){
+		        this.conditionTab[idxConditionTab++] = elmt;
 		    }
 		
-		    public String[] getTempTab2(){
-		        return this.tempTab2;
+		    public String[] getParamTab(){
+		        return this.paramTab;
 		    }
 		
+		    public String[] getConditionTab(){
+		        return this.conditionTab;
+		    }
+		
+		    /**
+		     * Make the link between an alias an a real CSV file
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     * @param filename real path to the CSV file
+		     */
+		    private void putAliasMap(String alias, String filename){
+		        String finalAlias = alias;
+		        //In case there are file with the same id
+		        if(aliasMaps.containsKey(alias)){
+		            for(int i = 0; i < 1000; i++){
+		                if(!aliasMaps.containsKey(alias + "_" + i)){
+		                    finalAlias = alias + "_" + i;
+		                    aliasMaps.put(finalAlias, filename);
+		                    i = Integer.MAX_VALUE;
+		                }
+		            }
+		        }else{
+		            aliasMaps.put(alias, filename);
+		        }
+		        System.out.println("File " + filename  + " added with alias : " + finalAlias);
+		    }
+		
+		    /**
+		     * Return CSVParser on a specific CSV file to read it
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     * @exception Exception if CSV file doesn't exist.
+		     * @return CSVParser to iterate on CSV file.
+		     */
 		    private CSVParser getParser(String alias) throws Exception{
 		        String fileName = this.aliasMaps.get(alias);
 		        if (fileName == null) throw new Exception();
@@ -100,13 +137,23 @@ class CsvManGenerator extends AbstractGenerator {
 		                .withTrim());
 		    }
 		
-		    private void writeIn(String alias, String res) throws Exception{
+		    /**
+		     * Overwrite a CSV File
+		     * @param alias of the user corresponding to a real CSV.
+		     * @param txt to push in the file.
+		     */
+		    private void writeIn(String alias, String txt) throws Exception{
 		        Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), false); //overwrites file
-		        fileWriter.write(res);
+		        fileWriter.write(txt);
 		        fileWriter.flush();
 		        fileWriter.close();
 		    }
 		
+		    /**
+		     * Return column of a CSV File
+		     * @param parser from the lib that allow use to parse efficiently the csv.
+		     * @return all columns represented in the CSV file.
+		     */
 		    private String getHeader(CSVParser parser){
 		        Map<String,Integer> headerMap = parser.getHeaderMap();
 		        String res = "";
@@ -121,15 +168,17 @@ class CsvManGenerator extends AbstractGenerator {
 		        }
 		        return res + "\n";
 		    }
-		    /*
-		     *  Create a new CSV File
+		
+		    /**
+		     * Create a new CSV file
+		     * @param filename name of the table given by the user. The CSV file will be saved as filename+'.csv'.
 		     */
 		    public void create(String filename, String...args){
 		        try{
 		            BufferedWriter writer = Files.newBufferedWriter(Paths.get(filename + ".csv"));
 		            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(args));
 		            csvPrinter.flush();
-		            this.aliasMaps.put(filename, filename + ".csv");
+		            this.putAliasMap(filename, filename + ".csv");
 		            String columns = "";
 		            for(String temp : args) columns += temp + ", ";
 		            columns = columns.substring(0, columns.length()-2);
@@ -139,20 +188,49 @@ class CsvManGenerator extends AbstractGenerator {
 		        }
 		    }
 		
-		    /*
-		     *  Load an existing csv file with an alias
+		    /**
+		     * Load an existing CSV file according to the name given
+		     * @param filename path to a real CSV.
+		     * @param alias is the name given by the user to the tab.
 		     */
 		    public void load(String filename, String alias){
 		        File tmpFile = new File(filename);
 		        if(tmpFile.exists()){
-		            this.aliasMaps.put(alias, filename);
-		            System.out.println(alias + " was loaded");
+		            this.putAliasMap(alias, filename);
 		        }else
 		            System.out.println(filename + " doesn't exist");
 		    }
 		
-		    /*
-		     *  delete a csv file with his alias
+		    /**
+		     * Copy a table and paste it in a new one to duplicate it
+		     * @param startFile alias corresponding to a real CSV.
+		     * @param arriveFile alias of the copy that will be generated.
+		     */
+		    public void copy(String startFile, String arriveFile){
+		        InputStream inputStream = null;
+		        OutputStream outputStream = null;
+		        try {
+		            inputStream = new FileInputStream(this.aliasMaps.get(startFile));
+		            outputStream = new FileOutputStream(arriveFile + ".csv");
+		
+		            // the size of the buffer doesn't have to be exactly 1024 bytes, try playing around with this number and see what effect it will have on the performance
+		            byte[] buffer = new byte[1024];
+		            int length = 0;
+		            while ((length = inputStream.read(buffer)) > 0) {
+		                outputStream.write(buffer, 0, length);
+		            }
+		            inputStream.close();
+		            outputStream.close();
+		            System.out.println("File " + startFile + " copied into file " + arriveFile);
+		            this.putAliasMap(arriveFile, arriveFile + ".csv");
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		    }
+		
+		    /**
+		     * Delete a CSV file according to the name given
+		     * @param alias alias corresponding to a real CSV.
 		     */
 		    public void delete(String alias){
 		        String fileName = this.aliasMaps.get(alias);
@@ -167,8 +245,10 @@ class CsvManGenerator extends AbstractGenerator {
 		        System.out.println( "Alias " + alias + " doesn't exists");
 		    }
 		
-		    /*
-		     *  delete a tuple regarding parameters
+		    /**
+		     * Remove tuple from a CSV file
+		     * @param alias alias corresponding to a real CSV.
+		     * @param conditions where tuple should be deleted.
 		     */
 		    public void delete(String alias, String[] conditions){
 		        try {
@@ -202,14 +282,29 @@ class CsvManGenerator extends AbstractGenerator {
 		        }
 		    }
 		
+		    /**
+		     * Display an entire CSV file
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     */
 		    public void show(String alias){
 		        show(alias, new String[0], new String[0]);
 		    }
 		
+		    /**
+		     * Display some column of a CSV file
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     * @param selected column name to display
+		     */
 		    public void show(String alias, String[] selected){
 		        show(alias, selected, new String[0]);
 		    }
 		
+		    /**
+		     * Display some tuple of some column of a CSV file
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     * @param selected column name to display
+		     * @param condition to verify to display the tuple
+		     */
 		    public void show(String alias, String[] selected, String[] condition) {
 		        System.out.println("\n");
 		
@@ -245,7 +340,7 @@ class CsvManGenerator extends AbstractGenerator {
 		                }
 		            }else{
 		                String res = "";
-		                //Affichage des entêtes
+		                //Affichage des entêtes (Header)
 		                for(int i = 0; i < selected.length; i++){
 		                    if(headerMap.containsKey(selected[i].trim())){
 		                        res += selected[i];
@@ -285,48 +380,55 @@ class CsvManGenerator extends AbstractGenerator {
 		
 		    }
 		
-		    /*
-		     *  Add a tuple regarding given columns
+		    /**
+		     * Add a tuple in a CSV file at its end
+		     * @param parameters giving column name (with elmnt even index) and corresponding value (elmnt with odd idx)
+		     * @exception Exception if a given column name doesn't exist.
 		     */
 		    public void add(String alias, String[] parameters){
 		        try {
-			            CSVParser csvParser = this.getParser(alias);
-			            Map<String, Integer> header = csvParser.getHeaderMap();
-			
-			            //String[] resultat = new String[header.size()];
-			            if(parameters.length > header.size()) new Exception("Ce champ n'existe pas");
-			            /*
-			            for(int i = 0; i < parameters.length; i+=2){
-			                if(header.containsKey(parameters[i].trim())){
-			                    resultat[header.get(parameters[i])] = parameters[i+1];
-			                }else throw new Exception("Ce champ n'existe pas");
-			            }*/
-			
-			            String res = "";
-			
-			            for(int i = 0; i < parameters.length - 1; i++){
-			                if(parameters[i] == null)
-			                    res += ",";
-			                else
-			                    res += parameters[i] + ",";
-			            }
-			
+		            CSVParser csvParser = this.getParser(alias);
+		            Map<String, Integer> header = csvParser.getHeaderMap();
+		
+		            if(parameters.length > header.size())
+		                throw new Exception("Ce champ n'existe pas");
+		
+		            String res = "";
+		
+		            for(int i = 0; i < parameters.length - 1; i++){
+		                if(parameters[i] == null)
+		                    res += ",";
+		                else
+		                    res += parameters[i] + ",";
+		            }
+		
 		            if(parameters.length - 1 >= 0 && parameters[parameters.length -1] != null) res += parameters[parameters.length -1];
 		                res+= "\n";
-			
-			            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), true); //appended in file
-			            fileWriter.write(res);
-			            fileWriter.flush();
-			            fileWriter.close();	        
-			    }catch (Exception e) {
+		
+		            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), true); //appended in file
+		            fileWriter.write(res);
+		            fileWriter.flush();
+		            fileWriter.close();
+		        }catch (Exception e) {
 		            e.printStackTrace();
 		        }
 		    }
 		
+		    /**
+		     * Add a tuple in a CSV file at its end
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     * @param parameter giving column name (with elmnt even index) and corresponding value (elmnt with odd idx)
+		     */
 		    public void update(String alias, String[] parameter) {
 		        this.update(alias, parameter, new String[0]);
 		    }
 		
+		    /**
+		     * Add a tuple in a CSV file at its end
+		     * @param alias of the user corresponding to a real CSV that we want to read
+		     * @param parameter giving column name (with elmnt even index) and corresponding value (elmnt with odd idx)
+		     * @param conditions to verify before updating tuples
+		     */
 		    public void update(String alias, String[] parameter, String[] conditions) {
 		
 		        //On lit completement le fichier et on le stocke dans un String
@@ -388,64 +490,76 @@ class CsvManGenerator extends AbstractGenerator {
 		        }
 		    }
 		
-		    public void join(String alias1, String alias2, String alias3){
+		    /**
+		     * Join 2 CSV file in a new file
+		     * @param alias1 of the first table of user
+		     * @param alias2 of the second table of user
+		     * @param toAlias of the table that will be generated with the result content
+		     */
+		    public void join(String alias1, String alias2, String toAlias) {
 		        try {
 		            CSVParser csvParser1 = this.getParser(alias1);
 		            CSVParser csvParser2 = this.getParser(alias2);
 		
 		            String res = "";
 		            Map<String, Integer> headerMap1 = csvParser1.getHeaderMap();
-		            Map<String, Integer> headerMap2 = csvParser1.getHeaderMap();
+		            Map<String, Integer> headerMap2 = csvParser2.getHeaderMap();
 		
-		            //On regarde que les deux fichier ont le même header
-		            boolean b = (headerMap1.size() == headerMap2.size());
-		            if(b){
-		                for(String key : headerMap1.keySet()){
-		                    if(!headerMap2.containsKey(key)) {
-		                        b = false;
-		                        break;
-		                    }
+		            String colomnToJoin = "";
+		
+		            for (String k : headerMap1.keySet()) {
+		                if (headerMap2.containsKey(k)) {
+		                    colomnToJoin = k;
 		                }
 		            }
 		
-		            //On créé un fichier à partir des deux autres
-		            if(b){
-		                //Recopie des entêtes
-		                res+= this.getHeader(csvParser1);
+		            if (!colomnToJoin.isBlank()) {
+		                res += this.getHeader(csvParser1);
+		                res = res.replace("\n", "");
+		                res += ',';
+		                String tmp = this.getHeader(csvParser2).replace(colomnToJoin + ",", "").replace("," + colomnToJoin, "");
+		                res += tmp;
+		                create(toAlias, res);
+		                res = "";
 		
-		                //On parcourt le fichier 1
+		                List<CSVRecord> records2 = csvParser2.getRecords();
+		
+		                //On parcourt la premiere table
 		                for (CSVRecord record : csvParser1) {
-		                    for(int i = 0; i < record.size(); i++){
-		                        res += record.get(i);
-		                        if(i < record.size()-1) res += ",";
-		                    }
-		                    res += "\n";
-		                }
+		                    String joinValueTab1 = record.get(headerMap1.get(colomnToJoin));
 		
-		                //On parcourt le fichier 2
-		                for (CSVRecord record : csvParser2) {
-		                    for(int i = 0; i < record.size(); i++){
-		                        res += record.get(i);
-		                        if(i < record.size()-1) res += ",";
-		                    }
-		                    res += "\n";
-		                }
+		                    //On parcourt la premiere table
+		                    for (CSVRecord record2 : records2) {
+		                        String joinValueTab2 = record2.get(headerMap2.get(colomnToJoin));
 		
-		                //On ecrit le resultat dans un fichier
-		                this.writeIn(alias1, res);
+		                        //Join accepted for this tuple
+		                        if(joinValueTab1.equals(joinValueTab2)){
+		
+		                            for(int i = 0; i < record.size(); i++){
+		                                res += record.get(i);
+		                                res += ",";
+		                            }
+		                            for(int i = 0; i < record2.size(); i++){
+		                                if(i!=headerMap2.get(colomnToJoin)) {
+		                                    res += record2.get(i);
+		                                    if(i < record2.size()-1) res+= ",";
+		                                }
+		                            }
+		                            res += "\n";
+		                        }
+		                    }
+		                }
+		                this.writeIn(toAlias, res);
+		                show(toAlias);
+		
+		            } else {
+		                throw new Exception("Can't join those tables : no column in common !");
 		            }
-		        }catch (Exception e){
-		
+		        } catch (Exception e) {
+		            e.printStackTrace();
 		        }
 		    }
-		    public static void main(String[] args){
-		    	CsvMan man = new CsvMan();
-				«FOR exp: program.instruction»
-					«exp.compile»				
-				«ENDFOR»
-			}
-		}
-		'''
+		}'''
 		
 		/*
 		 * Load Function
@@ -460,11 +574,11 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Create created)
 			'''
-				man.resetTab1(«created.colonne.length»);
+				man.resetParamTab(«created.colonne.length»);
 				«FOR exp: created.colonne»
-					man.addElmtTab1("«exp»");
+					man.addElmtParamTab("«exp»");
 				«ENDFOR»
-				man.create("«created.table»", man.getTempTab1());
+				man.create("«created.table»", man.getParamTab());
 			'''
 		
 				
@@ -473,14 +587,15 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Show show)
 			'''
-				man.resetTab1(«show.colonne.length»);
+				man.resetParamTab(«show.colonne.length»);
+				man.resetConditionTab(0);
 				«FOR exp: show.colonne»
-					man.addElmtTab1("«exp»");
+					man.addElmtParamTab("«exp»");
 				«ENDFOR»
 				«IF show.where !== null»
 					«show.where.compile»
 				«ENDIF»
-				man.show("«show.table»", man.getTempTab1(), man.getTempTab2());
+				man.show("«show.table»", man.getParamTab(), man.getConditionTab());
 			'''
 		
 		/*
@@ -488,16 +603,17 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Update update)
 			'''
-				man.resetTab1(«update.parameter.length»*2);
+				man.resetParamTab(«update.parameter.length»*2);
+				man.resetConditionTab(0);
 				«FOR exp: update.parameter»
-					man.addElmtTab1("«exp.colonne»");
-					man.addElmtTab1("«exp.value»");
+					man.addElmtParamTab("«exp.colonne»");
+					man.addElmtParamTab("«exp.value»");
 				«ENDFOR»
 
 				«IF update.where !== null»
 					«update.where.compile»
 				«ENDIF»
-				man.update("«update.table»", man.getTempTab1(), man.getTempTab2());
+				man.update("«update.table»", man.getParamTab(), man.getConditionTab());
 			'''		 
 		
 		/*
@@ -505,20 +621,29 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		 def dispatch compile(Add add)
 			'''
-				man.resetTab1(«add.valeur.length»);
-				«FOR exp: add.valeur»
-					man.addElmtTab1("«exp»");
-				«ENDFOR»
-				man.add("«add.table»", man.getTempTab1());
+				«IF add.valeur.length > 0»
+					man.resetParamTab(«add.valeur.length»);
+					«FOR exp: add.valeur»
+						man.addElmtParamTab("«exp»");
+					«ENDFOR»
+					man.add("«add.table»", man.getParamTab());				
+				«ELSE»
+					man.resetParamTab(«add.parameter.length» * 2);
+					«FOR exp: add.parameter»
+						man.addElmtParamTab("«exp.colonne»");
+						man.addElmtParamTab("«exp.value»");					
+					«ENDFOR»
+					man.addParameterized("«add.table»", man.getParamTab());	
+					
+				«ENDIF»				
 			'''		 
 		 
-		
-				/*
+		/*
 		 * EXIT
 		 */
 		def dispatch compile(Copy copy)
 			'''
-				man.copy("«copy.table»", "«copy.alias»");
+				man.copy("«copy.alias»", "«copy.table»");
 			'''		
 				
 		/*
@@ -536,7 +661,7 @@ class CsvManGenerator extends AbstractGenerator {
 			'''
 				«IF delete.where !== null»
 					«delete.where.compile»
-					man.delete("«delete.table»", man.getTempTab2());
+					man.delete("«delete.table»", man.getConditionTab());
 				«ELSE»
 					man.delete("«delete.table»");
 				«ENDIF»
@@ -551,12 +676,20 @@ class CsvManGenerator extends AbstractGenerator {
 				man.join("«join.table1»", "«join.table2»", "«join.table3»");
 			'''			
 		
+		/*
+		 * Remove function
+		 */
+		def dispatch compile(Remove remove)
+			'''
+				man.remove("«remove.table»");
+			'''		
+		
 		def dispatch compile(Where where)
 		'''
-			man.resetTab2(«where.condition.length»*2);
+			man.resetConditionTab(«where.condition.length»*2);
 			«FOR exp: where.condition»
-				man.addElmtTab2("«exp.atribut»");
-				man.addElmtTab2("«exp.valeur»");
+				man.addElmtConditionTab("«exp.atribut»");
+				man.addElmtConditionTab("«exp.valeur»");
 			«ENDFOR»
 		'''
 

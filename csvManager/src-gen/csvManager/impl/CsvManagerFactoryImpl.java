@@ -86,6 +86,8 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 			return createComment();
 		case CsvManagerPackage.COPY:
 			return createCopy();
+		case CsvManagerPackage.REMOVE:
+			return createRemove();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -229,6 +231,16 @@ public class CsvManagerFactoryImpl extends EFactoryImpl implements CsvManagerFac
 	public Copy createCopy() {
 		CopyImpl copy = new CopyImpl();
 		return copy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Remove createRemove() {
+		RemoveImpl remove = new RemoveImpl();
+		return remove;
 	}
 
 	/**

@@ -59,12 +59,13 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExitParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cCommentParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final RuleCall cCopyParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cRemoveParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		
 		//Instruction:
-		//	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy;
+		//	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy | Remove;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy
+		//Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy | Remove
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Create
@@ -96,6 +97,41 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Copy
 		public RuleCall getCopyParserRuleCall_9() { return cCopyParserRuleCall_9; }
+		
+		//Remove
+		public RuleCall getRemoveParserRuleCall_10() { return cRemoveParserRuleCall_10; }
+	}
+	public class RemoveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Remove");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRemoveAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRemoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//Remove:
+		//	{Remove}
+		//	'remove' table=EString NL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Remove} 'remove' table=EString NL
+		public Group getGroup() { return cGroup; }
+		
+		//{Remove}
+		public Action getRemoveAction_0() { return cRemoveAction_0; }
+		
+		//'remove'
+		public Keyword getRemoveKeyword_1() { return cRemoveKeyword_1; }
+		
+		//table=EString
+		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		
+		//EString
+		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
+		
+		//NL
+		public RuleCall getNLTerminalRuleCall_3() { return cNLTerminalRuleCall_3; }
 	}
 	public class CopyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Copy");
@@ -398,25 +434,38 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAddAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cAddKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValeurAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValeurEStringParserRuleCall_3_0 = (RuleCall)cValeurAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cValeurAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValeurEStringParserRuleCall_4_1_0 = (RuleCall)cValeurAssignment_4_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cInKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTableAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTableEStringParserRuleCall_7_0 = (RuleCall)cTableAssignment_7.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Assignment cValeurAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
+		private final RuleCall cValeurEStringParserRuleCall_2_0_1_0 = (RuleCall)cValeurAssignment_2_0_1.eContents().get(0);
+		private final Group cGroup_2_0_2 = (Group)cGroup_2_0.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0_2_0 = (Keyword)cGroup_2_0_2.eContents().get(0);
+		private final Assignment cValeurAssignment_2_0_2_1 = (Assignment)cGroup_2_0_2.eContents().get(1);
+		private final RuleCall cValeurEStringParserRuleCall_2_0_2_1_0 = (RuleCall)cValeurAssignment_2_0_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_0_3 = (Keyword)cGroup_2_0.eContents().get(3);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cParameterAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cParameterParameterParserRuleCall_2_1_1_0 = (RuleCall)cParameterAssignment_2_1_1.eContents().get(0);
+		private final Group cGroup_2_1_2 = (Group)cGroup_2_1.eContents().get(2);
+		private final Keyword cCommaKeyword_2_1_2_0 = (Keyword)cGroup_2_1_2.eContents().get(0);
+		private final Assignment cParameterAssignment_2_1_2_1 = (Assignment)cGroup_2_1_2.eContents().get(1);
+		private final RuleCall cParameterParameterParserRuleCall_2_1_2_1_0 = (RuleCall)cParameterAssignment_2_1_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_1_3 = (Keyword)cGroup_2_1.eContents().get(3);
+		private final Keyword cInKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTableEStringParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//Add:
 		//	{Add}
-		//	'add' '(' valeur+=EString (',' valeur+=EString)* ')' 'in' table=EString NL;
+		//	'add' ('(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')')
+		//	'in' table=EString NL;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Add} 'add' '(' valeur+=EString (',' valeur+=EString)* ')' 'in' table=EString NL
+		//{Add} 'add' ('(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')')
+		//'in' table=EString NL
 		public Group getGroup() { return cGroup; }
 		
 		//{Add}
@@ -425,41 +474,74 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'add'
 		public Keyword getAddKeyword_1() { return cAddKeyword_1; }
 		
+		//'(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')'
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//'(' valeur+=EString (',' valeur+=EString)* ')'
+		public Group getGroup_2_0() { return cGroup_2_0; }
+		
 		//'('
-		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		public Keyword getLeftParenthesisKeyword_2_0_0() { return cLeftParenthesisKeyword_2_0_0; }
 		
 		//valeur+=EString
-		public Assignment getValeurAssignment_3() { return cValeurAssignment_3; }
+		public Assignment getValeurAssignment_2_0_1() { return cValeurAssignment_2_0_1; }
 		
 		//EString
-		public RuleCall getValeurEStringParserRuleCall_3_0() { return cValeurEStringParserRuleCall_3_0; }
+		public RuleCall getValeurEStringParserRuleCall_2_0_1_0() { return cValeurEStringParserRuleCall_2_0_1_0; }
 		
 		//(',' valeur+=EString)*
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_2_0_2() { return cGroup_2_0_2; }
 		
 		//','
-		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		public Keyword getCommaKeyword_2_0_2_0() { return cCommaKeyword_2_0_2_0; }
 		
 		//valeur+=EString
-		public Assignment getValeurAssignment_4_1() { return cValeurAssignment_4_1; }
+		public Assignment getValeurAssignment_2_0_2_1() { return cValeurAssignment_2_0_2_1; }
 		
 		//EString
-		public RuleCall getValeurEStringParserRuleCall_4_1_0() { return cValeurEStringParserRuleCall_4_1_0; }
+		public RuleCall getValeurEStringParserRuleCall_2_0_2_1_0() { return cValeurEStringParserRuleCall_2_0_2_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_2_0_3() { return cRightParenthesisKeyword_2_0_3; }
+		
+		//'(' parameter+=Parameter (',' parameter+=Parameter)* ')'
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_1_0() { return cLeftParenthesisKeyword_2_1_0; }
+		
+		//parameter+=Parameter
+		public Assignment getParameterAssignment_2_1_1() { return cParameterAssignment_2_1_1; }
+		
+		//Parameter
+		public RuleCall getParameterParameterParserRuleCall_2_1_1_0() { return cParameterParameterParserRuleCall_2_1_1_0; }
+		
+		//(',' parameter+=Parameter)*
+		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_1_2_0() { return cCommaKeyword_2_1_2_0; }
+		
+		//parameter+=Parameter
+		public Assignment getParameterAssignment_2_1_2_1() { return cParameterAssignment_2_1_2_1; }
+		
+		//Parameter
+		public RuleCall getParameterParameterParserRuleCall_2_1_2_1_0() { return cParameterParameterParserRuleCall_2_1_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_1_3() { return cRightParenthesisKeyword_2_1_3; }
 		
 		//'in'
-		public Keyword getInKeyword_6() { return cInKeyword_6; }
+		public Keyword getInKeyword_3() { return cInKeyword_3; }
 		
 		//table=EString
-		public Assignment getTableAssignment_7() { return cTableAssignment_7; }
+		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
 		
 		//EString
-		public RuleCall getTableEStringParserRuleCall_7_0() { return cTableEStringParserRuleCall_7_0; }
+		public RuleCall getTableEStringParserRuleCall_4_0() { return cTableEStringParserRuleCall_4_0; }
 		
 		//NL
-		public RuleCall getNLTerminalRuleCall_8() { return cNLTerminalRuleCall_8; }
+		public RuleCall getNLTerminalRuleCall_5() { return cNLTerminalRuleCall_5; }
 	}
 	public class JoinElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Join");
@@ -741,6 +823,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ProgramElements pProgram;
 	private final InstructionElements pInstruction;
+	private final RemoveElements pRemove;
 	private final CopyElements pCopy;
 	private final CreateElements pCreate;
 	private final LoadElements pLoad;
@@ -769,6 +852,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pProgram = new ProgramElements();
 		this.pInstruction = new InstructionElements();
+		this.pRemove = new RemoveElements();
 		this.pCopy = new CopyElements();
 		this.pCreate = new CreateElements();
 		this.pLoad = new LoadElements();
@@ -825,13 +909,24 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy;
+	//	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy | Remove;
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}
 	
 	public ParserRule getInstructionRule() {
 		return getInstructionAccess().getRule();
+	}
+	
+	//Remove:
+	//	{Remove}
+	//	'remove' table=EString NL;
+	public RemoveElements getRemoveAccess() {
+		return pRemove;
+	}
+	
+	public ParserRule getRemoveRule() {
+		return getRemoveAccess().getRule();
 	}
 	
 	//Copy:
@@ -891,7 +986,8 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Add:
 	//	{Add}
-	//	'add' '(' valeur+=EString (',' valeur+=EString)* ')' 'in' table=EString NL;
+	//	'add' ('(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')')
+	//	'in' table=EString NL;
 	public AddElements getAddAccess() {
 		return pAdd;
 	}

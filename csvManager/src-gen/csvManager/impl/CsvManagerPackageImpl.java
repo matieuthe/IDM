@@ -16,6 +16,7 @@ import csvManager.Join;
 import csvManager.Load;
 import csvManager.Parameter;
 import csvManager.Program;
+import csvManager.Remove;
 import csvManager.Show;
 import csvManager.Update;
 
@@ -131,6 +132,13 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * @generated
 	 */
 	private EClass copyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass removeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -414,6 +422,15 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAdd_Parameter() {
+		return (EReference) addEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJoin() {
 		return joinEClass;
 	}
@@ -558,6 +575,24 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRemove() {
+		return removeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRemove_Table() {
+		return (EAttribute) removeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWhere() {
 		return whereEClass;
 	}
@@ -630,6 +665,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		addEClass = createEClass(ADD);
 		createEAttribute(addEClass, ADD__TABLE);
 		createEAttribute(addEClass, ADD__VALEUR);
+		createEReference(addEClass, ADD__PARAMETER);
 
 		joinEClass = createEClass(JOIN);
 		createEAttribute(joinEClass, JOIN__TABLE1);
@@ -655,6 +691,9 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		copyEClass = createEClass(COPY);
 		createEAttribute(copyEClass, COPY__ALIAS);
 		createEAttribute(copyEClass, COPY__TABLE);
+
+		removeEClass = createEClass(REMOVE);
+		createEAttribute(removeEClass, REMOVE__TABLE);
 	}
 
 	/**
@@ -696,6 +735,7 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		exitEClass.getESuperTypes().add(this.getInstruction());
 		commentEClass.getESuperTypes().add(this.getInstruction());
 		copyEClass.getESuperTypes().add(this.getInstruction());
+		removeEClass.getESuperTypes().add(this.getInstruction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -747,8 +787,11 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAdd_Table(), ecorePackage.getEString(), "table", null, 1, 1, Add.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAdd_Valeur(), ecorePackage.getEString(), "valeur", null, 1, -1, Add.class, !IS_TRANSIENT,
+		initEAttribute(getAdd_Valeur(), ecorePackage.getEString(), "valeur", null, 0, -1, Add.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAdd_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Add.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(joinEClass, Join.class, "Join", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJoin_Table1(), ecorePackage.getEString(), "table1", null, 1, 1, Join.class, !IS_TRANSIENT,
@@ -788,6 +831,10 @@ public class CsvManagerPackageImpl extends EPackageImpl implements CsvManagerPac
 		initEAttribute(getCopy_Alias(), ecorePackage.getEString(), "alias", null, 1, 1, Copy.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCopy_Table(), ecorePackage.getEString(), "table", null, 1, 1, Copy.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(removeEClass, Remove.class, "Remove", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRemove_Table(), ecorePackage.getEString(), "table", null, 1, 1, Remove.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

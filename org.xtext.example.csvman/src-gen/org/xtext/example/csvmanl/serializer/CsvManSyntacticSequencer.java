@@ -96,7 +96,7 @@ public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     ML_COMMENT | SL_COMMENT
+	 *     SL_COMMENT | ML_COMMENT
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
@@ -110,7 +110,7 @@ public class CsvManSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '=' | OP
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     atribut=EString (ambiguity) valeur=EString
+	 *     colonne=EString (ambiguity) valeur=EString
 	 */
 	protected void emit_Condition_EqualsSignKeyword_2_0_or_OPTerminalRuleCall_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

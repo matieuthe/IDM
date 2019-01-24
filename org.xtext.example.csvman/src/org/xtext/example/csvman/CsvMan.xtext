@@ -6,34 +6,34 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program returns Program:
 	{Program}
-		instruction+=Instruction* ;
+		(instruction+=Instruction NL)* ;
 
 Instruction returns Instruction:
 	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy | Remove;
 	
 Remove returns Remove:
 	{Remove}
-	'remove' table=EString NL;
+	'remove' csvtable=[CsvTable];
 
 Copy returns Copy:
 	{Copy}
-	'copy' alias=EString 'in' table=EString NL;
+	'copy' alias=[CsvTable] 'in' table=CsvTable;
 
 Create returns Create:
 	{Create}
-	'create' table=EString '('colonne+=EString (',' colonne+=EString)* ')' NL;
+	'create' csvtable=CsvTable;
 
 Load returns Load:
 	{Load}
-	'load' table=EString 'as' alias=EString NL;
+	'load' fichier=EString 'as' csvtable=CsvTable;
 	
 Show returns Show:
 	{Show}
-	'show' table=EString ('('colonne+=EString (',' colonne+=EString)* ')')? (where=Where)? NL;
+	'show' csvtable=[CsvTable] ('('colonne+=EString (',' colonne+=EString)*')')? (where=Where)?;
 
 Update returns Update:
 	{Update}
-	'update' table=EString 'set' parameter+=Parameter (',' parameter+=Parameter)* (where=Where)? NL;
+	'update' csvtable=[CsvTable] 'set' parameter+=Parameter (',' parameter+=Parameter)* (where=Where)?;
 
 Add returns Add:
 	{Add}
@@ -43,15 +43,15 @@ Add returns Add:
 	|
 	('(' parameter+=Parameter (',' parameter+=Parameter)* ')')
 	)
-	'in' table=EString NL;
+	'in' csvtable=[CsvTable|EString];
 
 Join returns Join:
 	{Join}
-	'join' table1=EString table2=EString 'in' table3=EString NL;
+	'join' tables+=[CsvTable] tables+=[CsvTable] 'in' table3=CsvTable;
 
 Delete returns Delete:
 	{Delete}
-	'delete' table=EString (where=Where)? NL;
+	'delete' csvtable=[CsvTable] (where=Where)?;
 
 Exit returns Exit:
 	{Exit}
@@ -63,11 +63,16 @@ Where returns Where:
 
 Condition returns Condition:
 	{Condition}
-	atribut=EString ('=' | OP) valeur=EString;
+	colonne=EString ('=' | OP) valeur=EString
+	;
 	
 Parameter returns Parameter: 
 	{Parameter}
 	colonne=EString '=' value=EString;
+	
+CsvTable returns CsvTable:
+	{CsvTable}
+	name=EString ('('colonne+=EString (',' colonne+=EString)*')')?;
 	
 Comment returns Comment:
 	ML_COMMENT | SL_COMMENT 

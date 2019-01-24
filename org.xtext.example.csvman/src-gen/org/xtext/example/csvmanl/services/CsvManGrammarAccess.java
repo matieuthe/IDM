@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -27,24 +28,32 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Program");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cProgramAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cInstructionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cInstructionInstructionParserRuleCall_1_0 = (RuleCall)cInstructionAssignment_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cInstructionAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cInstructionInstructionParserRuleCall_1_0_0 = (RuleCall)cInstructionAssignment_1_0.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//Program:
-		//	{Program} instruction+=Instruction*;
+		//	{Program} (instruction+=Instruction NL)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Program} instruction+=Instruction*
+		//{Program} (instruction+=Instruction NL)*
 		public Group getGroup() { return cGroup; }
 		
 		//{Program}
 		public Action getProgramAction_0() { return cProgramAction_0; }
 		
-		//instruction+=Instruction*
-		public Assignment getInstructionAssignment_1() { return cInstructionAssignment_1; }
+		//(instruction+=Instruction NL)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//instruction+=Instruction
+		public Assignment getInstructionAssignment_1_0() { return cInstructionAssignment_1_0; }
 		
 		//Instruction
-		public RuleCall getInstructionInstructionParserRuleCall_1_0() { return cInstructionInstructionParserRuleCall_1_0; }
+		public RuleCall getInstructionInstructionParserRuleCall_1_0_0() { return cInstructionInstructionParserRuleCall_1_0_0; }
+		
+		//NL
+		public RuleCall getNLTerminalRuleCall_1_1() { return cNLTerminalRuleCall_1_1; }
 	}
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Instruction");
@@ -106,16 +115,16 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRemoveAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cRemoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cCsvtableCsvTableCrossReference_2_0 = (CrossReference)cCsvtableAssignment_2.eContents().get(0);
+		private final RuleCall cCsvtableCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_2_0.eContents().get(1);
 		
 		//Remove:
 		//	{Remove}
-		//	'remove' table=EString NL;
+		//	'remove' csvtable=[CsvTable];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Remove} 'remove' table=EString NL
+		//{Remove} 'remove' csvtable=[CsvTable]
 		public Group getGroup() { return cGroup; }
 		
 		//{Remove}
@@ -124,14 +133,14 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'remove'
 		public Keyword getRemoveKeyword_1() { return cRemoveKeyword_1; }
 		
-		//table=EString
-		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		//csvtable=[CsvTable]
+		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
 		
-		//EString
-		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
+		//[CsvTable]
+		public CrossReference getCsvtableCsvTableCrossReference_2_0() { return cCsvtableCsvTableCrossReference_2_0; }
 		
-		//NL
-		public RuleCall getNLTerminalRuleCall_3() { return cNLTerminalRuleCall_3; }
+		//ID
+		public RuleCall getCsvtableCsvTableIDTerminalRuleCall_2_0_1() { return cCsvtableCsvTableIDTerminalRuleCall_2_0_1; }
 	}
 	public class CopyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Copy");
@@ -139,18 +148,18 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cCopyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cCopyKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cAliasAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAliasEStringParserRuleCall_2_0 = (RuleCall)cAliasAssignment_2.eContents().get(0);
+		private final CrossReference cAliasCsvTableCrossReference_2_0 = (CrossReference)cAliasAssignment_2.eContents().get(0);
+		private final RuleCall cAliasCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cAliasCsvTableCrossReference_2_0.eContents().get(1);
 		private final Keyword cInKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTableEStringParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cTableCsvTableParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
 		
 		//Copy:
 		//	{Copy}
-		//	'copy' alias=EString 'in' table=EString NL;
+		//	'copy' alias=[CsvTable] 'in' table=CsvTable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Copy} 'copy' alias=EString 'in' table=EString NL
+		//{Copy} 'copy' alias=[CsvTable] 'in' table=CsvTable
 		public Group getGroup() { return cGroup; }
 		
 		//{Copy}
@@ -159,47 +168,38 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'copy'
 		public Keyword getCopyKeyword_1() { return cCopyKeyword_1; }
 		
-		//alias=EString
+		//alias=[CsvTable]
 		public Assignment getAliasAssignment_2() { return cAliasAssignment_2; }
 		
-		//EString
-		public RuleCall getAliasEStringParserRuleCall_2_0() { return cAliasEStringParserRuleCall_2_0; }
+		//[CsvTable]
+		public CrossReference getAliasCsvTableCrossReference_2_0() { return cAliasCsvTableCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getAliasCsvTableIDTerminalRuleCall_2_0_1() { return cAliasCsvTableIDTerminalRuleCall_2_0_1; }
 		
 		//'in'
 		public Keyword getInKeyword_3() { return cInKeyword_3; }
 		
-		//table=EString
+		//table=CsvTable
 		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
 		
-		//EString
-		public RuleCall getTableEStringParserRuleCall_4_0() { return cTableEStringParserRuleCall_4_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_5() { return cNLTerminalRuleCall_5; }
+		//CsvTable
+		public RuleCall getTableCsvTableParserRuleCall_4_0() { return cTableCsvTableParserRuleCall_4_0; }
 	}
 	public class CreateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Create");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cCreateAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cCreateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cColonneAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cColonneEStringParserRuleCall_4_0 = (RuleCall)cColonneAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cColonneAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cColonneEStringParserRuleCall_5_1_0 = (RuleCall)cColonneAssignment_5_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final RuleCall cNLTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCsvtableCsvTableParserRuleCall_2_0 = (RuleCall)cCsvtableAssignment_2.eContents().get(0);
 		
 		//Create:
 		//	{Create}
-		//	'create' table=EString '(' colonne+=EString (',' colonne+=EString)* ')' NL;
+		//	'create' csvtable=CsvTable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Create} 'create' table=EString '(' colonne+=EString (',' colonne+=EString)* ')' NL
+		//{Create} 'create' csvtable=CsvTable
 		public Group getGroup() { return cGroup; }
 		
 		//{Create}
@@ -208,57 +208,29 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'create'
 		public Keyword getCreateKeyword_1() { return cCreateKeyword_1; }
 		
-		//table=EString
-		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		//csvtable=CsvTable
+		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
 		
-		//EString
-		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
-		
-		//colonne+=EString
-		public Assignment getColonneAssignment_4() { return cColonneAssignment_4; }
-		
-		//EString
-		public RuleCall getColonneEStringParserRuleCall_4_0() { return cColonneEStringParserRuleCall_4_0; }
-		
-		//(',' colonne+=EString)*
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//','
-		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
-		
-		//colonne+=EString
-		public Assignment getColonneAssignment_5_1() { return cColonneAssignment_5_1; }
-		
-		//EString
-		public RuleCall getColonneEStringParserRuleCall_5_1_0() { return cColonneEStringParserRuleCall_5_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_7() { return cNLTerminalRuleCall_7; }
+		//CsvTable
+		public RuleCall getCsvtableCsvTableParserRuleCall_2_0() { return cCsvtableCsvTableParserRuleCall_2_0; }
 	}
 	public class LoadElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Load");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cLoadAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLoadKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
+		private final Assignment cFichierAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFichierEStringParserRuleCall_2_0 = (RuleCall)cFichierAssignment_2.eContents().get(0);
 		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cAliasEStringParserRuleCall_4_0 = (RuleCall)cAliasAssignment_4.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cCsvtableAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCsvtableCsvTableParserRuleCall_4_0 = (RuleCall)cCsvtableAssignment_4.eContents().get(0);
 		
 		//Load:
 		//	{Load}
-		//	'load' table=EString 'as' alias=EString NL;
+		//	'load' fichier=EString 'as' csvtable=CsvTable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Load} 'load' table=EString 'as' alias=EString NL
+		//{Load} 'load' fichier=EString 'as' csvtable=CsvTable
 		public Group getGroup() { return cGroup; }
 		
 		//{Load}
@@ -267,31 +239,29 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'load'
 		public Keyword getLoadKeyword_1() { return cLoadKeyword_1; }
 		
-		//table=EString
-		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		//fichier=EString
+		public Assignment getFichierAssignment_2() { return cFichierAssignment_2; }
 		
 		//EString
-		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
+		public RuleCall getFichierEStringParserRuleCall_2_0() { return cFichierEStringParserRuleCall_2_0; }
 		
 		//'as'
 		public Keyword getAsKeyword_3() { return cAsKeyword_3; }
 		
-		//alias=EString
-		public Assignment getAliasAssignment_4() { return cAliasAssignment_4; }
+		//csvtable=CsvTable
+		public Assignment getCsvtableAssignment_4() { return cCsvtableAssignment_4; }
 		
-		//EString
-		public RuleCall getAliasEStringParserRuleCall_4_0() { return cAliasEStringParserRuleCall_4_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_5() { return cNLTerminalRuleCall_5; }
+		//CsvTable
+		public RuleCall getCsvtableCsvTableParserRuleCall_4_0() { return cCsvtableCsvTableParserRuleCall_4_0; }
 	}
 	public class ShowElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Show");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cShowAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cShowKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
+		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cCsvtableCsvTableCrossReference_2_0 = (CrossReference)cCsvtableAssignment_2.eContents().get(0);
+		private final RuleCall cCsvtableCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_2_0.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cColonneAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -303,14 +273,13 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Assignment cWhereAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cWhereWhereParserRuleCall_4_0 = (RuleCall)cWhereAssignment_4.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//Show:
 		//	{Show}
-		//	'show' table=EString ('(' colonne+=EString (',' colonne+=EString)* ')')? where=Where? NL;
+		//	'show' csvtable=[CsvTable] ('(' colonne+=EString (',' colonne+=EString)* ')')? where=Where?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Show} 'show' table=EString ('(' colonne+=EString (',' colonne+=EString)* ')')? where=Where? NL
+		//{Show} 'show' csvtable=[CsvTable] ('(' colonne+=EString (',' colonne+=EString)* ')')? where=Where?
 		public Group getGroup() { return cGroup; }
 		
 		//{Show}
@@ -319,11 +288,14 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'show'
 		public Keyword getShowKeyword_1() { return cShowKeyword_1; }
 		
-		//table=EString
-		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		//csvtable=[CsvTable]
+		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
 		
-		//EString
-		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
+		//[CsvTable]
+		public CrossReference getCsvtableCsvTableCrossReference_2_0() { return cCsvtableCsvTableCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getCsvtableCsvTableIDTerminalRuleCall_2_0_1() { return cCsvtableCsvTableIDTerminalRuleCall_2_0_1; }
 		
 		//('(' colonne+=EString (',' colonne+=EString)* ')')?
 		public Group getGroup_3() { return cGroup_3; }
@@ -357,17 +329,15 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Where
 		public RuleCall getWhereWhereParserRuleCall_4_0() { return cWhereWhereParserRuleCall_4_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_5() { return cNLTerminalRuleCall_5; }
 	}
 	public class UpdateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Update");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUpdateAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cUpdateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
+		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cCsvtableCsvTableCrossReference_2_0 = (CrossReference)cCsvtableAssignment_2.eContents().get(0);
+		private final RuleCall cCsvtableCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_2_0.eContents().get(1);
 		private final Keyword cSetKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cParameterAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cParameterParameterParserRuleCall_4_0 = (RuleCall)cParameterAssignment_4.eContents().get(0);
@@ -377,14 +347,13 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParameterParameterParserRuleCall_5_1_0 = (RuleCall)cParameterAssignment_5_1.eContents().get(0);
 		private final Assignment cWhereAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cWhereWhereParserRuleCall_6_0 = (RuleCall)cWhereAssignment_6.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//Update:
 		//	{Update}
-		//	'update' table=EString 'set' parameter+=Parameter (',' parameter+=Parameter)* where=Where? NL;
+		//	'update' csvtable=[CsvTable] 'set' parameter+=Parameter (',' parameter+=Parameter)* where=Where?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Update} 'update' table=EString 'set' parameter+=Parameter (',' parameter+=Parameter)* where=Where? NL
+		//{Update} 'update' csvtable=[CsvTable] 'set' parameter+=Parameter (',' parameter+=Parameter)* where=Where?
 		public Group getGroup() { return cGroup; }
 		
 		//{Update}
@@ -393,11 +362,14 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'update'
 		public Keyword getUpdateKeyword_1() { return cUpdateKeyword_1; }
 		
-		//table=EString
-		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		//csvtable=[CsvTable]
+		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
 		
-		//EString
-		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
+		//[CsvTable]
+		public CrossReference getCsvtableCsvTableCrossReference_2_0() { return cCsvtableCsvTableCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getCsvtableCsvTableIDTerminalRuleCall_2_0_1() { return cCsvtableCsvTableIDTerminalRuleCall_2_0_1; }
 		
 		//'set'
 		public Keyword getSetKeyword_3() { return cSetKeyword_3; }
@@ -425,9 +397,6 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Where
 		public RuleCall getWhereWhereParserRuleCall_6_0() { return cWhereWhereParserRuleCall_6_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_7() { return cNLTerminalRuleCall_7; }
 	}
 	public class AddElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Add");
@@ -454,18 +423,18 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParameterParameterParserRuleCall_2_1_2_1_0 = (RuleCall)cParameterAssignment_2_1_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2_1_3 = (Keyword)cGroup_2_1.eContents().get(3);
 		private final Keyword cInKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cTableAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTableEStringParserRuleCall_4_0 = (RuleCall)cTableAssignment_4.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cCsvtableAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cCsvtableCsvTableCrossReference_4_0 = (CrossReference)cCsvtableAssignment_4.eContents().get(0);
+		private final RuleCall cCsvtableCsvTableEStringParserRuleCall_4_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_4_0.eContents().get(1);
 		
 		//Add:
 		//	{Add}
 		//	'add' ('(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')')
-		//	'in' table=EString NL;
+		//	'in' csvtable=[CsvTable|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Add} 'add' ('(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')')
-		//'in' table=EString NL
+		//'in' csvtable=[CsvTable|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//{Add}
@@ -534,35 +503,36 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'in'
 		public Keyword getInKeyword_3() { return cInKeyword_3; }
 		
-		//table=EString
-		public Assignment getTableAssignment_4() { return cTableAssignment_4; }
+		//csvtable=[CsvTable|EString]
+		public Assignment getCsvtableAssignment_4() { return cCsvtableAssignment_4; }
+		
+		//[CsvTable|EString]
+		public CrossReference getCsvtableCsvTableCrossReference_4_0() { return cCsvtableCsvTableCrossReference_4_0; }
 		
 		//EString
-		public RuleCall getTableEStringParserRuleCall_4_0() { return cTableEStringParserRuleCall_4_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_5() { return cNLTerminalRuleCall_5; }
+		public RuleCall getCsvtableCsvTableEStringParserRuleCall_4_0_1() { return cCsvtableCsvTableEStringParserRuleCall_4_0_1; }
 	}
 	public class JoinElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Join");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cJoinAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cJoinKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTable1Assignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTable1EStringParserRuleCall_2_0 = (RuleCall)cTable1Assignment_2.eContents().get(0);
-		private final Assignment cTable2Assignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTable2EStringParserRuleCall_3_0 = (RuleCall)cTable2Assignment_3.eContents().get(0);
+		private final Assignment cTablesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cTablesCsvTableCrossReference_2_0 = (CrossReference)cTablesAssignment_2.eContents().get(0);
+		private final RuleCall cTablesCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cTablesCsvTableCrossReference_2_0.eContents().get(1);
+		private final Assignment cTablesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTablesCsvTableCrossReference_3_0 = (CrossReference)cTablesAssignment_3.eContents().get(0);
+		private final RuleCall cTablesCsvTableIDTerminalRuleCall_3_0_1 = (RuleCall)cTablesCsvTableCrossReference_3_0.eContents().get(1);
 		private final Keyword cInKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTable3Assignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTable3EStringParserRuleCall_5_0 = (RuleCall)cTable3Assignment_5.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final RuleCall cTable3CsvTableParserRuleCall_5_0 = (RuleCall)cTable3Assignment_5.eContents().get(0);
 		
 		//Join:
 		//	{Join}
-		//	'join' table1=EString table2=EString 'in' table3=EString NL;
+		//	'join' tables+=[CsvTable] tables+=[CsvTable] 'in' table3=CsvTable;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Join} 'join' table1=EString table2=EString 'in' table3=EString NL
+		//{Join} 'join' tables+=[CsvTable] tables+=[CsvTable] 'in' table3=CsvTable
 		public Group getGroup() { return cGroup; }
 		
 		//{Join}
@@ -571,47 +541,50 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'join'
 		public Keyword getJoinKeyword_1() { return cJoinKeyword_1; }
 		
-		//table1=EString
-		public Assignment getTable1Assignment_2() { return cTable1Assignment_2; }
+		//tables+=[CsvTable]
+		public Assignment getTablesAssignment_2() { return cTablesAssignment_2; }
 		
-		//EString
-		public RuleCall getTable1EStringParserRuleCall_2_0() { return cTable1EStringParserRuleCall_2_0; }
+		//[CsvTable]
+		public CrossReference getTablesCsvTableCrossReference_2_0() { return cTablesCsvTableCrossReference_2_0; }
 		
-		//table2=EString
-		public Assignment getTable2Assignment_3() { return cTable2Assignment_3; }
+		//ID
+		public RuleCall getTablesCsvTableIDTerminalRuleCall_2_0_1() { return cTablesCsvTableIDTerminalRuleCall_2_0_1; }
 		
-		//EString
-		public RuleCall getTable2EStringParserRuleCall_3_0() { return cTable2EStringParserRuleCall_3_0; }
+		//tables+=[CsvTable]
+		public Assignment getTablesAssignment_3() { return cTablesAssignment_3; }
+		
+		//[CsvTable]
+		public CrossReference getTablesCsvTableCrossReference_3_0() { return cTablesCsvTableCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getTablesCsvTableIDTerminalRuleCall_3_0_1() { return cTablesCsvTableIDTerminalRuleCall_3_0_1; }
 		
 		//'in'
 		public Keyword getInKeyword_4() { return cInKeyword_4; }
 		
-		//table3=EString
+		//table3=CsvTable
 		public Assignment getTable3Assignment_5() { return cTable3Assignment_5; }
 		
-		//EString
-		public RuleCall getTable3EStringParserRuleCall_5_0() { return cTable3EStringParserRuleCall_5_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_6() { return cNLTerminalRuleCall_6; }
+		//CsvTable
+		public RuleCall getTable3CsvTableParserRuleCall_5_0() { return cTable3CsvTableParserRuleCall_5_0; }
 	}
 	public class DeleteElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Delete");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDeleteAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cDeleteKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTableEStringParserRuleCall_2_0 = (RuleCall)cTableAssignment_2.eContents().get(0);
+		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cCsvtableCsvTableCrossReference_2_0 = (CrossReference)cCsvtableAssignment_2.eContents().get(0);
+		private final RuleCall cCsvtableCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_2_0.eContents().get(1);
 		private final Assignment cWhereAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cWhereWhereParserRuleCall_3_0 = (RuleCall)cWhereAssignment_3.eContents().get(0);
-		private final RuleCall cNLTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//Delete:
 		//	{Delete}
-		//	'delete' table=EString where=Where? NL;
+		//	'delete' csvtable=[CsvTable] where=Where?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Delete} 'delete' table=EString where=Where? NL
+		//{Delete} 'delete' csvtable=[CsvTable] where=Where?
 		public Group getGroup() { return cGroup; }
 		
 		//{Delete}
@@ -620,20 +593,20 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//'delete'
 		public Keyword getDeleteKeyword_1() { return cDeleteKeyword_1; }
 		
-		//table=EString
-		public Assignment getTableAssignment_2() { return cTableAssignment_2; }
+		//csvtable=[CsvTable]
+		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
 		
-		//EString
-		public RuleCall getTableEStringParserRuleCall_2_0() { return cTableEStringParserRuleCall_2_0; }
+		//[CsvTable]
+		public CrossReference getCsvtableCsvTableCrossReference_2_0() { return cCsvtableCsvTableCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getCsvtableCsvTableIDTerminalRuleCall_2_0_1() { return cCsvtableCsvTableIDTerminalRuleCall_2_0_1; }
 		
 		//where=Where?
 		public Assignment getWhereAssignment_3() { return cWhereAssignment_3; }
 		
 		//Where
 		public RuleCall getWhereWhereParserRuleCall_3_0() { return cWhereWhereParserRuleCall_3_0; }
-		
-		//NL
-		public RuleCall getNLTerminalRuleCall_4() { return cNLTerminalRuleCall_4; }
 	}
 	public class ExitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Exit");
@@ -703,8 +676,8 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Condition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cConditionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cAtributAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAtributEStringParserRuleCall_1_0 = (RuleCall)cAtributAssignment_1.eContents().get(0);
+		private final Assignment cColonneAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cColonneEStringParserRuleCall_1_0 = (RuleCall)cColonneAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
 		private final RuleCall cOPTerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
@@ -712,20 +685,20 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValeurEStringParserRuleCall_3_0 = (RuleCall)cValeurAssignment_3.eContents().get(0);
 		
 		//Condition:
-		//	{Condition} atribut=EString ('=' | OP) valeur=EString;
+		//	{Condition} colonne=EString ('=' | OP) valeur=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Condition} atribut=EString ('=' | OP) valeur=EString
+		//{Condition} colonne=EString ('=' | OP) valeur=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{Condition}
 		public Action getConditionAction_0() { return cConditionAction_0; }
 		
-		//atribut=EString
-		public Assignment getAtributAssignment_1() { return cAtributAssignment_1; }
+		//colonne=EString
+		public Assignment getColonneAssignment_1() { return cColonneAssignment_1; }
 		
 		//EString
-		public RuleCall getAtributEStringParserRuleCall_1_0() { return cAtributEStringParserRuleCall_1_0; }
+		public RuleCall getColonneEStringParserRuleCall_1_0() { return cColonneEStringParserRuleCall_1_0; }
 		
 		//'=' | OP
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -776,6 +749,65 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EString
 		public RuleCall getValueEStringParserRuleCall_3_0() { return cValueEStringParserRuleCall_3_0; }
+	}
+	public class CsvTableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.CsvTable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCsvTableAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cColonneAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cColonneEStringParserRuleCall_2_1_0 = (RuleCall)cColonneAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cColonneAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cColonneEStringParserRuleCall_2_2_1_0 = (RuleCall)cColonneAssignment_2_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		
+		//CsvTable:
+		//	{CsvTable} name=EString ('(' colonne+=EString (',' colonne+=EString)* ')')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{CsvTable} name=EString ('(' colonne+=EString (',' colonne+=EString)* ')')?
+		public Group getGroup() { return cGroup; }
+		
+		//{CsvTable}
+		public Action getCsvTableAction_0() { return cCsvTableAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//('(' colonne+=EString (',' colonne+=EString)* ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//colonne+=EString
+		public Assignment getColonneAssignment_2_1() { return cColonneAssignment_2_1; }
+		
+		//EString
+		public RuleCall getColonneEStringParserRuleCall_2_1_0() { return cColonneEStringParserRuleCall_2_1_0; }
+		
+		//(',' colonne+=EString)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//colonne+=EString
+		public Assignment getColonneAssignment_2_2_1() { return cColonneAssignment_2_2_1; }
+		
+		//EString
+		public RuleCall getColonneEStringParserRuleCall_2_2_1_0() { return cColonneEStringParserRuleCall_2_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
 	}
 	public class CommentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Comment");
@@ -836,6 +868,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	private final WhereElements pWhere;
 	private final ConditionElements pCondition;
 	private final ParameterElements pParameter;
+	private final CsvTableElements pCsvTable;
 	private final CommentElements pComment;
 	private final EStringElements pEString;
 	private final TerminalRule tOP;
@@ -865,6 +898,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		this.pWhere = new WhereElements();
 		this.pCondition = new ConditionElements();
 		this.pParameter = new ParameterElements();
+		this.pCsvTable = new CsvTableElements();
 		this.pComment = new CommentElements();
 		this.pEString = new EStringElements();
 		this.tOP = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.OP");
@@ -899,7 +933,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	{Program} instruction+=Instruction*;
+	//	{Program} (instruction+=Instruction NL)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -920,7 +954,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Remove:
 	//	{Remove}
-	//	'remove' table=EString NL;
+	//	'remove' csvtable=[CsvTable];
 	public RemoveElements getRemoveAccess() {
 		return pRemove;
 	}
@@ -931,7 +965,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Copy:
 	//	{Copy}
-	//	'copy' alias=EString 'in' table=EString NL;
+	//	'copy' alias=[CsvTable] 'in' table=CsvTable;
 	public CopyElements getCopyAccess() {
 		return pCopy;
 	}
@@ -942,7 +976,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Create:
 	//	{Create}
-	//	'create' table=EString '(' colonne+=EString (',' colonne+=EString)* ')' NL;
+	//	'create' csvtable=CsvTable;
 	public CreateElements getCreateAccess() {
 		return pCreate;
 	}
@@ -953,7 +987,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Load:
 	//	{Load}
-	//	'load' table=EString 'as' alias=EString NL;
+	//	'load' fichier=EString 'as' csvtable=CsvTable;
 	public LoadElements getLoadAccess() {
 		return pLoad;
 	}
@@ -964,7 +998,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Show:
 	//	{Show}
-	//	'show' table=EString ('(' colonne+=EString (',' colonne+=EString)* ')')? where=Where? NL;
+	//	'show' csvtable=[CsvTable] ('(' colonne+=EString (',' colonne+=EString)* ')')? where=Where?;
 	public ShowElements getShowAccess() {
 		return pShow;
 	}
@@ -975,7 +1009,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Update:
 	//	{Update}
-	//	'update' table=EString 'set' parameter+=Parameter (',' parameter+=Parameter)* where=Where? NL;
+	//	'update' csvtable=[CsvTable] 'set' parameter+=Parameter (',' parameter+=Parameter)* where=Where?;
 	public UpdateElements getUpdateAccess() {
 		return pUpdate;
 	}
@@ -987,7 +1021,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	//Add:
 	//	{Add}
 	//	'add' ('(' valeur+=EString (',' valeur+=EString)* ')' | '(' parameter+=Parameter (',' parameter+=Parameter)* ')')
-	//	'in' table=EString NL;
+	//	'in' csvtable=[CsvTable|EString];
 	public AddElements getAddAccess() {
 		return pAdd;
 	}
@@ -998,7 +1032,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Join:
 	//	{Join}
-	//	'join' table1=EString table2=EString 'in' table3=EString NL;
+	//	'join' tables+=[CsvTable] tables+=[CsvTable] 'in' table3=CsvTable;
 	public JoinElements getJoinAccess() {
 		return pJoin;
 	}
@@ -1009,7 +1043,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Delete:
 	//	{Delete}
-	//	'delete' table=EString where=Where? NL;
+	//	'delete' csvtable=[CsvTable] where=Where?;
 	public DeleteElements getDeleteAccess() {
 		return pDelete;
 	}
@@ -1041,7 +1075,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Condition:
-	//	{Condition} atribut=EString ('=' | OP) valeur=EString;
+	//	{Condition} colonne=EString ('=' | OP) valeur=EString;
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -1058,6 +1092,16 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getParameterRule() {
 		return getParameterAccess().getRule();
+	}
+	
+	//CsvTable:
+	//	{CsvTable} name=EString ('(' colonne+=EString (',' colonne+=EString)* ')')?;
+	public CsvTableElements getCsvTableAccess() {
+		return pCsvTable;
+	}
+	
+	public ParserRule getCsvTableRule() {
+		return getCsvTableAccess().getRule();
 	}
 	
 	//Comment:

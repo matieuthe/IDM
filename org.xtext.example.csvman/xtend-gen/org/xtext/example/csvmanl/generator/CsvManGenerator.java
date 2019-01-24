@@ -8,6 +8,7 @@ import csvManager.Add;
 import csvManager.Condition;
 import csvManager.Copy;
 import csvManager.Create;
+import csvManager.CsvTable;
 import csvManager.Delete;
 import csvManager.Exit;
 import csvManager.Instruction;
@@ -28,7 +29,6 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
@@ -42,7 +42,6 @@ public class CsvManGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     fsa.generateFile("CsvMan.java", this.compile(IterableExtensions.<Program>head(IteratorExtensions.<Program>toIterable(Iterators.<Program>filter(resource.getAllContents(), Program.class)))).toString());
-    InputOutput.<String>println("execution !");
   }
   
   protected CharSequence _compile(final Program program) {
@@ -1491,11 +1490,11 @@ public class CsvManGenerator extends AbstractGenerator {
   protected CharSequence _compile(final Load load) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("man.load(\"");
-    String _table = load.getTable();
-    _builder.append(_table);
+    String _fichier = load.getFichier();
+    _builder.append(_fichier);
     _builder.append("\", \"");
-    String _alias = load.getAlias();
-    _builder.append(_alias);
+    String _name = load.getCsvtable().getName();
+    _builder.append(_name);
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -1507,12 +1506,12 @@ public class CsvManGenerator extends AbstractGenerator {
   protected CharSequence _compile(final Create created) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("man.resetParamTab(");
-    int _length = ((Object[])Conversions.unwrapArray(created.getColonne(), Object.class)).length;
+    int _length = ((Object[])Conversions.unwrapArray(created.getCsvtable().getColonne(), Object.class)).length;
     _builder.append(_length);
     _builder.append(");");
     _builder.newLineIfNotEmpty();
     {
-      EList<String> _colonne = created.getColonne();
+      EList<String> _colonne = created.getCsvtable().getColonne();
       for(final String exp : _colonne) {
         _builder.append("man.addElmtParamTab(\"");
         _builder.append(exp);
@@ -1521,8 +1520,8 @@ public class CsvManGenerator extends AbstractGenerator {
       }
     }
     _builder.append("man.create(\"");
-    String _table = created.getTable();
-    _builder.append(_table);
+    String _name = created.getCsvtable().getName();
+    _builder.append(_name);
     _builder.append("\", man.getParamTab());");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -1559,8 +1558,8 @@ public class CsvManGenerator extends AbstractGenerator {
       }
     }
     _builder.append("man.show(\"");
-    String _table = show.getTable();
-    _builder.append(_table);
+    String _name = show.getCsvtable().getName();
+    _builder.append(_name);
     _builder.append("\", man.getParamTab(), man.getConditionTab());");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -1586,14 +1585,8 @@ public class CsvManGenerator extends AbstractGenerator {
         _builder.append(_colonne);
         _builder.append("\");");
         _builder.newLineIfNotEmpty();
-        _builder.append("man.addElmtParamTab(\"");
-        String _value = exp.getValue();
-        _builder.append(_value);
-        _builder.append("\");");
-        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.newLine();
     {
       Where _where = update.getWhere();
       boolean _tripleNotEquals = (_where != null);
@@ -1604,8 +1597,8 @@ public class CsvManGenerator extends AbstractGenerator {
       }
     }
     _builder.append("man.update(\"");
-    String _table = update.getTable();
-    _builder.append(_table);
+    String _name = update.getCsvtable().getName();
+    _builder.append(_name);
     _builder.append("\", man.getParamTab(), man.getConditionTab());");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -1635,8 +1628,8 @@ public class CsvManGenerator extends AbstractGenerator {
           }
         }
         _builder.append("man.add(\"");
-        String _table = add.getTable();
-        _builder.append(_table);
+        String _name = add.getCsvtable().getName();
+        _builder.append(_name);
         _builder.append("\", man.getParamTab());\t\t\t\t");
         _builder.newLineIfNotEmpty();
       } else {
@@ -1661,8 +1654,8 @@ public class CsvManGenerator extends AbstractGenerator {
           }
         }
         _builder.append("man.addParameterized(\"");
-        String _table_1 = add.getTable();
-        _builder.append(_table_1);
+        String _name_1 = add.getCsvtable().getName();
+        _builder.append(_name_1);
         _builder.append("\", man.getParamTab());\t");
         _builder.newLineIfNotEmpty();
         _builder.newLine();
@@ -1677,11 +1670,11 @@ public class CsvManGenerator extends AbstractGenerator {
   protected CharSequence _compile(final Copy copy) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("man.copy(\"");
-    String _alias = copy.getAlias();
-    _builder.append(_alias);
+    String _name = copy.getAlias().getName();
+    _builder.append(_name);
     _builder.append("\", \"");
-    String _table = copy.getTable();
-    _builder.append(_table);
+    String _name_1 = copy.getTable().getName();
+    _builder.append(_name_1);
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -1710,14 +1703,14 @@ public class CsvManGenerator extends AbstractGenerator {
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
         _builder.append("man.delete(\"");
-        String _table = delete.getTable();
-        _builder.append(_table);
+        String _name = delete.getCsvtable().getName();
+        _builder.append(_name);
         _builder.append("\", man.getConditionTab());");
         _builder.newLineIfNotEmpty();
       } else {
         _builder.append("man.delete(\"");
-        String _table_1 = delete.getTable();
-        _builder.append(_table_1);
+        String _name_1 = delete.getCsvtable().getName();
+        _builder.append(_name_1);
         _builder.append("\");");
         _builder.newLineIfNotEmpty();
       }
@@ -1731,13 +1724,13 @@ public class CsvManGenerator extends AbstractGenerator {
   protected CharSequence _compile(final Join join) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("man.join(\"");
-    String _table1 = join.getTable1();
-    _builder.append(_table1);
+    CsvTable _get = join.getTables().get(0);
+    _builder.append(_get);
     _builder.append("\", \"");
-    String _table2 = join.getTable2();
-    _builder.append(_table2);
+    CsvTable _get_1 = join.getTables().get(1);
+    _builder.append(_get_1);
     _builder.append("\", \"");
-    String _table3 = join.getTable3();
+    CsvTable _table3 = join.getTable3();
     _builder.append(_table3);
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
@@ -1750,8 +1743,8 @@ public class CsvManGenerator extends AbstractGenerator {
   protected CharSequence _compile(final Remove remove) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("man.remove(\"");
-    String _table = remove.getTable();
-    _builder.append(_table);
+    String _name = remove.getCsvtable().getName();
+    _builder.append(_name);
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -1768,8 +1761,8 @@ public class CsvManGenerator extends AbstractGenerator {
       EList<Condition> _condition = where.getCondition();
       for(final Condition exp : _condition) {
         _builder.append("man.addElmtConditionTab(\"");
-        String _atribut = exp.getAtribut();
-        _builder.append(_atribut);
+        String _colonne = exp.getColonne();
+        _builder.append(_colonne);
         _builder.append("\");");
         _builder.newLineIfNotEmpty();
         _builder.append("man.addElmtConditionTab(\"");

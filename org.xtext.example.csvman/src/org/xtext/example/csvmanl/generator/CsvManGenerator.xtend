@@ -31,8 +31,6 @@ class CsvManGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		fsa.generateFile('CsvMan.java', resource.allContents.filter(Program).toIterable.head.compile.toString)
-		println('execution !')
-		//Runtime.getRuntime().exec("ls")
 	}
 	
 	def dispatch compile(Program program)
@@ -566,7 +564,7 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Load load)
 			'''
-				man.load("«load.table»", "«load.alias»");
+				man.load("«load.fichier»", "«load.csvtable.name»");
 			'''
 		
 		/*
@@ -574,11 +572,11 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Create created)
 			'''
-				man.resetParamTab(«created.colonne.length»);
-				«FOR exp: created.colonne»
+				man.resetParamTab(«created.csvtable.colonne.length»);
+				«FOR exp: created.csvtable.colonne»
 					man.addElmtParamTab("«exp»");
 				«ENDFOR»
-				man.create("«created.table»", man.getParamTab());
+				man.create("«created.csvtable.name»", man.getParamTab());
 			'''
 		
 				
@@ -595,7 +593,7 @@ class CsvManGenerator extends AbstractGenerator {
 				«IF show.where !== null»
 					«show.where.compile»
 				«ENDIF»
-				man.show("«show.table»", man.getParamTab(), man.getConditionTab());
+				man.show("«show.csvtable.name»", man.getParamTab(), man.getConditionTab());
 			'''
 		
 		/*
@@ -607,13 +605,11 @@ class CsvManGenerator extends AbstractGenerator {
 				man.resetConditionTab(0);
 				«FOR exp: update.parameter»
 					man.addElmtParamTab("«exp.colonne»");
-					man.addElmtParamTab("«exp.value»");
 				«ENDFOR»
-
 				«IF update.where !== null»
 					«update.where.compile»
 				«ENDIF»
-				man.update("«update.table»", man.getParamTab(), man.getConditionTab());
+				man.update("«update.csvtable.name»", man.getParamTab(), man.getConditionTab());
 			'''		 
 		
 		/*
@@ -626,14 +622,14 @@ class CsvManGenerator extends AbstractGenerator {
 					«FOR exp: add.valeur»
 						man.addElmtParamTab("«exp»");
 					«ENDFOR»
-					man.add("«add.table»", man.getParamTab());				
+					man.add("«add.csvtable.name»", man.getParamTab());				
 				«ELSE»
 					man.resetParamTab(«add.parameter.length» * 2);
 					«FOR exp: add.parameter»
 						man.addElmtParamTab("«exp.colonne»");
 						man.addElmtParamTab("«exp.value»");					
 					«ENDFOR»
-					man.addParameterized("«add.table»", man.getParamTab());	
+					man.addParameterized("«add.csvtable.name»", man.getParamTab());	
 					
 				«ENDIF»				
 			'''		 
@@ -643,7 +639,7 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Copy copy)
 			'''
-				man.copy("«copy.alias»", "«copy.table»");
+				man.copy("«copy.alias.name»", "«copy.table.name»");
 			'''		
 				
 		/*
@@ -661,9 +657,9 @@ class CsvManGenerator extends AbstractGenerator {
 			'''
 				«IF delete.where !== null»
 					«delete.where.compile»
-					man.delete("«delete.table»", man.getConditionTab());
+					man.delete("«delete.csvtable.name»", man.getConditionTab());
 				«ELSE»
-					man.delete("«delete.table»");
+					man.delete("«delete.csvtable.name»");
 				«ENDIF»
 			'''		
 		
@@ -673,7 +669,7 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Join join)
 			'''
-				man.join("«join.table1»", "«join.table2»", "«join.table3»");
+				man.join("«join.tables.get(0)»", "«join.tables.get(1)»", "«join.table3»");
 			'''			
 		
 		/*
@@ -681,14 +677,14 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Remove remove)
 			'''
-				man.remove("«remove.table»");
+				man.remove("«remove.csvtable.name»");
 			'''		
 		
 		def dispatch compile(Where where)
 		'''
 			man.resetConditionTab(«where.condition.length»*2);
 			«FOR exp: where.condition»
-				man.addElmtConditionTab("«exp.atribut»");
+				man.addElmtConditionTab("«exp.colonne»");
 				man.addElmtConditionTab("«exp.valeur»");
 			«ENDFOR»
 		'''

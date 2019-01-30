@@ -35,6 +35,7 @@ class CsvManGenerator extends AbstractGenerator {
 	
 	def dispatch compile(Program program)
 		'''
+		import dnl.utils.text.table.TextTable;
 		import org.apache.commons.csv.CSVFormat;
 		import org.apache.commons.csv.CSVParser;
 		import org.apache.commons.csv.CSVPrinter;
@@ -63,11 +64,10 @@ class CsvManGenerator extends AbstractGenerator {
 		    }
 		
 		    public static void main(String[] args){
-		    	CsvMan man = new CsvMan();
-				«FOR exp: program.instruction»
-					«exp.compile»				
-				«ENDFOR»
-			
+   		    	CsvMan man = new CsvMan();
+   				«FOR exp: program.instruction»
+   					«exp.compile»				
+   				«ENDFOR»
 		    }
 		
 		    public void resetParamTab(int length){
@@ -103,6 +103,7 @@ class CsvManGenerator extends AbstractGenerator {
 		     */
 		    private void putAliasMap(String alias, String filename){
 		        String finalAlias = alias;
+		
 		        //In case there are file with the same id
 		        if(aliasMaps.containsKey(alias)){
 		            for(int i = 0; i < 1000; i++){
@@ -115,7 +116,7 @@ class CsvManGenerator extends AbstractGenerator {
 		        }else{
 		            aliasMaps.put(alias, filename);
 		        }
-		        System.out.println("File " + filename  + " added with alias : " + finalAlias);
+		        System.out.println("INFO : File " + filename  + " added with alias : " + finalAlias);
 		    }
 		
 		    /**
@@ -126,25 +127,31 @@ class CsvManGenerator extends AbstractGenerator {
 		     */
 		    private CSVParser getParser(String alias) throws Exception{
 		        String fileName = this.aliasMaps.get(alias);
-		        if (fileName == null) throw new Exception();
 		
-		        Reader reader = Files.newBufferedReader(Paths.get(fileName));
-		        return new CSVParser(reader, CSVFormat.DEFAULT
-		                .withFirstRecordAsHeader()
-		                .withIgnoreHeaderCase()
-		                .withTrim());
+		            if (fileName == null)
+		                throw new Exception();
+		
+		            Reader reader = Files.newBufferedReader(Paths.get(fileName));
+		            return new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());
 		    }
+		
+		
 		
 		    /**
 		     * Overwrite a CSV File
 		     * @param alias of the user corresponding to a real CSV.
 		     * @param txt to push in the file.
 		     */
-		    private void writeIn(String alias, String txt) throws Exception{
-		        Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), false); //overwrites file
-		        fileWriter.write(txt);
-		        fileWriter.flush();
-		        fileWriter.close();
+		    private void writeIn(String alias, String txt) {
+		        try {
+		            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), false); //overwrites file
+		            fileWriter.write(txt);
+		            fileWriter.flush();
+		            fileWriter.close();
+		        }catch (IOException e){
+		            System.out.println("ERROR : Alias " + alias + " given doesn't exist, or its CSV file doesn't exist");
+		            e.printStackTrace();
+		        }
 		    }
 		
 		    /**
@@ -180,8 +187,9 @@ class CsvManGenerator extends AbstractGenerator {
 		            String columns = "";
 		            for(String temp : args) columns += temp + ", ";
 		            columns = columns.substring(0, columns.length()-2);
-		            System.out.println("File " + filename + ".csv was created with columns : " + columns);
+		            System.out.println("INFO : File " + filename + ".csv was created with columns : " + columns);
 		        } catch (IOException e) {
+		            System.out.println("ERROR : Alias given " + filename + " doesn't exist, or its CSV file doesn't exist");
 		            e.printStackTrace();
 		        }
 		    }
@@ -195,8 +203,9 @@ class CsvManGenerator extends AbstractGenerator {
 		        File tmpFile = new File(filename);
 		        if(tmpFile.exists()){
 		            this.putAliasMap(alias, filename);
+		            System.out.println("INFO :" + filename + " is reachable as " + alias);
 		        }else
-		            System.out.println(filename + " doesn't exist");
+		            System.out.println("INFO :" + filename + " doesn't exist...");
 		    }
 		
 		    /**
@@ -219,9 +228,10 @@ class CsvManGenerator extends AbstractGenerator {
 		            }
 		            inputStream.close();
 		            outputStream.close();
-		            System.out.println("File " + startFile + " copied into file " + arriveFile);
+		            System.out.println("INFO : File " + startFile + " copied into file " + arriveFile);
 		            this.putAliasMap(arriveFile, arriveFile + ".csv");
-		        } catch (Exception e) {
+		        } catch (IOException e) {
+		            System.out.println("ERROR : Alias 'startFile' given doesn't exist, or its CSV file doesn't exist");
 		            e.printStackTrace();
 		        }
 		    }
@@ -232,15 +242,17 @@ class CsvManGenerator extends AbstractGenerator {
 		     */
 		    public void delete(String alias){
 		        String fileName = this.aliasMaps.get(alias);
+		
 		        if(fileName != null){
 		            File file = new File(fileName);
 		            if(file.delete()){
-		                System.out.println("File " + alias + ".csv deleted");
+		                System.out.println("INFO : File " + alias + ".csv has been deleted");
 		                this.aliasMaps.remove(alias);
 		                return;
 		            }
+		        }else {
+		            System.out.println( "ERROR : Alias " + alias + " doesn't exists");
 		        }
-		        System.out.println( "Alias " + alias + " doesn't exists");
 		    }
 		
 		    /**
@@ -248,7 +260,7 @@ class CsvManGenerator extends AbstractGenerator {
 		     * @param alias alias corresponding to a real CSV.
 		     * @param conditions where tuple should be deleted.
 		     */
-		    public void delete(String alias, String[] conditions){
+		    public void remove(String alias, String[] conditions){
 		        try {
 		            String res = "";
 		            CSVParser csvParser = this.getParser(alias);
@@ -275,7 +287,13 @@ class CsvManGenerator extends AbstractGenerator {
 		                }
 		            }
 		            this.writeIn(alias, res);
+		            System.out.println("INFO : tuples has been deleted");
+		
+		        } catch (IOException e){
+		            System.out.println("ERROR : Alias " + alias + " given doesn't exist, or its CSV file doesn't exist");
+		            e.printStackTrace();
 		        } catch (Exception e){
+		            System.out.println("ERROR : Alias " + alias + " given doesn't exist faield to get CSVParser");
 		            e.printStackTrace();
 		        }
 		    }
@@ -313,66 +331,101 @@ class CsvManGenerator extends AbstractGenerator {
 		            CSVParser csvParser = this.getParser(alias);
 		            Map<String, Integer> headerMap = csvParser.getHeaderMap();
 		
-		            if(printAll){
-		                System.out.print(this.getHeader(csvParser));
+		            String[] header = new String[headerMap.size()];
 		
-		                for (CSVRecord record : csvParser) {
-		                    String res = "";
+		            if (printAll) {
+		                //System.out.print(this.getHeader(csvParser));
+		                for (int i = 0; i < headerMap.size(); i++)
+		                    for (String key : headerMap.keySet())
+		                        if (headerMap.get(key) == i)
+		                            header[i] = key;
+		
+		                List<CSVRecord> records = csvParser.getRecords();
+		                int nbCondition = 0;
+		
+		                for (CSVRecord record : records){
 		                    boolean b = true;
 		                    //On vérifie les conditions avant l'affichage
-		                    for(int i = 0; i < condition.length; i+=2){
-		                        if(!record.get(condition[i].trim()).equals(condition[i+1])){
+		                    for (int i = 0; i < condition.length; i += 2) {
+		                        if (!record.get(condition[i].trim()).equals(condition[i + 1])) {
 		                            b = false;
 		                            break;
 		                        }
 		                    }
-		                    if(b) {
-		                        for (int i = 0; i < record.size() - 1; i++) {
-		                            System.out.print(record.get(i) + ",");
+		                    if(b) nbCondition++;
+		                }
+		
+		                String[][] res = new String[nbCondition][headerMap.size()];
+		                int index = 0;
+		
+		                for (CSVRecord record : records) {
+		                    boolean b = true;
+		                    //On vérifie les conditions avant l'affichage
+		                    for (int i = 0; i < condition.length; i += 2) {
+		                        if (!record.get(condition[i].trim()).equals(condition[i + 1])) {
+		                            b = false;
+		                            break;
 		                        }
-		                        if (record.size() - 1 >= 0) {
-		                            System.out.print(record.get(record.size() - 1));
+		                    }
+		                    if (b) {
+		                        for (int i = 0; i < record.size(); i++) {
+		                            res[index][i] = record.get(i);
 		                        }
-		                        System.out.println();
+		                        index++;
 		                    }
 		                }
-		            }else{
-		                String res = "";
+		
+		                TextTable tt = new TextTable(header, res);
+		                tt.printTable();
+		
+		            } else {
+		                header = new String[selected.length];
 		                //Affichage des entêtes (Header)
-		                for(int i = 0; i < selected.length; i++){
-		                    if(headerMap.containsKey(selected[i].trim())){
-		                        res += selected[i];
-		                        if(i < selected.length-1)
-		                            res += ",";
-		                    }else throw new Exception();
+		                for (int i = 0; i < selected.length; i++) {
+		                    if (headerMap.containsKey(selected[i].trim())) {
+		                        header[i] = selected[i];
+		                    } else throw new Exception();
 		                }
 		
-		                System.out.println(res);
+		                List<CSVRecord> records = csvParser.getRecords();
+		                int nbCondition = 0;
 		
-		                for(CSVRecord record : csvParser) {
+		                for (CSVRecord record : records){
 		                    boolean b = true;
 		                    //On vérifie les conditions avant l'affichage
-		                    for(int i = 0; i < condition.length; i+=2){
-		                        if(!record.get(condition[i].trim()).equals(condition[i+1])){
+		                    for (int i = 0; i < condition.length; i += 2) {
+		                        if (!record.get(condition[i].trim()).equals(condition[i + 1])) {
 		                            b = false;
 		                            break;
 		                        }
 		                    }
-		                    if(b) {
-		                        for (int i = 0; i < selected.length - 1; i++) {
-		                            System.out.print(record.get(selected[i]) + ",");
-		                        }
-		                        if (selected.length - 1 >= 0) {
-		                            System.out.print(record.get(selected[selected.length - 1]));
-		                        }
-		                        System.out.println();
-		                    }
+		                    if(b) nbCondition++;
 		                }
 		
+		                String[][] res = new String[nbCondition][headerMap.size()];
+		                int index = 0;
+		                for (CSVRecord record : records) {
+		                    boolean b = true;
+		                    //On vérifie les conditions avant l'affichage
+		                    for (int i = 0; i < condition.length; i += 2) {
+		                        if (!record.get(condition[i].trim()).equals(condition[i + 1])) {
+		                            b = false;
+		                            break;
+		                        }
+		                    }
+		                    if (b) {
+		                        for (int i = 0; i < selected.length; i++) {
+		                            res[index][i] = record.get(selected[i]);
+		                        }
+		                        index++;
+		                    }
+		                }
+		                TextTable tt = new TextTable(header, res);
+		                tt.printTable();
 		            }
 		            System.out.println("\n");
-		
-		        } catch (Exception e){
+		        }catch (Exception e){
+		            System.out.println("ERROR : Alias " + alias + " given doesn't exist, or its CSV file doesn't exist");
 		            e.printStackTrace();
 		        }
 		
@@ -381,7 +434,7 @@ class CsvManGenerator extends AbstractGenerator {
 		    /**
 		     * Add a tuple in a CSV file at its end
 		     * @param parameters giving column name (with elmnt even index) and corresponding value (elmnt with odd idx)
-		     * @exception Exception if a given column name doesn't exist.
+		     * @exception Exception if there is more column than in the existing file.
 		     */
 		    public void add(String alias, String[] parameters){
 		        try {
@@ -393,7 +446,7 @@ class CsvManGenerator extends AbstractGenerator {
 		
 		            String res = "";
 		
-		            for(int i = 0; i < parameters.length - 1; i++){
+		            for(int i = 0; i < parameters.length -1; i++){
 		                if(parameters[i] == null)
 		                    res += ",";
 		                else
@@ -407,7 +460,72 @@ class CsvManGenerator extends AbstractGenerator {
 		            fileWriter.write(res);
 		            fileWriter.flush();
 		            fileWriter.close();
+		            System.out.println("INFO : tuple has been added");
+		
 		        }catch (Exception e) {
+		            System.out.println("ERROR : some columns given doesn't exist in the CSV file");
+		            e.printStackTrace();
+		        }
+		    }
+		
+		    /**
+		     * Evolved version of Add function. It a tuple in a CSV file at its end
+		     * @param parameters giving column name (with elmnt even index) and corresponding value (elmnt with odd idx)
+		     * @exception Exception if there is more column than in the existing file.
+		     */
+		    public void addParameterized(String alias, String[] parameters){
+		
+		        try {
+		            CSVParser csvParser = this.getParser(alias);
+		            Map<String, Integer> header = csvParser.getHeaderMap();
+		
+		            if(parameters.length/2 > header.size()) {
+		                throw new Exception("Ce champ n'existe pas");
+		            }
+		
+		            String[] res = new String[header.size()];
+		            Arrays.fill(res, ",");
+		            res[res.length-1]="";
+		
+		            for(int i = 0; i < parameters.length; i=i+2){
+		
+		                //Column given really exist in the tab
+		                if(header.containsKey(parameters[i])){
+		
+		                    if(header.get(parameters[i]) < header.size()-1) {
+		                        if (parameters[i + 1] == null)
+		                            res[header.get(parameters[i])] = "";
+		                        else
+		                            res[header.get(parameters[i])] = parameters[i + 1] + ",";
+		                    }else { //Pour le dernier élément
+		                        if (parameters[i + 1] == null)
+		                            res[header.get(parameters[i])] = "";
+		                        else
+		                            res[header.get(parameters[i])] = parameters[i + 1];
+		                    }
+		                } else{
+		                    throw new Exception("ERROR : some columns given doesn't match with the CSV file");
+		                }
+		            }
+		
+		            String resConcat = "";
+		            for (String s : res) {
+		                if(s!= null) {
+		                    resConcat += s;
+		                }else{
+		                    resConcat += "";
+		                }
+		            }
+		            resConcat += "\n";
+		
+		            Writer fileWriter = new FileWriter(this.aliasMaps.get(alias), true); //appended in file
+		            fileWriter.write(resConcat);
+		            fileWriter.flush();
+		            fileWriter.close();
+		            System.out.println("INFO : tuple has been added");
+		
+		        }catch (Exception e) {
+		            System.out.println(e.getMessage());
 		            e.printStackTrace();
 		        }
 		    }
@@ -483,7 +601,10 @@ class CsvManGenerator extends AbstractGenerator {
 		            }
 		            //Write the res in the file
 		            this.writeIn(alias, res);
+		            System.out.println("INFO : tuples has been updated");
+		
 		        } catch (Exception e){
+		            System.out.println("ERROR : Alias " + alias + " given doesn't exist, or its CSV file doesn't exist");
 		            e.printStackTrace();
 		        }
 		    }
@@ -508,17 +629,18 @@ class CsvManGenerator extends AbstractGenerator {
 		            for (String k : headerMap1.keySet()) {
 		                if (headerMap2.containsKey(k)) {
 		                    colomnToJoin = k;
+		                    break;
 		                }
 		            }
 		
-		            if (!colomnToJoin.isBlank()) {
+		            if (colomnToJoin!="") {
 		                res += this.getHeader(csvParser1);
 		                res = res.replace("\n", "");
 		                res += ',';
 		                String tmp = this.getHeader(csvParser2).replace(colomnToJoin + ",", "").replace("," + colomnToJoin, "");
 		                res += tmp;
 		                create(toAlias, res);
-		                res = "";
+		                res += "";
 		
 		                List<CSVRecord> records2 = csvParser2.getRecords();
 		
@@ -548,17 +670,22 @@ class CsvManGenerator extends AbstractGenerator {
 		                    }
 		                }
 		                this.writeIn(toAlias, res);
-		                show(toAlias);
+		                System.out.println("INFO : Tables has been joined as a new one : " + toAlias + " thanks to column : "+colomnToJoin);
+		                //show(toAlias);
 		
 		            } else {
-		                throw new Exception("Can't join those tables : no column in common !");
+		                throw new Exception("Can't join those tables " + alias1 + " and " + alias2 + ": no column in common !");
 		            }
+		
 		        } catch (Exception e) {
+		            System.out.println(e.getMessage());
 		            e.printStackTrace();
 		        }
 		    }
-		}'''
-		
+		}		
+		'''
+	
+	
 		/*
 		 * Load Function
 		 */
@@ -605,6 +732,7 @@ class CsvManGenerator extends AbstractGenerator {
 				man.resetConditionTab(0);
 				«FOR exp: update.parameter»
 					man.addElmtParamTab("«exp.colonne»");
+					man.addElmtParamTab("«exp.value»");
 				«ENDFOR»
 				«IF update.where !== null»
 					«update.where.compile»
@@ -653,13 +781,14 @@ class CsvManGenerator extends AbstractGenerator {
 		/*
 		 * Delete function
 		 */
-		def dispatch compile(Delete delete)
+		def dispatch compile(Remove remove)
 			'''
-				«IF delete.where !== null»
-					«delete.where.compile»
-					man.delete("«delete.csvtable.name»", man.getConditionTab());
+				«IF remove.where !== null»
+					«remove.where.compile»
+					man.remove("«remove.csvtable.name»", man.getConditionTab());
 				«ELSE»
-					man.delete("«delete.csvtable.name»");
+					man.resetConditionTab(0);
+					man.remove("«remove.csvtable.name»", man.getConditionTab());
 				«ENDIF»
 			'''		
 		
@@ -669,15 +798,15 @@ class CsvManGenerator extends AbstractGenerator {
 		 */
 		def dispatch compile(Join join)
 			'''
-				man.join("«join.tables.get(0)»", "«join.tables.get(1)»", "«join.table3»");
+				man.join("«join.tables.get(0).name»", "«join.tables.get(1).name»", "«join.table3.name»");
 			'''			
 		
 		/*
 		 * Remove function
 		 */
-		def dispatch compile(Remove remove)
+		def dispatch compile(Delete delete)
 			'''
-				man.remove("«remove.csvtable.name»");
+				man.delete("«delete.csvtable.name»");
 			'''		
 		
 		def dispatch compile(Where where)

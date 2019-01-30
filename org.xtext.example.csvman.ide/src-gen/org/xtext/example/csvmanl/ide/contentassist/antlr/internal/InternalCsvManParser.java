@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_NL", "RULE_WS", "RULE_ANY_OTHER", "'='", "'remove'", "'copy'", "'in'", "'create'", "'load'", "'as'", "'show'", "'('", "')'", "','", "'update'", "'set'", "'add'", "'join'", "'delete'", "'exit'", "'where'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_NL", "RULE_WS", "RULE_ANY_OTHER", "'='", "'delete'", "'copy'", "'in'", "'create'", "'load'", "'as'", "'show'", "'('", "')'", "','", "'update'", "'set'", "'add'", "'join'", "'remove'", "'exit'", "'where'"
     };
     public static final int RULE_STRING=7;
     public static final int RULE_SL_COMMENT=6;
@@ -242,20 +242,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleInstruction"
 
 
-    // $ANTLR start "entryRuleRemove"
-    // InternalCsvMan.g:103:1: entryRuleRemove : ruleRemove EOF ;
-    public final void entryRuleRemove() throws RecognitionException {
+    // $ANTLR start "entryRuleDelete"
+    // InternalCsvMan.g:103:1: entryRuleDelete : ruleDelete EOF ;
+    public final void entryRuleDelete() throws RecognitionException {
         try {
-            // InternalCsvMan.g:104:1: ( ruleRemove EOF )
-            // InternalCsvMan.g:105:1: ruleRemove EOF
+            // InternalCsvMan.g:104:1: ( ruleDelete EOF )
+            // InternalCsvMan.g:105:1: ruleDelete EOF
             {
-             before(grammarAccess.getRemoveRule()); 
+             before(grammarAccess.getDeleteRule()); 
             pushFollow(FOLLOW_1);
-            ruleRemove();
+            ruleDelete();
 
             state._fsp--;
 
-             after(grammarAccess.getRemoveRule()); 
+             after(grammarAccess.getDeleteRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -269,35 +269,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleRemove"
+    // $ANTLR end "entryRuleDelete"
 
 
-    // $ANTLR start "ruleRemove"
-    // InternalCsvMan.g:112:1: ruleRemove : ( ( rule__Remove__Group__0 ) ) ;
-    public final void ruleRemove() throws RecognitionException {
+    // $ANTLR start "ruleDelete"
+    // InternalCsvMan.g:112:1: ruleDelete : ( ( rule__Delete__Group__0 ) ) ;
+    public final void ruleDelete() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:116:2: ( ( ( rule__Remove__Group__0 ) ) )
-            // InternalCsvMan.g:117:2: ( ( rule__Remove__Group__0 ) )
+            // InternalCsvMan.g:116:2: ( ( ( rule__Delete__Group__0 ) ) )
+            // InternalCsvMan.g:117:2: ( ( rule__Delete__Group__0 ) )
             {
-            // InternalCsvMan.g:117:2: ( ( rule__Remove__Group__0 ) )
-            // InternalCsvMan.g:118:3: ( rule__Remove__Group__0 )
+            // InternalCsvMan.g:117:2: ( ( rule__Delete__Group__0 ) )
+            // InternalCsvMan.g:118:3: ( rule__Delete__Group__0 )
             {
-             before(grammarAccess.getRemoveAccess().getGroup()); 
-            // InternalCsvMan.g:119:3: ( rule__Remove__Group__0 )
-            // InternalCsvMan.g:119:4: rule__Remove__Group__0
+             before(grammarAccess.getDeleteAccess().getGroup()); 
+            // InternalCsvMan.g:119:3: ( rule__Delete__Group__0 )
+            // InternalCsvMan.g:119:4: rule__Delete__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Remove__Group__0();
+            rule__Delete__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRemoveAccess().getGroup()); 
+             after(grammarAccess.getDeleteAccess().getGroup()); 
 
             }
 
@@ -316,7 +316,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleRemove"
+    // $ANTLR end "ruleDelete"
 
 
     // $ANTLR start "entryRuleCopy"
@@ -858,20 +858,20 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleJoin"
 
 
-    // $ANTLR start "entryRuleDelete"
-    // InternalCsvMan.g:303:1: entryRuleDelete : ruleDelete EOF ;
-    public final void entryRuleDelete() throws RecognitionException {
+    // $ANTLR start "entryRuleRemove"
+    // InternalCsvMan.g:303:1: entryRuleRemove : ruleRemove EOF ;
+    public final void entryRuleRemove() throws RecognitionException {
         try {
-            // InternalCsvMan.g:304:1: ( ruleDelete EOF )
-            // InternalCsvMan.g:305:1: ruleDelete EOF
+            // InternalCsvMan.g:304:1: ( ruleRemove EOF )
+            // InternalCsvMan.g:305:1: ruleRemove EOF
             {
-             before(grammarAccess.getDeleteRule()); 
+             before(grammarAccess.getRemoveRule()); 
             pushFollow(FOLLOW_1);
-            ruleDelete();
+            ruleRemove();
 
             state._fsp--;
 
-             after(grammarAccess.getDeleteRule()); 
+             after(grammarAccess.getRemoveRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -885,35 +885,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleDelete"
+    // $ANTLR end "entryRuleRemove"
 
 
-    // $ANTLR start "ruleDelete"
-    // InternalCsvMan.g:312:1: ruleDelete : ( ( rule__Delete__Group__0 ) ) ;
-    public final void ruleDelete() throws RecognitionException {
+    // $ANTLR start "ruleRemove"
+    // InternalCsvMan.g:312:1: ruleRemove : ( ( rule__Remove__Group__0 ) ) ;
+    public final void ruleRemove() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:316:2: ( ( ( rule__Delete__Group__0 ) ) )
-            // InternalCsvMan.g:317:2: ( ( rule__Delete__Group__0 ) )
+            // InternalCsvMan.g:316:2: ( ( ( rule__Remove__Group__0 ) ) )
+            // InternalCsvMan.g:317:2: ( ( rule__Remove__Group__0 ) )
             {
-            // InternalCsvMan.g:317:2: ( ( rule__Delete__Group__0 ) )
-            // InternalCsvMan.g:318:3: ( rule__Delete__Group__0 )
+            // InternalCsvMan.g:317:2: ( ( rule__Remove__Group__0 ) )
+            // InternalCsvMan.g:318:3: ( rule__Remove__Group__0 )
             {
-             before(grammarAccess.getDeleteAccess().getGroup()); 
-            // InternalCsvMan.g:319:3: ( rule__Delete__Group__0 )
-            // InternalCsvMan.g:319:4: rule__Delete__Group__0
+             before(grammarAccess.getRemoveAccess().getGroup()); 
+            // InternalCsvMan.g:319:3: ( rule__Remove__Group__0 )
+            // InternalCsvMan.g:319:4: rule__Remove__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Delete__Group__0();
+            rule__Remove__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDeleteAccess().getGroup()); 
+             after(grammarAccess.getRemoveAccess().getGroup()); 
 
             }
 
@@ -932,7 +932,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleDelete"
+    // $ANTLR end "ruleRemove"
 
 
     // $ANTLR start "entryRuleExit"
@@ -1514,7 +1514,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                 alt1=6;
                 }
                 break;
-            case 28:
+            case 14:
                 {
                 alt1=7;
                 }
@@ -1535,7 +1535,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
                 alt1=10;
                 }
                 break;
-            case 14:
+            case 28:
                 {
                 alt1=11;
                 }
@@ -2488,23 +2488,23 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Program__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__Remove__Group__0"
-    // InternalCsvMan.g:775:1: rule__Remove__Group__0 : rule__Remove__Group__0__Impl rule__Remove__Group__1 ;
-    public final void rule__Remove__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Delete__Group__0"
+    // InternalCsvMan.g:775:1: rule__Delete__Group__0 : rule__Delete__Group__0__Impl rule__Delete__Group__1 ;
+    public final void rule__Delete__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:779:1: ( rule__Remove__Group__0__Impl rule__Remove__Group__1 )
-            // InternalCsvMan.g:780:2: rule__Remove__Group__0__Impl rule__Remove__Group__1
+            // InternalCsvMan.g:779:1: ( rule__Delete__Group__0__Impl rule__Delete__Group__1 )
+            // InternalCsvMan.g:780:2: rule__Delete__Group__0__Impl rule__Delete__Group__1
             {
-            pushFollow(FOLLOW_3);
-            rule__Remove__Group__0__Impl();
+            pushFollow(FOLLOW_6);
+            rule__Delete__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Remove__Group__1();
+            rule__Delete__Group__1();
 
             state._fsp--;
 
@@ -2523,12 +2523,12 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__Group__0"
+    // $ANTLR end "rule__Delete__Group__0"
 
 
-    // $ANTLR start "rule__Remove__Group__0__Impl"
-    // InternalCsvMan.g:787:1: rule__Remove__Group__0__Impl : ( () ) ;
-    public final void rule__Remove__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Delete__Group__0__Impl"
+    // InternalCsvMan.g:787:1: rule__Delete__Group__0__Impl : ( () ) ;
+    public final void rule__Delete__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -2539,13 +2539,13 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:792:1: ( () )
             // InternalCsvMan.g:793:2: ()
             {
-             before(grammarAccess.getRemoveAccess().getRemoveAction_0()); 
+             before(grammarAccess.getDeleteAccess().getDeleteAction_0()); 
             // InternalCsvMan.g:794:2: ()
             // InternalCsvMan.g:794:3: 
             {
             }
 
-             after(grammarAccess.getRemoveAccess().getRemoveAction_0()); 
+             after(grammarAccess.getDeleteAccess().getDeleteAction_0()); 
 
             }
 
@@ -2560,26 +2560,26 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__Group__0__Impl"
+    // $ANTLR end "rule__Delete__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Remove__Group__1"
-    // InternalCsvMan.g:802:1: rule__Remove__Group__1 : rule__Remove__Group__1__Impl rule__Remove__Group__2 ;
-    public final void rule__Remove__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Delete__Group__1"
+    // InternalCsvMan.g:802:1: rule__Delete__Group__1 : rule__Delete__Group__1__Impl rule__Delete__Group__2 ;
+    public final void rule__Delete__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:806:1: ( rule__Remove__Group__1__Impl rule__Remove__Group__2 )
-            // InternalCsvMan.g:807:2: rule__Remove__Group__1__Impl rule__Remove__Group__2
+            // InternalCsvMan.g:806:1: ( rule__Delete__Group__1__Impl rule__Delete__Group__2 )
+            // InternalCsvMan.g:807:2: rule__Delete__Group__1__Impl rule__Delete__Group__2
             {
-            pushFollow(FOLLOW_6);
-            rule__Remove__Group__1__Impl();
+            pushFollow(FOLLOW_7);
+            rule__Delete__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Remove__Group__2();
+            rule__Delete__Group__2();
 
             state._fsp--;
 
@@ -2598,25 +2598,25 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__Group__1"
+    // $ANTLR end "rule__Delete__Group__1"
 
 
-    // $ANTLR start "rule__Remove__Group__1__Impl"
-    // InternalCsvMan.g:814:1: rule__Remove__Group__1__Impl : ( 'remove' ) ;
-    public final void rule__Remove__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Delete__Group__1__Impl"
+    // InternalCsvMan.g:814:1: rule__Delete__Group__1__Impl : ( 'delete' ) ;
+    public final void rule__Delete__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:818:1: ( ( 'remove' ) )
-            // InternalCsvMan.g:819:1: ( 'remove' )
+            // InternalCsvMan.g:818:1: ( ( 'delete' ) )
+            // InternalCsvMan.g:819:1: ( 'delete' )
             {
-            // InternalCsvMan.g:819:1: ( 'remove' )
-            // InternalCsvMan.g:820:2: 'remove'
+            // InternalCsvMan.g:819:1: ( 'delete' )
+            // InternalCsvMan.g:820:2: 'delete'
             {
-             before(grammarAccess.getRemoveAccess().getRemoveKeyword_1()); 
+             before(grammarAccess.getDeleteAccess().getDeleteKeyword_1()); 
             match(input,14,FOLLOW_2); 
-             after(grammarAccess.getRemoveAccess().getRemoveKeyword_1()); 
+             after(grammarAccess.getDeleteAccess().getDeleteKeyword_1()); 
 
             }
 
@@ -2635,21 +2635,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__Group__1__Impl"
+    // $ANTLR end "rule__Delete__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Remove__Group__2"
-    // InternalCsvMan.g:829:1: rule__Remove__Group__2 : rule__Remove__Group__2__Impl ;
-    public final void rule__Remove__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__Delete__Group__2"
+    // InternalCsvMan.g:829:1: rule__Delete__Group__2 : rule__Delete__Group__2__Impl ;
+    public final void rule__Delete__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:833:1: ( rule__Remove__Group__2__Impl )
-            // InternalCsvMan.g:834:2: rule__Remove__Group__2__Impl
+            // InternalCsvMan.g:833:1: ( rule__Delete__Group__2__Impl )
+            // InternalCsvMan.g:834:2: rule__Delete__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Remove__Group__2__Impl();
+            rule__Delete__Group__2__Impl();
 
             state._fsp--;
 
@@ -2668,35 +2668,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__Group__2"
+    // $ANTLR end "rule__Delete__Group__2"
 
 
-    // $ANTLR start "rule__Remove__Group__2__Impl"
-    // InternalCsvMan.g:840:1: rule__Remove__Group__2__Impl : ( ( rule__Remove__CsvtableAssignment_2 ) ) ;
-    public final void rule__Remove__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Delete__Group__2__Impl"
+    // InternalCsvMan.g:840:1: rule__Delete__Group__2__Impl : ( ( rule__Delete__CsvtableAssignment_2 ) ) ;
+    public final void rule__Delete__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:844:1: ( ( ( rule__Remove__CsvtableAssignment_2 ) ) )
-            // InternalCsvMan.g:845:1: ( ( rule__Remove__CsvtableAssignment_2 ) )
+            // InternalCsvMan.g:844:1: ( ( ( rule__Delete__CsvtableAssignment_2 ) ) )
+            // InternalCsvMan.g:845:1: ( ( rule__Delete__CsvtableAssignment_2 ) )
             {
-            // InternalCsvMan.g:845:1: ( ( rule__Remove__CsvtableAssignment_2 ) )
-            // InternalCsvMan.g:846:2: ( rule__Remove__CsvtableAssignment_2 )
+            // InternalCsvMan.g:845:1: ( ( rule__Delete__CsvtableAssignment_2 ) )
+            // InternalCsvMan.g:846:2: ( rule__Delete__CsvtableAssignment_2 )
             {
-             before(grammarAccess.getRemoveAccess().getCsvtableAssignment_2()); 
-            // InternalCsvMan.g:847:2: ( rule__Remove__CsvtableAssignment_2 )
-            // InternalCsvMan.g:847:3: rule__Remove__CsvtableAssignment_2
+             before(grammarAccess.getDeleteAccess().getCsvtableAssignment_2()); 
+            // InternalCsvMan.g:847:2: ( rule__Delete__CsvtableAssignment_2 )
+            // InternalCsvMan.g:847:3: rule__Delete__CsvtableAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__Remove__CsvtableAssignment_2();
+            rule__Delete__CsvtableAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRemoveAccess().getCsvtableAssignment_2()); 
+             after(grammarAccess.getDeleteAccess().getCsvtableAssignment_2()); 
 
             }
 
@@ -2715,7 +2715,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__Group__2__Impl"
+    // $ANTLR end "rule__Delete__Group__2__Impl"
 
 
     // $ANTLR start "rule__Copy__Group__0"
@@ -2728,7 +2728,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:860:1: ( rule__Copy__Group__0__Impl rule__Copy__Group__1 )
             // InternalCsvMan.g:861:2: rule__Copy__Group__0__Impl rule__Copy__Group__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_8);
             rule__Copy__Group__0__Impl();
 
             state._fsp--;
@@ -2803,7 +2803,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:887:1: ( rule__Copy__Group__1__Impl rule__Copy__Group__2 )
             // InternalCsvMan.g:888:2: rule__Copy__Group__1__Impl rule__Copy__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Copy__Group__1__Impl();
 
             state._fsp--;
@@ -2878,7 +2878,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:914:1: ( rule__Copy__Group__2__Impl rule__Copy__Group__3 )
             // InternalCsvMan.g:915:2: rule__Copy__Group__2__Impl rule__Copy__Group__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Copy__Group__2__Impl();
 
             state._fsp--;
@@ -2963,7 +2963,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:941:1: ( rule__Copy__Group__3__Impl rule__Copy__Group__4 )
             // InternalCsvMan.g:942:2: rule__Copy__Group__3__Impl rule__Copy__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Copy__Group__3__Impl();
 
             state._fsp--;
@@ -3118,7 +3118,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:995:1: ( rule__Create__Group__0__Impl rule__Create__Group__1 )
             // InternalCsvMan.g:996:2: rule__Create__Group__0__Impl rule__Create__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             rule__Create__Group__0__Impl();
 
             state._fsp--;
@@ -3193,7 +3193,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1022:1: ( rule__Create__Group__1__Impl rule__Create__Group__2 )
             // InternalCsvMan.g:1023:2: rule__Create__Group__1__Impl rule__Create__Group__2
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Create__Group__1__Impl();
 
             state._fsp--;
@@ -3348,7 +3348,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1076:1: ( rule__Load__Group__0__Impl rule__Load__Group__1 )
             // InternalCsvMan.g:1077:2: rule__Load__Group__0__Impl rule__Load__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__Load__Group__0__Impl();
 
             state._fsp--;
@@ -3423,7 +3423,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1103:1: ( rule__Load__Group__1__Impl rule__Load__Group__2 )
             // InternalCsvMan.g:1104:2: rule__Load__Group__1__Impl rule__Load__Group__2
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Load__Group__1__Impl();
 
             state._fsp--;
@@ -3498,7 +3498,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1130:1: ( rule__Load__Group__2__Impl rule__Load__Group__3 )
             // InternalCsvMan.g:1131:2: rule__Load__Group__2__Impl rule__Load__Group__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Load__Group__2__Impl();
 
             state._fsp--;
@@ -3583,7 +3583,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1157:1: ( rule__Load__Group__3__Impl rule__Load__Group__4 )
             // InternalCsvMan.g:1158:2: rule__Load__Group__3__Impl rule__Load__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Load__Group__3__Impl();
 
             state._fsp--;
@@ -3738,7 +3738,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1211:1: ( rule__Show__Group__0__Impl rule__Show__Group__1 )
             // InternalCsvMan.g:1212:2: rule__Show__Group__0__Impl rule__Show__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Show__Group__0__Impl();
 
             state._fsp--;
@@ -3813,7 +3813,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1238:1: ( rule__Show__Group__1__Impl rule__Show__Group__2 )
             // InternalCsvMan.g:1239:2: rule__Show__Group__1__Impl rule__Show__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Show__Group__1__Impl();
 
             state._fsp--;
@@ -3888,7 +3888,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1265:1: ( rule__Show__Group__2__Impl rule__Show__Group__3 )
             // InternalCsvMan.g:1266:2: rule__Show__Group__2__Impl rule__Show__Group__3
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__Show__Group__2__Impl();
 
             state._fsp--;
@@ -3973,7 +3973,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1292:1: ( rule__Show__Group__3__Impl rule__Show__Group__4 )
             // InternalCsvMan.g:1293:2: rule__Show__Group__3__Impl rule__Show__Group__4
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__Show__Group__3__Impl();
 
             state._fsp--;
@@ -4160,7 +4160,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1346:1: ( rule__Show__Group_3__0__Impl rule__Show__Group_3__1 )
             // InternalCsvMan.g:1347:2: rule__Show__Group_3__0__Impl rule__Show__Group_3__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Show__Group_3__0__Impl();
 
             state._fsp--;
@@ -4235,7 +4235,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1373:1: ( rule__Show__Group_3__1__Impl rule__Show__Group_3__2 )
             // InternalCsvMan.g:1374:2: rule__Show__Group_3__1__Impl rule__Show__Group_3__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Show__Group_3__1__Impl();
 
             state._fsp--;
@@ -4320,7 +4320,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1400:1: ( rule__Show__Group_3__2__Impl rule__Show__Group_3__3 )
             // InternalCsvMan.g:1401:2: rule__Show__Group_3__2__Impl rule__Show__Group_3__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Show__Group_3__2__Impl();
 
             state._fsp--;
@@ -4377,7 +4377,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalCsvMan.g:1415:3: rule__Show__Group_3_2__0
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_17);
             	    rule__Show__Group_3_2__0();
 
             	    state._fsp--;
@@ -4493,7 +4493,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1454:1: ( rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1 )
             // InternalCsvMan.g:1455:2: rule__Show__Group_3_2__0__Impl rule__Show__Group_3_2__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Show__Group_3_2__0__Impl();
 
             state._fsp--;
@@ -4648,7 +4648,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1508:1: ( rule__Update__Group__0__Impl rule__Update__Group__1 )
             // InternalCsvMan.g:1509:2: rule__Update__Group__0__Impl rule__Update__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__Update__Group__0__Impl();
 
             state._fsp--;
@@ -4723,7 +4723,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1535:1: ( rule__Update__Group__1__Impl rule__Update__Group__2 )
             // InternalCsvMan.g:1536:2: rule__Update__Group__1__Impl rule__Update__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Update__Group__1__Impl();
 
             state._fsp--;
@@ -4798,7 +4798,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1562:1: ( rule__Update__Group__2__Impl rule__Update__Group__3 )
             // InternalCsvMan.g:1563:2: rule__Update__Group__2__Impl rule__Update__Group__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             rule__Update__Group__2__Impl();
 
             state._fsp--;
@@ -4883,7 +4883,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1589:1: ( rule__Update__Group__3__Impl rule__Update__Group__4 )
             // InternalCsvMan.g:1590:2: rule__Update__Group__3__Impl rule__Update__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Update__Group__3__Impl();
 
             state._fsp--;
@@ -4958,7 +4958,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1616:1: ( rule__Update__Group__4__Impl rule__Update__Group__5 )
             // InternalCsvMan.g:1617:2: rule__Update__Group__4__Impl rule__Update__Group__5
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Update__Group__4__Impl();
 
             state._fsp--;
@@ -5043,7 +5043,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1643:1: ( rule__Update__Group__5__Impl rule__Update__Group__6 )
             // InternalCsvMan.g:1644:2: rule__Update__Group__5__Impl rule__Update__Group__6
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__Update__Group__5__Impl();
 
             state._fsp--;
@@ -5100,7 +5100,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalCsvMan.g:1658:3: rule__Update__Group_5__0
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_17);
             	    rule__Update__Group_5__0();
 
             	    state._fsp--;
@@ -5237,7 +5237,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1697:1: ( rule__Update__Group_5__0__Impl rule__Update__Group_5__1 )
             // InternalCsvMan.g:1698:2: rule__Update__Group_5__0__Impl rule__Update__Group_5__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Update__Group_5__0__Impl();
 
             state._fsp--;
@@ -5392,7 +5392,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1751:1: ( rule__Add__Group__0__Impl rule__Add__Group__1 )
             // InternalCsvMan.g:1752:2: rule__Add__Group__0__Impl rule__Add__Group__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_21);
             rule__Add__Group__0__Impl();
 
             state._fsp--;
@@ -5467,7 +5467,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1778:1: ( rule__Add__Group__1__Impl rule__Add__Group__2 )
             // InternalCsvMan.g:1779:2: rule__Add__Group__1__Impl rule__Add__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_22);
             rule__Add__Group__1__Impl();
 
             state._fsp--;
@@ -5542,7 +5542,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1805:1: ( rule__Add__Group__2__Impl rule__Add__Group__3 )
             // InternalCsvMan.g:1806:2: rule__Add__Group__2__Impl rule__Add__Group__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Add__Group__2__Impl();
 
             state._fsp--;
@@ -5627,7 +5627,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1832:1: ( rule__Add__Group__3__Impl rule__Add__Group__4 )
             // InternalCsvMan.g:1833:2: rule__Add__Group__3__Impl rule__Add__Group__4
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Add__Group__3__Impl();
 
             state._fsp--;
@@ -5782,7 +5782,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1886:1: ( rule__Add__Group_2_0__0__Impl rule__Add__Group_2_0__1 )
             // InternalCsvMan.g:1887:2: rule__Add__Group_2_0__0__Impl rule__Add__Group_2_0__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Add__Group_2_0__0__Impl();
 
             state._fsp--;
@@ -5857,7 +5857,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1913:1: ( rule__Add__Group_2_0__1__Impl rule__Add__Group_2_0__2 )
             // InternalCsvMan.g:1914:2: rule__Add__Group_2_0__1__Impl rule__Add__Group_2_0__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Add__Group_2_0__1__Impl();
 
             state._fsp--;
@@ -5942,7 +5942,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1940:1: ( rule__Add__Group_2_0__2__Impl rule__Add__Group_2_0__3 )
             // InternalCsvMan.g:1941:2: rule__Add__Group_2_0__2__Impl rule__Add__Group_2_0__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Add__Group_2_0__2__Impl();
 
             state._fsp--;
@@ -5999,7 +5999,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalCsvMan.g:1955:3: rule__Add__Group_2_0_2__0
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_17);
             	    rule__Add__Group_2_0_2__0();
 
             	    state._fsp--;
@@ -6115,7 +6115,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:1994:1: ( rule__Add__Group_2_0_2__0__Impl rule__Add__Group_2_0_2__1 )
             // InternalCsvMan.g:1995:2: rule__Add__Group_2_0_2__0__Impl rule__Add__Group_2_0_2__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Add__Group_2_0_2__0__Impl();
 
             state._fsp--;
@@ -6270,7 +6270,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2048:1: ( rule__Add__Group_2_1__0__Impl rule__Add__Group_2_1__1 )
             // InternalCsvMan.g:2049:2: rule__Add__Group_2_1__0__Impl rule__Add__Group_2_1__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Add__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -6345,7 +6345,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2075:1: ( rule__Add__Group_2_1__1__Impl rule__Add__Group_2_1__2 )
             // InternalCsvMan.g:2076:2: rule__Add__Group_2_1__1__Impl rule__Add__Group_2_1__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Add__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -6430,7 +6430,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2102:1: ( rule__Add__Group_2_1__2__Impl rule__Add__Group_2_1__3 )
             // InternalCsvMan.g:2103:2: rule__Add__Group_2_1__2__Impl rule__Add__Group_2_1__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Add__Group_2_1__2__Impl();
 
             state._fsp--;
@@ -6487,7 +6487,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalCsvMan.g:2117:3: rule__Add__Group_2_1_2__0
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_17);
             	    rule__Add__Group_2_1_2__0();
 
             	    state._fsp--;
@@ -6603,7 +6603,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2156:1: ( rule__Add__Group_2_1_2__0__Impl rule__Add__Group_2_1_2__1 )
             // InternalCsvMan.g:2157:2: rule__Add__Group_2_1_2__0__Impl rule__Add__Group_2_1_2__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Add__Group_2_1_2__0__Impl();
 
             state._fsp--;
@@ -6758,7 +6758,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2210:1: ( rule__Join__Group__0__Impl rule__Join__Group__1 )
             // InternalCsvMan.g:2211:2: rule__Join__Group__0__Impl rule__Join__Group__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__Join__Group__0__Impl();
 
             state._fsp--;
@@ -6833,7 +6833,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2237:1: ( rule__Join__Group__1__Impl rule__Join__Group__2 )
             // InternalCsvMan.g:2238:2: rule__Join__Group__1__Impl rule__Join__Group__2
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Join__Group__1__Impl();
 
             state._fsp--;
@@ -6908,7 +6908,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2264:1: ( rule__Join__Group__2__Impl rule__Join__Group__3 )
             // InternalCsvMan.g:2265:2: rule__Join__Group__2__Impl rule__Join__Group__3
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_7);
             rule__Join__Group__2__Impl();
 
             state._fsp--;
@@ -6993,7 +6993,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2291:1: ( rule__Join__Group__3__Impl rule__Join__Group__4 )
             // InternalCsvMan.g:2292:2: rule__Join__Group__3__Impl rule__Join__Group__4
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             rule__Join__Group__3__Impl();
 
             state._fsp--;
@@ -7078,7 +7078,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2318:1: ( rule__Join__Group__4__Impl rule__Join__Group__5 )
             // InternalCsvMan.g:2319:2: rule__Join__Group__4__Impl rule__Join__Group__5
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Join__Group__4__Impl();
 
             state._fsp--;
@@ -7223,23 +7223,23 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Join__Group__5__Impl"
 
 
-    // $ANTLR start "rule__Delete__Group__0"
-    // InternalCsvMan.g:2368:1: rule__Delete__Group__0 : rule__Delete__Group__0__Impl rule__Delete__Group__1 ;
-    public final void rule__Delete__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__0"
+    // InternalCsvMan.g:2368:1: rule__Remove__Group__0 : rule__Remove__Group__0__Impl rule__Remove__Group__1 ;
+    public final void rule__Remove__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2372:1: ( rule__Delete__Group__0__Impl rule__Delete__Group__1 )
-            // InternalCsvMan.g:2373:2: rule__Delete__Group__0__Impl rule__Delete__Group__1
+            // InternalCsvMan.g:2372:1: ( rule__Remove__Group__0__Impl rule__Remove__Group__1 )
+            // InternalCsvMan.g:2373:2: rule__Remove__Group__0__Impl rule__Remove__Group__1
             {
-            pushFollow(FOLLOW_23);
-            rule__Delete__Group__0__Impl();
+            pushFollow(FOLLOW_3);
+            rule__Remove__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Delete__Group__1();
+            rule__Remove__Group__1();
 
             state._fsp--;
 
@@ -7258,12 +7258,12 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__0"
+    // $ANTLR end "rule__Remove__Group__0"
 
 
-    // $ANTLR start "rule__Delete__Group__0__Impl"
-    // InternalCsvMan.g:2380:1: rule__Delete__Group__0__Impl : ( () ) ;
-    public final void rule__Delete__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__0__Impl"
+    // InternalCsvMan.g:2380:1: rule__Remove__Group__0__Impl : ( () ) ;
+    public final void rule__Remove__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -7274,13 +7274,13 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2385:1: ( () )
             // InternalCsvMan.g:2386:2: ()
             {
-             before(grammarAccess.getDeleteAccess().getDeleteAction_0()); 
+             before(grammarAccess.getRemoveAccess().getRemoveAction_0()); 
             // InternalCsvMan.g:2387:2: ()
             // InternalCsvMan.g:2387:3: 
             {
             }
 
-             after(grammarAccess.getDeleteAccess().getDeleteAction_0()); 
+             after(grammarAccess.getRemoveAccess().getRemoveAction_0()); 
 
             }
 
@@ -7295,26 +7295,26 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__0__Impl"
+    // $ANTLR end "rule__Remove__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Delete__Group__1"
-    // InternalCsvMan.g:2395:1: rule__Delete__Group__1 : rule__Delete__Group__1__Impl rule__Delete__Group__2 ;
-    public final void rule__Delete__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__1"
+    // InternalCsvMan.g:2395:1: rule__Remove__Group__1 : rule__Remove__Group__1__Impl rule__Remove__Group__2 ;
+    public final void rule__Remove__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2399:1: ( rule__Delete__Group__1__Impl rule__Delete__Group__2 )
-            // InternalCsvMan.g:2400:2: rule__Delete__Group__1__Impl rule__Delete__Group__2
+            // InternalCsvMan.g:2399:1: ( rule__Remove__Group__1__Impl rule__Remove__Group__2 )
+            // InternalCsvMan.g:2400:2: rule__Remove__Group__1__Impl rule__Remove__Group__2
             {
-            pushFollow(FOLLOW_6);
-            rule__Delete__Group__1__Impl();
+            pushFollow(FOLLOW_7);
+            rule__Remove__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Delete__Group__2();
+            rule__Remove__Group__2();
 
             state._fsp--;
 
@@ -7333,25 +7333,25 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__1"
+    // $ANTLR end "rule__Remove__Group__1"
 
 
-    // $ANTLR start "rule__Delete__Group__1__Impl"
-    // InternalCsvMan.g:2407:1: rule__Delete__Group__1__Impl : ( 'delete' ) ;
-    public final void rule__Delete__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__1__Impl"
+    // InternalCsvMan.g:2407:1: rule__Remove__Group__1__Impl : ( 'remove' ) ;
+    public final void rule__Remove__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2411:1: ( ( 'delete' ) )
-            // InternalCsvMan.g:2412:1: ( 'delete' )
+            // InternalCsvMan.g:2411:1: ( ( 'remove' ) )
+            // InternalCsvMan.g:2412:1: ( 'remove' )
             {
-            // InternalCsvMan.g:2412:1: ( 'delete' )
-            // InternalCsvMan.g:2413:2: 'delete'
+            // InternalCsvMan.g:2412:1: ( 'remove' )
+            // InternalCsvMan.g:2413:2: 'remove'
             {
-             before(grammarAccess.getDeleteAccess().getDeleteKeyword_1()); 
+             before(grammarAccess.getRemoveAccess().getRemoveKeyword_1()); 
             match(input,28,FOLLOW_2); 
-             after(grammarAccess.getDeleteAccess().getDeleteKeyword_1()); 
+             after(grammarAccess.getRemoveAccess().getRemoveKeyword_1()); 
 
             }
 
@@ -7370,26 +7370,26 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__1__Impl"
+    // $ANTLR end "rule__Remove__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Delete__Group__2"
-    // InternalCsvMan.g:2422:1: rule__Delete__Group__2 : rule__Delete__Group__2__Impl rule__Delete__Group__3 ;
-    public final void rule__Delete__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__2"
+    // InternalCsvMan.g:2422:1: rule__Remove__Group__2 : rule__Remove__Group__2__Impl rule__Remove__Group__3 ;
+    public final void rule__Remove__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2426:1: ( rule__Delete__Group__2__Impl rule__Delete__Group__3 )
-            // InternalCsvMan.g:2427:2: rule__Delete__Group__2__Impl rule__Delete__Group__3
+            // InternalCsvMan.g:2426:1: ( rule__Remove__Group__2__Impl rule__Remove__Group__3 )
+            // InternalCsvMan.g:2427:2: rule__Remove__Group__2__Impl rule__Remove__Group__3
             {
             pushFollow(FOLLOW_24);
-            rule__Delete__Group__2__Impl();
+            rule__Remove__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Delete__Group__3();
+            rule__Remove__Group__3();
 
             state._fsp--;
 
@@ -7408,35 +7408,35 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__2"
+    // $ANTLR end "rule__Remove__Group__2"
 
 
-    // $ANTLR start "rule__Delete__Group__2__Impl"
-    // InternalCsvMan.g:2434:1: rule__Delete__Group__2__Impl : ( ( rule__Delete__CsvtableAssignment_2 ) ) ;
-    public final void rule__Delete__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__2__Impl"
+    // InternalCsvMan.g:2434:1: rule__Remove__Group__2__Impl : ( ( rule__Remove__CsvtableAssignment_2 ) ) ;
+    public final void rule__Remove__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2438:1: ( ( ( rule__Delete__CsvtableAssignment_2 ) ) )
-            // InternalCsvMan.g:2439:1: ( ( rule__Delete__CsvtableAssignment_2 ) )
+            // InternalCsvMan.g:2438:1: ( ( ( rule__Remove__CsvtableAssignment_2 ) ) )
+            // InternalCsvMan.g:2439:1: ( ( rule__Remove__CsvtableAssignment_2 ) )
             {
-            // InternalCsvMan.g:2439:1: ( ( rule__Delete__CsvtableAssignment_2 ) )
-            // InternalCsvMan.g:2440:2: ( rule__Delete__CsvtableAssignment_2 )
+            // InternalCsvMan.g:2439:1: ( ( rule__Remove__CsvtableAssignment_2 ) )
+            // InternalCsvMan.g:2440:2: ( rule__Remove__CsvtableAssignment_2 )
             {
-             before(grammarAccess.getDeleteAccess().getCsvtableAssignment_2()); 
-            // InternalCsvMan.g:2441:2: ( rule__Delete__CsvtableAssignment_2 )
-            // InternalCsvMan.g:2441:3: rule__Delete__CsvtableAssignment_2
+             before(grammarAccess.getRemoveAccess().getCsvtableAssignment_2()); 
+            // InternalCsvMan.g:2441:2: ( rule__Remove__CsvtableAssignment_2 )
+            // InternalCsvMan.g:2441:3: rule__Remove__CsvtableAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__Delete__CsvtableAssignment_2();
+            rule__Remove__CsvtableAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDeleteAccess().getCsvtableAssignment_2()); 
+             after(grammarAccess.getRemoveAccess().getCsvtableAssignment_2()); 
 
             }
 
@@ -7455,21 +7455,21 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__2__Impl"
+    // $ANTLR end "rule__Remove__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Delete__Group__3"
-    // InternalCsvMan.g:2449:1: rule__Delete__Group__3 : rule__Delete__Group__3__Impl ;
-    public final void rule__Delete__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__3"
+    // InternalCsvMan.g:2449:1: rule__Remove__Group__3 : rule__Remove__Group__3__Impl ;
+    public final void rule__Remove__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2453:1: ( rule__Delete__Group__3__Impl )
-            // InternalCsvMan.g:2454:2: rule__Delete__Group__3__Impl
+            // InternalCsvMan.g:2453:1: ( rule__Remove__Group__3__Impl )
+            // InternalCsvMan.g:2454:2: rule__Remove__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Delete__Group__3__Impl();
+            rule__Remove__Group__3__Impl();
 
             state._fsp--;
 
@@ -7488,24 +7488,24 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__3"
+    // $ANTLR end "rule__Remove__Group__3"
 
 
-    // $ANTLR start "rule__Delete__Group__3__Impl"
-    // InternalCsvMan.g:2460:1: rule__Delete__Group__3__Impl : ( ( rule__Delete__WhereAssignment_3 )? ) ;
-    public final void rule__Delete__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Remove__Group__3__Impl"
+    // InternalCsvMan.g:2460:1: rule__Remove__Group__3__Impl : ( ( rule__Remove__WhereAssignment_3 )? ) ;
+    public final void rule__Remove__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCsvMan.g:2464:1: ( ( ( rule__Delete__WhereAssignment_3 )? ) )
-            // InternalCsvMan.g:2465:1: ( ( rule__Delete__WhereAssignment_3 )? )
+            // InternalCsvMan.g:2464:1: ( ( ( rule__Remove__WhereAssignment_3 )? ) )
+            // InternalCsvMan.g:2465:1: ( ( rule__Remove__WhereAssignment_3 )? )
             {
-            // InternalCsvMan.g:2465:1: ( ( rule__Delete__WhereAssignment_3 )? )
-            // InternalCsvMan.g:2466:2: ( rule__Delete__WhereAssignment_3 )?
+            // InternalCsvMan.g:2465:1: ( ( rule__Remove__WhereAssignment_3 )? )
+            // InternalCsvMan.g:2466:2: ( rule__Remove__WhereAssignment_3 )?
             {
-             before(grammarAccess.getDeleteAccess().getWhereAssignment_3()); 
-            // InternalCsvMan.g:2467:2: ( rule__Delete__WhereAssignment_3 )?
+             before(grammarAccess.getRemoveAccess().getWhereAssignment_3()); 
+            // InternalCsvMan.g:2467:2: ( rule__Remove__WhereAssignment_3 )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -7514,10 +7514,10 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalCsvMan.g:2467:3: rule__Delete__WhereAssignment_3
+                    // InternalCsvMan.g:2467:3: rule__Remove__WhereAssignment_3
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Delete__WhereAssignment_3();
+                    rule__Remove__WhereAssignment_3();
 
                     state._fsp--;
 
@@ -7527,7 +7527,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
 
             }
 
-             after(grammarAccess.getDeleteAccess().getWhereAssignment_3()); 
+             after(grammarAccess.getRemoveAccess().getWhereAssignment_3()); 
 
             }
 
@@ -7546,7 +7546,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__Group__3__Impl"
+    // $ANTLR end "rule__Remove__Group__3__Impl"
 
 
     // $ANTLR start "rule__Exit__Group__0"
@@ -7779,7 +7779,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2561:1: ( rule__Where__Group__1__Impl rule__Where__Group__2 )
             // InternalCsvMan.g:2562:2: rule__Where__Group__1__Impl rule__Where__Group__2
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Where__Group__1__Impl();
 
             state._fsp--;
@@ -7991,7 +7991,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalCsvMan.g:2629:3: rule__Where__Group_3__0
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_17);
             	    rule__Where__Group_3__0();
 
             	    state._fsp--;
@@ -8037,7 +8037,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2642:1: ( rule__Where__Group_3__0__Impl rule__Where__Group_3__1 )
             // InternalCsvMan.g:2643:2: rule__Where__Group_3__0__Impl rule__Where__Group_3__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Where__Group_3__0__Impl();
 
             state._fsp--;
@@ -8192,7 +8192,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2696:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
             // InternalCsvMan.g:2697:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Condition__Group__0__Impl();
 
             state._fsp--;
@@ -8352,7 +8352,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2750:1: ( rule__Condition__Group__2__Impl rule__Condition__Group__3 )
             // InternalCsvMan.g:2751:2: rule__Condition__Group__2__Impl rule__Condition__Group__3
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Condition__Group__2__Impl();
 
             state._fsp--;
@@ -8517,7 +8517,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2804:1: ( rule__Parameter__Group__0__Impl rule__Parameter__Group__1 )
             // InternalCsvMan.g:2805:2: rule__Parameter__Group__0__Impl rule__Parameter__Group__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Parameter__Group__0__Impl();
 
             state._fsp--;
@@ -8677,7 +8677,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2858:1: ( rule__Parameter__Group__2__Impl rule__Parameter__Group__3 )
             // InternalCsvMan.g:2859:2: rule__Parameter__Group__2__Impl rule__Parameter__Group__3
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__Parameter__Group__2__Impl();
 
             state._fsp--;
@@ -8832,7 +8832,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2912:1: ( rule__CsvTable__Group__0__Impl rule__CsvTable__Group__1 )
             // InternalCsvMan.g:2913:2: rule__CsvTable__Group__0__Impl rule__CsvTable__Group__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__CsvTable__Group__0__Impl();
 
             state._fsp--;
@@ -8907,7 +8907,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2939:1: ( rule__CsvTable__Group__1__Impl rule__CsvTable__Group__2 )
             // InternalCsvMan.g:2940:2: rule__CsvTable__Group__1__Impl rule__CsvTable__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_22);
             rule__CsvTable__Group__1__Impl();
 
             state._fsp--;
@@ -9083,7 +9083,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:2993:1: ( rule__CsvTable__Group_2__0__Impl rule__CsvTable__Group_2__1 )
             // InternalCsvMan.g:2994:2: rule__CsvTable__Group_2__0__Impl rule__CsvTable__Group_2__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__CsvTable__Group_2__0__Impl();
 
             state._fsp--;
@@ -9158,7 +9158,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:3020:1: ( rule__CsvTable__Group_2__1__Impl rule__CsvTable__Group_2__2 )
             // InternalCsvMan.g:3021:2: rule__CsvTable__Group_2__1__Impl rule__CsvTable__Group_2__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__CsvTable__Group_2__1__Impl();
 
             state._fsp--;
@@ -9243,7 +9243,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:3047:1: ( rule__CsvTable__Group_2__2__Impl rule__CsvTable__Group_2__3 )
             // InternalCsvMan.g:3048:2: rule__CsvTable__Group_2__2__Impl rule__CsvTable__Group_2__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__CsvTable__Group_2__2__Impl();
 
             state._fsp--;
@@ -9300,7 +9300,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalCsvMan.g:3062:3: rule__CsvTable__Group_2_2__0
             	    {
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_17);
             	    rule__CsvTable__Group_2_2__0();
 
             	    state._fsp--;
@@ -9416,7 +9416,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:3101:1: ( rule__CsvTable__Group_2_2__0__Impl rule__CsvTable__Group_2_2__1 )
             // InternalCsvMan.g:3102:2: rule__CsvTable__Group_2_2__0__Impl rule__CsvTable__Group_2_2__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__CsvTable__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -9602,9 +9602,9 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Program__InstructionAssignment_1_0"
 
 
-    // $ANTLR start "rule__Remove__CsvtableAssignment_2"
-    // InternalCsvMan.g:3166:1: rule__Remove__CsvtableAssignment_2 : ( ( RULE_ID ) ) ;
-    public final void rule__Remove__CsvtableAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Delete__CsvtableAssignment_2"
+    // InternalCsvMan.g:3166:1: rule__Delete__CsvtableAssignment_2 : ( ( RULE_ID ) ) ;
+    public final void rule__Delete__CsvtableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -9615,17 +9615,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:3171:2: ( ( RULE_ID ) )
             // InternalCsvMan.g:3172:3: ( RULE_ID )
             {
-             before(grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0()); 
+             before(grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0()); 
             // InternalCsvMan.g:3173:3: ( RULE_ID )
             // InternalCsvMan.g:3174:4: RULE_ID
             {
-             before(grammarAccess.getRemoveAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getDeleteAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getRemoveAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
+             after(grammarAccess.getDeleteAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0()); 
+             after(grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0()); 
 
             }
 
@@ -9644,7 +9644,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Remove__CsvtableAssignment_2"
+    // $ANTLR end "rule__Delete__CsvtableAssignment_2"
 
 
     // $ANTLR start "rule__Copy__AliasAssignment_2"
@@ -10536,9 +10536,9 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Join__Table3Assignment_5"
 
 
-    // $ANTLR start "rule__Delete__CsvtableAssignment_2"
-    // InternalCsvMan.g:3524:1: rule__Delete__CsvtableAssignment_2 : ( ( RULE_ID ) ) ;
-    public final void rule__Delete__CsvtableAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Remove__CsvtableAssignment_2"
+    // InternalCsvMan.g:3524:1: rule__Remove__CsvtableAssignment_2 : ( ( RULE_ID ) ) ;
+    public final void rule__Remove__CsvtableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10549,17 +10549,17 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:3529:2: ( ( RULE_ID ) )
             // InternalCsvMan.g:3530:3: ( RULE_ID )
             {
-             before(grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0()); 
+             before(grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0()); 
             // InternalCsvMan.g:3531:3: ( RULE_ID )
             // InternalCsvMan.g:3532:4: RULE_ID
             {
-             before(grammarAccess.getDeleteAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getRemoveAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getDeleteAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
+             after(grammarAccess.getRemoveAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0()); 
+             after(grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0()); 
 
             }
 
@@ -10578,12 +10578,12 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__CsvtableAssignment_2"
+    // $ANTLR end "rule__Remove__CsvtableAssignment_2"
 
 
-    // $ANTLR start "rule__Delete__WhereAssignment_3"
-    // InternalCsvMan.g:3543:1: rule__Delete__WhereAssignment_3 : ( ruleWhere ) ;
-    public final void rule__Delete__WhereAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Remove__WhereAssignment_3"
+    // InternalCsvMan.g:3543:1: rule__Remove__WhereAssignment_3 : ( ruleWhere ) ;
+    public final void rule__Remove__WhereAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10594,13 +10594,13 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
             // InternalCsvMan.g:3548:2: ( ruleWhere )
             // InternalCsvMan.g:3549:3: ruleWhere
             {
-             before(grammarAccess.getDeleteAccess().getWhereWhereParserRuleCall_3_0()); 
+             before(grammarAccess.getRemoveAccess().getWhereWhereParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleWhere();
 
             state._fsp--;
 
-             after(grammarAccess.getDeleteAccess().getWhereWhereParserRuleCall_3_0()); 
+             after(grammarAccess.getRemoveAccess().getWhereWhereParserRuleCall_3_0()); 
 
             }
 
@@ -10619,7 +10619,7 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Delete__WhereAssignment_3"
+    // $ANTLR end "rule__Remove__WhereAssignment_3"
 
 
     // $ANTLR start "rule__Where__ConditionAssignment_2"
@@ -11000,24 +11000,24 @@ public class InternalCsvManParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000003D16C060L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000003D16C062L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000380L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000040200000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000040800000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000380L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000040200000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000040800000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000800000L});

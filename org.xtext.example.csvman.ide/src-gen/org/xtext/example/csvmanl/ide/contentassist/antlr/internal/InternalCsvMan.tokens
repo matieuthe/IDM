@@ -6,12 +6,12 @@
 'as'=19
 'copy'=15
 'create'=17
-'delete'=28
+'delete'=14
 'exit'=29
 'in'=16
 'join'=27
 'load'=18
-'remove'=14
+'remove'=28
 'set'=25
 'show'=20
 'update'=24

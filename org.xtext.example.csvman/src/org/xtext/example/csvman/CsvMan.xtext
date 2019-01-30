@@ -11,9 +11,9 @@ Program returns Program:
 Instruction returns Instruction:
 	Create | Load | Show | Update | Add | Join | Delete | Exit | Comment | Copy | Remove;
 	
-Remove returns Remove:
-	{Remove}
-	'remove' csvtable=[CsvTable];
+Delete returns Delete:
+	{Delete}
+	'delete' csvtable=[CsvTable];
 
 Copy returns Copy:
 	{Copy}
@@ -49,9 +49,9 @@ Join returns Join:
 	{Join}
 	'join' tables+=[CsvTable] tables+=[CsvTable] 'in' table3=CsvTable;
 
-Delete returns Delete:
-	{Delete}
-	'delete' csvtable=[CsvTable] (where=Where)?;
+Remove returns Remove:
+	{Remove}
+	'remove' csvtable=[CsvTable] (where=Where)?;
 
 Exit returns Exit:
 	{Exit}

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCsvManParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NL", "RULE_ID", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_INT", "RULE_WS", "RULE_ANY_OTHER", "'remove'", "'copy'", "'in'", "'create'", "'load'", "'as'", "'show'", "'('", "','", "')'", "'update'", "'set'", "'add'", "'join'", "'delete'", "'exit'", "'where'", "'='"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NL", "RULE_ID", "RULE_OP", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_INT", "RULE_WS", "RULE_ANY_OTHER", "'delete'", "'copy'", "'in'", "'create'", "'load'", "'as'", "'show'", "'('", "','", "')'", "'update'", "'set'", "'add'", "'join'", "'remove'", "'exit'", "'where'", "'='"
     };
     public static final int RULE_STRING=9;
     public static final int RULE_SL_COMMENT=8;
@@ -342,7 +342,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                 alt2=6;
                 }
                 break;
-            case 27:
+            case 13:
                 {
                 alt2=7;
                 }
@@ -363,7 +363,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                 alt2=10;
                 }
                 break;
-            case 13:
+            case 27:
                 {
                 alt2=11;
                 }
@@ -596,25 +596,25 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleInstruction"
 
 
-    // $ANTLR start "entryRuleRemove"
-    // InternalCsvMan.g:232:1: entryRuleRemove returns [EObject current=null] : iv_ruleRemove= ruleRemove EOF ;
-    public final EObject entryRuleRemove() throws RecognitionException {
+    // $ANTLR start "entryRuleDelete"
+    // InternalCsvMan.g:232:1: entryRuleDelete returns [EObject current=null] : iv_ruleDelete= ruleDelete EOF ;
+    public final EObject entryRuleDelete() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleRemove = null;
+        EObject iv_ruleDelete = null;
 
 
         try {
-            // InternalCsvMan.g:232:47: (iv_ruleRemove= ruleRemove EOF )
-            // InternalCsvMan.g:233:2: iv_ruleRemove= ruleRemove EOF
+            // InternalCsvMan.g:232:47: (iv_ruleDelete= ruleDelete EOF )
+            // InternalCsvMan.g:233:2: iv_ruleDelete= ruleDelete EOF
             {
-             newCompositeNode(grammarAccess.getRemoveRule()); 
+             newCompositeNode(grammarAccess.getDeleteRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleRemove=ruleRemove();
+            iv_ruleDelete=ruleDelete();
 
             state._fsp--;
 
-             current =iv_ruleRemove; 
+             current =iv_ruleDelete; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -629,12 +629,12 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleRemove"
+    // $ANTLR end "entryRuleDelete"
 
 
-    // $ANTLR start "ruleRemove"
-    // InternalCsvMan.g:239:1: ruleRemove returns [EObject current=null] : ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ) ;
-    public final EObject ruleRemove() throws RecognitionException {
+    // $ANTLR start "ruleDelete"
+    // InternalCsvMan.g:239:1: ruleDelete returns [EObject current=null] : ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ) ;
+    public final EObject ruleDelete() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -644,18 +644,18 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:245:2: ( ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ) )
-            // InternalCsvMan.g:246:2: ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) )
+            // InternalCsvMan.g:245:2: ( ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ) )
+            // InternalCsvMan.g:246:2: ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) )
             {
-            // InternalCsvMan.g:246:2: ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) )
-            // InternalCsvMan.g:247:3: () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) )
+            // InternalCsvMan.g:246:2: ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) )
+            // InternalCsvMan.g:247:3: () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) )
             {
             // InternalCsvMan.g:247:3: ()
             // InternalCsvMan.g:248:4: 
             {
 
             				current = forceCreateModelElement(
-            					grammarAccess.getRemoveAccess().getRemoveAction_0(),
+            					grammarAccess.getDeleteAccess().getDeleteAction_0(),
             					current);
             			
 
@@ -663,7 +663,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,13,FOLLOW_5); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getRemoveAccess().getRemoveKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getDeleteAccess().getDeleteKeyword_1());
             		
             // InternalCsvMan.g:258:3: ( (otherlv_2= RULE_ID ) )
             // InternalCsvMan.g:259:4: (otherlv_2= RULE_ID )
@@ -673,12 +673,12 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
             {
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getRemoveRule());
+            						current = createModelElement(grammarAccess.getDeleteRule());
             					}
             				
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0());
+            					newLeafNode(otherlv_2, grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0());
             				
 
             }
@@ -705,7 +705,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleRemove"
+    // $ANTLR end "ruleDelete"
 
 
     // $ANTLR start "entryRuleCopy"
@@ -2283,25 +2283,25 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleJoin"
 
 
-    // $ANTLR start "entryRuleDelete"
-    // InternalCsvMan.g:928:1: entryRuleDelete returns [EObject current=null] : iv_ruleDelete= ruleDelete EOF ;
-    public final EObject entryRuleDelete() throws RecognitionException {
+    // $ANTLR start "entryRuleRemove"
+    // InternalCsvMan.g:928:1: entryRuleRemove returns [EObject current=null] : iv_ruleRemove= ruleRemove EOF ;
+    public final EObject entryRuleRemove() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDelete = null;
+        EObject iv_ruleRemove = null;
 
 
         try {
-            // InternalCsvMan.g:928:47: (iv_ruleDelete= ruleDelete EOF )
-            // InternalCsvMan.g:929:2: iv_ruleDelete= ruleDelete EOF
+            // InternalCsvMan.g:928:47: (iv_ruleRemove= ruleRemove EOF )
+            // InternalCsvMan.g:929:2: iv_ruleRemove= ruleRemove EOF
             {
-             newCompositeNode(grammarAccess.getDeleteRule()); 
+             newCompositeNode(grammarAccess.getRemoveRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleDelete=ruleDelete();
+            iv_ruleRemove=ruleRemove();
 
             state._fsp--;
 
-             current =iv_ruleDelete; 
+             current =iv_ruleRemove; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2316,12 +2316,12 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleDelete"
+    // $ANTLR end "entryRuleRemove"
 
 
-    // $ANTLR start "ruleDelete"
-    // InternalCsvMan.g:935:1: ruleDelete returns [EObject current=null] : ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? ) ;
-    public final EObject ruleDelete() throws RecognitionException {
+    // $ANTLR start "ruleRemove"
+    // InternalCsvMan.g:935:1: ruleRemove returns [EObject current=null] : ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? ) ;
+    public final EObject ruleRemove() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -2333,18 +2333,18 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCsvMan.g:941:2: ( ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? ) )
-            // InternalCsvMan.g:942:2: ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? )
+            // InternalCsvMan.g:941:2: ( ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? ) )
+            // InternalCsvMan.g:942:2: ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? )
             {
-            // InternalCsvMan.g:942:2: ( () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? )
-            // InternalCsvMan.g:943:3: () otherlv_1= 'delete' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )?
+            // InternalCsvMan.g:942:2: ( () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )? )
+            // InternalCsvMan.g:943:3: () otherlv_1= 'remove' ( (otherlv_2= RULE_ID ) ) ( (lv_where_3_0= ruleWhere ) )?
             {
             // InternalCsvMan.g:943:3: ()
             // InternalCsvMan.g:944:4: 
             {
 
             				current = forceCreateModelElement(
-            					grammarAccess.getDeleteAccess().getDeleteAction_0(),
+            					grammarAccess.getRemoveAccess().getRemoveAction_0(),
             					current);
             			
 
@@ -2352,7 +2352,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,27,FOLLOW_5); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getDeleteAccess().getDeleteKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getRemoveAccess().getRemoveKeyword_1());
             		
             // InternalCsvMan.g:954:3: ( (otherlv_2= RULE_ID ) )
             // InternalCsvMan.g:955:4: (otherlv_2= RULE_ID )
@@ -2362,12 +2362,12 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
             {
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getDeleteRule());
+            						current = createModelElement(grammarAccess.getRemoveRule());
             					}
             				
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_11); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0());
+            					newLeafNode(otherlv_2, grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0());
             				
 
             }
@@ -2390,7 +2390,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
                     // InternalCsvMan.g:969:5: lv_where_3_0= ruleWhere
                     {
 
-                    					newCompositeNode(grammarAccess.getDeleteAccess().getWhereWhereParserRuleCall_3_0());
+                    					newCompositeNode(grammarAccess.getRemoveAccess().getWhereWhereParserRuleCall_3_0());
                     				
                     pushFollow(FOLLOW_2);
                     lv_where_3_0=ruleWhere();
@@ -2399,7 +2399,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
 
 
                     					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getDeleteRule());
+                    						current = createModelElementForParent(grammarAccess.getRemoveRule());
                     					}
                     					set(
                     						current,
@@ -2436,7 +2436,7 @@ public class InternalCsvManParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleDelete"
+    // $ANTLR end "ruleRemove"
 
 
     // $ANTLR start "entryRuleExit"

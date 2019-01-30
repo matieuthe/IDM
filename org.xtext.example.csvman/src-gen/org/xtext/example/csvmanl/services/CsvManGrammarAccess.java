@@ -110,28 +110,28 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//Remove
 		public RuleCall getRemoveParserRuleCall_10() { return cRemoveParserRuleCall_10; }
 	}
-	public class RemoveElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Remove");
+	public class DeleteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Delete");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRemoveAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cRemoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Action cDeleteAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDeleteKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cCsvtableCsvTableCrossReference_2_0 = (CrossReference)cCsvtableAssignment_2.eContents().get(0);
 		private final RuleCall cCsvtableCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_2_0.eContents().get(1);
 		
-		//Remove:
-		//	{Remove}
-		//	'remove' csvtable=[CsvTable];
+		//Delete:
+		//	{Delete}
+		//	'delete' csvtable=[CsvTable];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Remove} 'remove' csvtable=[CsvTable]
+		//{Delete} 'delete' csvtable=[CsvTable]
 		public Group getGroup() { return cGroup; }
 		
-		//{Remove}
-		public Action getRemoveAction_0() { return cRemoveAction_0; }
+		//{Delete}
+		public Action getDeleteAction_0() { return cDeleteAction_0; }
 		
-		//'remove'
-		public Keyword getRemoveKeyword_1() { return cRemoveKeyword_1; }
+		//'delete'
+		public Keyword getDeleteKeyword_1() { return cDeleteKeyword_1; }
 		
 		//csvtable=[CsvTable]
 		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
@@ -568,30 +568,30 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		//CsvTable
 		public RuleCall getTable3CsvTableParserRuleCall_5_0() { return cTable3CsvTableParserRuleCall_5_0; }
 	}
-	public class DeleteElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Delete");
+	public class RemoveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.csvmanl.CsvMan.Remove");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDeleteAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cDeleteKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Action cRemoveAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRemoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cCsvtableAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cCsvtableCsvTableCrossReference_2_0 = (CrossReference)cCsvtableAssignment_2.eContents().get(0);
 		private final RuleCall cCsvtableCsvTableIDTerminalRuleCall_2_0_1 = (RuleCall)cCsvtableCsvTableCrossReference_2_0.eContents().get(1);
 		private final Assignment cWhereAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cWhereWhereParserRuleCall_3_0 = (RuleCall)cWhereAssignment_3.eContents().get(0);
 		
-		//Delete:
-		//	{Delete}
-		//	'delete' csvtable=[CsvTable] where=Where?;
+		//Remove:
+		//	{Remove}
+		//	'remove' csvtable=[CsvTable] where=Where?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Delete} 'delete' csvtable=[CsvTable] where=Where?
+		//{Remove} 'remove' csvtable=[CsvTable] where=Where?
 		public Group getGroup() { return cGroup; }
 		
-		//{Delete}
-		public Action getDeleteAction_0() { return cDeleteAction_0; }
+		//{Remove}
+		public Action getRemoveAction_0() { return cRemoveAction_0; }
 		
-		//'delete'
-		public Keyword getDeleteKeyword_1() { return cDeleteKeyword_1; }
+		//'remove'
+		public Keyword getRemoveKeyword_1() { return cRemoveKeyword_1; }
 		
 		//csvtable=[CsvTable]
 		public Assignment getCsvtableAssignment_2() { return cCsvtableAssignment_2; }
@@ -855,7 +855,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ProgramElements pProgram;
 	private final InstructionElements pInstruction;
-	private final RemoveElements pRemove;
+	private final DeleteElements pDelete;
 	private final CopyElements pCopy;
 	private final CreateElements pCreate;
 	private final LoadElements pLoad;
@@ -863,7 +863,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 	private final UpdateElements pUpdate;
 	private final AddElements pAdd;
 	private final JoinElements pJoin;
-	private final DeleteElements pDelete;
+	private final RemoveElements pRemove;
 	private final ExitElements pExit;
 	private final WhereElements pWhere;
 	private final ConditionElements pCondition;
@@ -885,7 +885,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pProgram = new ProgramElements();
 		this.pInstruction = new InstructionElements();
-		this.pRemove = new RemoveElements();
+		this.pDelete = new DeleteElements();
 		this.pCopy = new CopyElements();
 		this.pCreate = new CreateElements();
 		this.pLoad = new LoadElements();
@@ -893,7 +893,7 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUpdate = new UpdateElements();
 		this.pAdd = new AddElements();
 		this.pJoin = new JoinElements();
-		this.pDelete = new DeleteElements();
+		this.pRemove = new RemoveElements();
 		this.pExit = new ExitElements();
 		this.pWhere = new WhereElements();
 		this.pCondition = new ConditionElements();
@@ -952,15 +952,15 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		return getInstructionAccess().getRule();
 	}
 	
-	//Remove:
-	//	{Remove}
-	//	'remove' csvtable=[CsvTable];
-	public RemoveElements getRemoveAccess() {
-		return pRemove;
+	//Delete:
+	//	{Delete}
+	//	'delete' csvtable=[CsvTable];
+	public DeleteElements getDeleteAccess() {
+		return pDelete;
 	}
 	
-	public ParserRule getRemoveRule() {
-		return getRemoveAccess().getRule();
+	public ParserRule getDeleteRule() {
+		return getDeleteAccess().getRule();
 	}
 	
 	//Copy:
@@ -1041,15 +1041,15 @@ public class CsvManGrammarAccess extends AbstractGrammarElementFinder {
 		return getJoinAccess().getRule();
 	}
 	
-	//Delete:
-	//	{Delete}
-	//	'delete' csvtable=[CsvTable] where=Where?;
-	public DeleteElements getDeleteAccess() {
-		return pDelete;
+	//Remove:
+	//	{Remove}
+	//	'remove' csvtable=[CsvTable] where=Where?;
+	public RemoveElements getRemoveAccess() {
+		return pRemove;
 	}
 	
-	public ParserRule getDeleteRule() {
-		return getDeleteAccess().getRule();
+	public ParserRule getRemoveRule() {
+		return getRemoveAccess().getRule();
 	}
 	
 	//Exit:

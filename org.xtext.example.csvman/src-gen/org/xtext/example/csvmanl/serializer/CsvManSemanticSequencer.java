@@ -188,10 +188,16 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Delete returns Delete
 	 *
 	 * Constraint:
-	 *     (csvtable=[CsvTable|ID] where=Where?)
+	 *     csvtable=[CsvTable|ID]
 	 */
 	protected void sequence_Delete(ISerializationContext context, Delete semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.DELETE__CSVTABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.DELETE__CSVTABLE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDeleteAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(CsvManagerPackage.Literals.DELETE__CSVTABLE, false));
+		feeder.finish();
 	}
 	
 	
@@ -282,16 +288,10 @@ public class CsvManSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Remove returns Remove
 	 *
 	 * Constraint:
-	 *     csvtable=[CsvTable|ID]
+	 *     (csvtable=[CsvTable|ID] where=Where?)
 	 */
 	protected void sequence_Remove(ISerializationContext context, Remove semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CsvManagerPackage.Literals.REMOVE__CSVTABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CsvManagerPackage.Literals.REMOVE__CSVTABLE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRemoveAccess().getCsvtableCsvTableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(CsvManagerPackage.Literals.REMOVE__CSVTABLE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

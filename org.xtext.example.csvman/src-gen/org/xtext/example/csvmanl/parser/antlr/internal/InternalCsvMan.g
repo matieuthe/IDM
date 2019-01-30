@@ -228,15 +228,15 @@ ruleInstruction returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleRemove
-entryRuleRemove returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getRemoveRule()); }
-	iv_ruleRemove=ruleRemove
-	{ $current=$iv_ruleRemove.current; }
+// Entry rule entryRuleDelete
+entryRuleDelete returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDeleteRule()); }
+	iv_ruleDelete=ruleDelete
+	{ $current=$iv_ruleDelete.current; }
 	EOF;
 
-// Rule Remove
-ruleRemove returns [EObject current=null]
+// Rule Delete
+ruleDelete returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -247,24 +247,24 @@ ruleRemove returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getRemoveAccess().getRemoveAction_0(),
+					grammarAccess.getDeleteAccess().getDeleteAction_0(),
 					$current);
 			}
 		)
-		otherlv_1='remove'
+		otherlv_1='delete'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getRemoveAccess().getRemoveKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getDeleteAccess().getDeleteKeyword_1());
 		}
 		(
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRemoveRule());
+						$current = createModelElement(grammarAccess.getDeleteRule());
 					}
 				}
 				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0());
+					newLeafNode(otherlv_2, grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0());
 				}
 			)
 		)
@@ -924,15 +924,15 @@ ruleJoin returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleDelete
-entryRuleDelete returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDeleteRule()); }
-	iv_ruleDelete=ruleDelete
-	{ $current=$iv_ruleDelete.current; }
+// Entry rule entryRuleRemove
+entryRuleRemove returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRemoveRule()); }
+	iv_ruleRemove=ruleRemove
+	{ $current=$iv_ruleRemove.current; }
 	EOF;
 
-// Rule Delete
-ruleDelete returns [EObject current=null]
+// Rule Remove
+ruleRemove returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -943,36 +943,36 @@ ruleDelete returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getDeleteAccess().getDeleteAction_0(),
+					grammarAccess.getRemoveAccess().getRemoveAction_0(),
 					$current);
 			}
 		)
-		otherlv_1='delete'
+		otherlv_1='remove'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDeleteAccess().getDeleteKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getRemoveAccess().getRemoveKeyword_1());
 		}
 		(
 			(
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDeleteRule());
+						$current = createModelElement(grammarAccess.getRemoveRule());
 					}
 				}
 				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getDeleteAccess().getCsvtableCsvTableCrossReference_2_0());
+					newLeafNode(otherlv_2, grammarAccess.getRemoveAccess().getCsvtableCsvTableCrossReference_2_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDeleteAccess().getWhereWhereParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getRemoveAccess().getWhereWhereParserRuleCall_3_0());
 				}
 				lv_where_3_0=ruleWhere
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDeleteRule());
+						$current = createModelElementForParent(grammarAccess.getRemoveRule());
 					}
 					set(
 						$current,

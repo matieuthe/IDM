@@ -38,7 +38,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getProgramAccess().getGroup_1(), "rule__Program__Group_1__0");
-					put(grammarAccess.getRemoveAccess().getGroup(), "rule__Remove__Group__0");
+					put(grammarAccess.getDeleteAccess().getGroup(), "rule__Delete__Group__0");
 					put(grammarAccess.getCopyAccess().getGroup(), "rule__Copy__Group__0");
 					put(grammarAccess.getCreateAccess().getGroup(), "rule__Create__Group__0");
 					put(grammarAccess.getLoadAccess().getGroup(), "rule__Load__Group__0");
@@ -53,7 +53,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddAccess().getGroup_2_1(), "rule__Add__Group_2_1__0");
 					put(grammarAccess.getAddAccess().getGroup_2_1_2(), "rule__Add__Group_2_1_2__0");
 					put(grammarAccess.getJoinAccess().getGroup(), "rule__Join__Group__0");
-					put(grammarAccess.getDeleteAccess().getGroup(), "rule__Delete__Group__0");
+					put(grammarAccess.getRemoveAccess().getGroup(), "rule__Remove__Group__0");
 					put(grammarAccess.getExitAccess().getGroup(), "rule__Exit__Group__0");
 					put(grammarAccess.getWhereAccess().getGroup(), "rule__Where__Group__0");
 					put(grammarAccess.getWhereAccess().getGroup_3(), "rule__Where__Group_3__0");
@@ -63,7 +63,7 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCsvTableAccess().getGroup_2(), "rule__CsvTable__Group_2__0");
 					put(grammarAccess.getCsvTableAccess().getGroup_2_2(), "rule__CsvTable__Group_2_2__0");
 					put(grammarAccess.getProgramAccess().getInstructionAssignment_1_0(), "rule__Program__InstructionAssignment_1_0");
-					put(grammarAccess.getRemoveAccess().getCsvtableAssignment_2(), "rule__Remove__CsvtableAssignment_2");
+					put(grammarAccess.getDeleteAccess().getCsvtableAssignment_2(), "rule__Delete__CsvtableAssignment_2");
 					put(grammarAccess.getCopyAccess().getAliasAssignment_2(), "rule__Copy__AliasAssignment_2");
 					put(grammarAccess.getCopyAccess().getTableAssignment_4(), "rule__Copy__TableAssignment_4");
 					put(grammarAccess.getCreateAccess().getCsvtableAssignment_2(), "rule__Create__CsvtableAssignment_2");
@@ -85,8 +85,8 @@ public class CsvManParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJoinAccess().getTablesAssignment_2(), "rule__Join__TablesAssignment_2");
 					put(grammarAccess.getJoinAccess().getTablesAssignment_3(), "rule__Join__TablesAssignment_3");
 					put(grammarAccess.getJoinAccess().getTable3Assignment_5(), "rule__Join__Table3Assignment_5");
-					put(grammarAccess.getDeleteAccess().getCsvtableAssignment_2(), "rule__Delete__CsvtableAssignment_2");
-					put(grammarAccess.getDeleteAccess().getWhereAssignment_3(), "rule__Delete__WhereAssignment_3");
+					put(grammarAccess.getRemoveAccess().getCsvtableAssignment_2(), "rule__Remove__CsvtableAssignment_2");
+					put(grammarAccess.getRemoveAccess().getWhereAssignment_3(), "rule__Remove__WhereAssignment_3");
 					put(grammarAccess.getWhereAccess().getConditionAssignment_2(), "rule__Where__ConditionAssignment_2");
 					put(grammarAccess.getWhereAccess().getConditionAssignment_3_1(), "rule__Where__ConditionAssignment_3_1");
 					put(grammarAccess.getConditionAccess().getColonneAssignment_1(), "rule__Condition__ColonneAssignment_1");

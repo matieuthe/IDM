@@ -59,10 +59,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:11:7: ( 'remove' )
-            // InternalCsvMan.g:11:9: 'remove'
+            // InternalCsvMan.g:11:7: ( 'delete' )
+            // InternalCsvMan.g:11:9: 'delete'
             {
-            match("remove"); 
+            match("delete"); 
 
 
             }
@@ -350,10 +350,10 @@ public class InternalCsvManLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCsvMan.g:25:7: ( 'delete' )
-            // InternalCsvMan.g:25:9: 'delete'
+            // InternalCsvMan.g:25:7: ( 'remove' )
+            // InternalCsvMan.g:25:9: 'remove'
             {
-            match("delete"); 
+            match("remove"); 
 
 
             }
@@ -1303,15 +1303,15 @@ public class InternalCsvManLexer extends Lexer {
     static final String DFA15_eofS =
         "\147\uffff";
     static final String DFA15_minS =
-        "\1\0\1\145\1\157\1\156\1\157\1\144\1\145\3\uffff\1\160\1\157\1\145\1\170\1\150\3\uffff\1\10\1\11\1\101\2\uffff\2\0\1\52\1\10\3\uffff\1\155\1\uffff\1\160\1\145\1\60\1\141\1\60\1\144\1\157\1\164\3\uffff\1\144\1\151\1\154\1\151\1\145\3\uffff\1\11\1\10\5\uffff\1\157\1\171\1\141\1\uffff\1\144\1\uffff\1\60\1\167\1\60\1\141\1\156\1\145\1\164\1\162\1\166\1\60\1\164\1\60\1\uffff\1\60\1\uffff\1\164\1\60\1\164\1\60\2\145\1\uffff\1\145\2\uffff\1\145\1\uffff\1\145\1\uffff\5\60\5\uffff";
+        "\1\0\1\145\1\157\1\156\1\157\1\144\1\145\3\uffff\1\160\1\157\1\145\1\170\1\150\3\uffff\1\10\1\11\1\101\2\uffff\2\0\1\52\1\10\3\uffff\1\154\1\uffff\1\160\1\145\1\60\1\141\1\60\1\144\1\157\1\164\3\uffff\1\144\1\151\1\155\1\151\1\145\3\uffff\1\11\1\10\5\uffff\1\145\1\171\1\141\1\uffff\1\144\1\uffff\1\60\1\167\1\60\1\141\1\156\1\157\1\164\1\162\1\164\1\60\1\164\1\60\1\uffff\1\60\1\uffff\1\164\1\60\1\166\1\60\2\145\1\uffff\1\145\2\uffff\1\145\1\uffff\1\145\1\uffff\5\60\5\uffff";
     static final String DFA15_maxS =
-        "\1\uffff\1\145\1\162\1\156\1\157\1\163\1\150\3\uffff\1\160\1\157\1\145\1\170\1\150\3\uffff\1\73\1\40\1\172\2\uffff\2\uffff\1\57\1\73\3\uffff\1\155\1\uffff\1\160\1\145\1\172\1\141\1\172\1\144\1\157\1\164\3\uffff\1\144\1\151\1\154\1\151\1\145\3\uffff\1\40\1\73\5\uffff\1\157\1\171\1\141\1\uffff\1\144\1\uffff\1\172\1\167\1\172\1\141\1\156\1\145\1\164\1\162\1\166\1\172\1\164\1\172\1\uffff\1\172\1\uffff\1\164\1\172\1\164\1\172\2\145\1\uffff\1\145\2\uffff\1\145\1\uffff\1\145\1\uffff\5\172\5\uffff";
+        "\1\uffff\1\145\1\162\1\156\1\157\1\163\1\150\3\uffff\1\160\1\157\1\145\1\170\1\150\3\uffff\1\73\1\40\1\172\2\uffff\2\uffff\1\57\1\73\3\uffff\1\154\1\uffff\1\160\1\145\1\172\1\141\1\172\1\144\1\157\1\164\3\uffff\1\144\1\151\1\155\1\151\1\145\3\uffff\1\40\1\73\5\uffff\1\145\1\171\1\141\1\uffff\1\144\1\uffff\1\172\1\167\1\172\1\141\1\156\1\157\1\164\1\162\1\164\1\172\1\164\1\172\1\uffff\1\172\1\uffff\1\164\1\172\1\166\1\172\2\145\1\uffff\1\145\2\uffff\1\145\1\uffff\1\145\1\uffff\5\172\5\uffff";
     static final String DFA15_acceptS =
         "\7\uffff\1\10\1\11\1\12\5\uffff\1\22\2\23\3\uffff\1\25\1\26\4\uffff\1\24\1\32\1\33\1\uffff\1\25\10\uffff\1\10\1\11\1\12\5\uffff\1\22\1\23\1\32\2\uffff\1\24\1\26\1\27\1\30\1\31\3\uffff\1\3\1\uffff\1\6\14\uffff\1\15\1\uffff\1\14\6\uffff\1\2\1\uffff\1\5\1\7\1\uffff\1\16\1\uffff\1\20\5\uffff\1\21\1\1\1\4\1\13\1\17";
     static final String DFA15_specialS =
         "\1\1\26\uffff\1\0\1\2\116\uffff}>";
     static final String[] DFA15_transitionS = {
-            "\10\35\1\32\1\22\1\23\2\35\1\23\22\35\1\34\1\35\1\27\4\35\1\30\1\7\1\11\2\35\1\10\2\35\1\31\12\26\1\35\1\33\1\20\1\17\1\21\2\35\32\25\3\35\1\24\1\25\1\35\1\5\1\25\1\2\1\14\1\15\3\25\1\3\1\13\1\25\1\4\5\25\1\1\1\6\1\25\1\12\1\25\1\16\3\25\uff85\35",
+            "\10\35\1\32\1\22\1\23\2\35\1\23\22\35\1\34\1\35\1\27\4\35\1\30\1\7\1\11\2\35\1\10\2\35\1\31\12\26\1\35\1\33\1\20\1\17\1\21\2\35\32\25\3\35\1\24\1\25\1\35\1\5\1\25\1\2\1\1\1\15\3\25\1\3\1\13\1\25\1\4\5\25\1\14\1\6\1\25\1\12\1\25\1\16\3\25\uff85\35",
             "\1\36",
             "\1\40\2\uffff\1\41",
             "\1\42",
@@ -1466,7 +1466,7 @@ public class InternalCsvManLexer extends Lexer {
                         int LA15_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA15_0=='r') ) {s = 1;}
+                        if ( (LA15_0=='d') ) {s = 1;}
 
                         else if ( (LA15_0=='c') ) {s = 2;}
 
@@ -1488,7 +1488,7 @@ public class InternalCsvManLexer extends Lexer {
 
                         else if ( (LA15_0=='j') ) {s = 11;}
 
-                        else if ( (LA15_0=='d') ) {s = 12;}
+                        else if ( (LA15_0=='r') ) {s = 12;}
 
                         else if ( (LA15_0=='e') ) {s = 13;}
 
